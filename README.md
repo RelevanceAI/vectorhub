@@ -56,9 +56,14 @@ python3 -m pip install vectorhub[all]
 
 
 ## Quickstart:
-Full documentation and list of models supported can be found here: https://hub.getvectorai.com/
 
-### Then instantiate our auto_encoder class as such and use any of the models! 
+[Google Colab Quickstart](https://blog.tensorflow.org/2020/05/bigtransfer-bit-state-of-art-transfer-learning-computer-vision.html)
+
+[Documentation](https://vector-ai.github.io/vectorhub/how_to_add_a_model.html)
+
+[Full list of models](https://hub.getvectorai.com/)
+
+### Instantiate our auto_encoder class as such and use any of the models! 
 
 ```
 from vectorhub.auto_encoder import AutoEncoder
