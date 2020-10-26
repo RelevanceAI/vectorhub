@@ -2,13 +2,12 @@
     Various utilities for VectorHub.
 """
 import json
-from .models_dict import *
-from .import_utils import *
-from pathlib import Path
-import json
 import os
+from pathlib import Path
 from pkg_resources import resource_filename
 from collections import defaultdict
+from .models_dict import *
+from .import_utils import *
 
 def list_installed_models(extra_requirements_file: str=resource_filename('vectorhub', '../extra_requirements.json')):
     """

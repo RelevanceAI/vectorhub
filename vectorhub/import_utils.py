@@ -1,12 +1,12 @@
 """
     Utilities for importing libraries.
 """
-from importlib import import_module, invalidate_caches
 import sys
 import warnings
 import pkg_resources
 import json
 from pkg_resources import resource_filename
+from importlib import import_module, invalidate_caches
 
 def get_requirements(extra_requirements_file: str=resource_filename('vectorhub', '../extra_requirements.json')):
     if '.json' in extra_requirements_file:

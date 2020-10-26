@@ -36,15 +36,9 @@ def dependency_to_requirement(requirements_dict: Dict, add_all=True, add_single_
 
 all_deps = get_extra_requires('extra_requirements.json')
 
-try:
-    with open('README.md', encoding='utf8') as fp:
-        _long_description = fp.read()
-except FileNotFoundError:
-    _long_description = ''
-
 setup(
     name="vectorhub",
-    version="0.2.0",
+    version="1.0.0",
     author="OnSearch Pty Ltd",
     author_email="dev@vctr.ai",
     description="One liner to encode data into vectors with state-of-the-art models using tensorflow, pytorch and other open source libraries. Word2Vec, Image2Vec, BERT, etc",
