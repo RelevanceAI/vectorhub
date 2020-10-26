@@ -1,0 +1,85 @@
+import functools
+import warnings
+import traceback
+import numpy as np
+from .errors import ModelError
+from typing import Any, List
+from abc import ABC, abstractmethod
+
+BASE_2VEC_DEFINITON = {
+    "vector_length": None,
+    "description": None,
+    "paper": None,
+    "repo": None,
+    "model_name": None,
+    "architecture": None,
+    "tasks": None,
+    "limitations": None,
+    "download_required": None,
+    "training_required": None,
+    "finetunable": None,
+}
+
+def catch_vector_errors(func):
+    """
+        Decorate function and avoid vector errors.
+    """
+    @functools.wraps(func)
+    def catch_vector(*args, **kwargs):
+        try:
+            return func(*args, **kwargs)
+        except:
+            warnings.warn("Unable to encode. Filling in with dummy vector.")
+            traceback.print_exc()
+            # get the vector length from the self body
+            vector_length = args[0].vector_length
+            if isinstance(args[1], str):
+                return [1e-7] * vector_length
+            elif isinstance(args[1], list):
+                # Return the list of vectors
+                return [[1e-7] * vector_length] * len(args[1])
+            else:
+                return [1e-7] * vector_length
+    return catch_vector
+
+class Base2Vec:
+    """
+        Base class for vector
+    """
+    def __init__(self):
+        self.__dict__.update(BASE_2VEC_DEFINITON)
+
+    @classmethod
+    def validate_model_url(cls, model_url: str, list_of_urls: List[str]):
+        if(model_url in list_of_urls):
+            return True
+        raise ModelError(
+            message="We currently not support this url. If issue persist then contact us.")
+            
+    @classmethod
+    def chunk(self, lst: List, chunk_size: int):
+        """
+        Chunk an iterable object in Python but not a pandas DataFrame.
+        Args:
+            lst:
+                Python List
+            chunk_size:
+                The chunk size of an object.
+        Example:
+            >>> documents = [{...}]
+            >>> ViClient.chunk(documents)
+        """
+        for i in range(0, len(lst), chunk_size):
+            yield lst[i: i + chunk_size]
+
+    def _vector_operation(self, vectors, vector_operation: str = "mean", axis=0):
+        if vector_operation == "mean":
+            return np.mean(vectors, axis=axis).tolist()
+        elif vector_operation == "sum":
+            return np.sum(vectors, axis=axis).tolist()
+        elif vector_operation == "min":
+            return np.min(vectors, axis=axis).tolist()
+        elif vector_operation == "max":
+            return np.max(vectors, axis=axis).tolist()
+        else:
+            return np.mean(vectors, axis=axis).tolist()

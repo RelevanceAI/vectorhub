@@ -1,0 +1,37 @@
+name: Run Autodoc
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  run_test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Pytest 3.6
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.6'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        sudo apt-get install libsndfile1-dev
+        pip install -e .['all']
+    - name: Updating docs
+      run: |
+        rm -rf docs
+        rm -rf docsrc/_build
+        python -m sphinx docsrc/. docs
+        touch docs/.nojekyll
+        echo ${{ github.ref }}
+        git add .
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "ci: Automated build push" -a | exit 0
+    - name: Push changes
+      if: github.ref == 'refs/heads/master'
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.SECRET_TOKEN }}
