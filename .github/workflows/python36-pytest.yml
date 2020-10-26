@@ -3,14 +3,14 @@ name: Run Pytest 3.6
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - 'vectorhub/**'
       - 'tests/**'
       - 'setup.py'
   pull_request:
     branches:
-      - master
+      - main
     paths:
       - 'vectorhub/**'
       - 'tests/**'
@@ -19,7 +19,6 @@ on:
 jobs:
   run_test:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Pytest 3.6

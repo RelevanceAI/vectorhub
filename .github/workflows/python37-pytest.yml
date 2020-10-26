@@ -3,14 +3,14 @@ name: Run Pytest 3.7
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - 'vectorhub/**'
       - 'tests/**'
       - 'setup.py'
   pull_request:
     branches:
-      - master
+      - main
     paths:
       - 'vectorhub/**'
       - 'tests/**'
