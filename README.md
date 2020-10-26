@@ -57,7 +57,7 @@ python3 -m pip install vectorhub[all]
 
 ## Quickstart:
 
-[Google Colab Quickstart](https://blog.tensorflow.org/2020/05/bigtransfer-bit-state-of-art-transfer-learning-computer-vision.html)
+[Google Colab Quickstart](https://colab.research.google.com/drive/1mI9IBdURJoA1SX87F0p7RpARM9ITEZ-B)
 
 [Documentation](https://vector-ai.github.io/vectorhub/how_to_add_a_model.html)
 
