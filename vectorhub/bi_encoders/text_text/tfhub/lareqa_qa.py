@@ -1,5 +1,6 @@
 from typing import List
 from ..base import BaseTextText2Vec
+from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
 from ....import_utils import *
 from ....models_dict import MODEL_REQUIREMENTS
@@ -34,7 +35,7 @@ __doc__ = LAReQAModelDefinition.create_docs()
 class LAReQA2Vec(BaseTextText2Vec):
     definition = LAReQAModelDefinition
     def __init__(self, model_url='https://tfhub.dev/google/LAReQA/mBERT_En_En/1', 
-    vector_length=512, layer='embedding'):  # or layer19
+    vector_length=512):
         list_of_urls = [
             "https://tfhub.dev/google/LAReQA/mBERT_En_En/1",
             "https://tfhub.dev/google/LAReQA/mBERT_X_X/1",
@@ -47,11 +48,11 @@ class LAReQA2Vec(BaseTextText2Vec):
         self.model_name = model_url.replace(
             'https://tfhub.dev/google/', '').replace('/', '_')
         self.vector_length = vector_length
-        self.layer = layer
         self.question_encoder = self.model.signatures["query_encoder"]
         self.answer_encoder = self.model.signatures['response_encoder']
 
 
+    @catch_vector_errors
     def encode_question(self, question: str):
         """
             Encode the question using LAReQA model.
@@ -63,6 +64,7 @@ class LAReQA2Vec(BaseTextText2Vec):
         """
         return self.question_encoder(input=tf.constant(np.asarray([question])))["outputs"][0].numpy().tolist()
 
+    @catch_vector_errors
     def bulk_encode_question(self, questions: list):
         """
             Encode questions using LAReQA model.
@@ -74,6 +76,7 @@ class LAReQA2Vec(BaseTextText2Vec):
         """
         return self.question_encoder(input=tf.constant(np.asarray(questions)))["outputs"].numpy().tolist()
     
+    @catch_vector_errors
     def encode_answer(self, answer: str, context: str=None):
         """
             Encode answer using LAReQA model.
@@ -89,6 +92,7 @@ class LAReQA2Vec(BaseTextText2Vec):
             input=tf.constant(np.asarray([answer])),
             context=tf.constant(np.asarray([context])))["outputs"][0].numpy().tolist()
 
+    @catch_vector_errors
     def bulk_encode_answers(self, answers: List[str], contexts: List[str]=None):
         if contexts is None:
             contexts = answers
