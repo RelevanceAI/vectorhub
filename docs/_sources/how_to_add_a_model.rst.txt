@@ -1,5 +1,5 @@
 
-How To Add Your Model To VectorHub
+How To Add Your Model To Vector Hub
 =====================================
 
 We have written a simple 7-step guide to help you add your models here if you have trained them!

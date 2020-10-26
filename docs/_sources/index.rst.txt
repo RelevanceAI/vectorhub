@@ -2,7 +2,7 @@
 Welcome to VectorHub's documentation!
 =====================================
 
-VectorHub is your home for ___2Vec models!
+Vector Hub is your home for ___2Vec models!
 
 
 
