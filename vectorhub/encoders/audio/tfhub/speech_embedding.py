@@ -10,7 +10,7 @@ from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
 
 SpeechEmbeddingModelDefinition = ModelDefinition(
-    model_id = "audio/speech_embedding",
+    model_id = "audio/speech-embedding",
     model_name="Speech Embedding", 
     vector_length=96,
     description="""

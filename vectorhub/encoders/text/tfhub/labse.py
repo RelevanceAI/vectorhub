@@ -6,12 +6,12 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-labse']):
 
 
 LABSEModelDefinition = ModelDefinition(
+    model_id = "text/labse",
     model_name="LaBSE - Language-agnostic BERT Sentence Embedding", 
     vector_length=768, 
     description="The language-agnostic BERT sentence embedding encodes text into high dimensional vectors. The model is trained and optimized to produce similar representations exclusively for bilingual sentence pairs that are translations of each other. So it can be used for mining for translations of a sentence in a larger corpus.",
     paper="https://arxiv.org/pdf/2007.01852v1.pdf", 
     repo="https://tfhub.dev/google/LaBSE/1",
-    model_id = "text/labse",
     installation="pip install vectorhub[encoders-text-tfhub]",
     example="""
     #pip install vectorhub[encoders-text-tfhub]
