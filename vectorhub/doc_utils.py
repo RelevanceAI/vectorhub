@@ -1,20 +1,3 @@
-"""
-    Base 2VEC Definition
-"""
-from .base import BASE_2VEC_DEFINITON 
-from collections import defaultdict
-
-BASE_2VEC_DEFINITION = defaultdict(str, {
-    "model_name": None,
-    "vector_length": None,
-    "description": None,
-    "paper": None,
-    "repo": None,
-    "architecture": None,
-    "tasks": None,
-    "limitations": None,
-})
-
 class ModelDefinition:
     def __init__(self, model_id: str=None, model_name: str=None, vector_length: int=None,
     description: str=None, paper: str=None, repo: str=None, architecture: str='Not stated.',
