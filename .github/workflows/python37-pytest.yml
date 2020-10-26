@@ -71,7 +71,7 @@ jobs:
 
       - name: Install dependencies and test bi-encoders tf-text-hub
         run: |
-          pip install -e ".[encoders-tf-text-tfhub]"
+          pip install -e ".[encoders-text-tfhub]"
           pytest tests/bi_encoders/text_text/tfhub
 
       - name: Test cases for Autoencoder
