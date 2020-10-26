@@ -84,8 +84,8 @@
             
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="intro.html">What is VectorHub?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="how_to_add_a_model.html">How To Add Your Model To VectorHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">What is Vector Hub?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_add_a_model.html">How To Add Your Model To Vector Hub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_encoder.html">Guide to using Auto-Encoder</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Text Encoders</span></p>
@@ -198,35 +198,35 @@
 <h1>USEQA2Vec<a class="headerlink" href="#useqa2vec" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-vectorhub.bi_encoders.text_text.tfhub.use_qa">
 <span id="tfhub"></span><h2>TFHub<a class="headerlink" href="#module-vectorhub.bi_encoders.text_text.tfhub.use_qa" title="Permalink to this headline">¶</a></h2>
-<p><strong>Model Name</strong>: Universal Sentence Encoder Multilingual Question Answering</p>
+<p><strong>Model Name</strong>: Universal Sentence Encoder Question Answering</p>
 <p><strong>Vector Length</strong>: 512</p>
-<dl class="simple">
+<dl>
 <dt><strong>Description</strong>:</dt><dd><ul class="simple">
 <li><p>Developed by researchers at Google, 2019, v2 [1].</p></li>
-<li><p>Covers 16 languages, strong performance on cross-lingual question answer retrieval.</p></li>
-<li><p>It is trained on a variety of data sources and tasks, with the goal of learning text representations that are useful out-of-the-box to retrieve an answer given a question, as well as question and answers across different languages.</p></li>
-<li><p>It can also be used in other applications, including any type of text classification, clustering, etc.</p></li>
+<li><p>It is trained on a variety of data sources and tasks, with the goal of learning text representations that</p></li>
 </ul>
+<p>are useful out-of-the-box to retrieve an answer given a question, as well as question and answers across different languages.
+- It can also be used in other applications, including any type of text classification, clustering, etc.</p>
 </dd>
 </dl>
 <p><strong>Paper</strong>: None</p>
-<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3">https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3</a></p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/universal-sentence-encoder-qa/3">https://tfhub.dev/google/universal-sentence-encoder-qa/3</a></p>
 <p><strong>Architecture</strong>: Not stated.</p>
 <p><strong>Tasks</strong>: Not stated.</p>
 <p><strong>Limitations</strong>: Not stated.</p>
-<p><strong>Installation</strong>: pip install vectorhub[encoders-text-tfhub]</p>
+<p><strong>Installation</strong>: pip install vectorhub[encoders-text-tfhub-tftext]</p>
 <p><strong>Example</strong>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#pip install vectorhub[encoders-text-tfhub]</span>
-<span class="kn">from</span> <span class="nn">vectorhub.bi_encoders.text_text.tfhub</span> <span class="kn">import</span> <span class="n">USEMultiQA2Vec</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">USEMultiQA2Vec</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#pip install vectorhub[encoders-text-tfhub-tftext]</span>
+<span class="kn">from</span> <span class="nn">vectorhub.bi_encoder.text_text.tfhub</span> <span class="kn">import</span> <span class="n">USEQA2Vec</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">USEQA2Vec</span><span class="p">()</span>
 <span class="n">model</span><span class="o">.</span><span class="n">encode_question</span><span class="p">(</span><span class="s1">&#39;How is the weather today?&#39;</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">encode_answer</span><span class="p">(</span><span class="s1">&#39;The weather is great today.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="py class">
 <dt id="vectorhub.bi_encoders.text_text.tfhub.use_qa.USEMultiQA2Vec">
-<em class="property">class </em><code class="sig-prename descclassname">vectorhub.bi_encoders.text_text.tfhub.use_qa.</code><code class="sig-name descname">USEMultiQA2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="o">=</span><span class="default_value">'https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3'</span></em>, <em class="sig-param"><span class="n">vector_length</span><span class="o">=</span><span class="default_value">512</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.use_qa.USEMultiQA2Vec" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.bi_encoders.text_text.base.BaseTextText2Vec</span></code></p>
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.bi_encoders.text_text.tfhub.use_qa.</code><code class="sig-name descname">USEMultiQA2Vec</code><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.use_qa.USEMultiQA2Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#vectorhub.bi_encoders.text_text.tfhub.use_qa.USEQA2Vec" title="vectorhub.bi_encoders.text_text.tfhub.use_qa.USEQA2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.bi_encoders.text_text.tfhub.use_qa.USEQA2Vec</span></code></a></p>
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.text_text.tfhub.use_qa.USEMultiQA2Vec.bulk_encode_answers">
 <code class="sig-name descname">bulk_encode_answers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">answers</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">contexts</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.use_qa.USEMultiQA2Vec.bulk_encode_answers" title="Permalink to this definition">¶</a></dt>
@@ -296,8 +296,8 @@
 
 <dl class="py class">
 <dt id="vectorhub.bi_encoders.text_text.tfhub.use_qa.USEQA2Vec">
-<em class="property">class </em><code class="sig-prename descclassname">vectorhub.bi_encoders.text_text.tfhub.use_qa.</code><code class="sig-name descname">USEQA2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/universal-sentence-encoder-qa/3'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.use_qa.USEQA2Vec" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#vectorhub.bi_encoders.text_text.tfhub.use_qa.USEMultiQA2Vec" title="vectorhub.bi_encoders.text_text.tfhub.use_qa.USEMultiQA2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.bi_encoders.text_text.tfhub.use_qa.USEMultiQA2Vec</span></code></a></p>
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.bi_encoders.text_text.tfhub.use_qa.</code><code class="sig-name descname">USEQA2Vec</code><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.use_qa.USEQA2Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.bi_encoders.text_text.base.BaseTextText2Vec</span></code></p>
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.text_text.tfhub.use_qa.USEQA2Vec.bulk_encode_answers">
 <code class="sig-name descname">bulk_encode_answers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">answers</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">contexts</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.use_qa.USEQA2Vec.bulk_encode_answers" title="Permalink to this definition">¶</a></dt>

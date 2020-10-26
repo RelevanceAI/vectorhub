@@ -1,4 +1,4 @@
-What is VectorHub?
+What is Vector Hub?
 ==============================
 
 The home of ___2Vec Models.
