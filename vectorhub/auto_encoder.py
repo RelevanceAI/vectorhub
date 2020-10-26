@@ -63,10 +63,10 @@ class AutoEncoder:
         return model
 
 BIENCODER_MAPPINGS = {
-    USEMultiModelDefinition : (USEMultiQA2Vec, "text-bi-encoder-tfhub-use-qa"),
-    USEQAModelDefinition : (USEMultiQA2Vec, "text-bi-encoder-tfhub-use-qa"),
-    LAReQAModelDefinition: (LAReQA2Vec, "text-bi-encoder-tfhub-lareqa-qa"),
-    DPRModelDefinition : (DPR2Vec, "text-bi-encoder-torch-dpr")
+    USEMultiModelDefinition.definition.model_id : (USEMultiQA2Vec, "text-bi-encoder-tfhub-use-qa"),
+    USEQAModelDefinition.definition.model_id : (USEMultiQA2Vec, "text-bi-encoder-tfhub-use-qa"),
+    LAReQAModelDefinition.definition.model_id: (LAReQA2Vec, "text-bi-encoder-tfhub-lareqa-qa"),
+    DPRModelDefinition.definition.model_id : (DPR2Vec, "text-bi-encoder-torch-dpr")
 }
 
 class AutoBiEncoder:
