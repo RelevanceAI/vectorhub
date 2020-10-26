@@ -44,7 +44,7 @@ except FileNotFoundError:
 
 setup(
     name="vectorhub",
-    version="0.1.0",
+    version="0.2.0",
     author="OnSearch Pty Ltd",
     author_email="dev@vctr.ai",
     description="One liner to encode data into vectors with state-of-the-art models using tensorflow, pytorch and other open source libraries. Word2Vec, Image2Vec, BERT, etc",
