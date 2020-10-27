@@ -209,11 +209,12 @@ VGGish should be used:
 <p><strong>Architecture</strong>: Not stated.</p>
 <p><strong>Tasks</strong>: Not stated.</p>
 <dl class="simple">
-<dt><strong>Limitations</strong>: VGGish has been trained on millions of YouTube videos and although these are very diverse, there can still be a domain</dt><dd><p>mismatch between the average YouTube video and the audio inputs expected for any given task. You should expect to do some
+<dt><strong>Limitations</strong>:</dt><dd><p>VGGish has been trained on millions of YouTube videos and although these are very diverse, there can still be a domain
+mismatch between the average YouTube video and the audio inputs expected for any given task. You should expect to do some
 amount of fine-tuning and calibration to make VGGish usable in any system that you build.</p>
 </dd>
 </dl>
-<p><strong>Installation</strong>: pip install vectorhub[encoders-audio-tfhub]</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-audio-tfhub]</span></code></p>
 <p><strong>Example</strong>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#pip install vectorhub[encoders-audio-tfhub]</span>
 <span class="kn">from</span> <span class="nn">vectorhub.encoders.audio.tfhub</span> <span class="kn">import</span> <span class="n">Vggish2Vec</span>
