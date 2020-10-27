@@ -12,10 +12,14 @@ There are many ways to extract vectors from data. This library aims to bring in 
 
 Vector Hub provides:
 - A low barrier of entry for practitioners (using common methods)
-- Vectorise rich and complex data types like: text, image, audio, etc in 3 lines of code.
-- Retrieve and find information about a model.
+- Vectorise rich and complex data types like: text, image, audio, etc in 3 lines of code
+- Retrieve and find information about a model
+- An easy way to handle dependencies easily with different models
 
 If you are new to vectors, [click here!](https://github.com/vector-ai/vectorhub#what-are-vectors)
+For Python docummentation, [click here!](https://vector-ai.github.io/vectorhub/)
+To view available models, [see VectorHub!](http://hub.getvectorai.com/)
+
 
 ## Why Vector Hub?
 
