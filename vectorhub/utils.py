@@ -23,6 +23,8 @@ def list_installed_models(extra_requirements_file: str=resource_filename('vector
 def list_models(return_names_only=False):
     """
         List available models.
+        Args:
+            return_names_only: Return the model names
     """
     if return_names_only:
         return [x.stem for x in list(Path('.').glob('**/[!_]*.py'))]

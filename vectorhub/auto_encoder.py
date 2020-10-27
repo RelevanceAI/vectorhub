@@ -52,11 +52,32 @@ ENCODER_MAPPINGS = defaultdict(tuple, {
 })
 
 class AutoEncoder:
+    """
+        The AutoEncoder class. To view the AutoEncoder's model, this means 
+
+        Example: 
+            >>> from vectorhub.auto_encoder import *
+            >>> model = AutoEncoder.from_model('text/bert')
+            >>> # To view a list of models use the follow 
+            >>> list_all_auto_models()
+    """
     def __init__(self):
         pass
 
     @staticmethod
     def from_model(model_id, *args, **kwargs):
+        """
+            The AutoEncoder class. To view the AutoEncoder's model, this means 
+            Args:
+                model_id: The ID of the model - these can be found in list_all_auto_models()
+                args: The arguments for the model instantiation
+                kwargs: The keyword arguments for the model instantiation
+            Example: 
+                >>> from vectorhub.auto_encoder import *
+                >>> model = AutoEncoder.from_model('text/bert')
+                >>> # To view a list of models use the follow 
+                >>> list_all_auto_models()
+        """
         model_callable, requirements = ENCODER_MAPPINGS[model_id]
         assert is_all_dependency_installed(MODEL_REQUIREMENTS[requirements]), "Missing requirements! Please install."
         model = model_callable(*args, **kwargs)
@@ -83,9 +104,15 @@ class AutoBiEncoder:
 
 
 def list_all_auto_models():
+    """
+        List all available models available for auto models.
+    """
     return list(ENCODER_MAPPINGS.keys()) + list(BIENCODER_MAPPINGS.keys())
 
 def get_model_definitions(json_fn='models.json'):
+    """
+        Get a list of dictionaries with the definitions of the models.
+    """
     all_models = list()
     global_vars = globals().items()
     for k, v in global_vars:

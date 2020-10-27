@@ -23,6 +23,11 @@ BASE_2VEC_DEFINITON = {
 def catch_vector_errors(func):
     """
         Decorate function and avoid vector errors.
+        Example:
+            class A:
+                @catch_vector_errors
+                def encode(self):
+                    return [1, 2, 3]
     """
     @functools.wraps(func)
     def catch_vector(*args, **kwargs):
@@ -51,6 +56,9 @@ class Base2Vec:
 
     @classmethod
     def validate_model_url(cls, model_url: str, list_of_urls: List[str]):
+        """
+            Validate the model url belongs in the list of urls.
+        """
         if(model_url in list_of_urls):
             return True
         raise ModelError(
@@ -73,6 +81,13 @@ class Base2Vec:
             yield lst[i: i + chunk_size]
 
     def _vector_operation(self, vectors, vector_operation: str = "mean", axis=0):
+        """
+            Vector operation. 
+            Args:
+                vectors: List of vectors.
+                vector_operation: can be 'mean' or 'sum' of the vector
+                axis: The axis on which the vector operation operates
+        """
         if vector_operation == "mean":
             return np.mean(vectors, axis=axis).tolist()
         elif vector_operation == "sum":
