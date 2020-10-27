@@ -9,7 +9,10 @@ from pkg_resources import resource_filename
 from importlib import import_module, invalidate_caches
 
 
-def get_package_requirements(requirements_fn=resource_filename('vectorhub', 'extra_requirements.json')):
+def get_package_requirements(requirement_type: str, requirements_fn=resource_filename('vectorhub', 'extra_requirements.json')):
+    """
+        Load in extra_requirements.json from the package
+    """
     requirements = json.load(open(requirements_fn, 'r'))
     dependencies = []
     for k, v in requirements.items():
@@ -17,7 +20,10 @@ def get_package_requirements(requirements_fn=resource_filename('vectorhub', 'ext
             dependencies.append(k) 
     return dependencies
 
-def is_dependency_installed(dependency):
+def is_dependency_installed(dependency: str):
+    """
+        Returns True if the dependency is installed else False
+    """
     IS_INSTALLED = True
     try:
         pkg_resources.get_distribution(dependency)
@@ -25,7 +31,10 @@ def is_dependency_installed(dependency):
         IS_INSTALLED = False
     return IS_INSTALLED
 
-def is_all_dependency_installed(requirement_type, raise_warning=True):
+def is_all_dependency_installed(requirement_type: str, raise_warning=True):
+    """
+        Returns True/False if the dependency is isntalled
+    """
     IS_ALL_INSTALLED = True
     requirements = get_package_requirements(requirement_type)
     for r in requirements:
