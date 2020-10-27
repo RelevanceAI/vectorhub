@@ -5,15 +5,21 @@ import sys
 import warnings
 import pkg_resources
 import json
-from pkg_resources import resource_filename
+from pkg_resources import resource_filename, resource_exists
 from importlib import import_module, invalidate_caches
 
 
-def get_package_requirements(requirement_type: str, requirements_fn=resource_filename('vectorhub', 'extra_requirements.json')):
+def get_package_requirements(requirement_type: str):
     """
         Load in extra_requirements.json from the package
     """
-    requirements = json.load(open(requirements_fn, 'r'))
+    if resource_exists('vectorhub', 'extra_requirements.json'):
+        requirements_fn = resource_filename('vectorhub', 'extra_requirements.json')
+        requirements = json.load(open(requirements_fn, 'r'))
+    else:
+        requirements_fn = resource_filename('vectorhub', '../extra_requirements.json')
+        requirements = json.load(open(requirements_fn))
+    
     dependencies = []
     for k, v in requirements.items():
         if requirement_type in v:
