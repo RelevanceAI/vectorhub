@@ -40,7 +40,7 @@ class ModelDefinition:
 
 **Limitations**: {self.limitations}
 
-**Installation**: {self.installation}
+**Installation**: ``{self.installation}``
 
 **Example**: 
 

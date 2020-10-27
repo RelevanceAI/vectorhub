@@ -23,7 +23,8 @@ YamnetModelDefinition = ModelDefinition(
     - as a high-level feature extractor: the 1024-D embedding output of YAMNet can be used as the input features of another shallow model which can then be trained on a small amount of data for a particular task. This allows quickly creating specialized audio classifiers without requiring a lot of labeled data and without having to train a large model end-to-end.
     - as a warm start: the YAMNet model parameters can be used to initialize part of a larger model which allows faster fine-tuning and model exploration.
     """,
-    limitations="""YAMNet's classifier outputs have not been calibrated across classes, so you cannot directly treat 
+    limitations="""
+    YAMNet's classifier outputs have not been calibrated across classes, so you cannot directly treat 
     the outputs as probabilities. For any given task, you will very likely need to perform a calibration with task-specific data 
     which lets you assign proper per-class score thresholds and scaling.
     YAMNet has been trained on millions of YouTube videos and although these are very diverse, there can still be a domain mismatch 
