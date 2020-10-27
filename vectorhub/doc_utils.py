@@ -3,21 +3,21 @@ class ModelDefinition:
     description: str=None, paper: str=None, repo: str=None, architecture: str='Not stated.',
     tasks: str='Not stated.', limitations: str='Not stated.', installation: str='Not stated.', 
     example: str='Not stated.', **kwargs):
-    """
-        Model definition.
-        Args:
-            model_id: the identity of the model. Required for AutoEncoder. 
-            model_name: The name of the model
-            vector_length: The length of the vector 
-            description: The description of the encoder
-            paper: The paper which dictates the encoder
-            repo: The repository fo the model
-            architecture: The architecture of the model. 
-            task: The downstream task that the model was trained on
-            limitations: The limitations of the encoder
-            installation: How to isntall the encoder.
-            example: The example of the encoder
-    """
+        """
+            Model definition.
+            Args:
+                model_id: the identity of the model. Required for AutoEncoder. 
+                model_name: The name of the model
+                vector_length: The length of the vector 
+                description: The description of the encoder
+                paper: The paper which dictates the encoder
+                repo: The repository fo the model
+                architecture: The architecture of the model. 
+                task: The downstream task that the model was trained on
+                limitations: The limitations of the encoder
+                installation: How to isntall the encoder.
+                example: The example of the encoder
+        """
         self.model_id = model_id
         self.model_name = model_name
         self.vector_length = vector_length
