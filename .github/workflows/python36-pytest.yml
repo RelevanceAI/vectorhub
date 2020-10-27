@@ -29,12 +29,12 @@ jobs:
         run: |
           sudo apt-get install libsndfile1
           python -m pip install --upgrade pip
-          pip install -e ../vectorhub
+          pip install -e .
 
       - name: Install dependencies for tests
         run: |
           pip install -r requirements.txt
-          pip install -e "../vectorhub[test]"
+          pip install -e ".[test]"
       - name: Test Vectorai models
         env:
             VI_USERNAME: ${{ secrets.VI_USERNAME }}
@@ -45,33 +45,33 @@ jobs:
           pytest tests/encoders/image/vectorai
       - name: Install & Test for text tfhub
         run: |
-          pip install -e "../vectorhub[encoders-text-tfhub]"
+          pip install -e ".[encoders-text-tfhub]"
           pytest tests/encoders/text/tfhub
 
       - name: Test cases text transformers
         run: |
-          pip install -e "../vectorhub[encoders-text-tf-transformers]"
-          pip install -e "../vectorhub[encoders-text-torch-transformers]"
+          pip install -e ".[encoders-text-tf-transformers]"
+          pip install -e ".[encoders-text-torch-transformers]"
 
       - name: Install dependencies and test for audio tfhub
         run: |
           
-          pip install -e "../vectorhub[encoders-audio-tfhub]"
+          pip install -e ".[encoders-audio-tfhub]"
           pytest tests/encoders/audio/tfhub
 
       - name: Install and test for image-tfhub
         run: |
-          pip install -e "../vectorhub[encoders-image-tfhub]"
+          pip install -e ".[encoders-image-tfhub]"
           pytest tests/encoders/image/tfhub
 
       - name: Install and Test cases for encoders-audio-pytorch
         run: |
-          pip install -e "../vectorhub[encoders-audio-pytorch]"
+          pip install -e ".[encoders-audio-pytorch]"
           pytest tests/encoders/audio/pytorch
 
       - name: Install dependencies and test bi-encoders tf-text-hub
         run: |
-          pip install -e "../vectorhub[encoders-text-tfhub]"
+          pip install -e ".[encoders-text-tfhub]"
           pytest tests/bi_encoders/text_text/tfhub
 
       - name: Test cases for Autoencoder
