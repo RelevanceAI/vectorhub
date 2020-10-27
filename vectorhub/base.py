@@ -54,12 +54,6 @@ class Base2Vec:
     def __init__(self):
         self.__dict__.update(BASE_2VEC_DEFINITON)
 
-    def __name__(self):
-        if hasattr(self, 'definition'):
-            return self.definition.model_id.split('/')[-1]
-        else:
-            return 'base'
-    
     @classmethod
     def validate_model_url(cls, model_url: str, list_of_urls: List[str]):
         """
