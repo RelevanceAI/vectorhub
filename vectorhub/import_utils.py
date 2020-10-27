@@ -22,7 +22,7 @@ def get_package_requirements(requirement_type: str, requirements_fn=resource_fil
 
 def is_dependency_installed(dependency: str):
     """
-        Returns True if the dependency is installed else False
+        Returns True if the dependency is installed else False.
     """
     IS_INSTALLED = True
     try:
@@ -34,6 +34,9 @@ def is_dependency_installed(dependency: str):
 def is_all_dependency_installed(requirement_type: str, raise_warning=True):
     """
         Returns True/False if the dependency is isntalled
+        Args:
+            requirement_type: The type of requirement. This can be found in the values in extra_requirements.json
+            raise_warning: Raise warning if True
     """
     IS_ALL_INSTALLED = True
     requirements = get_package_requirements(requirement_type)
