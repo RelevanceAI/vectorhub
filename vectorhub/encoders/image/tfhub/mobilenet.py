@@ -98,7 +98,7 @@ MobileNetV2ModelDefinition = ModelDefinition(
 
 class MobileNetV22Vec(MobileNetV12Vec):
     definition = MobileNetV2ModelDefinition
-    def __init__(self, model_url: str = 'https://tfhub.dev/google/imagenet/mobilenet_v2_140_224/feature_vector/4', resize_mode="symmetric"):
+    def __init__(self, model_url: str = 'https://tfhub.dev/google/imagenet/mobilenet_v2_140_224/feature_vector/4', resize_mode:str="symmetric"):
         list_of_urls = {
             # 140 depth
             'https://tfhub.dev/google/imagenet/mobilenet_v2_140_224/feature_vector/4': {"vector_length":1792, "image_dimensions":224},
