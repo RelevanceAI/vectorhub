@@ -2,9 +2,10 @@ from ...import_utils import *
 if is_all_dependency_installed('encoders-image-tfhub'):
     import io
     import imageio
+    import numpy as np
     from urllib.request import urlopen, Request
     from urllib.parse import quote
-    import numpy as np
+    from skimage import transform
 
 from ...base import Base2Vec
 from typing import Union
@@ -30,3 +31,10 @@ class BaseImage2Vec(Base2Vec):
             return np.array(imageio.imread(b, pilmode="RGB"))
         except:
             return np.array(imageio.imread(b)[:, :, :3])
+
+    def image_resize(self, image_array, width=0, height=0, rescale=0, resize_mode='symmetry'):
+        if width and height:
+            image_array = transform.resize(image_array, (width, height), mode=resize_mode, preserve_range=True)
+        if rescale:
+            image_array = transform.rescale(image_array, rescale, preserve_range=True, anti_aliasing=True)
+        return np.array(image_array)

@@ -29,7 +29,7 @@ __doc__ = MobileNetModelDefinition.create_docs()
 class MobileNetV12Vec(BaseImage2Vec):
     definition = MobileNetModelDefinition
     def __init__(self, model_url: str = 'https://tfhub.dev/google/imagenet/mobilenet_v1_100_224/feature_vector/4', vector_length: int = 1024,
-        image_dimensions: int=224):
+        image_dimensions: int=224, resize_mode: str='symmetric'):
         list_of_urls = {
             # 100 depth
             'https://tfhub.dev/google/imagenet/mobilenet_v1_100_224/feature_vector/4': {"vector_length":1024, "image_dimensions":224},
@@ -58,6 +58,7 @@ class MobileNetV12Vec(BaseImage2Vec):
         self.validate_model_url(model_url, list_of_urls)
         self.vector_length = vector_length
         self.image_dimensions = image_dimensions
+        self.resize_mode = resize_mode
         self.init(model_url)
 
     def init(self, model_url: str):
@@ -71,7 +72,9 @@ class MobileNetV12Vec(BaseImage2Vec):
     
     @catch_vector_errors
     def encode(self, image):
-        return self.model(np.resize(image, (self.image_dimensions, self.image_dimensions,3))[np.newaxis, ...]).numpy().tolist()[0]
+        return self.model(
+            self.image_resize(image, self.image_dimensions, self.image_dimensions, resize_mode=self.resize_mode)[np.newaxis, ...]
+        ).numpy().tolist()[0]
     
     @catch_vector_errors
     def bulk_encode(self, images, threads=10, chunks=10):
