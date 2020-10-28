@@ -28,8 +28,7 @@ __doc__ = MobileNetModelDefinition.create_docs()
 
 class MobileNetV12Vec(BaseImage2Vec):
     definition = MobileNetModelDefinition
-    def __init__(self, model_url: str = 'https://tfhub.dev/google/imagenet/mobilenet_v1_100_224/feature_vector/4', vector_length: int = 1024,
-        image_dimensions: int=224, resize_mode: str='symmetric'):
+    def __init__(self, model_url: str = 'https://tfhub.dev/google/imagenet/mobilenet_v1_100_224/feature_vector/4', resize_mode: str='symmetric'):
         list_of_urls = {
             # 100 depth
             'https://tfhub.dev/google/imagenet/mobilenet_v1_100_224/feature_vector/4': {"vector_length":1024, "image_dimensions":224},
@@ -56,10 +55,10 @@ class MobileNetV12Vec(BaseImage2Vec):
             'https://tfhub.dev/google/imagenet/mobilenet_v1_025_128/feature_vector/4': {"vector_length":256, "image_dimensions":128},
         }
         self.validate_model_url(model_url, list_of_urls)
-        self.vector_length = vector_length
-        self.image_dimensions = image_dimensions
-        self.resize_mode = resize_mode
+        self.vector_length = list_of_urls[model_url]["vector_length"]
+        self.image_dimensions = list_of_urls[model_url]["image_dimensions"]
         self.init(model_url)
+        self.resize_mode = resize_mode
 
     def init(self, model_url: str):
         self.model_url = model_url
@@ -99,7 +98,7 @@ MobileNetV2ModelDefinition = ModelDefinition(
 
 class MobileNetV22Vec(MobileNetV12Vec):
     definition = MobileNetV2ModelDefinition
-    def __init__(self, model_url: str = 'https://tfhub.dev/google/imagenet/mobilenet_v2_140_224/feature_vector/4'):
+    def __init__(self, model_url: str = 'https://tfhub.dev/google/imagenet/mobilenet_v2_140_224/feature_vector/4', resize_mode="symmetric"):
         list_of_urls = {
             # 140 depth
             'https://tfhub.dev/google/imagenet/mobilenet_v2_140_224/feature_vector/4': {"vector_length":1792, "image_dimensions":224},
@@ -139,3 +138,4 @@ class MobileNetV22Vec(MobileNetV12Vec):
         self.vector_length = list_of_urls[model_url]["vector_length"]
         self.image_dimensions = list_of_urls[model_url]["image_dimensions"]
         self.init(model_url)
+        self.resize_mode = resize_mode
