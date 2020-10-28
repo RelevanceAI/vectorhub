@@ -32,7 +32,7 @@ Vector Hub provides:
 - An easy way to handle dependencies easily with different models
 
 If you are new to vectors, [click here!](https://github.com/vector-ai/vectorhub#what-are-vectors)
-For Python docummentation, [click here!](https://vector-ai.github.io/vectorhub/)
+For Python documentation, [click here!](https://vector-ai.github.io/vectorhub/)
 To view available models, [see VectorHub!](http://hub.getvectorai.com/)
 
 
