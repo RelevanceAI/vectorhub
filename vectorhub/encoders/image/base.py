@@ -1,3 +1,5 @@
+from typing import Union
+from ...base import Base2Vec
 from ...import_utils import *
 if is_all_dependency_installed('encoders-image-tfhub'):
     import io
@@ -7,8 +9,6 @@ if is_all_dependency_installed('encoders-image-tfhub'):
     from urllib.parse import quote
     from skimage import transform
 
-from ...base import Base2Vec
-from typing import Union
 
 class BaseImage2Vec(Base2Vec):
     def read(self, image: str):
