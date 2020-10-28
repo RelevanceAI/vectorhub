@@ -199,27 +199,6 @@
 <div class="section" id="vector-ai">
 <h2>Vector AI<a class="headerlink" href="#vector-ai" title="Permalink to this headline">¶</a></h2>
 <p>For Vector AI users to access to our deployed vector models and evaluate embeddings.</p>
-<span class="target" id="module-vectorhub.encoders.image.vectorai.vi_encoder"></span><p>Vector AI’s deployed model. The purpose of this model is to allow developers to easily build encodings and see for themselves
-how the embedding works. These models are selected to work out-of-the-box after testing for their success on our end.</p>
-<p>To get access to Vector AI, we need to use</p>
-<p class="rubric">Example</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">vectorhub.text.encoder.vectorai</span> <span class="kn">import</span> <span class="n">ViText2Vec</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">ViText2Vec</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">api_key</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;sample.jpg&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<dl class="py class">
-<dt id="vectorhub.encoders.image.vectorai.vi_encoder.ViImage2Vec">
-<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.image.vectorai.vi_encoder.</code><code class="sig-name descname">ViImage2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span></em>, <em class="sig-param"><span class="n">api_key</span></em>, <em class="sig-param"><span class="n">url</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">collection_name</span><span class="o">=</span><span class="default_value">'base'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.vectorai.vi_encoder.ViImage2Vec" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Request for a username and API key from gh.vctr.ai</p>
-<dl class="py method">
-<dt id="vectorhub.encoders.image.vectorai.vi_encoder.ViImage2Vec.encode">
-<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.vectorai.vi_encoder.ViImage2Vec.encode" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
 </div>
 </div>
 
