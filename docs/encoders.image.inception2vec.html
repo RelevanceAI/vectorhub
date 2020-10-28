@@ -103,7 +103,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="encoders.image.bit2vec.html">Bit2Vec</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Inception2Vec</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#tfhub">TFHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-vectorhub.encoders.image.tfhub.inception">TFHub</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="encoders.image.resnet2vec.html">ResNet2Vec</a></li>
@@ -196,8 +196,196 @@
             
   <div class="section" id="inception2vec">
 <h1>Inception2Vec<a class="headerlink" href="#inception2vec" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="tfhub">
-<h2>TFHub<a class="headerlink" href="#tfhub" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-vectorhub.encoders.image.tfhub.inception">
+<span id="tfhub"></span><h2>TFHub<a class="headerlink" href="#module-vectorhub.encoders.image.tfhub.inception" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: Inception</p>
+<p><strong>Vector Length</strong>: 1024</p>
+<p><strong>Description</strong>: We propose a deep convolutional neural network architecture codenamed “Inception”, which was responsible for setting the new state of the art for classification and detection in the ImageNet Large-Scale Visual Recognition Challenge 2014 (ILSVRC 2014). The main hallmark of this architecture is the improved utilization of the computing resources inside the network. This was achieved by a carefully crafted design that allows for increasing the depth and width of the network while keeping the computational budget constant. To optimize quality, the architectural decisions were based on the Hebbian principle and the intuition of multi-scale processing. One particular incarnation used in our submission for ILSVRC 2014 is called GoogLeNet, a 22 layers deep network, the quality of which is assessed in the context of classification and detection.</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/1409.4842">https://arxiv.org/abs/1409.4842</a></p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/imagenet/inception_v1/feature_vector/4">https://tfhub.dev/google/imagenet/inception_v1/feature_vector/4</a></p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-tfhub]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#pip install vectorhub[encoders-image-tfhub]</span>
+<span class="kn">from</span> <span class="nn">vectorhub.encoders.image.tfhub</span> <span class="kn">import</span> <span class="n">InceptionV12Vec</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">InceptionV12Vec</span><span class="p">()</span>
+<span class="n">sample</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;https://getvectorai.com/assets/hub-logo-with-text.png&#39;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py class">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV12Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.image.tfhub.inception.</code><code class="sig-name descname">InceptionV12Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/imagenet/inception_v1/feature_vector/4'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV12Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.image.base.BaseImage2Vec</span></code></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV12Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">images</span></em>, <em class="sig-param"><span class="n">threads</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">chunks</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV12Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV12Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV12Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV12Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV12Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV12Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV12Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV12Vec.image_resize">
+<code class="sig-name descname">image_resize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image_array</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">height</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">rescale</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">resize_mode</span><span class="o">=</span><span class="default_value">'symmetry'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV12Vec.image_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV12Vec.init">
+<code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV12Vec.init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV12Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV12Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An method to read images.
+:param image: An image link/bytes/io Bytesio data format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV12Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV12Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV22Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.image.tfhub.inception.</code><code class="sig-name descname">InceptionV22Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/imagenet/inception_v2/feature_vector/4'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV22Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#vectorhub.encoders.image.tfhub.inception.InceptionV12Vec" title="vectorhub.encoders.image.tfhub.inception.InceptionV12Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.image.tfhub.inception.InceptionV12Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV22Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">images</span></em>, <em class="sig-param"><span class="n">threads</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">chunks</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV22Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV22Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV22Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV22Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV22Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV22Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV22Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV22Vec.image_resize">
+<code class="sig-name descname">image_resize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image_array</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">height</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">rescale</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">resize_mode</span><span class="o">=</span><span class="default_value">'symmetry'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV22Vec.image_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV22Vec.init">
+<code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV22Vec.init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV22Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV22Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An method to read images.
+:param image: An image link/bytes/io Bytesio data format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV22Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV22Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV32Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.image.tfhub.inception.</code><code class="sig-name descname">InceptionV32Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/imagenet/inception_v3/feature_vector/4'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV32Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#vectorhub.encoders.image.tfhub.inception.InceptionV12Vec" title="vectorhub.encoders.image.tfhub.inception.InceptionV12Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.image.tfhub.inception.InceptionV12Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV32Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">images</span></em>, <em class="sig-param"><span class="n">threads</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">chunks</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV32Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV32Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV32Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV32Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV32Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV32Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV32Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV32Vec.image_resize">
+<code class="sig-name descname">image_resize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image_array</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">height</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">rescale</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">resize_mode</span><span class="o">=</span><span class="default_value">'symmetry'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV32Vec.image_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV32Vec.init">
+<code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV32Vec.init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV32Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV32Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An method to read images.
+:param image: An image link/bytes/io Bytesio data format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception.InceptionV32Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception.InceptionV32Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 
