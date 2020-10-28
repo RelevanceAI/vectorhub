@@ -38,7 +38,7 @@ all_deps = get_extra_requires('extra_requirements.json')
 
 setup(
     name="vectorhub",
-    version="1.0.3",
+    version="1.0.4",
     author="OnSearch Pty Ltd",
     author_email="dev@vctr.ai",
     description="One liner to encode data into vectors with state-of-the-art models using tensorflow, pytorch and other open source libraries. Word2Vec, Image2Vec, BERT, etc",
