@@ -1,5 +1,7 @@
 <p align="center">
-    <img align="center" src="https://getvectorai.com/assets/hub-logo-with-text.png" width="400"/>
+    <a href="https://hub.getvectorai.com">
+        <img align="center" src="https://getvectorai.com/assets/hub-logo-with-text.png" width="400"/>
+    </a>
     <br>
 <p>
 <br>
