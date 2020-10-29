@@ -29,7 +29,7 @@ Vector Hub provides:
 - A low barrier of entry for practitioners (using common methods)
 - Vectorise rich and complex data types like: text, image, audio, etc in 3 lines of code
 - Retrieve and find information about a model
-- An easy way to handle dependencies easily with different models
+- An easy way to handle dependencies easily for different models
 
 If you are new to vectors, [click here!](https://github.com/vector-ai/vectorhub#what-are-vectors)
 For Python documentation, [click here!](https://vector-ai.github.io/vectorhub/)
