@@ -82,14 +82,15 @@ class Base2Vec:
 
     def _vector_operation(self, vectors, vector_operation: str = "mean", axis=0):
         """
-            Vector operation. 
             Args:
-                vectors: List of vectors.
-                vector_operation: can be 'mean' or 'sum' of the vector
-                axis: The axis on which the vector operation operates
+                Vectors: the list of vectors to include 
+                vector_operation: One of ['mean', 'minus', 'sum', 'min', 'max']
+                axis: The axis to which to perform the operation
         """
         if vector_operation == "mean":
             return np.mean(vectors, axis=axis).tolist()
+        elif vector_operation == 'minus':
+            return np.subtract(vectors, axis=axis).tolist()
         elif vector_operation == "sum":
             return np.sum(vectors, axis=axis).tolist()
         elif vector_operation == "min":
