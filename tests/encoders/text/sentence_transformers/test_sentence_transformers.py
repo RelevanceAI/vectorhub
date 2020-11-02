@@ -1,5 +1,5 @@
 from vectorhub.encoders.text.sentence_transformers.sentence_transformers import SentenceTransformer2Vec, LIST_OF_URLS
-
+import gc
 
 def test_sentence_transformers():
     """
@@ -9,3 +9,4 @@ def test_sentence_transformers():
         enc = SentenceTransformer2Vec(model_name=k)
         assert len(enc.encode("Let us go to the beach today.")) == v['vector_length']
         assert len(enc.bulk_encode(["hi", "whats up"])) == 2
+        del enc; gc.collect();
