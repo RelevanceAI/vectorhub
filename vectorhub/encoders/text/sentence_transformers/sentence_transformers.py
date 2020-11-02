@@ -56,8 +56,7 @@ class SentenceTransformer2Vec(BaseText2Vec):
             'average_word_embeddings_glove.840B.300d' : {"vector_length": 300}
         }
         self.validate_model_url(model_url, list_of_urls)
-        self.max_seq_length = max_seq_length
-        self.normalize = normalize
+        self.vector_length = list_of_urls[model_url]["vector_length"]
         self.model = SentenceTransformer(model_url)
     
     @catch_vector_errors
