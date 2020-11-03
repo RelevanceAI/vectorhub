@@ -4,6 +4,7 @@ from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
 from ....import_utils import *
 from ....models_dict import MODEL_REQUIREMENTS
+from datetime import date
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-torch-transformers-auto']):
     from transformers import AutoTokenizer, AutoModel
     import torch
@@ -15,6 +16,7 @@ LegalBertModelDefinition = ModelDefinition(
     description="BERT has achieved impressive performance in several NLP tasks. However, there has been limited investigation on its adaptation guidelines in specialised domains. Here we focus on the legal domain, where we explore several approaches for applying BERT models to downstream legal tasks, evaluating on multiple datasets. Our findings indicate that the previous guidelines for pre-training and fine-tuning, often blindly followed, do not always generalize well in the legal domain. Thus we propose a systematic investigation of the available strategies when applying BERT in specialised domains. These are: (a) use the original BERT out of the box, (b) adapt BERT by additional pre-training on domain-specific corpora, and (c) pre-train BERT from scratch on domain-specific corpora. We also propose a broader hyper-parameter search space when fine-tuning for downstream tasks and we release LEGAL-BERT, a family of BERT models intended to assist legal NLP research, computational law, and legal technology applications.",
     paper="https://arxiv.org/abs/2010.02559", 
     repo="https://huggingface.co/nlpaueb/legal-bert-base-uncased",
+    release_date=date(2020,10,6),
     installation="pip install vectorhub[encoders-text-torch-transformers]",
     example="""
     #pip install vectorhub[encoders-text-torch-transformers]

@@ -1,3 +1,4 @@
+from datetime import date
 from ....import_utils import *
 from ....models_dict import MODEL_REQUIREMENTS
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-audio-tfhub-speech_embedding']):
@@ -13,6 +14,7 @@ SpeechEmbeddingModelDefinition = ModelDefinition(
     model_id = "audio/speech-embedding",
     model_name="Speech Embedding", 
     vector_length=96,
+    release_date=date(2020,31,1),
     description="""
 With the rise of low power speech-enabled devices, there is a growing demand to quickly produce models for recognizing arbitrary 
 sets of keywords. As with many machine learning tasks, one of the most challenging parts in the model creation process is obtaining

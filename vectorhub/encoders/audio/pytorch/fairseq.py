@@ -3,6 +3,7 @@ from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
 from ....import_utils import *
 from ....models_dict import MODEL_REQUIREMENTS
+from datetime import date
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-audio-pytorch-fairseq']):
     import torch
     from fairseq.models.wav2vec import Wav2VecModel
@@ -16,6 +17,7 @@ WavModelDefinition = ModelDefinition(
     paper="https://arxiv.org/abs/2006.11477",
     repo="https://github.com/pytorch/fairseq",
     installation="pip install vectorhub[encoders-audio-pytorch]",
+    release_date=date(2020,6,20),
     example="""
     #pip install vectorhub[encoders-audio-pytorch]
     from vectorhub.encoders.audio.pytorch import Wav2Vec

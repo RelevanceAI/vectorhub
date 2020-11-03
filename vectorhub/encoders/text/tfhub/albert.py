@@ -2,6 +2,7 @@ from .bert import Bert2Vec
 from ....import_utils import *
 from ....models_dict import MODEL_REQUIREMENTS
 from ....doc_utils import ModelDefinition
+from datetime import date
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-albert']):
     from official.nlp.bert import tokenization
 
@@ -13,6 +14,7 @@ AlbertModelDefinition = ModelDefinition(
     paper='https://arxiv.org/abs/1909.11942',
     repo='https://tfhub.dev/tensorflow/albert_en_base/1',
     installation="pip install vectorhub[encoders-text-tfhub]",
+    release_date=date(2019,9,26),
     example="""
     #pip install vectorhub[encoders-text-tfhub]
     #FOR WINDOWS: pip install vectorhub[encoders-text-tfhub-windows]
