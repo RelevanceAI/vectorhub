@@ -23,5 +23,10 @@ jobs:
         pip install -e .
         python3 -m pip install vectorai
     - name: Creating models.json
+      env:
+            VH_USERNAME: ${{ secrets.VI_USERNAME }}
+            VH_API_KEY: ${{ secrets.VI_API_KEY }}
+            VH_COLLECTION_NAME: ${{secrets.VH_COLLECTION_NAME}}
+        
       run: |
         python3 utils/upload_cards.py
