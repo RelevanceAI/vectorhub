@@ -34,7 +34,7 @@ class DistilRobertaQA2Vec(BaseTextText2Vec):
     
     @catch_vector_errors
     def encode_question(self, question: str):
-        return self.model("[QRY] "+ question).tolist()
+        return self.model.encode(["[QRY] "+ question]).tolist()
 
     @catch_vector_errors
     def bulk_encode_question(self, questions: list):
@@ -42,7 +42,7 @@ class DistilRobertaQA2Vec(BaseTextText2Vec):
     
     @catch_vector_errors
     def encode_answer(self, answer: str, context: str=None):
-        return self.model("[DOC] "+ answer).tolist()
+        return self.model.encode(["[DOC] "+ answer]).tolist()
 
     @catch_vector_errors
     def bulk_encode_answers(self, answers: List[str]):
