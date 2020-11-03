@@ -1,0 +1,27 @@
+name: Insert Documents Into Collection
+
+on:
+  push:
+    branches: 
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run_test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Pytest 3.6
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.6'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e .
+        python3 -m pip install vectorai
+    - name: Creating models.json
+      run: |
+        python3 utils/upload_cards.py
