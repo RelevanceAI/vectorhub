@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Guide to using Auto-Encoder &mdash; VectorHub 0.1 documentation</title>
+  <title>SentenceTransformer2Vec &mdash; VectorHub 0.1 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Bert2Vec" href="encoders.text.bert2vec.html" />
-    <link rel="prev" title="How To Add Your Model To Vector Hub" href="how_to_add_a_model.html" /> 
+    <link rel="next" title="ViText2Vec" href="encoders.text.vectorai2vec.html" />
+    <link rel="prev" title="LegalBert2Vec" href="encoders.text.legalbert2vec.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,20 +83,23 @@
             
             
               <p class="caption"><span class="caption-text">Contents</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">What is Vector Hub?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how_to_add_a_model.html">How To Add Your Model To Vector Hub</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Guide to using Auto-Encoder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_encoder.html">Guide to using Auto-Encoder</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Text Encoders</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="encoders.text.bert2vec.html">Bert2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoders.text.albert2vec.html">AlBert2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoders.text.labse2vec.html">LaBSE2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoders.text.use2vec.html">USE2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoders.text.use_multi2vec.html">USEMulti2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoders.text.legalbert2vec.html">LegalBert2Vec</a></li>
-<li class="toctree-l1"><a class="reference internal" href="encoders.text.sentencetransformer2vec.html">SentenceTransformer2Vec</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SentenceTransformer2Vec</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sentence-transformers">Sentence-Transformers</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="encoders.text.vectorai2vec.html">ViText2Vec</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Image Encoders</span></p>
@@ -172,13 +175,13 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Guide to using Auto-Encoder</li>
+      <li>SentenceTransformer2Vec</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/auto_encoder.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/encoders.text.sentencetransformer2vec.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -191,26 +194,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="guide-to-using-auto-encoder">
-<h1>Guide to using Auto-Encoder<a class="headerlink" href="#guide-to-using-auto-encoder" title="Permalink to this headline">¶</a></h1>
-<p>Inspired by transformers’ adoption of the auto-models, we created an
-AutoEncoder class that allows you to easily get the relevant models. Not to be confused with the autoencoder architecture.</p>
-<p>The relevant models can be found here:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">vectorhub</span> <span class="kn">import</span> <span class="n">AutoEncoder</span>
-<span class="n">encoder</span> <span class="o">=</span> <span class="n">AutoEncoder</span><span class="p">(</span><span class="s1">&#39;text/bert&#39;</span><span class="p">)</span>
-<span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;Hi...&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>To view the list of available models, you can call:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">vectorhub</span> <span class="k">as</span> <span class="nn">vh</span>
-<span class="n">vh</span><span class="o">.</span><span class="n">list_available_auto_models</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>When you instantiate the autoencoder, you will need to pip install
-the relevant module. The requirements here can be given here.</p>
-<p>The list of supported models are:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;text/albert&#39;</span><span class="p">,</span> <span class="s1">&#39;text/bert&#39;</span><span class="p">,</span> <span class="s1">&#39;text/labse&#39;</span><span class="p">,</span> <span class="s1">&#39;text/use&#39;</span><span class="p">,</span> <span class="s1">&#39;text/use-multi&#39;</span><span class="p">,</span> <span class="s1">&#39;text/use-lite&#39;</span><span class="p">,</span> <span class="s1">&#39;text/legal-bert&#39;</span><span class="p">,</span> <span class="s1">&#39;audio/fairseq&#39;</span><span class="p">,</span> <span class="s1">&#39;audio/speech-embedding&#39;</span><span class="p">,</span> <span class="s1">&#39;audio/trill&#39;</span><span class="p">,</span> <span class="s1">&#39;audio/trill-distilled&#39;</span><span class="p">,</span> <span class="s1">&#39;audio/vggish&#39;</span><span class="p">,</span> <span class="s1">&#39;audio/yamnet&#39;</span><span class="p">,</span> <span class="s1">&#39;audio/wav2vec&#39;</span><span class="p">,</span> <span class="s1">&#39;image/bit&#39;</span><span class="p">,</span> <span class="s1">&#39;image/bit-medium&#39;</span><span class="p">,</span> <span class="s1">&#39;image/inception&#39;</span><span class="p">,</span> <span class="s1">&#39;image/inception-v2&#39;</span><span class="p">,</span> <span class="s1">&#39;image/inception-v3&#39;</span><span class="p">,</span> <span class="s1">&#39;image/inception-resnet&#39;</span><span class="p">,</span> <span class="s1">&#39;image/mobilenet&#39;</span><span class="p">,</span> <span class="s1">&#39;image/mobilenet-v2&#39;</span><span class="p">,</span> <span class="s1">&#39;image/resnet&#39;</span><span class="p">,</span> <span class="s1">&#39;image/resnet-v2&#39;</span><span class="p">,</span> <span class="s1">&#39;text_text/use-multi-qa&#39;</span><span class="p">,</span> <span class="s1">&#39;text_text/use-qa&#39;</span><span class="p">,</span> <span class="s1">&#39;text_text/dpr&#39;</span><span class="p">,</span> <span class="s1">&#39;text_text/lareqa-qa]</span>
-</pre></div>
+  <div class="section" id="sentencetransformer2vec">
+<h1>SentenceTransformer2Vec<a class="headerlink" href="#sentencetransformer2vec" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sentence-transformers">
+<h2>Sentence-Transformers<a class="headerlink" href="#sentence-transformers" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -222,10 +209,10 @@ the relevant module. The requirements here can be given here.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="encoders.text.bert2vec.html" class="btn btn-neutral float-right" title="Bert2Vec" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="encoders.text.vectorai2vec.html" class="btn btn-neutral float-right" title="ViText2Vec" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="how_to_add_a_model.html" class="btn btn-neutral float-left" title="How To Add Your Model To Vector Hub" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="encoders.text.legalbert2vec.html" class="btn btn-neutral float-left" title="LegalBert2Vec" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
