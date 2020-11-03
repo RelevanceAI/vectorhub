@@ -21,6 +21,7 @@ MODEL_REQUIREMENTS = {
     "encoders-text-torch-transformers-legalbert": "encoders-text-torch-transformers",
     "encoders-text-tf-transformers-auto": "encoders-text-tf-transformers",
     "encoders-text-torch-transformers-auto": "encoders-text-torch-transformers",
+    "encoders-text-sentence-transformers": "encoders-text-sentence-transformers",
     "encoders-text-vectorai": None,
     
     "encoders-image-tfhub-bit": "encoders-image-tfhub",
