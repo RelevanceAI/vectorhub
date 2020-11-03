@@ -4,6 +4,7 @@ from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
 from ....import_utils import *
 from ....models_dict import MODEL_REQUIREMENTS
+from datetime import date
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-sentence-transformers']):
     from sentence_transformers import SentenceTransformer
 
@@ -14,6 +15,7 @@ DistilRobertaModelDefinition = ModelDefinition(
     description="These are Distilled Roberta QA trained on MSMACRO dataset from sbert.net by UKPLab.",
     paper="https://arxiv.org/abs/1908.10084", 
     repo="https://github.com/UKPLab/sentence-transformers",
+    release_date=date(2019,8,27),
     installation="pip install vectorhub[encoders-text-sentence-transformers]",
     example="""
     #pip install vectorhub[encoders-text-sentence-transformers]

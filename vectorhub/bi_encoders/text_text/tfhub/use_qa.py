@@ -4,6 +4,7 @@ from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
 from ....import_utils import *
 from ....models_dict import MODEL_REQUIREMENTS
+from datetime import date
 
 if is_all_dependency_installed(MODEL_REQUIREMENTS['text-bi-encoder-tfhub-use-qa']):
     import bert
@@ -22,6 +23,7 @@ USEQAModelDefinition = ModelDefinition(
         are useful out-of-the-box to retrieve an answer given a question, as well as question and answers across different languages.
         - It can also be used in other applications, including any type of text classification, clustering, etc.
     """,
+    release_date=date(2020,3,11),
     repo='https://tfhub.dev/google/universal-sentence-encoder-qa/3',
     installation="pip install vectorhub[encoders-text-tfhub-tftext]",
     example="""
