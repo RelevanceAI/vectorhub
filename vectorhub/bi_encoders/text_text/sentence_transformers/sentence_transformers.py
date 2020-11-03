@@ -27,7 +27,7 @@ __doc__ = DistilRobertaModelDefinition.create_docs()
 
 
 class DistilRobertaQA2Vec(BaseText2Vec):
-    definition = SentenceTransformerModelDefinition
+    definition = DistilRobertaModelDefinition
     def __init__(self, model_name: str):
         self.model = SentenceTransformer('distilroberta-base-msmarco-v1')
         self.vector_length = 768

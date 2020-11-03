@@ -77,11 +77,11 @@ class SentenceTransformer2Vec(BaseText2Vec):
             Args:
                 word: string 
         """
-        return self.model.encode([text])
+        return self.model.encode([text])[0].tolist()
     
     @catch_vector_errors
     def bulk_encode(self, texts: List[str]) -> List[List[float]]:
         """
             Bulk encode words from transformers.
         """
-        return self.model.encode(texts)
+        return self.model.encode(texts).tolist()
