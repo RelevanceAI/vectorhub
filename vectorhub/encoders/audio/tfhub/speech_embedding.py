@@ -14,7 +14,7 @@ SpeechEmbeddingModelDefinition = ModelDefinition(
     model_id = "audio/speech-embedding",
     model_name="Speech Embedding", 
     vector_length=96,
-    release_date=date(2020,31,1),
+    release_date=date(2020,1,31),
     description="""
 With the rise of low power speech-enabled devices, there is a growing demand to quickly produce models for recognizing arbitrary 
 sets of keywords. As with many machine learning tasks, one of the most challenging parts in the model creation process is obtaining

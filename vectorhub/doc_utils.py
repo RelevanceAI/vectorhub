@@ -27,7 +27,7 @@ class ModelDefinition:
         self.repo = repo
         self.architecture = architecture
         self.tasks = tasks
-        self.release_date = release_date.__str__() if release_date is not None
+        self.release_date = release_date.__str__() if release_date is not None else None
         self.limitations = limitations
         self.installation = installation
         self.example = example
@@ -83,6 +83,6 @@ class ModelDefinition:
             "tasks": self.tasks,
             "limitations": self.limitations,
             "installation" : self.installation,
-            "example" : self.example
+            "example" : self.example,
             "release_date": self.release_date
         }
