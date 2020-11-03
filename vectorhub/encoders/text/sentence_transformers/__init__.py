@@ -1,1 +1,1 @@
-from .sentence_transformers import *
+from .sentence_auto_transformers import *
