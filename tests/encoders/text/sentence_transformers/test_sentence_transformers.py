@@ -1,4 +1,4 @@
-from vectorhub.encoders.text.sentence_transformers.sentence_transformers import SentenceTransformer2Vec, LIST_OF_URLS
+from vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers import SentenceTransformer2Vec, LIST_OF_URLS
 import gc
 
 def test_sentence_transformers():
