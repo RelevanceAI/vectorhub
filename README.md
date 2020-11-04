@@ -18,6 +18,9 @@
     <a href="https://hub.getvectorai.com">
         <img alt="Hub" src="https://img.shields.io/website?up_message=online&label=hub&url=https%3A%2F%2Fhub.getvectorai.com">
     </a>
+    <a href="https://join.slack.com/t/vector-ai-workspace/shared_invite/zt-itto14oy-0KerBV7onSuYRP_kmXE9yA>
+        <img alt="Slack" src="https://img.shields.io/badge/slack-join-blue.svg">
+    </a>
 </p>
 
 <h3 align="center">
