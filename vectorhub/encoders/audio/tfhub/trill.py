@@ -7,6 +7,7 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-audio-tfhub-trill'])
 from ..base import BaseAudio2Vec
 from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
+from datetime import date
 
 TrillModelDefinition = ModelDefinition(
     model_name="Trill - Triplet Loss Network", 
@@ -21,6 +22,7 @@ TrillModelDefinition = ModelDefinition(
     available dataset, and it is tested on a variety of low-resource downstream tasks, including personalization tasks and medical domain. 
     The benchmark, models, and evaluation code are publicly released.""",
     paper="https://arxiv.org/abs/2002.12764",
+    release_date=date(2020,2,25),
     repo="https://tfhub.dev/google/nonsemantic-speech-benchmark/trill/3",
     installation="pip install vectorhub[{}]".format(MODEL_REQUIREMENTS['encoders-audio-tfhub-trill']),
     example="""

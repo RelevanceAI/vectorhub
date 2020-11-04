@@ -1,7 +1,8 @@
+from datetime import date
 class ModelDefinition:
     def __init__(self, model_id: str=None, model_name: str=None, vector_length: int=None,
     description: str=None, paper: str=None, repo: str=None, architecture: str='Not stated.',
-    tasks: str='Not stated.', limitations: str='Not stated.', installation: str='Not stated.', 
+    tasks: str='Not stated.', release_date: date=None, limitations: str='Not stated.', installation: str='Not stated.', 
     example: str='Not stated.', **kwargs):
         """
             Model definition.
@@ -26,6 +27,7 @@ class ModelDefinition:
         self.repo = repo
         self.architecture = architecture
         self.tasks = tasks
+        self.release_date = release_date.__str__() if release_date is not None else None
         self.limitations = limitations
         self.installation = installation
         self.example = example
@@ -53,6 +55,8 @@ class ModelDefinition:
 
 **Tasks**: {self.tasks}
 
+**Release Date**: {self.release_date}
+
 **Limitations**: {self.limitations}
 
 **Installation**: ``{self.installation}``
@@ -79,5 +83,6 @@ class ModelDefinition:
             "tasks": self.tasks,
             "limitations": self.limitations,
             "installation" : self.installation,
-            "example" : self.example
+            "example" : self.example,
+            "release_date": self.release_date
         }

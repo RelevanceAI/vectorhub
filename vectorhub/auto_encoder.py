@@ -118,6 +118,7 @@ def get_model_definitions(json_fn='models.json'):
     for k, v in global_vars:
         if hasattr(v, 'definition'):
             values = v.definition.create_dict()
+            values.update({"_id": values['model_id']})
             all_models.append(values)
     if json_fn is not None:
         with open(json_fn, 'w') as f:

@@ -7,11 +7,12 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-audio-tfhub-yamnet']
 from ..base import BaseAudio2Vec
 from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
+from datetime import date
 
 YamnetModelDefinition = ModelDefinition(
     model_id="audio/yamnet",
     model_name="Yamnet", 
-    vector_length=1024, 
+    vector_length=1024,
     description="""
     YAMNet is an audio event classifier that takes audio waveform as input and makes independent predictions for each 
     of 521 audio events from the AudioSet ontology. The model uses the MobileNet v1 architecture and was trained using 
@@ -23,6 +24,7 @@ YamnetModelDefinition = ModelDefinition(
     - as a high-level feature extractor: the 1024-D embedding output of YAMNet can be used as the input features of another shallow model which can then be trained on a small amount of data for a particular task. This allows quickly creating specialized audio classifiers without requiring a lot of labeled data and without having to train a large model end-to-end.
     - as a warm start: the YAMNet model parameters can be used to initialize part of a larger model which allows faster fine-tuning and model exploration.
     """,
+    release_date=date(2020,3,11),
     limitations="""
     YAMNet's classifier outputs have not been calibrated across classes, so you cannot directly treat 
     the outputs as probabilities. For any given task, you will very likely need to perform a calibration with task-specific data 
@@ -30,7 +32,6 @@ YamnetModelDefinition = ModelDefinition(
     YAMNet has been trained on millions of YouTube videos and although these are very diverse, there can still be a domain mismatch 
     between the average YouTube video and the audio inputs expected for any given task. You should expect to do some amount of 
     fine-tuning and calibration to make YAMNet usable in any system that you build.""",
-    paper="https://arxiv.org/pdf/2002.12764.pdf", 
     repo="https://tfhub.dev/google/yamnet/1",
     installation="pip install vectorhub[encoders-audio-tfhub]",
     example="""

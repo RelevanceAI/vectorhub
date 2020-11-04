@@ -3,6 +3,7 @@ from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
 from ....import_utils import *
 from ....models_dict import MODEL_REQUIREMENTS
+from datetime import date
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-use']):
     import tensorflow_hub as hub
 
@@ -14,6 +15,7 @@ USEModelDefinition = ModelDefinition(
     paper="https://arxiv.org/abs/1803.11175",
     repo="https://tfhub.dev/google/collections/universal-sentence-encoder/1",
     installation="pip install vectorhub[encoders-text-tfhub]",
+    release_date=date(2018,3,29),
     example="""
     #pip install vectorhub[encoders-text-tfhub]
     #FOR WINDOWS: pip install vectorhub[encoders-text-tfhub-windows]

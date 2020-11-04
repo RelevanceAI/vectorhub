@@ -3,6 +3,7 @@ from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
 from ....import_utils import *
 from ....models_dict import MODEL_REQUIREMENTS
+from datetime import date
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-bert']):
     import tensorflow as tf
     import tensorflow_hub as hub
@@ -17,6 +18,7 @@ BertModelDefinition = ModelDefinition(
     paper="https://arxiv.org/abs/1810.04805v2",
     repo="https://tfhub.dev/google/collections/bert/1",
     installation="pip install vectorhub[encoders-text-tfhub]",
+    release_date=date(2018,10,11),
     example="""
     #pip install vectorhub[encoders-text-tfhub]
     #FOR WINDOWS: pip install vectorhub[encoders-text-tfhub-windows]

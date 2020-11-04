@@ -1,6 +1,7 @@
 from ....doc_utils import ModelDefinition
 from ....import_utils import *
 from ....models_dict import MODEL_REQUIREMENTS
+from datetime import date
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-labse']):
     import tensorflow as tf
 
@@ -13,6 +14,7 @@ LABSEModelDefinition = ModelDefinition(
     paper="https://arxiv.org/pdf/2007.01852v1.pdf", 
     repo="https://tfhub.dev/google/LaBSE/1",
     installation="pip install vectorhub[encoders-text-tfhub]",
+    release_date=date(2020,7,3),
     example="""
     #pip install vectorhub[encoders-text-tfhub]
     #FOR WINDOWS: pip install vectorhub[encoders-text-tfhub-windows]

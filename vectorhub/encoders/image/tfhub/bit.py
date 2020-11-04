@@ -6,6 +6,7 @@ if is_all_dependency_installed('encoders-image-tfhub'):
     import tensorflow as tf
     import tensorflow_hub as hub
     import traceback
+from datetime import date
 
 BITModelDefinition = ModelDefinition(
     model_id = "image/bit",
@@ -22,6 +23,7 @@ BITModelDefinition = ModelDefinition(
     paper="https://arxiv.org/abs/1912.11370", 
     repo="https://github.com/google-research/big_transfer",
     installation="pip install vectorhub[encoders-image-tfhub]",
+    release_date=date(2019,12,24),
     example="""
     #pip install vectorhub[encoders-image-tfhub]
     from vectorhub.encoders.image.tfhub import BitSmall2Vec

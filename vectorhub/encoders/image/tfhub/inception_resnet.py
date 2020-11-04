@@ -7,6 +7,8 @@ if is_all_dependency_installed('encoders-image-tfhub'):
     import tensorflow_hub as hub
     import traceback
 
+from datetime import date
+
 InceptionResnetModelDefinition = ModelDefinition(
     model_id = "image/inception-resnet",
     model_name="Inception Resnet", 
@@ -27,6 +29,7 @@ ImageNet classification (CLS) challenge.""",
     paper="https://arxiv.org/abs/1602.07261",
     repo="https://tfhub.dev/google/imagenet/inception_resnet_v2/feature_vector/4",
     installation="pip install vectorhub[encoders-image-tfhub]",
+    release_date=date(2016,2,23),
     example="""
     #pip install vectorhub[encoders-image-tfhub]
     from vectorhub.encoders.image.tfhub import InceptionResnet2Vec
