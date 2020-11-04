@@ -18,6 +18,9 @@
     <a href="https://hub.getvectorai.com">
         <img alt="Hub" src="https://img.shields.io/website?up_message=online&label=hub&url=https%3A%2F%2Fhub.getvectorai.com">
     </a>
+    <a href="https://join.slack.com/t/vector-ai-workspace/shared_invite/zt-itto14oy-0KerBV7onSuYRP_kmXE9yA">
+        <img alt="Slack" src="https://img.shields.io/badge/slack-join-blue.svg">
+    </a>
 </p>
 
 <h3 align="center">
@@ -95,7 +98,7 @@ encoder.encode("Hello vectorhub!")
 
 You can choose from our list of models: 
 ```
-['text/albert', 'text/bert', 'text/labse', 'text/use', 'text/use-multi', 'text/use-lite', 'text/legal-bert', 'audio/fairseq', 'audio/speech-embedding', 'audio/trill', 'audio/trill-distilled', 'audio/vggish', 'audio/yamnet', 'audio/wav2vec', 'image/bit', 'image/bit-medium', 'image/inception', 'image/inception-v2', 'image/inception-v3', 'image/inception-resnet', 'image/mobilenet', 'image/mobilenet-v2', 'image/resnet', 'image/resnet-v2', 'text_text/use-multi-qa', 'text_text/use-qa', 'text_text/dpr', 'text_text/lareqa-qa]
+['text/albert', 'text/bert', 'text/labse', 'text/use', 'text/use-multi', 'text/use-lite', 'text/legal-bert', 'audio/fairseq', 'audio/speech-embedding', 'audio/trill', 'audio/trill-distilled', 'audio/vggish', 'audio/yamnet', 'audio/wav2vec', 'image/bit', 'image/bit-medium', 'image/inception', 'image/inception-v2', 'image/inception-v3', 'image/inception-resnet', 'image/mobilenet', 'image/mobilenet-v2', 'image/resnet', 'image/resnet-v2', 'text_text/use-multi-qa', 'text_text/use-qa', 'text_text/dpr', 'text_text/lareqa-qa']
 ```
 ### Leverage [Google Tensorflow Hub's](https://tfhub.dev) powerful models to create vectors
 Vectorise your image in 3 lines of code using [Google's Big Image Transfer model](https://blog.tensorflow.org/2020/05/bigtransfer-bit-state-of-art-transfer-learning-computer-vision.html):

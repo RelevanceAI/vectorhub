@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Bert2Vec &mdash; VectorHub 0.1 documentation</title>
+  <title>SentenceTransformer2Vec &mdash; VectorHub 0.1 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="AlBert2Vec" href="encoders.text.albert2vec.html" />
-    <link rel="prev" title="Guide to using Auto-Encoder" href="auto_encoder.html" /> 
+    <link rel="next" title="ViText2Vec" href="encoders.text.vectorai2vec.html" />
+    <link rel="prev" title="Transformer2Vec" href="encoders.text.transformer2vec.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,17 +90,17 @@
 </ul>
 <p class="caption"><span class="caption-text">Text Encoders</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Bert2Vec</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-vectorhub.encoders.text.tfhub.bert">TFHub</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.bert2vec.html">Bert2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoders.text.albert2vec.html">AlBert2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoders.text.labse2vec.html">LaBSE2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoders.text.use2vec.html">USE2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoders.text.use_multi2vec.html">USEMulti2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoders.text.legalbert2vec.html">LegalBert2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoders.text.transformer2vec.html">Transformer2Vec</a></li>
-<li class="toctree-l1"><a class="reference internal" href="encoders.text.sentencetransformer2vec.html">SentenceTransformer2Vec</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SentenceTransformer2Vec</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers">Sentence-Transformers</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="encoders.text.vectorai2vec.html">ViText2Vec</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Image Encoders</span></p>
@@ -176,13 +176,13 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Bert2Vec</li>
+      <li>SentenceTransformer2Vec</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/encoders.text.bert2vec.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/encoders.text.sentencetransformer2vec.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -195,39 +195,39 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="bert2vec">
-<h1>Bert2Vec<a class="headerlink" href="#bert2vec" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-vectorhub.encoders.text.tfhub.bert">
-<span id="tfhub"></span><h2>TFHub<a class="headerlink" href="#module-vectorhub.encoders.text.tfhub.bert" title="Permalink to this headline">¶</a></h2>
-<p><strong>Model Name</strong>: BERT - Bidirectional Encoder Representations from Transformers</p>
-<p><strong>Vector Length</strong>: 1024</p>
-<p><strong>Description</strong>: We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models, BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task-specific architecture modifications.</p>
-<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/1810.04805v2">https://arxiv.org/abs/1810.04805v2</a></p>
-<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/collections/bert/1">https://tfhub.dev/google/collections/bert/1</a></p>
+  <div class="section" id="sentencetransformer2vec">
+<h1>SentenceTransformer2Vec<a class="headerlink" href="#sentencetransformer2vec" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers">
+<span id="sentence-transformers"></span><h2>Sentence-Transformers<a class="headerlink" href="#module-vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: Sentence Transformer Models</p>
+<p><strong>Vector Length</strong>: Depends on model.</p>
+<p><strong>Description</strong>: These are Sentence Transformer models from sbert.net by UKPLab.</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/1908.10084">https://arxiv.org/abs/1908.10084</a></p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://github.com/UKPLab/sentence-transformers">https://github.com/UKPLab/sentence-transformers</a></p>
 <p><strong>Architecture</strong>: Not stated.</p>
 <p><strong>Tasks</strong>: Not stated.</p>
 <p><strong>Limitations</strong>: Not stated.</p>
-<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub]</span></code></p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-sentence-transformers]</span></code></p>
 <p><strong>Example</strong>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#pip install vectorhub[encoders-text-tfhub]</span>
-<span class="c1">#FOR WINDOWS: pip install vectorhub[encoders-text-tfhub-windows]</span>
-<span class="kn">from</span> <span class="nn">vectorhub.encoders.text.tfhub</span> <span class="kn">import</span> <span class="n">Bert2Vec</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">Bert2Vec</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#pip install vectorhub[encoders-text-sentence-transformers]</span>
+<span class="kn">from</span> <span class="nn">vectorhub.encoders.text.sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer2Vec</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer2Vec</span><span class="p">(</span><span class="s1">&#39;bert-base-uncased&#39;</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;I enjoy taking long walks along the beach with my dog.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="py class">
-<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec">
-<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.text.tfhub.bert.</code><code class="sig-name descname">Bert2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/2'</span></em>, <em class="sig-param"><span class="n">max_seq_length</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">64</span></em>, <em class="sig-param"><span class="n">normalize</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec" title="Permalink to this definition">¶</a></dt>
+<dt id="vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers.SentenceTransformer2Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers.</code><code class="sig-name descname">SentenceTransformer2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_name</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers.SentenceTransformer2Vec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.text.base.BaseText2Vec</span></code></p>
 <dl class="py method">
-<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.bulk_encode">
-<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers.SentenceTransformer2Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>List<span class="p">[</span>float<span class="p">]</span><span class="p">]</span><a class="headerlink" href="#vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers.SentenceTransformer2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bulk encode words from transformers.</p>
+</dd></dl>
 
 <dl class="py method">
-<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.chunk">
-<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dt id="vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers.SentenceTransformer2Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers.SentenceTransformer2Vec.chunk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
 :param lst: Python List
 :param chunk_size: The chunk size of an object.</p>
@@ -239,50 +239,45 @@
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.definition">
-<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dt id="vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers.SentenceTransformer2Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers.SentenceTransformer2Vec.definition" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.encode">
-<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.encode" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers.SentenceTransformer2Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>float<span class="p">]</span><a class="headerlink" href="#vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers.SentenceTransformer2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode word from transformers.
+This takes the beginning set of tokens and turns them into vectors
+and returns mean pooling of the tokens.
+:param word: string</p>
+</dd></dl>
 
 <dl class="py method">
-<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.init">
-<code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.init" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers.SentenceTransformer2Vec.get_list_of_urls">
+<code class="sig-name descname">get_list_of_urls</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers.SentenceTransformer2Vec.get_list_of_urls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return list of URLS.</p>
+</dd></dl>
 
 <dl class="py method">
-<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.init_tokenizer">
-<code class="sig-name descname">init_tokenizer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.init_tokenizer" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.process">
-<code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_strings</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.process" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.read">
-<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.read" title="Permalink to this definition">¶</a></dt>
+<dt id="vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers.SentenceTransformer2Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers.SentenceTransformer2Vec.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>An abstract method to specify the read method to read the data.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.test_word">
-<em class="property">property </em><code class="sig-name descname">test_word</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.test_word" title="Permalink to this definition">¶</a></dt>
+<dt id="vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers.SentenceTransformer2Vec.test_word">
+<em class="property">property </em><code class="sig-name descname">test_word</code><a class="headerlink" href="#vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers.SentenceTransformer2Vec.test_word" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.validate_model_url">
-<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dt id="vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers.SentenceTransformer2Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers.SentenceTransformer2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validate the model url belongs in the list of urls.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.vector_length">
-<em class="property">property </em><code class="sig-name descname">vector_length</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.vector_length" title="Permalink to this definition">¶</a></dt>
+<dt id="vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers.SentenceTransformer2Vec.vector_length">
+<em class="property">property </em><code class="sig-name descname">vector_length</code><a class="headerlink" href="#vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers.SentenceTransformer2Vec.vector_length" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the vector length of the model.</p>
 </dd></dl>
 
@@ -299,10 +294,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="encoders.text.albert2vec.html" class="btn btn-neutral float-right" title="AlBert2Vec" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="encoders.text.vectorai2vec.html" class="btn btn-neutral float-right" title="ViText2Vec" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="auto_encoder.html" class="btn btn-neutral float-left" title="Guide to using Auto-Encoder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="encoders.text.transformer2vec.html" class="btn btn-neutral float-left" title="Transformer2Vec" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

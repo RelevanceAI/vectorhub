@@ -1,5 +1,5 @@
 from typing import List
-from ..base import BaseText2Vec
+from ..base import BaseTextText2Vec
 from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
 from ....import_utils import *
@@ -28,15 +28,15 @@ DistilRobertaModelDefinition = ModelDefinition(
 __doc__ = DistilRobertaModelDefinition.create_docs()
 
 
-class DistilRobertaQA2Vec(BaseText2Vec):
-    definition = SentenceTransformerModelDefinition
-    def __init__(self, model_name: str):
+class DistilRobertaQA2Vec(BaseTextText2Vec):
+    definition = DistilRobertaModelDefinition
+    def __init__(self):
         self.model = SentenceTransformer('distilroberta-base-msmarco-v1')
         self.vector_length = 768
     
     @catch_vector_errors
     def encode_question(self, question: str):
-        return self.model("[QRY] "+ question).tolist()
+        return self.model.encode(["[QRY] "+ question])[0].tolist()
 
     @catch_vector_errors
     def bulk_encode_question(self, questions: list):
@@ -44,7 +44,7 @@ class DistilRobertaQA2Vec(BaseText2Vec):
     
     @catch_vector_errors
     def encode_answer(self, answer: str, context: str=None):
-        return self.model("[DOC] "+ answer).tolist()
+        return self.model.encode(["[DOC] "+ answer])[0].tolist()
 
     @catch_vector_errors
     def bulk_encode_answers(self, answers: List[str]):

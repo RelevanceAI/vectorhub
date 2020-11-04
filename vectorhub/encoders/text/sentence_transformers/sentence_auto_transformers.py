@@ -58,11 +58,11 @@ __doc__ = SentenceTransformerModelDefinition.create_docs()
 
 class SentenceTransformer2Vec(BaseText2Vec):
     definition = SentenceTransformerModelDefinition
-    def __init__(self, model_name: str, config=None):
+    def __init__(self, model_name: str):
         self.list_of_urls = LIST_OF_URLS
-        self.validate_model_url(model_url, LIST_OF_URLS)
-        self.vector_length = LIST_OF_URLS[model_url]["vector_length"]
-        self.model = SentenceTransformer(model_url)
+        self.validate_model_url(model_name, LIST_OF_URLS)
+        self.vector_length = LIST_OF_URLS[model_name]["vector_length"]
+        self.model = SentenceTransformer(model_name)
 
     def get_list_of_urls(self):
         """
@@ -79,11 +79,11 @@ class SentenceTransformer2Vec(BaseText2Vec):
             Args:
                 word: string 
         """
-        return self.model.encode([text])
+        return self.model.encode([text])[0].tolist()
     
     @catch_vector_errors
     def bulk_encode(self, texts: List[str]) -> List[List[float]]:
         """
             Bulk encode words from transformers.
         """
-        return self.model.encode(texts)
+        return self.model.encode(texts).tolist()

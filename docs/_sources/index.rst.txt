@@ -44,6 +44,7 @@ different models to be used easily.
    encoders.text.use_multi2vec
    encoders.text.legalbert2vec
    encoders.text.transformer2vec
+   encoders.text.sentencetransformer2vec
    encoders.text.vectorai2vec
    
 
