@@ -43,8 +43,7 @@ different models to be used easily.
    encoders.text.use2vec
    encoders.text.use_multi2vec
    encoders.text.legalbert2vec
-   encoders.text.sentence
-   encoders.text.sentencetransformer2vec
+   encoders.text.transformer2vec
    encoders.text.vectorai2vec
    
 
