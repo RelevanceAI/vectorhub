@@ -6,13 +6,14 @@ default_model_name: BertModel
 default_vector_length: 1024
 paper: "https://arxiv.org/abs/1810.04805v2"
 repo: "https://tfhub.dev/google/collections/bert/1"
+release_date: '2018-10-11',
 installation: "pip install vectorhub[encoders-text-tfhub]"
 example: """
-    #pip install vectorhub[encoders-text-tfhub]
-    #FOR WINDOWS: pip install vectorhub[encoders-text-tfhub-windows]
-    from vectorhub.encoders.text.tfhub import Bert2Vec
-    model = Bert2Vec()
-    model.encode("I enjoy taking long walks along the beach with my dog.")"""
+#pip install vectorhub[encoders-text-tfhub]
+#FOR WINDOWS: pip install vectorhub[encoders-text-tfhub-windows]
+from vectorhub.encoders.text.tfhub import Bert2Vec
+model = Bert2Vec()
+model.encode("I enjoy taking long walks along the beach with my dog.")"""
 ---
 
 ## Model Description: 
