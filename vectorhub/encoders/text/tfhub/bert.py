@@ -1,7 +1,7 @@
 from ..base import BaseText2Vec
 from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
-from ....import_utils import *
+from ....import_utils import is_all_dependency_installed
 from ....models_dict import MODEL_REQUIREMENTS
 from datetime import date
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-bert']):

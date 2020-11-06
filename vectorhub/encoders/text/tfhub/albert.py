@@ -1,8 +1,8 @@
-from .bert import Bert2Vec
-from ....import_utils import *
+from datetime import date
+from ....import_utils import is_all_dependency_installed
 from ....models_dict import MODEL_REQUIREMENTS
 from ....doc_utils import ModelDefinition
-from datetime import date
+from .bert import Bert2Vec
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-albert']):
     from official.nlp.bert import tokenization
 
