@@ -1,7 +1,8 @@
-from ....doc_utils import ModelDefinition
-from ....import_utils import *
-from ....models_dict import MODEL_REQUIREMENTS
 from datetime import date
+from ....doc_utils import ModelDefinition
+from ....import_utils import is_all_dependency_installed
+from ....models_dict import MODEL_REQUIREMENTS
+
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-labse']):
     import tensorflow as tf
 
