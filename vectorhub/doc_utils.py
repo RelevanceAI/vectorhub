@@ -1,4 +1,8 @@
 from datetime import date
+import yaml
+import sys
+import re
+
 class ModelDefinition:
     def __init__(self, model_id: str=None, model_name: str=None, vector_length: int=None,
     description: str=None, paper: str=None, repo: str=None, architecture: str='Not stated.',
@@ -86,3 +90,36 @@ class ModelDefinition:
             "example" : self.example,
             "release_date": self.release_date
         }
+
+    def _get_yaml(self, f):
+        """
+            Returns YAML file from Python
+            Args:
+                f: Get YAML file.
+        """
+        pointer = f.tell()
+        if f.readline() != '---\n':
+            f.seek(pointer)
+            return ''
+        readline = iter(f.readline, '')
+        readline = iter(readline.__next__, '---\n') #underscores needed for Python3?
+        return ''.join(readline)
+
+    def from_markdown(self, markdown_filepath: str):
+        """
+            Reads definitions from the markdown.
+            Args:
+                markdown_filepath: The path of the markdown file.
+        """
+        # Remove sys.argv, not sure what it was doing
+        with open(markdown_filepath, encoding='UTF-8') as f:
+            config = list(yaml.load_all(self._get_yaml(f), Loader=yaml.SafeLoader))
+            text = f.read()
+            self.config = config
+            self.description = text
+
+    def split_markdown_description(self, description: str):
+        SPLITTER = r"\*\*(.*?)\*\*\:"
+        # The first entry is a ''
+        split_description = re.split(SPLITTER, description)[1:]
+        self.markdown_split_description = {split_description[k] for i, k in enumerate(split_description) if i%2 == 0}
