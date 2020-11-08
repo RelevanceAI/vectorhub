@@ -1,7 +1,7 @@
-from ..base import BaseImage2Vec
 from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
 from ....import_utils import *
+from ..base import BaseImage2Vec
 if is_all_dependency_installed('encoders-image-tfhub'):
     import tensorflow as tf
     import tensorflow_hub as hub
