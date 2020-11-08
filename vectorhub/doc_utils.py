@@ -72,24 +72,33 @@ class ModelDefinition:
     {self.example}
         """
 
-    def create_dict(self):
+    def to_dict(self, return_base_dictionary=False):
         """
             Create a dictionary with all the attributes of the model. 
         """
-        return {
-            "model_id": self.model_id,
-            "model_name": self.model_name,
-            "vector_length": self.vector_length,
-            "description": self.description,
-            "paper": self.paper,
-            "repo": self.repo,
-            "architecture": self.architecture,
-            "tasks": self.tasks,
-            "limitations": self.limitations,
-            "installation" : self.installation,
-            "example" : self.example,
-            "release_date": self.release_date
-        }
+        if return_base_dictionary:
+            return {
+                "model_id": self.model_id,
+                "model_name": self.model_name,
+                "vector_length": self.vector_length,
+                "description": self.description,
+                "paper": self.paper,
+                "repo": self.repo,
+                "architecture": self.architecture,
+                "tasks": self.tasks,
+                "limitations": self.limitations,
+                "installation" : self.installation,
+                "example" : self.example,
+                "release_date": self.release_date
+            }
+        else:
+            model_dict = {}
+            for attr in dir(self):
+                if '__' in attr:
+                    continue
+                if isinstance(getattr(self, attr), str):
+                    model_dict[attr] = getattr(self, attr)
+            return model_dict
 
     def _get_yaml(self, f):
         """
@@ -105,20 +114,20 @@ class ModelDefinition:
         readline = iter(readline.__next__, '---\n') #underscores needed for Python3?
         return ''.join(readline)
 
-    def from_markdown(self, markdown_filepath: str):
+    def from_markdown(self, markdown_filepath: str, encoding='UTF-8'):
         """
             Reads definitions from the markdown.
             Args:
                 markdown_filepath: The path of the markdown file.
         """
         # Remove sys.argv, not sure what it was doing
-        with open(markdown_filepath, encoding='UTF-8') as f:
+        with open(markdown_filepath, encoding=encoding) as f:
             config = list(yaml.load_all(self._get_yaml(f), Loader=yaml.SafeLoader))
             text = f.read()
             self.config = config[0]
             for k,v in self.config.items():
                 setattr(self, k, v)
-            self.description = text
+            self.markdown_description = text
         self._split_markdown_description(text)
 
     def _split_markdown_description(self, description: str, SPLITTER: str=r"(\#\#+\ +)|(\n)"):
@@ -134,7 +143,7 @@ class ModelDefinition:
         heading = None
         SKIP_NEW_LINE = False
         markdown_values = {}
-        for x in re.split(SPLITTER, self.description):
+        for x in re.split(SPLITTER, description):
             if x is None:
                 continue
             if SKIP_NEW_LINE:
@@ -148,10 +157,9 @@ class ModelDefinition:
                 value = ""
             elif '##' in x:
                 if heading is not None:
-                    setattr(self, heading, value)
+                    setattr(self, heading.lower(), value)
                     markdown_values[heading] = value
                 IS_HEADING = True
             else:
                 SKIP_NEW_LINE = False
                 value += x
-                
