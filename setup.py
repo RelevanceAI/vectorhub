@@ -36,11 +36,18 @@ def dependency_to_requirement(requirements_dict: Dict, add_all=True, add_single_
 
 all_deps = get_extra_requires('extra_requirements.json')
 
+# Additional files to include - adding model cards
+package_data = [str(x) for x in Path('vectorhub').rglob('*.md'))]
+
+# Also add the extra_requirements.json file
+package_data.append('extra_requirements.json')
+
 setup(
     name="vectorhub",
     version="1.0.5",
     author="OnSearch Pty Ltd",
     author_email="dev@vctr.ai",
+    package_data=package_data,
     description="One liner to encode data into vectors with state-of-the-art models using tensorflow, pytorch and other open source libraries. Word2Vec, Image2Vec, BERT, etc",
     long_description=open("README.md", "r", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
