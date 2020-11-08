@@ -115,11 +115,43 @@ class ModelDefinition:
         with open(markdown_filepath, encoding='UTF-8') as f:
             config = list(yaml.load_all(self._get_yaml(f), Loader=yaml.SafeLoader))
             text = f.read()
-            self.config = config
+            self.config = config[0]
+            for k,v in self.config.items():
+                setattr(self, k, v)
             self.description = text
+        self._split_markdown_description(text)
 
-    def split_markdown_description(self, description: str):
-        SPLITTER = r"\*\*(.*?)\*\*\:"
-        # The first entry is a ''
-        split_description = re.split(SPLITTER, description)[1:]
-        self.markdown_split_description = {split_description[k] for i, k in enumerate(split_description) if i%2 == 0}
+    def _split_markdown_description(self, description: str, SPLITTER: str=r"(\#\#+\ +)|(\n)"):
+        """
+            Breaks markdown into heading and values.
+        """
+        # Loops through split markdown 
+        # If ## is detected inside string, marks the next
+        # string as heading
+        # and whatever follows as the value 
+        IS_HEADING = False
+        value = ''
+        heading = None
+        SKIP_NEW_LINE = False
+        markdown_values = {}
+        for x in re.split(SPLITTER, self.description):
+            if x is None:
+                continue
+            if SKIP_NEW_LINE:
+                if x == '\n':
+                    continue
+            if IS_HEADING:
+                heading = x
+                IS_HEADING = False
+                # Skip new line after the heading is declared
+                SKIP_NEW_LINE = True
+                value = ""
+            elif '##' in x:
+                if heading is not None:
+                    setattr(self, heading, value)
+                    markdown_values[heading] = value
+                IS_HEADING = True
+            else:
+                SKIP_NEW_LINE = False
+                value += x
+                
