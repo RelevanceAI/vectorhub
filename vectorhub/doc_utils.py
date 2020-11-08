@@ -157,6 +157,7 @@ class ModelDefinition:
                 value = ""
             elif '##' in x:
                 if heading is not None:
+                    heading = heading.lower().replace(' ', '_')
                     setattr(self, heading.lower(), value)
                     markdown_values[heading] = value
                 IS_HEADING = True
