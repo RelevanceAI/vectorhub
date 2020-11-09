@@ -8,20 +8,7 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tf-transformers
     import tensorflow as tf
     from transformers import AutoTokenizer, TFAutoModel
 
-TransformerModelDefinition = ModelDefinition(
-    model_name="Transformer Models", 
-    vector_length='Depends on model.', 
-    description="These are Tensorflow Automodels from HuggingFace.",
-    paper="https://arxiv.org/abs/1910.03771",
-    repo="https://huggingface.co/transformers/pretrained_models.html",
-    installation="pip install vectorhub[encoders-text-tf-transformers]",
-    example="""
-    #pip install vectorhub[encoders-text-tf-transformers]
-    from vectorhub.encoders.text.tf_transformers import TFTransformer2Vec
-    model = TFTransformer2Vec('bert-base-uncased')
-    model.encode("I enjoy taking long walks along the beach with my dog.")
-    """
-)
+TransformerModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tf_transformers/tf_auto_transformers.md')
 
 __doc__ = TransformerModelDefinition.create_docs()
 

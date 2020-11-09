@@ -1,13 +1,15 @@
-from datetime import date
 import yaml
 import sys
 import re
+import os
+from datetime import date
+from pkg_resources import resource_exists, resource_filename
 
 class ModelDefinition:
     def __init__(self, model_id: str=None, model_name: str=None, vector_length: int=None,
     description: str=None, paper: str=None, repo: str=None, architecture: str='Not stated.',
     tasks: str='Not stated.', release_date: date=None, limitations: str='Not stated.', installation: str='Not stated.', 
-    example: str='Not stated.', **kwargs):
+    example: str='Not stated.', markdown_filepath: str=None, **kwargs):
         """
             Model definition.
             Args:
@@ -35,9 +37,12 @@ class ModelDefinition:
         self.limitations = limitations
         self.installation = installation
         self.example = example
+        self.markdown_filepath = markdown_filepath
         for k, v in kwargs.items():
             # assert( k in self.__class__.__allowed )
             setattr(self, k, v)
+        if self.markdown_filepath is not None:
+            self.from_markdown(markdown_filepath)
 
     
     def create_docs(self):
@@ -114,12 +119,22 @@ class ModelDefinition:
         readline = iter(readline.__next__, '---\n') #underscores needed for Python3?
         return ''.join(readline)
 
-    def from_markdown(self, markdown_filepath: str, encoding='UTF-8'):
+    def from_markdown(self, markdown_filepath: str, encoding='UTF-8', splitter=r"(\#\#+\ +)|(\n)"):
         """
             Reads definitions from the markdown.
             Args:
                 markdown_filepath: The path of the markdown file.
+                encoding: The encoding used to open the Markdown file
         """
+        if '.md' not in markdown_filepath:
+            markdown_filepath += '.md'
+        # Check filepath exists with
+        if not os.path.exists(markdown_filepath):
+            if resource_exists('vectorhub', markdown_filepath):
+                markdown_filepath = resource_filename('vectorhub', markdown_filepath)
+            else:
+                raise FileNotFoundError(f"Unable to find {markdown_filepath}.")
+
         # Remove sys.argv, not sure what it was doing
         with open(markdown_filepath, encoding=encoding) as f:
             config = list(yaml.load_all(self._get_yaml(f), Loader=yaml.SafeLoader))
@@ -128,9 +143,9 @@ class ModelDefinition:
             for k,v in self.config.items():
                 setattr(self, k, v)
             self.markdown_description = text
-        self._split_markdown_description(text)
+        self._split_markdown_description(text, splitter=splitter)
 
-    def _split_markdown_description(self, description: str, SPLITTER: str=r"(\#\#+\ +)|(\n)"):
+    def _split_markdown_description(self, description: str, splitter: str=r"(\#\#+\ +)|(\n)"):
         """
             Breaks markdown into heading and values.
         """
@@ -143,7 +158,7 @@ class ModelDefinition:
         heading = None
         SKIP_NEW_LINE = False
         markdown_values = {}
-        for x in re.split(SPLITTER, description):
+        for x in re.split(splitter, description):
             if x is None:
                 continue
             if SKIP_NEW_LINE:

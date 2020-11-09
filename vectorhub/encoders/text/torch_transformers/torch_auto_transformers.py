@@ -8,20 +8,7 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-torch-transform
     from transformers import AutoTokenizer, AutoModel
     import torch
 
-TransformerModelDefinition = ModelDefinition(
-    model_name="Transformer Models", 
-    vector_length='Depends on model.', 
-    description="These are Torch Automodels from HuggingFace.",
-    paper="https://arxiv.org/abs/1910.03771", 
-    repo="https://huggingface.co/transformers/pretrained_models.html",
-    installation="pip install vectorhub[encoders-text-torch-transformers]",
-    example="""
-    #pip install vectorhub[encoders-text-torch-transformers]
-    from vectorhub.encoders.text.torch_transformers import Transformer2Vec
-    model = Transformer2Vec('bert-base-uncased')
-    model.encode("I enjoy taking long walks along the beach with my dog.")
-    """
-)
+TransformerModelDefinition = ModelDefinition(markdown_filepath='encoders/text/torch_transformers/torch_auto_transformers.md')
 
 __doc__ = TransformerModelDefinition.create_docs()
 

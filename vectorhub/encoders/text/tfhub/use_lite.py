@@ -1,12 +1,13 @@
 import warnings
 import numpy as np
-from ..base import BaseText2Vec
+from datetime import date
 from ....base import catch_vector_errors
-from .use import USE2Vec
 from ....doc_utils import ModelDefinition
 from ....import_utils import is_all_dependency_installed
 from ....models_dict import MODEL_REQUIREMENTS
-from datetime import date
+from ..base import BaseText2Vec
+from .use import USE2Vec
+
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-use-multi']):
     import tensorflow as tf
     import tensorflow_text
@@ -26,6 +27,8 @@ USELiteModelDefinition = ModelDefinition(
     model.encode("I enjoy taking long walks along the beach with my dog.")
     """
 )
+
+USELiteModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/use_lite.md')
 
 class USELite2Vec(BaseText2Vec):
     definition = USELiteModelDefinition

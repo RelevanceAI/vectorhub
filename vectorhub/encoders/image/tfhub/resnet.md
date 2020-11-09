@@ -2,8 +2,8 @@
 model_id: "image/resnet"
 model_name: "ResNet" 
 vector_length: 2048
-paper: "https://arxiv.org/abs/1512.03385",
-installation: "pip install vectorhub[encoders-image-tfhub]",
+paper: "https://arxiv.org/abs/1512.03385"
+installation: "pip install vectorhub[encoders-image-tfhub]"
 release_date: "2015-12-10"
 ---
 

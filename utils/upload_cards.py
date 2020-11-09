@@ -8,7 +8,8 @@ if __name__=="__main__":
     from vectorhub.auto_encoder import *
     import os
 
+    docs =  get_model_definitions(None)
+    print(docs)
     vi_client = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
     text_encoder = ViText2Vec(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
-    docs =  get_model_definitions(None)
     vi_client.insert_documents(os.environ['VH_COLLECTION_NAME'], docs, models={'description':text_encoder})
