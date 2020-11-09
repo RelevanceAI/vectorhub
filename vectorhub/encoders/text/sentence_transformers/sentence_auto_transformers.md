@@ -8,7 +8,7 @@ release_date: 2019-8-27
 installation: pip install vectorhub[encoders-text-sentence-transformers]
 ---
 
-## Model Description
+## Description
 
 These are Sentence Transformer models from sbert.net by UKPLab.
 

@@ -101,7 +101,7 @@ class ModelDefinition:
             for attr in dir(self):
                 if '__' in attr:
                     continue
-                if isinstance(getattr(self, attr), str):
+                if isinstance(getattr(self, attr), (float, str, int)):
                     model_dict[attr] = getattr(self, attr)
             return model_dict
 
@@ -186,6 +186,9 @@ class ModelDefinition:
                 value += x
 
         # Set the final value
-        if getattr(self, heading) != value:
+        if hasattr(self, heading):
+            if getattr(self, heading) != value:
+                setattr(self, heading, value)
+        else:
             setattr(self, heading, value)
     

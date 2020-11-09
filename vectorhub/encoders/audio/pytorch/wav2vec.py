@@ -1,15 +1,16 @@
-from ..base import BaseAudio2Vec
+from datetime import date
 from ....base import catch_vector_errors 
 from ....doc_utils import ModelDefinition
 from ....import_utils import *
 from ....models_dict import MODEL_REQUIREMENTS
-from datetime import date
+from ..base import BaseAudio2Vec
+
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-audio-pytorch-fairseq']):
     import torch
-    from fairseq.models.wav2vec import Wav2VecModel
     import numpy as np
+    from fairseq.models.wav2vec import Wav2VecModel
 
-WavModelDefinition = ModelDefinition(markdown_filepath='encoders/audio/pytorch/fairseq')
+WavModelDefinition = ModelDefinition(markdown_filepath='encoders/audio/pytorch/wav2vec')
 
 class Wav2Vec(BaseAudio2Vec):
     definition = WavModelDefinition

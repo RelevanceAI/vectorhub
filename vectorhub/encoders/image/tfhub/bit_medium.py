@@ -1,0 +1,31 @@
+from datetime import date
+from ....base import catch_vector_errors
+from ....doc_utils import ModelDefinition
+from ....import_utils import *
+from ..base import BaseImage2Vec
+from .bit import BitSmall2Vec
+
+if is_all_dependency_installed('encoders-image-tfhub'):
+    import tensorflow as tf
+    import tensorflow_hub as hub
+    import traceback
+
+BITModelDefinition = ModelDefinition(markdown_filepath='encoders/image/tfhub/bit')
+
+__doc__ = BITModelDefinition.create_docs()
+
+BITMediumModelDefinition = ModelDefinition(markdown_filepath="encoders/image/tfhub/bit_medium")
+
+class BitMedium2Vec(BitSmall2Vec):
+    definition = BITMediumModelDefinition
+    def __init__(self, model_url: str = 'https://tfhub.dev/google/bit/m-r50x1/1'):
+        list_of_urls = {
+            'https://tfhub.dev/google/bit/m-r50x1/1': {"vector_length":2048},  # 2048 output shape
+            'https://tfhub.dev/google/bit/m-r50x3/1': {"vector_length":6144}, # 6144 output shape
+            'https://tfhub.dev/google/bit/m-r101x1/1': {"vector_length":2048},  # 2048 output shape
+            'https://tfhub.dev/google/bit/m-r101x3/1': {"vector_length":6144},  # 6144 output shape
+            'https://tfhub.dev/google/bit/m-r152x4/1': {"vector_length":8192},  # 8192 output shape
+        }
+        self.validate_model_url(model_url, list_of_urls)
+        self.init(model_url)
+        self.vector_length = list_of_urls[model_url]["vector_length"]

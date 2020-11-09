@@ -1,1 +1,1 @@
-from .fairseq import *
+from .wav2vec import *

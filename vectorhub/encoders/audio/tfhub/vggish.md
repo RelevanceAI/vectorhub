@@ -7,7 +7,7 @@ repo: "https://tfhub.dev/google/vggish/1"
 installation: "pip install vectorhub[encoders-audio-tfhub]"
 ---
 
-## Model Description
+## Description
 
 An audio event embedding model trained on the YouTube-8M dataset.
 VGGish should be used:

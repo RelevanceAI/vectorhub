@@ -8,7 +8,7 @@ installation: "pip install vectorhub[encoders-text-tfhub]"
 release_date: 2018-3-29
 ---
 
-## Model Description
+## Description
 
 The Universal Sentence Encoder Multilingual module is an extension of the Universal Sentence Encoder Large that includes training on multiple tasks across languages. Supports 16 languages (Arabic, Chinese-simplified, Chinese-traditional, English, French, German, Italian, Japanese, Korean, Dutch, Polish, Portuguese, Spanish, Thai, Turkish, Russian) text encoder.
 

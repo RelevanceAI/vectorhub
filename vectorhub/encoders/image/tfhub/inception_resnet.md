@@ -8,7 +8,7 @@ installation: "pip install vectorhub[encoders-image-tfhub]"
 release_date: 2016-2-23
 ---
 
-## Model Description
+## Description
 
 Very deep convolutional networks have been central to the largest advances in image recognition performance in 
 recent years. One example is the Inception architecture that has been shown to achieve very good performance at 

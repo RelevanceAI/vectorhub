@@ -7,7 +7,7 @@ repo: "https://tfhub.dev/google/universal-sentence-encoder-lite/2"
 installation: pip install vectorhub[encoders-text-tfhub]
 ---
 
-## Model Description
+## Description
 
 The Universal Sentence Encoder Lite module is a lightweight version of Universal Sentence Encoder. This lite version is good for use cases when your computation resource is limited. For example, on-device inference. It's small and still gives good performance on various natural language understanding tasks.
 

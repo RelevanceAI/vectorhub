@@ -2,14 +2,14 @@
 # be sure to put quotations
 model_id: "text/bert"
 model_name: "BERT - Bidirectional Encoder Representations from"
-default_vector_length: 1024
+vector_length: 1024 (Bert Large)
 paper: "https://arxiv.org/abs/1810.04805v2"
 repo: "https://tfhub.dev/google/collections/bert/1"
 release_date: '2018-10-11'
 installation: "pip install vectorhub[encoders-text-tfhub]"
 ---
 
-## Model Description
+## Description
 
 We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models, BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task-specific architecture modifications.
 

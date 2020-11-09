@@ -8,10 +8,9 @@ from datetime import date
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-sentence-transformers']):
     from sentence_transformers import SentenceTransformer
 
-# TODO: Ask Koh if this is better named DistilRobertaQA2Vec
-DistilRobertaModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/text_text/sentence_transformers/sentence_transformers')
+DistilRobertaQAModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/text_text/sentence_transformers/sentence_transformers')
 
-__doc__ = DistilRobertaModelDefinition.create_docs()
+__doc__ = DistilRobertaQAModelDefinition.create_docs()
 
 
 class DistilRobertaQA2Vec(BaseTextText2Vec):

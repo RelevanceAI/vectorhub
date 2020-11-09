@@ -7,7 +7,7 @@ repo: 'https://tfhub.dev/google/universal-sentence-encoder-qa/3'
 installation: "pip install vectorhub[encoders-text-tfhub-tftext]"
 ---
 
-## Model Description
+## Description
 
 - Developed by researchers at Google, 2019, v2 [1].
 - It is trained on a variety of data sources and tasks, with the goal of learning text representations that 

@@ -10,7 +10,7 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-bert']):
     import bert
     import numpy as np
 
-BertModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/albert')
+BertModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/bert')
 
 __doc__ = BertModelDefinition.create_docs()
 

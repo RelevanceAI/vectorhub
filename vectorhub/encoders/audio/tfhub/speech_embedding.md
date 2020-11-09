@@ -8,7 +8,7 @@ repo: "https://tfhub.dev/google/speech_embedding/1"
 installation: "pip install vectorhub[encoders-audio-tfhub]"
 ---
 
-## Model Description
+## Description
 
 With the rise of low power speech-enabled devices, there is a growing demand to quickly produce models for recognizing arbitrary 
 sets of keywords. As with many machine learning tasks, one of the most challenging parts in the model creation process is obtaining

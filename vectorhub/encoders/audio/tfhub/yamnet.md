@@ -7,7 +7,7 @@ repo: "https://tfhub.dev/google/yamnet/1"
 installation: "pip install vectorhub[encoders-audio-tfhub]"
 ---
 
-## Model Description
+## Description
 
 YAMNet is an audio event classifier that takes audio waveform as input and makes independent predictions for each 
 of 521 audio events from the AudioSet ontology. The model uses the MobileNet v1 architecture and was trained using 

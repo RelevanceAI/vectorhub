@@ -6,7 +6,7 @@ repo: "https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3"
 installation: "pip install vectorhub[encoders-text-tfhub]"
 ---
 
-## Model Description
+## Description
 
 - Developed by researchers at Google, 2019, v2 [1].
 - Covers 16 languages, strong performance on cross-lingual question answer retrieval.       

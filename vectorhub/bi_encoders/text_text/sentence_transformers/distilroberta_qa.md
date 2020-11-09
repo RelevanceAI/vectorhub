@@ -7,7 +7,7 @@ release_date: 2019-8-27
 installation: "pip install vectorhub[encoders-text-sentence-transformers]"
 ---
 
-## Model Description
+## Description
 
 These are Distilled Roberta QA trained on MSMACRO dataset from sbert.net by UKPLab.
 

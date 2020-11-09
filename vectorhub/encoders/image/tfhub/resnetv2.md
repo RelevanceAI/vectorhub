@@ -1,10 +1,9 @@
 ---
-model_id: "image/resnet"
-model_name: "ResNet" 
+model_id: 'image/resnet-v2'
+model_name: "ResNet"
 vector_length: 2048
 paper: "https://arxiv.org/abs/1512.03385"
-installation: "pip install vectorhub[encoders-image-tfhub]"
-release_date: "2015-12-10"
+installation: "pip install vectorhub['encoders-image-tfhub']"
 ---
 
 ## Description
@@ -13,12 +12,10 @@ Deeper neural networks are more difficult to train. We present a residual learni
 
 ## Example
 
-This is an example
-
 ```
-#pip install vectorhub[encoders-image-tfhub]
-from vectorhub.encoders.image.tfhub import ResnetV12Vec
-model = ResnetV12Vec()
+#pip install vectorhub['encoders-image-tfhub']
+from vectorhub.encoders.image.tfhub import ResnetV22Vec
+model = ResnetV22Vec()
 sample = model.read('https://getvectorai.com/assets/hub-logo-with-text.png')
 model.encode(sample)
 ```
