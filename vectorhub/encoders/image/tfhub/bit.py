@@ -22,7 +22,7 @@ class BitSmall2Vec(BaseImage2Vec):
         # maintained.
         self.validate_model_url(model_url, self.list_of_urls)
         self.init(model_url)
-        self.vector_length = list_of_urls[model_url]["vector_length"]
+        self.vector_length = self.list_of_urls[model_url]["vector_length"]
 
     @property
     def list_of_urls(self):
