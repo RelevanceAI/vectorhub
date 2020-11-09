@@ -9,7 +9,7 @@ from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
 from ....import_utils import *
 from ..base import BaseImage2Vec
-from .inception import InceptionV12Vec
+from .inceptionv1 import InceptionV12Vec
 
 if is_all_dependency_installed('encoders-image-tfhub'):
     import tensorflow as tf

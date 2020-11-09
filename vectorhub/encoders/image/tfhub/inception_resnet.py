@@ -7,9 +7,7 @@ if is_all_dependency_installed('encoders-image-tfhub'):
     import tensorflow_hub as hub
     import traceback
 
-from datetime import date
-
-InceptionModelDefinition = ModelDefinition(markdown_filepath='encoders/image/tfhub/inception_resnet')
+InceptionResnetModelDefinition = ModelDefinition(markdown_filepath='encoders/image/tfhub/inception_resnet')
 
 __doc__ = InceptionResnetModelDefinition.create_docs()
 

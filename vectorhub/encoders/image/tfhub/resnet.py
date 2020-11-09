@@ -8,10 +8,9 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-image-tfhub-resnet']
     import tensorflow as tf
     import tensorflow_hub as hub
 
-ResNetModelDefinition = ModelDefinition(markdown_filepath='encoders/image/resnet')
+ResNetModelDefinition = ModelDefinition(markdown_filepath='encoders/image/tfhub/resnet')
 
 __doc__ = ResNetModelDefinition.create_docs()
-
 
 class ResnetV12Vec(BaseImage2Vec):
     definition = ResNetModelDefinition

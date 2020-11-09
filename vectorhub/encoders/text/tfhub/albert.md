@@ -2,7 +2,6 @@
 # be sure to put quotations
 model_id: 'text/albert'
 model_name: 'Albert - A Lite Bert'
-default_model_name: Albert Model
 default_vector_length: 768
 paper: 'https://arxiv.org/abs/1909.11942'
 repo: 'https://tfhub.dev/tensorflow/albert_en_base/1'

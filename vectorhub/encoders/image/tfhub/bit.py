@@ -23,6 +23,10 @@ class BitSmall2Vec(BaseImage2Vec):
             'https://tfhub.dev/google/bit/s-r101x3/1': {"vector_length":6144},  # 6144 output shape
             'https://tfhub.dev/google/bit/s-r152x4/1': {"vector_length":8192},   # 8192 output shape
         }
+        # TODO: @Koh - What is the purpose of validate-model_url 
+        # When future versions of the model get updated, we have to update this manually.
+        # Maintaining this becomes unnecessary. I don't think validate_model_url should be 
+        # maintained.
         self.validate_model_url(model_url, list_of_urls)
         self.init(model_url)
         self.vector_length = list_of_urls[model_url]["vector_length"]

@@ -134,7 +134,7 @@ class ModelDefinition:
                 markdown_filepath = resource_filename('vectorhub', markdown_filepath)
             else:
                 raise FileNotFoundError(f"Unable to find {markdown_filepath}.")
-
+        print(markdown_filepath)
         # Remove sys.argv, not sure what it was doing
         with open(markdown_filepath, encoding=encoding) as f:
             config = list(yaml.load_all(self._get_yaml(f), Loader=yaml.SafeLoader))
@@ -148,11 +148,15 @@ class ModelDefinition:
     def _split_markdown_description(self, description: str, splitter: str=r"(\#\#+\ +)|(\n)"):
         """
             Breaks markdown into heading and values.
+            Args:
+                description: Description of the markdown
+                splitter: Regex to split the sentence. Currently it splits on headings and new lines.
+                The purpose of this is to allow us to get keys from markdown files.
         """
         # Loops through split markdown 
         # If ## is detected inside string, marks the next
         # string as heading
-        # and whatever follows as the value 
+        # and whatever follows as the value
         IS_HEADING = False
         value = ''
         heading = None
@@ -164,18 +168,24 @@ class ModelDefinition:
             if SKIP_NEW_LINE:
                 if x == '\n':
                     continue
+            
             if IS_HEADING:
-                heading = x
+                heading = x.lower().rstrip().replace(' ', '_')
                 IS_HEADING = False
                 # Skip new line after the heading is declared
                 SKIP_NEW_LINE = True
                 value = ""
             elif '##' in x:
+                # Insert setting new layer
                 if heading is not None:
-                    heading = heading.lower().replace(' ', '_')
-                    setattr(self, heading.lower(), value)
+                    setattr(self, heading, value)
                     markdown_values[heading] = value
                 IS_HEADING = True
             else:
                 SKIP_NEW_LINE = False
                 value += x
+
+        # Set the final value
+        if getattr(self, heading) != value:
+            setattr(self, heading, value)
+    

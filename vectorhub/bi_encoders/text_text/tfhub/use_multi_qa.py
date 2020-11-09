@@ -13,42 +13,6 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['text-bi-encoder-tfhub-use-qa'
     import tensorflow_hub as hub
     import tensorflow_text
 
-USEQAModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/text_text/tfhub/use_qa')
-__doc__ = USEQAModelDefinition.create_docs()
-
-class USEQA2Vec(BaseTextText2Vec):
-    definition = USEQAModelDefinition
-    def __init__(self):
-        self.model_url = "https://tfhub.dev/google/universal-sentence-encoder-qa/3"
-        self.model = hub.load(self.model_url)
-        self.model_name = self.model_url.replace(
-            'https://tfhub.dev/google/', '').replace('/', '_')
-        self.vector_length = 512
-
-    @catch_vector_errors
-    def encode_question(self, question: str):
-        return self.model.signatures['question_encoder'](tf.constant([question]))['outputs'].numpy().tolist()[0]
-    
-    @catch_vector_errors
-    def bulk_encode_questions(self, questions: List[str]):
-        return self.model.signatures['question_encoder'](tf.constant([question]))['outputs'].numpy().tolist()
-
-    @catch_vector_errors
-    def encode_answer(self, answer: str, context: str=None):
-        if context is None:
-            context = answer
-        return self.model.signatures['response_encoder'](
-            input=tf.constant([answer]),
-            context=tf.constant([context]))['outputs'].numpy().tolist()[0]
-
-    @catch_vector_errors
-    def bulk_encode_answers(self, answers: List[str], contexts: List[str]=None):
-        if contexts is None:
-            contexts = answers
-        return self.model.signatures['response_encoder'](
-            input=tf.constant(answers),
-            context=tf.constant(contexts))['outputs'].numpy().tolist()
-
 USEMultiQAModelDefinition = ModelDefinition(
     model_id='text_text/use-multi-qa',
     model_name="Universal Sentence Encoder Multilingual Question Answering",

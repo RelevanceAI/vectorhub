@@ -2,7 +2,6 @@
 # be sure to put quotations
 model_id: "text/bert"
 model_name: "BERT - Bidirectional Encoder Representations from"
-default_model_name: BertModel
 default_vector_length: 1024
 paper: "https://arxiv.org/abs/1810.04805v2"
 repo: "https://tfhub.dev/google/collections/bert/1"
