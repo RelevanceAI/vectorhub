@@ -1,37 +1,15 @@
-from ..base import BaseImage2Vec
+from datetime import date
 from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
 from ....import_utils import *
+from ..base import BaseImage2Vec
+
 if is_all_dependency_installed('encoders-image-tfhub'):
     import tensorflow as tf
     import tensorflow_hub as hub
     import traceback
-from datetime import date
 
-BITModelDefinition = ModelDefinition(
-    model_id = "image/bit",
-    model_name="BiT - Big Transfer, General Visual Representation Learning (Small)", 
-    vector_length=2048, 
-    description="""Transfer of pre-trained representations improves sample efficiency and simplifies hyperparameter tuning when training 
-    deep neural networks for vision. We revisit the paradigm of pre-training on large supervised datasets and fine-tuning the model 
-    on a target task. We scale up pre-training, and propose a simple recipe that we call Big Transfer (BiT). By combining a few carefully 
-    selected components, and transferring using a simple heuristic, we achieve strong performance on over 20 datasets. BiT performs well across 
-    a surprisingly wide range of data regimes -- from 1 example per class to 1M total examples. BiT achieves 87.5% top-1 accuracy on ILSVRC-2012, 
-    99.4% on CIFAR-10, and 76.3% on the 19 task Visual Task Adaptation Benchmark (VTAB). On small datasets, BiT attains 76.8% on 
-    ILSVRC-2012 with 10 examples per class, and 97.0% on CIFAR-10 with 10 examples per class. We conduct detailed analysis 
-    of the main components that lead to high transfer performance.""",
-    paper="https://arxiv.org/abs/1912.11370", 
-    repo="https://github.com/google-research/big_transfer",
-    installation="pip install vectorhub[encoders-image-tfhub]",
-    release_date=date(2019,12,24),
-    example="""
-    #pip install vectorhub[encoders-image-tfhub]
-    from vectorhub.encoders.image.tfhub import BitSmall2Vec
-    model = BitSmall2Vec()
-    sample = model.read('https://getvectorai.com/assets/hub-logo-with-text.png')
-    model.encode(sample)
-    """
-)
+BITModelDefinition = ModelDefinition(markdown_filepath='encoders/image/tfhub/bit')
 
 __doc__ = BITModelDefinition.create_docs()
 

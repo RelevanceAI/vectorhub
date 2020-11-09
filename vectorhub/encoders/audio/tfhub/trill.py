@@ -1,39 +1,15 @@
+from datetime import date
 from ....import_utils import *
 from ....models_dict import *
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-audio-tfhub-trill']):
     import tensorflow as tf
     import tensorflow_hub as hub
     import traceback
-from ..base import BaseAudio2Vec
 from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
-from datetime import date
+from ..base import BaseAudio2Vec
 
-TrillModelDefinition = ModelDefinition(
-    model_name="Trill - Triplet Loss Network", 
-    model_id = "audio/trill",
-    vector_length=512, 
-    description="""
-    The ultimate goal of transfer learning is to reduce labeled data requirements by exploiting a pre-existing embedding model trained for 
-    different datasets or tasks. The visual and language communities have established benchmarks to compare embeddings, but the speech 
-    community has yet to do so. This paper proposes a benchmark for comparing speech representations on non-semantic tasks, and proposes a 
-    representation based on an unsupervised triplet-loss objective. The proposed representation outperforms other representations on the 
-    benchmark, and even exceeds state-of-the-art performance on a number of transfer learning tasks. The embedding is trained on a publicly 
-    available dataset, and it is tested on a variety of low-resource downstream tasks, including personalization tasks and medical domain. 
-    The benchmark, models, and evaluation code are publicly released.""",
-    paper="https://arxiv.org/abs/2002.12764",
-    release_date=date(2020,2,25),
-    repo="https://tfhub.dev/google/nonsemantic-speech-benchmark/trill/3",
-    installation="pip install vectorhub[{}]".format(MODEL_REQUIREMENTS['encoders-audio-tfhub-trill']),
-    example="""
-    #pip install vectorhub[{}]
-    from vectorhub.encoders.audio.tfhub import Trill2Vec
-    model = Trill2Vec()
-    sample = model.read('https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav')
-    model.encode(sample)
-    """.format(MODEL_REQUIREMENTS['encoders-audio-tfhub-trill'])
-)
-
+TrillModelDefinition = ModelDefinition(markdown_filepath='encoders/audio/tfhub/trill')
 __doc__ = TrillModelDefinition.create_docs()
 
 

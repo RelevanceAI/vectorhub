@@ -10,23 +10,7 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-bert']):
     import bert
     import numpy as np
 
-BertModelDefinition = ModelDefinition(
-    model_id = "text/bert",
-    model_name="BERT - Bidirectional Encoder Representations from Transformers", 
-    vector_length=1024, 
-    description="We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models, BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task-specific architecture modifications.",
-    paper="https://arxiv.org/abs/1810.04805v2",
-    repo="https://tfhub.dev/google/collections/bert/1",
-    installation="pip install vectorhub[encoders-text-tfhub]",
-    release_date=date(2018,10,11),
-    example="""
-    #pip install vectorhub[encoders-text-tfhub]
-    #FOR WINDOWS: pip install vectorhub[encoders-text-tfhub-windows]
-    from vectorhub.encoders.text.tfhub import Bert2Vec
-    model = Bert2Vec()
-    model.encode("I enjoy taking long walks along the beach with my dog.")
-    """
-)
+BertModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/albert')
 
 __doc__ = BertModelDefinition.create_docs()
 

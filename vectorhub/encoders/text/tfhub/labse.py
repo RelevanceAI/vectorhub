@@ -25,6 +25,7 @@ LABSEModelDefinition = ModelDefinition(
     """
 )
 
+LABSEModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/labse.md')
 __doc__ = LABSEModelDefinition.create_docs()
 
 

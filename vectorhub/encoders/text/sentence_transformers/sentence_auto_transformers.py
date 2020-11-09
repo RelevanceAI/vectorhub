@@ -8,23 +8,7 @@ from datetime import date
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-sentence-transformers']):
     from sentence_transformers import SentenceTransformer
 
-
-SentenceTransformerModelDefinition = ModelDefinition(
-    model_id='text/sentence-transformers',
-    model_name="Sentence Transformer Models", 
-    vector_length='Depends on model.', 
-    description="These are Sentence Transformer models from sbert.net by UKPLab.",
-    paper="https://arxiv.org/abs/1908.10084", 
-    repo="https://github.com/UKPLab/sentence-transformers",
-    release_date=date(2019,8,27),
-    installation="pip install vectorhub[encoders-text-sentence-transformers]",
-    example="""
-    #pip install vectorhub[encoders-text-sentence-transformers]
-    from vectorhub.encoders.text.sentence_transformers import SentenceTransformer2Vec
-    model = SentenceTransformer2Vec('bert-base-uncased')
-    model.encode("I enjoy taking long walks along the beach with my dog.")
-    """
-)
+SentenceTransformerModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/sentence_auto_transformers')
 
 LIST_OF_URLS = {
     'distilroberta-base-paraphrase-v1' : {"vector_length": 768},
