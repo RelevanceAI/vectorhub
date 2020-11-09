@@ -14,7 +14,7 @@ if is_all_dependency_installed('encoders-image-tfhub'):
     import tensorflow as tf
     import tensorflow_hub as hub
 
-InceptionModelDefinition = ModelDefinition(markdown_filepath='encoders/image/tfhub/inception')
+InceptionModelDefinition = ModelDefinition(markdown_filepath='encoders/image/tfhub/inceptionv1')
 
 __doc__ = InceptionModelDefinition.create_docs()
 

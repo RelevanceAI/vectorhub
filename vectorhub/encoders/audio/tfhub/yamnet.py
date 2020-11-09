@@ -9,7 +9,7 @@ from ..base import BaseAudio2Vec
 from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
 
-YamnetModelDefinition = ModelDefinition(markdown_filepath='enmcoders/audio/tfhub/yamnet')
+YamnetModelDefinition = ModelDefinition(markdown_filepath='encoders/audio/tfhub/yamnet')
 __doc__ = YamnetModelDefinition.create_docs()
 
 class Yamnet2Vec(BaseAudio2Vec):
