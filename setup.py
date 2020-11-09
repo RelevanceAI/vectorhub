@@ -37,7 +37,7 @@ def dependency_to_requirement(requirements_dict: Dict, add_all=True, add_single_
 all_deps = get_extra_requires('extra_requirements.json')
 
 # Additional files to include - adding model cards
-package_data = [str(x) for x in Path('vectorhub').rglob('*.md'))]
+package_data = [str(x) for x in Path('vectorhub').rglob('*.md')]
 
 # Also add the extra_requirements.json file
 package_data.append('extra_requirements.json')
