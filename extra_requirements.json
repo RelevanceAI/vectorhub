@@ -1,6 +1,7 @@
 {
     "numpy": ["core"],
     "requests": ["core"],
+    "PyYAML": ["core"],
     "pytest": ["test"],
     "sphinx-rtd-theme>=0.5.0": ["test"],
     "imageio": ["encoders-image-tfhub"],
