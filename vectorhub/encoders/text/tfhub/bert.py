@@ -85,9 +85,9 @@ class Bert2Vec(BaseText2Vec):
     @catch_vector_errors
     def encode(self, text: str):
         input_ids, input_mask, segment_ids = self.process(text)
-        return self.model([input_ids, input_mask, segment_ids]).numpy().tolist()[0]
+        return self.model({"input_word_ids":input_ids, "input_mask": input_mask, "segment_ids": segment_ids}).numpy().tolist()[0]
 
     @catch_vector_errors
     def bulk_encode(self, texts: list):
         input_ids, input_mask, segment_ids = self.process(texts)
-        return self.model([input_ids, input_mask, segment_ids]).numpy().tolist()
+        return self.model({"input_word_ids":input_ids, "input_mask": input_mask, "segment_ids": segment_ids}).numpy().tolist()
