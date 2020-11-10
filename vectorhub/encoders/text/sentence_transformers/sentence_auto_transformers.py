@@ -8,7 +8,7 @@ from datetime import date
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-sentence-transformers']):
     from sentence_transformers import SentenceTransformer
 
-SentenceTransformerModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/sentence_auto_transformers')
+SentenceTransformerModelDefinition = ModelDefinition(markdown_filepath='encoders/text/sentence_transformers/sentence_auto_transformers')
 
 LIST_OF_URLS = {
     'distilroberta-base-paraphrase-v1' : {"vector_length": 768},
