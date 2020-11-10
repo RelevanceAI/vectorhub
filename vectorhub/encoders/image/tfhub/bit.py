@@ -16,10 +16,6 @@ __doc__ = BITModelDefinition.create_docs()
 class BitSmall2Vec(BaseImage2Vec):
     definition = BITModelDefinition
     def __init__(self, model_url: str = "https://tfhub.dev/google/bit/s-r50x1/1"):
-        # TODO: @JackyKoh - What is the purpose of validate-model_url 
-        # When future versions of the model get updated, we have to update this manually.
-        # Maintaining this becomes unnecessary. I don't think validate_model_url should be 
-        # maintained.
         self.validate_model_url(model_url, self.list_of_urls)
         self.init(model_url)
         self.vector_length = self.list_of_urls[model_url]["vector_length"]
