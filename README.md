@@ -81,9 +81,9 @@ python3 -m pip install vectorhub[all]
 
 ## Quickstart:
 
-[Google Colab Quickstart](https://colab.research.google.com/drive/1mI9IBdURJoA1SX87F0p7RpARM9ITEZ-B)
+[Google Colab Quickstart](https://go.vctr.ai/vectorhub-colab)
 
-[Documentation](https://vector-ai.github.io/vectorhub/)
+[Documentation](https://go.vctr.ai/vectorhub-docs)
 
 [Full list of models](https://hub.getvectorai.com/)
 
