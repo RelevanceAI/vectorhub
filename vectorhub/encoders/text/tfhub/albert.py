@@ -12,12 +12,12 @@ __doc__ = AlbertModelDefinition.create_docs()
 
 class Albert2Vec(Bert2Vec):
     definition = AlbertModelDefinition
-    def __init__(self, model_url: str = 'https://tfhub.dev/tensorflow/albert_en_base/1', max_seq_length: int = 128, normalize: bool = True):
+    def __init__(self, model_url: str = 'https://tfhub.dev/tensorflow/albert_en_base/2', max_seq_length: int = 228, normalize: bool = True):
         list_of_urls = [
-            'https://tfhub.dev/tensorflow/albert_en_base/1',
-            'https://tfhub.dev/tensorflow/albert_en_xxlarge/1',
-            'https://tfhub.dev/tensorflow/albert_en_large/1',
-            'https://tfhub.dev/tensorflow/albert_en_xlarge/1',
+            'https://tfhub.dev/tensorflow/albert_en_base/2',
+            'https://tfhub.dev/tensorflow/albert_en_xxlarge/2',
+            'https://tfhub.dev/tensorflow/albert_en_large/2',
+            'https://tfhub.dev/tensorflow/albert_en_xlarge/2',
         ]
         self.validate_model_url(model_url, list_of_urls)
         self.max_seq_length = max_seq_length
