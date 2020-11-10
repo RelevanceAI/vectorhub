@@ -16,6 +16,20 @@ if __name__=="__main__":
     args = parser.parse_args()
 
     docs =  get_model_definitions(None)
+    print("Marksdowns without example:")
+    def remove_example_from_description(text):
+        # Remove the Example if it is in the middle of the document
+        text = re.sub(r'## Example(.*?)##', '##', text, flags=re.DOTALL)
+        if '## Example' in text:
+            text = re.sub(r'## Example(.*)', '', text)
+            text = re.sub(r"\`\`\`.*?\`\`\`", '', text, flags=re.DOTALL)
+            # Remove if it is at the bottom of the document
+        return text
+
+    for i, doc in enumerate(docs):
+        markdown_without_example = remove_example_from_description(doc['markdown_description'])
+        docs[i]['markdown_without_example'] = markdown_without_example
+        print(markdown_without_example)
 
     # Generate 1 sentence summaries for the models
     from transformers import PegasusTokenizer, PegasusForConditionalGeneration
@@ -38,16 +52,6 @@ if __name__=="__main__":
         docs[i]['short_description'] = short_description
         print(short_description)
 
-    def remove_example_from_description(text):
-        # Remove the Example if it is in the middle of the document
-        text = re.sub(r'## Example(.*?)##', '##', text)
-        if '## Example' in text:
-            # Remove if it is at the bottom of the document
-            text = re.sub(r'## Example(.*)', '', text)
-        return text
-
-    for i, doc in enumerate(docs):
-        docs[i]['markdown_without_example'] = remove_example_from_description(doc['markdown_description'])
 
     vi_client = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
     if args.collection_name in vi_client.list_collections():
