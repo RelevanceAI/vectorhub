@@ -119,7 +119,8 @@ class ModelDefinition:
         readline = iter(readline.__next__, '---\n') #underscores needed for Python3?
         return ''.join(readline)
 
-    def from_markdown(self, markdown_filepath: str, encoding='UTF-8', splitter=r"(\#\#+\ +)|(\n)"):
+    def from_markdown(self, markdown_filepath: str, encoding='UTF-8', splitter=r"(\#\#+\ +)|(\n)",
+    verbose=False):
         """
             Reads definitions from the markdown.
             Args:
@@ -134,7 +135,8 @@ class ModelDefinition:
                 markdown_filepath = resource_filename('vectorhub', markdown_filepath)
             else:
                 raise FileNotFoundError(f"Unable to find {markdown_filepath}.")
-        print(markdown_filepath)
+        if verbose:
+            print(markdown_filepath)
         # Remove sys.argv, not sure what it was doing
         with open(markdown_filepath, encoding=encoding) as f:
             config = list(yaml.load_all(self._get_yaml(f), Loader=yaml.SafeLoader))

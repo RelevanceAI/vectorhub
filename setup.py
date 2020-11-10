@@ -44,7 +44,6 @@ package_data = [str(x) for x in list(Path('vectorhub').rglob("*.md"))]
 
 # Also add the extra_requirements.json file
 package_data.append('extra_requirements.json')
-print(package_data)
 
 setup(
     name="vectorhub",
