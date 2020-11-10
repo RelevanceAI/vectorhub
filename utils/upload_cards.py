@@ -32,9 +32,9 @@ if __name__=="__main__":
         gen = model.generate(**batch)
         return tok.batch_decode(gen, skip_special_tokens=True)[0]
     
-    for doc in docs:
+    for i, doc in enumerate(docs):
         short_description = summarise(doc['description'])
-        docs[0]['short_description'] = short_description
+        docs[i]['short_description'] = short_description
 
     vi_client = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
     if args.collection_name in vi_client.list_collections():
