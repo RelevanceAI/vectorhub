@@ -38,7 +38,7 @@ class Bert2Vec(BaseText2Vec):
         input_word_ids = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32)
         input_mask = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32)
         input_type_ids = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32)
-        return model(dict(input_word_ids=input_word_ids, input_mask=input_mask, input_type_ids=input_type_ids))
+        return model(dict(input_word_ids=input_word_ids, input_mask=input_mask, input_type_ids=input_type_ids))['pooled_output']
 
     def init_tokenizer(self):
         self.vocab_file = self.model.resolved_object.vocab_file.asset_path.numpy()
