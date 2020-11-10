@@ -80,9 +80,9 @@ class Bert2Vec(BaseText2Vec):
             input_mask_all.append(input_mask)
             segment_ids_all.append([0] * self.max_seq_length)
 
-        return tf.convert_to_tensor(np.array(input_ids_all), tf.int32), \
-            tf.convert_to_tensor(np.array(input_mask_all), tf.int32), \
-            tf.convert_to_tensor(np.array(segment_ids_all), tf.int32)
+        return tf.convert_to_tensor(np.array(input_ids_all), tf.int32, name="input_word_ids"), \
+            tf.convert_to_tensor(np.array(input_mask_all), tf.int32, name="input_mask"), \
+            tf.convert_to_tensor(np.array(segment_ids_all), tf.int32, name="input_type_ids")
 
     @catch_vector_errors
     def encode(self, text: str):
