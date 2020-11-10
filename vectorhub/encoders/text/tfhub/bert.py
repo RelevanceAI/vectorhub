@@ -41,8 +41,8 @@ class Bert2Vec(BaseText2Vec):
         return model(dict(input_word_ids=input_word_ids, input_mask=input_mask, input_type_ids=input_type_ids))
 
     def init_tokenizer(self):
-        self.vocab_file = self.model_layer.resolved_object.vocab_file.asset_path.numpy()
-        self.do_lower_case = self.model_layer.resolved_object.do_lower_case.numpy()
+        self.vocab_file = self.model.resolved_object.vocab_file.asset_path.numpy()
+        self.do_lower_case = self.model.resolved_object.do_lower_case.numpy()
         return bert.bert_tokenization.FullTokenizer(self.vocab_file, self.do_lower_case)
 
     def process(self, input_strings: str):
