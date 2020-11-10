@@ -70,16 +70,22 @@ class Bert2Vec(BaseText2Vec):
             input_mask_all.append(input_mask)
             input_type_ids_all.append([0] * self.max_seq_length)
 
-        return tf.convert_to_tensor(np.array(input_ids_all), tf.int32, name="input_word_ids"), \
-            tf.convert_to_tensor(np.array(input_mask_all), tf.int32, name="input_mask"), \
-            tf.convert_to_tensor(np.array(input_type_ids_all), tf.int32, name="input_type_ids")
+        return np.array(input_ids_all), np.array(input_mask_all),  np.array(input_type_ids_all)
 
     @catch_vector_errors
     def encode(self, text: str):
         input_ids, input_mask, input_type_ids = self.process(text)
-        return self.model({"input_word_ids":input_ids, "input_mask": input_mask, "input_type_ids": input_type_ids})['pooled_output'].numpy().tolist()[0]
+        return self.model({
+            "input_word_ids": tf.convert_to_tensor(input_ids, tf.int32, name="input_word_ids"), 
+            "input_mask": tf.convert_to_tensor(input_mask, tf.int32, name="input_mask"), 
+            "input_type_ids": tf.convert_to_tensor(input_type_ids, tf.int32, name="input_type_ids")
+        })['pooled_output'].numpy().tolist()[0]
 
     @catch_vector_errors
     def bulk_encode(self, texts: list):
         input_ids, input_mask, input_type_ids = self.process(texts)
-        return self.model({"input_word_ids":input_ids, "input_mask": input_mask, "input_type_ids": input_type_ids})['pooled_output'].numpy().tolist()
+        return self.model({
+            "input_word_ids": tf.convert_to_tensor(input_ids, tf.int32, name="input_word_ids"), 
+            "input_mask": tf.convert_to_tensor(input_mask, tf.int32, name="input_mask"), 
+            "input_type_ids": tf.convert_to_tensor(input_type_ids, tf.int32, name="input_type_ids")
+        })['pooled_output'].numpy().tolist()
