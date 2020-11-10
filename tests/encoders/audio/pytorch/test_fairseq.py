@@ -1,4 +1,4 @@
-from vectorhub.encoders.audio.pytorch.fairseq import Wav2Vec
+from vectorhub.encoders.audio.pytorch.wav2vec import Wav2Vec
 import numpy as np
 
 
