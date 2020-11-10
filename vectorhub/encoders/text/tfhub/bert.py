@@ -35,19 +35,21 @@ class Bert2Vec(BaseText2Vec):
 
     def init(self, model_url: str):
         self.model_layer = hub.KerasLayer(model_url)
-        input_word_ids = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32,
-                                            name="input_word_ids")
-        input_mask = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32,
-                                        name="input_mask")
-        segment_ids = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32,
-                                            name="segment_ids")
+        inputs = dict(
+            input_word_ids = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32,
+                                                        name="input_word_ids"),
+            input_mask = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32,
+                                            name="input_mask"),
+            segment_ids = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32,
+                                                name="segment_ids")
+        )
         pooled_output,  _ = self.model_layer(
             [input_word_ids, input_mask, segment_ids])
         if(self.normalize):
             pooled_output = tf.keras.layers.Lambda(
                 lambda x: tf.nn.l2_normalize(x, axis=1))(pooled_output)
         return tf.keras.Model(
-            inputs=[input_word_ids, input_mask, segment_ids],
+            inputs=inputs,
             outputs=pooled_output)
 
     def init_tokenizer(self):
