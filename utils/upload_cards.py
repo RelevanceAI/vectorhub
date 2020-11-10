@@ -43,9 +43,9 @@ if __name__=="__main__":
         text = re.sub(r'## Example(.*?)##', '##', text)
         if '## Example' in text:
             # Remove if it is at the bottom of the document
-            text = re.sub(r'## Example(.*?)', '', text)
+            text = re.sub(r'## Example(.*)', '', text)
         return text
-    
+
     for i, doc in enumerate(docs):
         docs[i]['markdown_without_example'] = remove_example_from_description(doc['markdown_description'])
 
