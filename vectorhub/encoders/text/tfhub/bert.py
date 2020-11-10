@@ -35,25 +35,16 @@ class Bert2Vec(BaseText2Vec):
 
     def init(self, model_url: str):
         self.model_layer = hub.KerasLayer(model_url)
-        input_word_ids = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32,
-                                            name="input_word_ids")
-        input_mask = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32,
-                                        name="input_mask")
-        segment_ids = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32,
-                                            name="segment_ids")
-        pooled_output,  _ = self.model_layer([input_word_ids, input_mask, segment_ids])
-        if(self.normalize):
-            pooled_output = tf.keras.layers.Lambda(
-                lambda x: tf.nn.l2_normalize(x, axis=1))(pooled_output)
-        return tf.keras.Model(
-            inputs=dict(input_word_ids=input_word_ids, input_mask=input_mask, segment_ids=segment_ids),
-            outputs=pooled_output)
+        input_word_ids = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32)
+        input_mask = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32)
+        segment_ids = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32)
+        outputs = self.model_layer(dict(input_word_ids=input_word_ids, input_mask=input_mask, segment_ids=segment_ids))
+        return ouputs['pooled_output']
 
     def init_tokenizer(self):
         self.vocab_file = self.model_layer.resolved_object.vocab_file.asset_path.numpy()
         self.do_lower_case = self.model_layer.resolved_object.do_lower_case.numpy()
-        return bert.bert_tokenization.FullTokenizer(
-            self.vocab_file, self.do_lower_case)
+        return bert.bert_tokenization.FullTokenizer(self.vocab_file, self.do_lower_case)
 
     def process(self, input_strings: str):
         input_ids_all, input_mask_all, segment_ids_all = [], [], []
@@ -87,9 +78,9 @@ class Bert2Vec(BaseText2Vec):
     @catch_vector_errors
     def encode(self, text: str):
         input_ids, input_mask, segment_ids = self.process(text)
-        return self.model({"input_word_ids":input_ids, "input_mask": input_mask, "input_type_ids": segment_ids}).numpy().tolist()[0]
+        return self.model({"input_word_ids":input_ids, "input_mask": input_mask, "input_type_ids": segment_ids})['pooled_output'].numpy().tolist()[0]
 
     @catch_vector_errors
     def bulk_encode(self, texts: list):
         input_ids, input_mask, segment_ids = self.process(texts)
-        return self.model({"input_word_ids":input_ids, "input_mask": input_mask, "input_type_ids": segment_ids}).numpy().tolist()
+        return self.model({"input_word_ids":input_ids, "input_mask": input_mask, "input_type_ids": segment_ids})['pooled_output'].numpy().tolist()
