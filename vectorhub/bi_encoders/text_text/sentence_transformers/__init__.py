@@ -1,1 +1,1 @@
-from .sentence_transformers import *
+from .distilroberta_qa import *
