@@ -2,12 +2,11 @@
 # be sure to put quotations
 model_id: 'text/albert'
 model_name: 'Albert - A Lite Bert'
-vector_length: 768
+vector_length: 768 (albert_en_base)
 paper: 'https://arxiv.org/abs/1909.11942'
 repo: 'https://tfhub.dev/tensorflow/albert_en_base/1'
 installation: "pip install vectorhub[encoders-text-tfhub]"
-# Year Month Date
-release_date: '2019-9-26'
+release_date: "2019-09-26"
 ---
 
 ## Description
@@ -16,7 +15,7 @@ Increasing model size when pretraining natural language representations often re
 
 ## Example
 
-```
+```python
 #pip install vectorhub[encoders-text-tfhub]
 #FOR WINDOWS: pip install vectorhub[encoders-text-tfhub-windows]
 from vectorhub.encoders.text.tfhub import Albert2Vec

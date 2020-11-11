@@ -2,7 +2,7 @@
 model_id: 'text_text/use-qa'
 model_name: "Universal Sentence Encoder Question Answering"
 vector_length: 512
-release_date: 2020-3-11
+release_date: "2020-03-11"
 repo: 'https://tfhub.dev/google/universal-sentence-encoder-qa/3'
 installation: "pip install vectorhub[encoders-text-tfhub-tftext]"
 ---

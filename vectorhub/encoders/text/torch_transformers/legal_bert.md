@@ -1,10 +1,10 @@
 ---
 model_id: "text/legal-bert" 
 model_name: "Legal Bert" 
-vector_length: 768 
+vector_length: "768"
 paper: "https://arxiv.org/abs/2010.02559"
 repo: "https://huggingface.co/nlpaueb/legal-bert-base-uncased"
-release_date: 2020-10-6
+release_date: "2020-10-06"
 installation: "pip install vectorhub[encoders-text-torch-transformers]"
 ---
 

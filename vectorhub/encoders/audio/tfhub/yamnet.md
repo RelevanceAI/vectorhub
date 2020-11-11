@@ -2,7 +2,7 @@
 model_id: audio/yamnet
 model_name: Yamnet 
 vector_length: 1024
-release_date: 2020-3-11
+release_date: "2020-03-11"
 repo: "https://tfhub.dev/google/yamnet/1"
 installation: "pip install vectorhub[encoders-audio-tfhub]"
 ---

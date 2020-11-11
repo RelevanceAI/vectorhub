@@ -1,11 +1,11 @@
 ---
 model_id: "text/use-multi"
 model_name: "USE Multi - Universal Sentence Encoder Multilingual"
-vector_length: 512
+vector_length: "512 (Base model)"
 paper: "https://arxiv.org/abs/1803.11175" 
 repo: "https://tfhub.dev/google/collections/universal-sentence-encoder/1"
 installation: "pip install vectorhub[encoders-text-tfhub]"
-release_date: 2018-3-29
+release_date: "2018-03-29"
 ---
 
 ## Description

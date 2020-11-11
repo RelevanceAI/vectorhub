@@ -2,7 +2,7 @@
 model_id: "audio/speech-embedding"
 model_name: "Speech Embedding" 
 vector_length: 96
-release_date: 2020-1-31
+release_date: "2020-01-31"
 paper: "https://arxiv.org/abs/2002.01322"
 repo: "https://tfhub.dev/google/speech_embedding/1"
 installation: "pip install vectorhub[encoders-audio-tfhub]"

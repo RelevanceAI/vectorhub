@@ -5,7 +5,7 @@ vector_length: 'Depends on model.'
 paper: "https://arxiv.org/abs/1910.03771"
 repo: "https://huggingface.co/transformers/pretrained_models.html"
 installation: "pip install vectorhub[encoders-text-torch-transformers-auto]"
-release_date: N/A
+release_date: null
 ---
 
 ## Description

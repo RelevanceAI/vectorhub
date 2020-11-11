@@ -4,7 +4,7 @@ model_name: "LAReQA: Language-agnostic answer retrieval from a multilingual pool
 vector_length: '512'
 paper: "https://arxiv.org/abs/2004.05484"
 repo: "https://tfhub.dev/google/LAReQA/mBERT_En_En/1"
-release_date: 2020-4-11
+release_date: "2020-04-11"
 installation: "pip install vectorhub[encoders-text-tfhub]"
 vector_length: 512
 ---

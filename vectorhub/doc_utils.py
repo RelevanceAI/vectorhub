@@ -6,20 +6,20 @@ from datetime import date
 from pkg_resources import resource_exists, resource_filename
 
 class ModelDefinition:
-    def __init__(self, model_id: str=None, model_name: str=None, vector_length: int=None,
-    description: str=None, paper: str=None, repo: str=None, architecture: str='Not stated.',
-    tasks: str='Not stated.', release_date: date=None, limitations: str='Not stated.', installation: str='Not stated.', 
-    example: str='Not stated.', markdown_filepath: str=None, **kwargs):
+    def __init__(self, model_id: str='', model_name: str='', vector_length: int='',
+    description: str='', paper: str='', repo: str='', architecture: str='Not stated.',
+    tasks: str='Not stated.', release_date: date='', limitations: str='Not stated.', installation: str='Not stated.',
+    example: str='Not stated.', markdown_filepath: str='', **kwargs):
         """
             Model definition.
             Args:
-                model_id: the identity of the model. Required for AutoEncoder. 
+                model_id: the identity of the model. Required for AutoEncoder.
                 model_name: The name of the model
-                vector_length: The length of the vector 
+                vector_length: The length of the vector
                 description: The description of the encoder
                 paper: The paper which dictates the encoder
                 repo: The repository fo the model
-                architecture: The architecture of the model. 
+                architecture: The architecture of the model.
                 task: The downstream task that the model was trained on
                 limitations: The limitations of the encoder
                 installation: How to isntall the encoder.
@@ -41,10 +41,10 @@ class ModelDefinition:
         for k, v in kwargs.items():
             # assert( k in self.__class__.__allowed )
             setattr(self, k, v)
-        if self.markdown_filepath is not None:
+        if markdown_filepath != '':
             self.from_markdown(markdown_filepath)
 
-    
+
     def create_docs(self):
         """
             Return a string with the RST documentation of the model.
@@ -70,7 +70,7 @@ class ModelDefinition:
 
 **Installation**: ``{self.installation}``
 
-**Example**: 
+**Example**:
 
 .. code-block:: python
 
@@ -79,7 +79,7 @@ class ModelDefinition:
 
     def to_dict(self, return_base_dictionary=False):
         """
-            Create a dictionary with all the attributes of the model. 
+            Create a dictionary with all the attributes of the model.
         """
         if return_base_dictionary:
             return {
@@ -103,6 +103,8 @@ class ModelDefinition:
                     continue
                 if isinstance(getattr(self, attr), (float, str, int)):
                     model_dict[attr] = getattr(self, attr)
+            # Enforce string typecast on vector length
+            model_dict['vector_length'] = str(model_dict['vector_length'])
             return model_dict
 
     def _get_yaml(self, f):
@@ -155,7 +157,7 @@ class ModelDefinition:
                 splitter: Regex to split the sentence. Currently it splits on headings and new lines.
                 The purpose of this is to allow us to get keys from markdown files.
         """
-        # Loops through split markdown 
+        # Loops through split markdown
         # If ## is detected inside string, marks the next
         # string as heading
         # and whatever follows as the value
@@ -170,7 +172,7 @@ class ModelDefinition:
             if SKIP_NEW_LINE:
                 if x == '\n':
                     continue
-            
+
             if IS_HEADING:
                 heading = x.lower().rstrip().replace(' ', '_')
                 IS_HEADING = False
@@ -193,4 +195,4 @@ class ModelDefinition:
                 setattr(self, heading, value)
         else:
             setattr(self, heading, value)
-    
+

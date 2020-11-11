@@ -13,9 +13,12 @@ if __name__=="__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--collection_name', default=os.environ['VH_COLLECTION_NAME'])
+    parser.add_argument('--quick_run', action='store_true')
     args = parser.parse_args()
 
     docs =  get_model_definitions(None)
+    print("Number of documents are: ")
+    print(len(docs))
     print("Marksdowns without example:")
     def remove_example_from_description(text):
         # Remove the Example if it is in the middle of the document
@@ -47,10 +50,11 @@ if __name__=="__main__":
         gen = model.generate(**batch)
         return tok.batch_decode(gen, skip_special_tokens=True)[0]
 
-    for i, doc in enumerate(docs):
-        short_description = summarise(doc['description'])
-        docs[i]['short_description'] = short_description
-        print(short_description)
+    if not args.quick_run:
+        for i, doc in enumerate(docs):
+            short_description = summarise(doc['description'])
+            docs[i]['short_description'] = short_description
+            print(short_description)
 
     # for i, doc in enumerate(docs):
     #     print(doc['model_id'])
@@ -63,7 +67,10 @@ if __name__=="__main__":
         vi_client.delete_collection(args.collection_name)
         time.sleep(5)
     text_encoder = ViText2Vec(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
-    vi_client.insert_documents(args.collection_name, docs, models={'description': text_encoder})
+    import pdb; pdb.set_trace()
+    response = vi_client.insert_documents(args.collection_name, docs, models={'description': text_encoder})
+    if response['number_of_failed_ids'] != 0:
+        raise SystemError("Failed IDs")
     print("Checking Documents:")
     print(vi_client.head(args.collection_name))
     print(vi_client.head(args.collection_name)['vector_length'])

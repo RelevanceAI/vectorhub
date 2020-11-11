@@ -2,7 +2,7 @@
 model_id: "audio/vggish"
 model_name: "VGGish" 
 vector_length: 512
-release_date: 2020-3-11
+release_date: "2020-03-11"
 repo: "https://tfhub.dev/google/vggish/1"
 installation: "pip install vectorhub[encoders-audio-tfhub]"
 ---

@@ -5,7 +5,7 @@ vector_length: 512
 paper: "https://arxiv.org/abs/2006.11477"
 repo: "https://github.com/pytorch/fairseq"
 installation: "pip install vectorhub[encoders-audio-pytorch]"
-release_date: 2020-6-20
+release_date: "2020-06-20"
 ---
 
 ## Description
