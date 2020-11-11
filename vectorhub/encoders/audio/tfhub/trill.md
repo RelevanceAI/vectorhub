@@ -20,8 +20,10 @@ The benchmark, models, and evaluation code are publicly released."""
 
 ## Example
 
+```python
 #pip install vectorhub[{}]
 from vectorhub.encoders.audio.tfhub import Trill2Vec
 model = Trill2Vec()
 sample = model.read('https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav')
 model.encode(sample)
+```
