@@ -30,19 +30,19 @@ class Bert2Vec(BaseText2Vec):
         self.validate_model_url(model_url, list_of_urls)
         self.max_seq_length = max_seq_length
         self.normalize = normalize
-        self.model = self.init(model_url)
+        self.init(model_url)
         self.tokenizer = self.init_tokenizer()
 
     def init(self, model_url: str):
-        self.hub_model = hub.KerasLayer(model_url)
+        self.model = hub.KerasLayer(model_url)
         input_word_ids = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32)
         input_mask = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32)
         input_type_ids = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32)
-        return self.hub_model(dict(input_word_ids=input_word_ids, input_mask=input_mask, input_type_ids=input_type_ids))['pooled_output']
+        self.model(dict(input_word_ids=input_word_ids, input_mask=input_mask, input_type_ids=input_type_ids))
 
     def init_tokenizer(self):
-        self.vocab_file = self.hub_model.resolved_object.vocab_file.asset_path.numpy()
-        self.do_lower_case = self.hub_model.resolved_object.do_lower_case.numpy()
+        self.vocab_file = self.model.resolved_object.vocab_file.asset_path.numpy()
+        self.do_lower_case = self.model.resolved_object.do_lower_case.numpy()
         return bert.bert_tokenization.FullTokenizer(self.vocab_file, self.do_lower_case)
 
     def process(self, input_strings: str):
