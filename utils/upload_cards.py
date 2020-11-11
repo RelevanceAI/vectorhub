@@ -14,6 +14,7 @@ if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--collection_name', default=os.environ['VH_COLLECTION_NAME'])
     parser.add_argument('--quick_run', action='store_true')
+    parser.add_argument('--reset_collection', action='store_true')
     args = parser.parse_args()
 
     docs =  get_model_definitions(None)
@@ -63,11 +64,11 @@ if __name__=="__main__":
     #     assert 'release_date' in doc.keys()
 
     vi_client = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
-    if args.collection_name in vi_client.list_collections():
-        vi_client.delete_collection(args.collection_name)
-        time.sleep(5)
+    if args.reset_collection:
+        if args.collection_name in vi_client.list_collections():
+            vi_client.delete_collection(args.collection_name)
+            time.sleep(5)
     text_encoder = ViText2Vec(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
-    import pdb; pdb.set_trace()
     response = vi_client.insert_documents(args.collection_name, docs, models={'description': text_encoder})
     if response['number_of_failed_ids'] != 0:
         raise SystemError("Failed IDs")
