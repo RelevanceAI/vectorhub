@@ -211,3 +211,4 @@ This library wouldn't exist if it weren't for the following libraries and the in
 2. https://github.com/tensorflow/hub
 3. https://github.com/pytorch/pytorch
 4. Word2Vec image - Alammar, Jay (2018). The Illustrated Transformer [Blog post]. Retrieved from https://jalammar.github.io/illustrated-transformer/
+5. https://github.com/UKPLab/sentence-transformers
