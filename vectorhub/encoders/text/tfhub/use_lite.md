@@ -5,6 +5,7 @@ vector_length: 512
 paper: "https://arxiv.org/abs/1803.11175"
 repo: "https://tfhub.dev/google/universal-sentence-encoder-lite/2"
 installation: pip install vectorhub[encoders-text-tfhub]
+release_date: 2018-3-29
 ---
 
 ## Description
@@ -13,7 +14,7 @@ The Universal Sentence Encoder Lite module is a lightweight version of Universal
 
 ## Example
 
-```
+```python
 #pip install vectorhub[encoders-text-tfhub]
 from vectorhub.encoders.text.tfhub import USELite2Vec
 model = USELite2Vec()

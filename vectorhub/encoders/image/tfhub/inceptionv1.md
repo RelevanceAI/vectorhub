@@ -5,6 +5,7 @@ vector_length: 1024
 paper: "https://arxiv.org/abs/1409.4842"
 repo: 'https://tfhub.dev/google/imagenet/inception_v1/feature_vector/4'
 installation: "pip install vectorhub[encoders-image-tfhub]"
+release_date: "2014-09-17"
 ---
 
 ## Description
@@ -13,7 +14,7 @@ We propose a deep convolutional neural network architecture codenamed "Inception
 
 ## Example
 
-```
+```python
 #pip install vectorhub[encoders-image-tfhub]
 from vectorhub.encoders.image.tfhub import InceptionV12Vec
 model = InceptionV22Vec()

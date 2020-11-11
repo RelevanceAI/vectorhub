@@ -5,6 +5,7 @@ vector_length: 512
 paper: "https://arxiv.org/abs/2002.12764"
 repo: "https://tfhub.dev/google/nonsemantic-speech-benchmark/trill/3"
 installation: "pip install vectorhub[encoders-audio-tfhub]"
+release_date: 2020-2-25
 ---
 
 ## Description
@@ -19,7 +20,7 @@ The benchmark, models, and evaluation code are publicly released.
 
 ## Example
 
-```
+```python
 #pip install vectorhub[encoders-audio-tfhub]
 from vectorhub.encoders.audio.tfhub import TrillDistilled2Vec
 model = TrillDistilled2Vec()

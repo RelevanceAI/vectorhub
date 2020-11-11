@@ -52,6 +52,11 @@ if __name__=="__main__":
         docs[i]['short_description'] = short_description
         print(short_description)
 
+    # for i, doc in enumerate(docs):
+    #     print(doc['model_id'])
+    #     import pandas as pd
+    #     assert not pd.isna(doc['release_date'])
+    #     assert 'release_date' in doc.keys()
 
     vi_client = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
     if args.collection_name in vi_client.list_collections():

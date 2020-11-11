@@ -14,7 +14,7 @@ The language-agnostic BERT sentence embedding encodes text into high dimensional
 
 ## Example
 
-```
+```python
 #pip install vectorhub[encoders-text-tfhub]
 #FOR WINDOWS: pip install vectorhub[encoders-text-tfhub-windows]
 from vectorhub.encoders.text.tfhub import LaBSE2Vec

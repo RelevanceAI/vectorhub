@@ -14,7 +14,7 @@ BERT has achieved impressive performance in several NLP tasks. However, there ha
 
 ## Example
 
-```
+```python
 #pip install vectorhub[encoders-text-torch-transformers]
 from vectorhub.encoders.text.torch_transformers import LegalBert2Vec
 model = LegalBert2Vec()

@@ -5,7 +5,7 @@ vector_length: 2048
 paper: "https://arxiv.org/abs/1912.11370"
 repo: "https://github.com/google-research/big_transfer"
 installation: "pip install vectorhub[encoders-image-tfhub]"
-
+release_date: "2019-12-24"
 ---
 
 ## Description
@@ -21,7 +21,7 @@ of the main components that lead to high transfer performance.
 
 ## Example
 
-```
+```python
 #pip install vectorhub[encoders-image-tfhub]
 from vectorhub.encoders.image.tfhub import BitMedium2Vec
 model = BitMedium2Vec()

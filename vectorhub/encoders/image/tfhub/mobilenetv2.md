@@ -5,6 +5,7 @@ vector_length: 1792
 paper: "https://arxiv.org/abs/1704.04861"
 repo: "https://tfhub.dev/google/imagenet/mobilenet_v1_100_224/feature_vector/4"
 installation: pip install vectorhub[encoders-image-tfhub]
+release_date: "2018-01-13"
 ---
 
 ## Description
@@ -13,7 +14,7 @@ We present a class of efficient models called MobileNets for mobile and embedded
 
 ## Example
 
-```
+```python
 #pip install vectorhub[encoders-image-tfhub]
 from vectorhub.encoders.image.tfhub import MobileNetV22Vec
 model = MobileNetV22Vec()

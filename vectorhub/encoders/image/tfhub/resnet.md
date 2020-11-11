@@ -15,7 +15,7 @@ Deeper neural networks are more difficult to train. We present a residual learni
 
 This is an example
 
-```
+```python
 #pip install vectorhub[encoders-image-tfhub]
 from vectorhub.encoders.image.tfhub import ResnetV12Vec
 model = ResnetV12Vec()

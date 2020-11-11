@@ -25,7 +25,7 @@ ImageNet classification (CLS) challenge.
 
 ## Example
 
-```
+```python
 #pip install vectorhub[encoders-image-tfhub]
 from vectorhub.encoders.image.tfhub import InceptionResnet2Vec
 model = InceptionResnet2Vec()

@@ -14,7 +14,7 @@ We present models for encoding sentences into embedding vectors that specificall
 
 ## Example
 
-```
+```python
 #pip install vectorhub[encoders-text-tfhub]
 #FOR WINDOWS: pip install vectorhub[encoders-text-tfhub-windows]
 from vectorhub.encoders.text.tfhub import USE2Vec

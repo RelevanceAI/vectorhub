@@ -17,7 +17,7 @@ We introduce a new language representation model called BERT, which stands for B
 
 ## Example
 
-```
+```python
 #pip install vectorhub[encoders-text-tfhub]
 #FOR WINDOWS: pip install vectorhub[encoders-text-tfhub-windows]
 from vectorhub.encoders.text.tfhub import Bert2Vec

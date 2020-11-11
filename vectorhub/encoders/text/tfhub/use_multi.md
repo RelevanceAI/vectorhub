@@ -14,7 +14,7 @@ The Universal Sentence Encoder Multilingual module is an extension of the Univer
 
 ## Example
 
-```
+```python
 #pip install vectorhub[encoders-text-tfhub]
 from vectorhub.encoders.text.tfhub import USEMulti2Vec
 model = USEMulti2Vec()
