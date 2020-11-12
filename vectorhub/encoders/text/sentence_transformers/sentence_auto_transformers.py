@@ -2,7 +2,7 @@ from typing import List
 from datetime import date
 from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
-from ....import_utils import ModelDefinition
+from ....import_utils import *
 from ....models_dict import MODEL_REQUIREMENTS
 from ..base import BaseText2Vec
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-sentence-transformers']):

@@ -18,6 +18,15 @@ class Bert2Vec(BaseText2Vec):
     definition = BertModelDefinition
     def __init__(self, model_url: str = 'https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/3', max_seq_length: int = 64, normalize: bool = True):
         list_of_urls = [
+            'https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/2',
+            'https://tfhub.dev/tensorflow/bert_en_wwm_cased_L-24_H-1024_A-16/2',
+            'https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/2',
+            'https://tfhub.dev/tensorflow/bert_en_wwm_uncased_L-24_H-1024_A-16/2',
+            'https://tfhub.dev/tensorflow/bert_en_cased_L-24_H-1024_A-16/2',
+            'https://tfhub.dev/tensorflow/bert_en_cased_L-12_H-768_A-12/2',
+            'https://tfhub.dev/tensorflow/bert_zh_L-12_H-768_A-12/2',
+            'https://tfhub.dev/tensorflow/bert_multi_cased_L-12_H-768_A-12/2',
+
             'https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/3',
             'https://tfhub.dev/tensorflow/bert_en_wwm_cased_L-24_H-1024_A-16/3',
             'https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/3',

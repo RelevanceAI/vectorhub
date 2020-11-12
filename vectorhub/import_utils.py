@@ -62,6 +62,6 @@ def is_all_dependency_installed(requirement_type: str, raise_warning=True):
     for r in requirements:
         if not is_dependency_installed(r):
             if raise_warning:
-                warnings.warn(f"You are missing dependencies for this submodule. Run `pip install vectorhub[{requirement_type}]`")
+                warnings.warn(f"You are missing {r} dependency for this submodule. Run `pip install vectorhub[{requirement_type}]`")
             IS_ALL_INSTALLED = False
     return IS_ALL_INSTALLED
