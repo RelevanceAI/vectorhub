@@ -7,6 +7,9 @@ from ....models_dict import MODEL_REQUIREMENTS
 
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-labse']):
     import tensorflow as tf
+    import tensorflow_hub as hub
+    import bert
+    import numpy as np
 
 LABSEModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/labse.md')
 __doc__ = LABSEModelDefinition.create_docs()
