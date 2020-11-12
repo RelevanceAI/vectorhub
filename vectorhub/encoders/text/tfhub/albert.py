@@ -22,9 +22,9 @@ class Albert2Vec(Bert2Vec):
         self.validate_model_url(model_url, list_of_urls)
         self.max_seq_length = max_seq_length
         self.normalize = normalize
-        self.model = self.init(model_url)
+        self.init(model_url)
         self.tokenizer = self.init_tokenizer()
 
     def init_tokenizer(self):
-        sp_model_file = self.model_layer.resolved_object.sp_model_file.asset_path.numpy()
+        sp_model_file = self.model.resolved_object.sp_model_file.asset_path.numpy()
         return tokenization.FullSentencePieceTokenizer(sp_model_file)
