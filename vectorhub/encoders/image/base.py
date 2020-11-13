@@ -27,6 +27,8 @@ class BaseImage2Vec(Base2Vec):
             b = io.BytesIO(image)
         elif type(image) == io.BytesIO:
             b = image
+        else:
+            raise ValueError("Cannot process data type. Ensure it is is string/bytes or BytesIO.")
         try:
             return np.array(imageio.imread(b, pilmode="RGB"))
         except:
