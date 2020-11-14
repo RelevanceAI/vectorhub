@@ -1,7 +1,7 @@
 ---
 model_id: image/inception-v2
 model_name: Inception
-vector_length: 1024 
+vector_length: "1024 (default)"
 paper: "https://arxiv.org/abs/1409.4842"
 repo: 'https://tfhub.dev/google/imagenet/inception_v1/feature_vector/4'
 installation: "pip install vectorhub[encoders-image-tfhub]"

@@ -1,7 +1,7 @@
 ---
 model_id: "text/use-lite"
 model_name: "USE Lite - Universal Sentence Encoder Lite" 
-vector_length: "512"
+vector_length: "512 (default)"
 paper: "https://arxiv.org/abs/1803.11175"
 repo: "https://tfhub.dev/google/universal-sentence-encoder-lite/2"
 installation: pip install vectorhub[encoders-text-tfhub]

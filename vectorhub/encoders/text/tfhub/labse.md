@@ -1,7 +1,7 @@
 ---
 model_id: "text/labse"
 model_name: "LaBSE - Language-agnostic BERT Sentence Embedding" 
-vector_length: "768"
+vector_length: "768 (default)"
 paper: "https://arxiv.org/pdf/2007.01852v1.pdf"
 repo: "https://tfhub.dev/google/LaBSE/1"
 installation: "pip install vectorhub[encoders-text-tfhub]"

@@ -1,7 +1,7 @@
 ---
 model_id: "audio/wav2vec"
 model_name: "Wav2Vec" 
-vector_length: 512
+vector_length: "512 (default)" 
 paper: "https://arxiv.org/abs/2006.11477"
 repo: "https://github.com/pytorch/fairseq"
 installation: "pip install vectorhub[encoders-audio-pytorch]"

@@ -1,7 +1,7 @@
 ---
 model_id: 'text_text/use-multi-qa'
 model_name: "Universal Sentence Encoder Multilingual Question Answering"
-vector_length: 512
+vector_length: "512 (default)"
 repo: "https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3"
 installation: "pip install vectorhub[encoders-text-tfhub]"
 release_date: "2019-07-01"

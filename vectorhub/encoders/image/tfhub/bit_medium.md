@@ -1,7 +1,7 @@
 ---
 model_id: "image/bit-medium"
 model_name: "BiT Medium - Big Transfer, General Visual Representation Learning (Medium)"
-vector_length: 2048 
+vector_length: "2048 (default)"
 paper: "https://arxiv.org/abs/1912.11370"
 repo: "https://github.com/google-research/big_transfer"
 installation: "pip install vectorhub[encoders-image-tfhub]"

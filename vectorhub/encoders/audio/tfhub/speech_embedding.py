@@ -10,8 +10,7 @@ from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
 from ..base import BaseAudio2Vec
 
-SpeechEmbeddingModelDefinition = ModelDefinition()
-SpeechEmbeddingModelDefinition.from_markdown("encoders/audio/tfhub/speech_embedding.md")
+SpeechEmbeddingModelDefinition = ModelDefinition(markdown_filepath="encoders/audio/tfhub/speech_embedding.md")
 
 __doc__ = SpeechEmbeddingModelDefinition.create_docs()
 
