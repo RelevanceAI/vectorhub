@@ -70,13 +70,13 @@ if __name__=="__main__":
             time.sleep(5)
     text_encoder = ViText2Vec(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
     response = vi_client.insert_documents(args.collection_name, docs, models={'description': text_encoder})
-    if response['number_of_failed_ids'] != 0:
-        raise SystemError("Failed IDs")
-    print("Checking Documents:")
-    print(vi_client.head(args.collection_name))
-    print(vi_client.head(args.collection_name)['vector_length'])
-    print(vi_client.collection_schema(args.collection_name))
-    import pandas as pd
-    pd.set_option('display.max_colwidth', None)
-    print(vi_client.show_json(vi_client.random_documents(args.collection_name), selected_fields=['markdown_without_example']))
-
+    if response['failed'] != 0:
+        raise ValueError("Failed IDs")
+    if args.evaluate_results:
+        print("Checking Documents:")
+        print(vi_client.head(args.collection_name))
+        print(vi_client.head(args.collection_name)['vector_length'])
+        print(vi_client.collection_schema(args.collection_name))
+        import pandas as pd
+        pd.set_option('display.max_colwidth', None)
+        print(vi_client.show_json(vi_client.random_documents(args.collection_name), selected_fields=['markdown_without_example']))
