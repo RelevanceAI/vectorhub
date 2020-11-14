@@ -3,18 +3,22 @@
 """
 
 if __name__=="__main__":
-    from vectorai import ViClient
-    from vectorai.models.deployed.text import ViText2Vec
-    from vectorhub.auto_encoder import *
     import os
     import argparse
     import time
     import re
+    from vectorai import ViClient
+    from vectorai.models.deployed.text import ViText2Vec
+    from transformers import PegasusTokenizer, PegasusForConditionalGeneration
+    from typing import List
+    # Wildcard import to get all classes
+    from vectorhub.auto_encoder import *
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--collection_name', default=os.environ['VH_COLLECTION_NAME'])
     parser.add_argument('--quick_run', action='store_true')
     parser.add_argument('--reset_collection', action='store_true')
+    parser.add_argument('--evaluate_results', action='store_true')
     args = parser.parse_args()
 
     docs =  get_model_definitions(None)
@@ -36,15 +40,10 @@ if __name__=="__main__":
         print(markdown_without_example)
 
     # Generate 1 sentence summaries for the models
-    from transformers import PegasusTokenizer, PegasusForConditionalGeneration
-    from typing import List
     mname = "google/pegasus-large"
 
     model = PegasusForConditionalGeneration.from_pretrained(mname)
     tok = PegasusTokenizer.from_pretrained(mname)
-    # batch = tok.prepare_seq2seq_batch(src_texts=[PGE_ARTICLE])  # don't need tgt_text for inference
-    # gen = model.generate(**batch)  # for forward pass: model(**batch)
-    # summary: List[str] = tok.batch_decode(gen, skip_special_tokens=True)
 
     def summarise(text):
         batch = tok.prepare_seq2seq_batch(src_texts=[text])  # don't need tgt_text for inference
@@ -57,12 +56,6 @@ if __name__=="__main__":
             docs[i]['short_description'] = short_description
             print(short_description)
 
-    # for i, doc in enumerate(docs):
-    #     print(doc['model_id'])
-    #     import pandas as pd
-    #     assert not pd.isna(doc['release_date'])
-    #     assert 'release_date' in doc.keys()
-
     vi_client = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
     if args.reset_collection:
         if args.collection_name in vi_client.list_collections():
@@ -70,13 +63,14 @@ if __name__=="__main__":
             time.sleep(5)
     text_encoder = ViText2Vec(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
     response = vi_client.insert_documents(args.collection_name, docs, models={'description': text_encoder})
-    if response['number_of_failed_ids'] != 0:
-        raise SystemError("Failed IDs")
-    print("Checking Documents:")
-    print(vi_client.head(args.collection_name))
-    print(vi_client.head(args.collection_name)['vector_length'])
-    print(vi_client.collection_schema(args.collection_name))
-    import pandas as pd
-    pd.set_option('display.max_colwidth', None)
-    print(vi_client.show_json(vi_client.random_documents(args.collection_name), selected_fields=['markdown_without_example']))
-
+    if response['failed'] != 0:
+        raise ValueError("Failed IDs")
+    
+    if args.evaluate_results:
+        print("Checking Documents:")
+        print(vi_client.head(args.collection_name))
+        print(vi_client.head(args.collection_name)['vector_length'])
+        print(vi_client.collection_schema(args.collection_name))
+        import pandas as pd
+        pd.set_option('display.max_colwidth', None)
+        print(vi_client.show_json(vi_client.random_documents(args.collection_name), selected_fields=['markdown_without_example']))
