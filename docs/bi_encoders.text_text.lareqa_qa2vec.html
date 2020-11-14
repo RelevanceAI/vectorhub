@@ -201,7 +201,8 @@
 <span id="tfhub"></span><h2>TFHub<a class="headerlink" href="#module-vectorhub.bi_encoders.text_text.tfhub.lareqa_qa" title="Permalink to this headline">¶</a></h2>
 <p><strong>Model Name</strong>: LAReQA: Language-agnostic answer retrieval from a multilingual pool</p>
 <p><strong>Vector Length</strong>: 512</p>
-<p><strong>Description</strong>: We present LAReQA, a challenging new benchmark for language-agnostic answer retrieval from a multilingual candidate pool. Unlike previous cross-lingual tasks, LAReQA tests for “strong” cross-lingual alignment, requiring semantically related cross-language pairs to be closer in representation space than unrelated same-language pairs. Building on multilingual BERT (mBERT), we study different strategies for achieving strong alignment. We find that augmenting training data via machine translation is effective, and improves significantly over using mBERT out-of-the-box. Interestingly, the embedding baseline that performs the best on LAReQA falls short of competing baselines on zero-shot variants of our task that only target “weak” alignment. This finding underscores our claim that languageagnostic retrieval is a substantively new kind of cross-lingual evaluation.</p>
+<p><strong>Description</strong>:
+We present LAReQA, a challenging new benchmark for language-agnostic answer retrieval from a multilingual candidate pool. Unlike previous cross-lingual tasks, LAReQA tests for “strong” cross-lingual alignment, requiring semantically related cross-language pairs to be closer in representation space than unrelated same-language pairs. Building on multilingual BERT (mBERT), we study different strategies for achieving strong alignment. We find that augmenting training data via machine translation is effective, and improves significantly over using mBERT out-of-the-box. Interestingly, the embedding baseline that performs the best on LAReQA falls short of competing baselines on zero-shot variants of our task that only target “weak” alignment. This finding underscores our claim that languageagnostic retrieval is a substantively new kind of cross-lingual evaluation.</p>
 <p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/2004.05484">https://arxiv.org/abs/2004.05484</a></p>
 <p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/LAReQA/mBERT_En_En/1">https://tfhub.dev/google/LAReQA/mBERT_En_En/1</a></p>
 <p><strong>Architecture</strong>: Not stated.</p>
@@ -210,13 +211,16 @@
 <p><strong>Limitations</strong>: Not stated.</p>
 <p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub]</span></code></p>
 <p><strong>Example</strong>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#pip install vectorhub[encoders-text-tfhub]</span>
-<span class="kn">from</span> <span class="nn">vectorhub.bi_encoders.text_text.tfhub</span> <span class="kn">import</span> <span class="n">LAReQA2Vec</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">LAReQA2Vec</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">encode_question</span><span class="p">(</span><span class="s1">&#39;How is the weather today?&#39;</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">encode_answer</span><span class="p">(</span><span class="s1">&#39;The weather is great today.&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.bi_encoders.text_text.tfhub</span> <span class="pre">import</span> <span class="pre">LAReQA2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">LAReQA2Vec()</span>
+<span class="pre">model.encode_question('How</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">weather</span> <span class="pre">today?')</span>
+<span class="pre">model.encode_answer('The</span> <span class="pre">weather</span> <span class="pre">is</span> <span class="pre">great</span> <span class="pre">today.')</span>
+<span class="pre">`</span></code></p>
 <dl class="py class">
 <dt id="vectorhub.bi_encoders.text_text.tfhub.lareqa_qa.LAReQA2Vec">
 <em class="property">class </em><code class="sig-prename descclassname">vectorhub.bi_encoders.text_text.tfhub.lareqa_qa.</code><code class="sig-name descname">LAReQA2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="o">=</span><span class="default_value">'https://tfhub.dev/google/LAReQA/mBERT_En_En/1'</span></em>, <em class="sig-param"><span class="n">vector_length</span><span class="o">=</span><span class="default_value">512</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.lareqa_qa.LAReQA2Vec" title="Permalink to this definition">¶</a></dt>
@@ -299,7 +303,12 @@ Example:</p>
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.text_text.tfhub.lareqa_qa.LAReQA2Vec.validate_model_url">
 <em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.lareqa_qa.LAReQA2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validate the model url belongs in the list of urls.</p>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
 </dd></dl>
 
 <dl class="py method">

@@ -199,27 +199,33 @@
 <h1>Bert2Vec<a class="headerlink" href="#bert2vec" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-vectorhub.encoders.text.tfhub.bert">
 <span id="tfhub"></span><h2>TFHub<a class="headerlink" href="#module-vectorhub.encoders.text.tfhub.bert" title="Permalink to this headline">¶</a></h2>
-<p><strong>Model Name</strong>: BERT - Bidirectional Encoder Representations from Transformers</p>
-<p><strong>Vector Length</strong>: 1024</p>
-<p><strong>Description</strong>: We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models, BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task-specific architecture modifications.</p>
+<p><strong>Model Name</strong>: BERT - Bidirectional Encoder Representations</p>
+<p><strong>Vector Length</strong>: 1024 (Bert Large)</p>
+<p><strong>Description</strong>:
+We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models, BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task-specific architecture modifications.</p>
+<p>![Bert Image](<a class="reference external" href="https://miro.medium.com/max/619/1*iJqlhZz-g6ZQJ53-rE9VvA.png">https://miro.medium.com/max/619/1*iJqlhZz-g6ZQJ53-rE9VvA.png</a>)</p>
 <p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/1810.04805v2">https://arxiv.org/abs/1810.04805v2</a></p>
 <p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/collections/bert/1">https://tfhub.dev/google/collections/bert/1</a></p>
 <p><strong>Architecture</strong>: Not stated.</p>
 <p><strong>Tasks</strong>: Not stated.</p>
 <p><strong>Release Date</strong>: 2018-10-11</p>
-<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Limitations</strong>:
+* NA</p>
 <p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub]</span></code></p>
 <p><strong>Example</strong>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#pip install vectorhub[encoders-text-tfhub]</span>
-<span class="c1">#FOR WINDOWS: pip install vectorhub[encoders-text-tfhub-windows]</span>
-<span class="kn">from</span> <span class="nn">vectorhub.encoders.text.tfhub</span> <span class="kn">import</span> <span class="n">Bert2Vec</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">Bert2Vec</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;I enjoy taking long walks along the beach with my dog.&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub]</span>
+<span class="pre">#FOR</span> <span class="pre">WINDOWS:</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub-windows]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.text.tfhub</span> <span class="pre">import</span> <span class="pre">Bert2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">Bert2Vec()</span>
+<span class="pre">model.encode(&quot;I</span> <span class="pre">enjoy</span> <span class="pre">taking</span> <span class="pre">long</span> <span class="pre">walks</span> <span class="pre">along</span> <span class="pre">the</span> <span class="pre">beach</span> <span class="pre">with</span> <span class="pre">my</span> <span class="pre">dog.&quot;)</span>
+<span class="pre">`</span></code></p>
 <dl class="py class">
 <dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec">
-<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.text.tfhub.bert.</code><code class="sig-name descname">Bert2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/2'</span></em>, <em class="sig-param"><span class="n">max_seq_length</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">64</span></em>, <em class="sig-param"><span class="n">normalize</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.text.tfhub.bert.</code><code class="sig-name descname">Bert2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/3'</span></em>, <em class="sig-param"><span class="n">max_seq_length</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">64</span></em>, <em class="sig-param"><span class="n">normalize</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.text.base.BaseText2Vec</span></code></p>
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.bulk_encode">
@@ -278,7 +284,12 @@
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.validate_model_url">
 <em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validate the model url belongs in the list of urls.</p>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
 </dd></dl>
 
 <dl class="py method">

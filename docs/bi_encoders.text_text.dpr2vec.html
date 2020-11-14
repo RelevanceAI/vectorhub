@@ -200,23 +200,27 @@
 <div class="section" id="module-vectorhub.bi_encoders.text_text.torch_transformers.dpr">
 <span id="transformers"></span><h2>Transformers<a class="headerlink" href="#module-vectorhub.bi_encoders.text_text.torch_transformers.dpr" title="Permalink to this headline">¶</a></h2>
 <p><strong>Model Name</strong>: Dense Passage Retrieval</p>
-<p><strong>Vector Length</strong>: 768</p>
-<p><strong>Description</strong>: Open-domain question answering relies on efficient passage retrieval to select candidate contexts, where traditional sparse vector space models, such as TF-IDF or BM25, are the de facto method. In this work, we show that retrieval can be practically implemented using dense representations alone, where embeddings are learned from a small number of questions and passages by a simple dual-encoder framework. When evaluated on a wide range of open-domain QA datasets, our dense retriever outperforms a strong Lucene-BM25 system largely by 9%-19% absolute in terms of top-20 passage retrieval accuracy, and helps our end-to-end QA system establish new state-of-the-art on multiple open-domain QA benchmarks.</p>
-<p><strong>Paper</strong>:  <a class="reference external" href="https://arxiv.org/abs/2004.04906">https://arxiv.org/abs/2004.04906</a></p>
-<p><strong>Repository</strong>: None</p>
+<p><strong>Vector Length</strong>: 68</p>
+<p><strong>Description</strong>:
+Open-domain question answering relies on efficient passage retrieval to select candidate contexts, where traditional sparse vector space models, such as TF-IDF or BM25, are the de facto method. In this work, we show that retrieval can be practically implemented using dense representations alone, where embeddings are learned from a small number of questions and passages by a simple dual-encoder framework. When evaluated on a wide range of open-domain QA datasets, our dense retriever outperforms a strong Lucene-BM25 system largely by 9%-19% absolute in terms of top-20 passage retrieval accuracy, and helps our end-to-end QA system establish new state-of-the-art on multiple open-domain QA benchmarks.</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/2004.04906">https://arxiv.org/abs/2004.04906</a></p>
+<p><strong>Repository</strong>:</p>
 <p><strong>Architecture</strong>: Not stated.</p>
 <p><strong>Tasks</strong>: Not stated.</p>
-<p><strong>Release Date</strong>: (2020, 10, 4)</p>
+<p><strong>Release Date</strong>: 2020-10-04</p>
 <p><strong>Limitations</strong>: Not stated.</p>
 <p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-torch-transformers]</span></code></p>
 <p><strong>Example</strong>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#pip install vectorhub[encoders-text-torch-transformers]</span>
-<span class="kn">from</span> <span class="nn">vectorhub.bi_encoders.text_text.torch_transformers</span> <span class="kn">import</span> <span class="n">DPR2Vec</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">DPR2Vec</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">encode_question</span><span class="p">(</span><span class="s1">&#39;How is the weather today?&#39;</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">encode_answer</span><span class="p">(</span><span class="s1">&#39;The weather is great today.&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-torch-transformers]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.bi_encoders.text_text.torch_transformers</span> <span class="pre">import</span> <span class="pre">DPR2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">DPR2Vec()</span>
+<span class="pre">model.encode_question('How</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">weather</span> <span class="pre">today?')</span>
+<span class="pre">model.encode_answer('The</span> <span class="pre">weather</span> <span class="pre">is</span> <span class="pre">great</span> <span class="pre">today.')</span>
+<span class="pre">`</span></code></p>
 <dl class="py class">
 <dt id="vectorhub.bi_encoders.text_text.torch_transformers.dpr.DPR2Vec">
 <em class="property">class </em><code class="sig-prename descclassname">vectorhub.bi_encoders.text_text.torch_transformers.dpr.</code><code class="sig-name descname">DPR2Vec</code><a class="headerlink" href="#vectorhub.bi_encoders.text_text.torch_transformers.dpr.DPR2Vec" title="Permalink to this definition">¶</a></dt>
@@ -282,7 +286,12 @@
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.text_text.torch_transformers.dpr.DPR2Vec.validate_model_url">
 <em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.torch_transformers.dpr.DPR2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validate the model url belongs in the list of urls.</p>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
 </dd></dl>
 
 <dl class="py method">

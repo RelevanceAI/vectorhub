@@ -116,7 +116,7 @@
 <li class="toctree-l1"><a class="reference internal" href="encoders.audio.vggish2vec.html">Vggish2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoders.audio.yamnet2vec.html">Yamnet2Vec</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Wav2Vec</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-vectorhub.encoders.audio.pytorch.fairseq">PyTorch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pytorch">PyTorch</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="encoders.audio.vectorai2vec.html">ViAudio2Vec</a></li>
@@ -197,65 +197,8 @@
             
   <div class="section" id="wav2vec">
 <h1>Wav2Vec<a class="headerlink" href="#wav2vec" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-vectorhub.encoders.audio.pytorch.fairseq">
-<span id="pytorch"></span><h2>PyTorch<a class="headerlink" href="#module-vectorhub.encoders.audio.pytorch.fairseq" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="vectorhub.encoders.audio.pytorch.fairseq.Wav2Vec">
-<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.audio.pytorch.fairseq.</code><code class="sig-name descname">Wav2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://dl.fbaipublicfiles.com/fairseq/wav2vec/wav2vec_small.pt'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.pytorch.fairseq.Wav2Vec" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.audio.base.BaseAudio2Vec</span></code></p>
-<dl class="py method">
-<dt id="vectorhub.encoders.audio.pytorch.fairseq.Wav2Vec.bulk_encode">
-<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audios</span></em>, <em class="sig-param"><span class="n">vector_operation</span><span class="o">=</span><span class="default_value">'mean'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.pytorch.fairseq.Wav2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="vectorhub.encoders.audio.pytorch.fairseq.Wav2Vec.chunk">
-<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.pytorch.fairseq.Wav2Vec.chunk" title="Permalink to this definition">¶</a></dt>
-<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
-:param lst: Python List
-:param chunk_size: The chunk size of an object.</p>
-<p class="rubric">Example</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="vectorhub.encoders.audio.pytorch.fairseq.Wav2Vec.definition">
-<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.audio.pytorch.fairseq.Wav2Vec.definition" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="vectorhub.encoders.audio.pytorch.fairseq.Wav2Vec.encode">
-<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audio</span></em>, <em class="sig-param"><span class="n">vector_operation</span><span class="o">=</span><span class="default_value">'mean'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.pytorch.fairseq.Wav2Vec.encode" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Example</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">vectorhub.encoders.audio</span> <span class="kn">import</span> <span class="n">Wav2Vec</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">encoder</span> <span class="o">=</span> <span class="n">Wav2Vec</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;...&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="vectorhub.encoders.audio.pytorch.fairseq.Wav2Vec.init">
-<code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.pytorch.fairseq.Wav2Vec.init" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="vectorhub.encoders.audio.pytorch.fairseq.Wav2Vec.read">
-<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audio</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">new_sampling_rate</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">16000</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.pytorch.fairseq.Wav2Vec.read" title="Permalink to this definition">¶</a></dt>
-<dd><p>An method to specify the read method to read the data.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="vectorhub.encoders.audio.pytorch.fairseq.Wav2Vec.validate_model_url">
-<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.pytorch.fairseq.Wav2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validate the model url belongs in the list of urls.</p>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="pytorch">
+<h2>PyTorch<a class="headerlink" href="#pytorch" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

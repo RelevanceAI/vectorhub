@@ -222,13 +222,16 @@ ImageNet classification (CLS) challenge.</p>
 <p><strong>Limitations</strong>: Not stated.</p>
 <p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-tfhub]</span></code></p>
 <p><strong>Example</strong>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#pip install vectorhub[encoders-image-tfhub]</span>
-<span class="kn">from</span> <span class="nn">vectorhub.encoders.image.tfhub</span> <span class="kn">import</span> <span class="n">InceptionResnet2Vec</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">InceptionResnet2Vec</span><span class="p">()</span>
-<span class="n">sample</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;https://getvectorai.com/assets/hub-logo-with-text.png&#39;</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-tfhub]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.image.tfhub</span> <span class="pre">import</span> <span class="pre">InceptionResnet2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">InceptionResnet2Vec()</span>
+<span class="pre">sample</span> <span class="pre">=</span> <span class="pre">model.read('https://getvectorai.com/assets/hub-logo-with-text.png')</span>
+<span class="pre">model.encode(sample)</span>
+<span class="pre">`</span></code></p>
 <dl class="py class">
 <dt id="vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec">
 <em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.image.tfhub.inception_resnet.</code><code class="sig-name descname">InceptionResnet2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="o">=</span><span class="default_value">'https://tfhub.dev/google/imagenet/inception_resnet_v2/feature_vector/4'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec" title="Permalink to this definition">¶</a></dt>
@@ -283,7 +286,12 @@ ImageNet classification (CLS) challenge.</p>
 <dl class="py method">
 <dt id="vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.validate_model_url">
 <em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validate the model url belongs in the list of urls.</p>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
 </dd></dl>
 
 </dd></dl>

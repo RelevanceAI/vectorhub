@@ -201,7 +201,8 @@
 <span id="tfhub"></span><h2>TFHub<a class="headerlink" href="#module-vectorhub.encoders.text.tfhub.labse" title="Permalink to this headline">¶</a></h2>
 <p><strong>Model Name</strong>: LaBSE - Language-agnostic BERT Sentence Embedding</p>
 <p><strong>Vector Length</strong>: 768</p>
-<p><strong>Description</strong>: The language-agnostic BERT sentence embedding encodes text into high dimensional vectors. The model is trained and optimized to produce similar representations exclusively for bilingual sentence pairs that are translations of each other. So it can be used for mining for translations of a sentence in a larger corpus.</p>
+<p><strong>Description</strong>:
+The language-agnostic BERT sentence embedding encodes text into high dimensional vectors. The model is trained and optimized to produce similar representations exclusively for bilingual sentence pairs that are translations of each other. So it can be used for mining for translations of a sentence in a larger corpus.</p>
 <p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/pdf/2007.01852v1.pdf">https://arxiv.org/pdf/2007.01852v1.pdf</a></p>
 <p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/LaBSE/1">https://tfhub.dev/google/LaBSE/1</a></p>
 <p><strong>Architecture</strong>: Not stated.</p>
@@ -210,17 +211,20 @@
 <p><strong>Limitations</strong>: Not stated.</p>
 <p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub]</span></code></p>
 <p><strong>Example</strong>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#pip install vectorhub[encoders-text-tfhub]</span>
-<span class="c1">#FOR WINDOWS: pip install vectorhub[encoders-text-tfhub-windows]</span>
-<span class="kn">from</span> <span class="nn">vectorhub.encoders.text.tfhub</span> <span class="kn">import</span> <span class="n">LaBSE2Vec</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">LaBSE2Vec</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;I enjoy taking long walks along the beach with my dog.&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub]</span>
+<span class="pre">#FOR</span> <span class="pre">WINDOWS:</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub-windows]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.text.tfhub</span> <span class="pre">import</span> <span class="pre">LaBSE2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">LaBSE2Vec()</span>
+<span class="pre">model.encode(&quot;I</span> <span class="pre">enjoy</span> <span class="pre">taking</span> <span class="pre">long</span> <span class="pre">walks</span> <span class="pre">along</span> <span class="pre">the</span> <span class="pre">beach</span> <span class="pre">with</span> <span class="pre">my</span> <span class="pre">dog.&quot;)</span>
+<span class="pre">`</span></code></p>
 <dl class="py class">
 <dt id="vectorhub.encoders.text.tfhub.labse.LaBSE2Vec">
 <em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.text.tfhub.labse.</code><code class="sig-name descname">LaBSE2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/LaBSE/1'</span></em>, <em class="sig-param"><span class="n">max_seq_length</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">128</span></em>, <em class="sig-param"><span class="n">normalize</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.labse.LaBSE2Vec" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="encoders.text.bert2vec.html#vectorhub.encoders.text.tfhub.bert.Bert2Vec" title="vectorhub.encoders.text.tfhub.bert.Bert2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.text.tfhub.bert.Bert2Vec</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.text.base.BaseText2Vec</span></code></p>
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.bulk_encode">
 <code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
@@ -278,7 +282,12 @@
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.validate_model_url">
 <em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validate the model url belongs in the list of urls.</p>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
 </dd></dl>
 
 <dl class="py method">

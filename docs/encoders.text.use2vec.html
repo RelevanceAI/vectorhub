@@ -200,8 +200,9 @@
 <div class="section" id="module-vectorhub.encoders.text.tfhub.use">
 <span id="tfhub"></span><h2>TFHub<a class="headerlink" href="#module-vectorhub.encoders.text.tfhub.use" title="Permalink to this headline">¶</a></h2>
 <p><strong>Model Name</strong>: USE - Universal Sentence Encoder</p>
-<p><strong>Vector Length</strong>: 512</p>
-<p><strong>Description</strong>: We present models for encoding sentences into embedding vectors that specifically target transfer learning to other NLP tasks. The models are efficient and result in accurate performance on diverse transfer tasks. Two variants of the encoding models allow for trade-offs between accuracy and compute resources. For both variants, we investigate and report the relationship between model complexity, resource consumption, the availability of transfer task training data, and task performance. Comparisons are made with baselines that use word level transfer learning via pretrained word embeddings as well as baselines do not use any transfer learning. We find that transfer learning using sentence embeddings tends to outperform word level transfer. With transfer learning via sentence embeddings, we observe surprisingly good performance with minimal amounts of supervised training data for a transfer task. We obtain encouraging results on Word Embedding Association Tests (WEAT) targeted at detecting model bias. Our pre-trained sentence encoding models are made freely available for download and on TF Hub.</p>
+<p><strong>Vector Length</strong>: 512 (Base model)</p>
+<p><strong>Description</strong>:
+We present models for encoding sentences into embedding vectors that specifically target transfer learning to other NLP tasks. The models are efficient and result in accurate performance on diverse transfer tasks. Two variants of the encoding models allow for trade-offs between accuracy and compute resources. For both variants, we investigate and report the relationship between model complexity, resource consumption, the availability of transfer task training data, and task performance. Comparisons are made with baselines that use word level transfer learning via pretrained word embeddings as well as baselines do not use any transfer learning. We find that transfer learning using sentence embeddings tends to outperform word level transfer. With transfer learning via sentence embeddings, we observe surprisingly good performance with minimal amounts of supervised training data for a transfer task. We obtain encouraging results on Word Embedding Association Tests (WEAT) targeted at detecting model bias. Our pre-trained sentence encoding models are made freely available for download and on TF Hub.”,</p>
 <p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/1803.11175">https://arxiv.org/abs/1803.11175</a></p>
 <p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/collections/universal-sentence-encoder/1">https://tfhub.dev/google/collections/universal-sentence-encoder/1</a></p>
 <p><strong>Architecture</strong>: Not stated.</p>
@@ -210,13 +211,16 @@
 <p><strong>Limitations</strong>: Not stated.</p>
 <p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub]</span></code></p>
 <p><strong>Example</strong>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#pip install vectorhub[encoders-text-tfhub]</span>
-<span class="c1">#FOR WINDOWS: pip install vectorhub[encoders-text-tfhub-windows]</span>
-<span class="kn">from</span> <span class="nn">vectorhub.encoders.text.tfhub</span> <span class="kn">import</span> <span class="n">USE2Vec</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">USE2Vec</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;I enjoy taking long walks along the beach with my dog.&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub]</span>
+<span class="pre">#FOR</span> <span class="pre">WINDOWS:</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub-windows]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.text.tfhub</span> <span class="pre">import</span> <span class="pre">USE2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">USE2Vec()</span>
+<span class="pre">model.encode(&quot;I</span> <span class="pre">enjoy</span> <span class="pre">taking</span> <span class="pre">long</span> <span class="pre">walks</span> <span class="pre">along</span> <span class="pre">the</span> <span class="pre">beach</span> <span class="pre">with</span> <span class="pre">my</span> <span class="pre">dog.&quot;)</span>
+<span class="pre">`</span></code></p>
 <dl class="py class">
 <dt id="vectorhub.encoders.text.tfhub.use.USE2Vec">
 <em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.text.tfhub.use.</code><code class="sig-name descname">USE2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/universal-sentence-encoder/4'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use.USE2Vec" title="Permalink to this definition">¶</a></dt>
@@ -268,7 +272,12 @@
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.use.USE2Vec.validate_model_url">
 <em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use.USE2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validate the model url belongs in the list of urls.</p>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
 </dd></dl>
 
 <dl class="py method">
