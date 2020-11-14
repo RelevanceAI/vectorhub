@@ -1,30 +1,14 @@
 from typing import List
-from ..base import BaseText2Vec
+from datetime import date
 from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
 from ....import_utils import *
 from ....models_dict import MODEL_REQUIREMENTS
-from datetime import date
+from ..base import BaseText2Vec
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-sentence-transformers']):
     from sentence_transformers import SentenceTransformer
 
-
-SentenceTransformerModelDefinition = ModelDefinition(
-    model_id='text/sentence-transformers',
-    model_name="Sentence Transformer Models", 
-    vector_length='Depends on model.', 
-    description="These are Sentence Transformer models from sbert.net by UKPLab.",
-    paper="https://arxiv.org/abs/1908.10084", 
-    repo="https://github.com/UKPLab/sentence-transformers",
-    release_date=date(2019,8,27),
-    installation="pip install vectorhub[encoders-text-sentence-transformers]",
-    example="""
-    #pip install vectorhub[encoders-text-sentence-transformers]
-    from vectorhub.encoders.text.sentence_transformers import SentenceTransformer2Vec
-    model = SentenceTransformer2Vec('bert-base-uncased')
-    model.encode("I enjoy taking long walks along the beach with my dog.")
-    """
-)
+SentenceTransformerModelDefinition = ModelDefinition(markdown_filepath='encoders/text/sentence_transformers/sentence_auto_transformers.md')
 
 LIST_OF_URLS = {
     'distilroberta-base-paraphrase-v1' : {"vector_length": 768},

@@ -13,7 +13,7 @@ MODEL_REQUIREMENTS = {
     "encoders-audio-tfhub-yamnet": "encoders-audio-tfhub", 
     "encoders-audio-vectorai": None,
 
-    "encoders-text-tfhub-albert": "encoders-text-tfhub-windows",
+    "encoders-text-tfhub-albert": "encoders-text-tfhub",
     "encoders-text-tfhub-bert": "encoders-text-tfhub-windows",
     "encoders-text-tfhub-labse": "encoders-text-tfhub-windows",
     "encoders-text-tfhub-use": "encoders-text-tfhub-windows", 

@@ -8,24 +8,9 @@ from datetime import date
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-sentence-transformers']):
     from sentence_transformers import SentenceTransformer
 
+DistilRobertaQAModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/text_text/sentence_transformers/distilroberta_qa.md')
 
-DistilRobertaModelDefinition = ModelDefinition(
-    model_name="Distilled Roberta QA", 
-    vector_length=768, 
-    description="These are Distilled Roberta QA trained on MSMACRO dataset from sbert.net by UKPLab.",
-    paper="https://arxiv.org/abs/1908.10084", 
-    repo="https://github.com/UKPLab/sentence-transformers",
-    release_date=date(2019,8,27),
-    installation="pip install vectorhub[encoders-text-sentence-transformers]",
-    example="""
-    #pip install vectorhub[encoders-text-sentence-transformers]
-    from vectorhub.encoders.text_text.sentence_transformers import DistilRobertaQA2Vec
-    model = DistilRobertaQA2Vec('bert-base-uncased')
-    model.encode("I enjoy taking long walks along the beach with my dog.")
-    """
-)
-
-__doc__ = DistilRobertaModelDefinition.create_docs()
+__doc__ = DistilRobertaQAModelDefinition.create_docs()
 
 
 class DistilRobertaQA2Vec(BaseTextText2Vec):

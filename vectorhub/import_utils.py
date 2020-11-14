@@ -7,7 +7,6 @@ import pkg_resources
 import json
 from importlib import import_module, invalidate_caches
 
-
 def get_package_requirements(requirement_type: str):
     """
         Load in extra_requirements.json from the package
@@ -46,6 +45,8 @@ def is_dependency_installed(dependency: str):
     IS_INSTALLED = True
     try:
         pkg_resources.get_distribution(dependency)
+    except pkg_resources.ContextualVersionConflict:
+        IS_INSTALLED = True
     except:
         IS_INSTALLED = False
     return IS_INSTALLED
@@ -62,6 +63,6 @@ def is_all_dependency_installed(requirement_type: str, raise_warning=True):
     for r in requirements:
         if not is_dependency_installed(r):
             if raise_warning:
-                warnings.warn(f"You are missing dependencies for this submodule. Run `pip install vectorhub[{requirement_type}]`")
+                warnings.warn(f"You are missing {r} dependency for this submodule. Run `pip install vectorhub[{requirement_type}]`")
             IS_ALL_INSTALLED = False
     return IS_ALL_INSTALLED

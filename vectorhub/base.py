@@ -57,7 +57,15 @@ class Base2Vec:
     @classmethod
     def validate_model_url(cls, model_url: str, list_of_urls: List[str]):
         """
-            Validate the model url belongs in the list of urls.
+            Validate the model url belongs in the list of urls. This is to help 
+            users to avoid mis-spelling the name of the model.
+
+            # TODO:
+            Improve model URL validation to not include final number in URl string.
+            Args:
+                model_url: The URl of the the model in question
+                list_of_urls: The list of URLS for the model in question
+        
         """
         if(model_url in list_of_urls):
             return True
