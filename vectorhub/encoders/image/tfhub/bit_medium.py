@@ -11,7 +11,7 @@ if is_all_dependency_installed('encoders-image-tfhub'):
     import traceback
 
 BITMediumModelDefinition = ModelDefinition(markdown_filepath="encoders/image/tfhub/bit_medium")
-__doc__ = BITModelDefinition.create_docs()
+__doc__ = BITMediumModelDefinition.create_docs()
 
 class BitMedium2Vec(BitSmall2Vec):
     definition = BITMediumModelDefinition
