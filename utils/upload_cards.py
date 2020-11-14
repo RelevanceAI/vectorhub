@@ -64,6 +64,7 @@ if __name__=="__main__":
     text_encoder = ViText2Vec(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
     response = vi_client.insert_documents(args.collection_name, docs, models={'description': text_encoder})
     if response['failed'] != 0:
+        print(response)
         raise ValueError("Failed IDs")
     
     if args.evaluate_results:
