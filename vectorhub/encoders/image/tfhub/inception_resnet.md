@@ -1,7 +1,7 @@
 ---
 model_id: "image/inception-resnet"
 model_name: "Inception Resnet"
-vector_length: 1536
+vector_length: "1536 (default)"
 paper: "https://arxiv.org/abs/1602.07261"
 repo: "https://tfhub.dev/google/imagenet/inception_resnet_v2/feature_vector/4"
 installation: "pip install vectorhub[encoders-image-tfhub]"

@@ -62,6 +62,29 @@ if __name__=="__main__":
             vi_client.delete_collection(args.collection_name)
             time.sleep(5)
     text_encoder = ViText2Vec(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
+    # vi_client.create_collection(args.collection_name, 
+    # collection_schema={
+    #     'architecture': 'text', 
+    #     'description': 'text', 
+    #     'description_vector_': 512, 
+    #     'example': 'text', 
+    #     'insert_date_': 'date', 
+    #     'installation': 'text',
+    #     'limitations': 'text', 
+    #     'markdown_description': 'text', 
+    #     'markdown_filepath': 'text', 
+    #     'markdown_without_example': 'text', 
+    #     'model_id': 'text', 
+    #     'model_name': 'text', 
+    #     'model_versions': 'text', 
+    #     'other_notes:': 'text', 
+    #     'paper': 'text', 
+    #     'release_date': 'date', 
+    #     'repo': 'text', 
+    #     'tasks': 'text', 
+    #     'training_corpora:': 'text', 
+    #     'vector_length': 'text'})
+
     response = vi_client.insert_documents(args.collection_name, docs, models={'description': text_encoder})
     if response['failed'] != 0:
         print(response)

@@ -10,11 +10,8 @@ if is_all_dependency_installed('encoders-image-tfhub'):
     import tensorflow_hub as hub
     import traceback
 
-BITModelDefinition = ModelDefinition(markdown_filepath='encoders/image/tfhub/bit')
-
-__doc__ = BITModelDefinition.create_docs()
-
 BITMediumModelDefinition = ModelDefinition(markdown_filepath="encoders/image/tfhub/bit_medium")
+__doc__ = BITMediumModelDefinition.create_docs()
 
 class BitMedium2Vec(BitSmall2Vec):
     definition = BITMediumModelDefinition

@@ -28,4 +28,4 @@ jobs:
             VH_COLLECTION_NAME: ${{secrets.VH_COLLECTION_NAME}}
         
       run: |
-        python3 utils/upload_cards.py
+        python3 utils/upload_cards.py --reset_collection
