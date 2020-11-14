@@ -8,7 +8,7 @@ from datetime import date
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-sentence-transformers']):
     from sentence_transformers import SentenceTransformer
 
-DistilRobertaQAModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/text_text/sentence_transformers/sentence_transformers')
+DistilRobertaQAModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/text_text/sentence_transformers/distilroberta_qa.md')
 
 __doc__ = DistilRobertaQAModelDefinition.create_docs()
 
