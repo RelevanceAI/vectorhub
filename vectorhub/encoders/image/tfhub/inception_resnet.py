@@ -30,6 +30,8 @@ class InceptionResnet2Vec(BaseImage2Vec):
             >>> model = InceptionResnet2Vec(username, api_key)
             >>> model.encode("Hey!")
         """
+        if isinstance(image, str):
+            image = self.read(image)
         return self.model([image]).numpy().tolist()[0]
     
     @catch_vector_errors

@@ -38,6 +38,8 @@ class BitSmall2Vec(BaseImage2Vec):
 
     @catch_vector_errors
     def encode(self, image):
+        if isinstance(image, str):
+            image = self.read(image)
         return self.model([image]).numpy().tolist()[0]
 
     @catch_vector_errors

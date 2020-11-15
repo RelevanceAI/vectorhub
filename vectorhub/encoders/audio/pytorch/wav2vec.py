@@ -45,4 +45,6 @@ class Wav2Vec(BaseAudio2Vec):
             >>> encoder = Wav2Vec()
             >>> encoder.encode("...")
         """
+        if isinstance(audio, str):
+            audio = self.read(audio)
         return self._vector_operation(self.model.feature_extractor(torch.from_numpy(np.array([audio]))).detach().numpy().tolist()[0], vector_operation=vector_operation, axis=1)
