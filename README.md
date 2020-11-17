@@ -36,9 +36,15 @@ Vector Hub provides:
 - Retrieve and find information about a model
 - An easy way to handle dependencies easily for different models
 
-If you are new to vectors, [click here!](https://github.com/vector-ai/vectorhub#what-are-vectors)
-For Python documentation, [click here!](https://vector-ai.github.io/vectorhub/)
-To view available models, [see VectorHub!](http://hub.getvectorai.com/)
+## Quickstart:
+
+[New to Vectors](https://github.com/vector-ai/vectorhub#what-are-vectors)
+
+[Google Colab Quickstart](https://go.vctr.ai/vectorhub-colab)
+
+[Documentation](https://go.vctr.ai/vectorhub-docs)
+
+[Full list of models](https://hub.getvectorai.com/)
 
 
 ## Why Vector Hub?
@@ -78,14 +84,6 @@ python3 -m pip install --upgrade pip
 python3 -m pip install vectorhub[all]
 ```
 
-
-## Quickstart:
-
-[Google Colab Quickstart](https://go.vctr.ai/vectorhub-colab)
-
-[Documentation](https://go.vctr.ai/vectorhub-docs)
-
-[Full list of models](https://hub.getvectorai.com/)
 
 ### Instantiate our auto_encoder class as such and use any of the models! 
 
