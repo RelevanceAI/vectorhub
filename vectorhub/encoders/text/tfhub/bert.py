@@ -39,9 +39,9 @@ class Bert2Vec(BaseText2Vec):
         self.validate_model_url(model_url, list_of_urls)
         self.max_seq_length = max_seq_length
         self.normalize = normalize
+        self.model_input_type = "dict"
         self.init(model_url)
         self.tokenizer = self.init_tokenizer()
-        self.model_input_type = "dict"
 
     def init(self, model_url: str):
         self.model = hub.KerasLayer(model_url)
