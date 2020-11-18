@@ -1,4 +1,5 @@
 from datetime import date
+import traceback
 from ..base import BaseText2Vec
 from ....base import catch_vector_errors
 from ....import_utils import is_all_dependency_installed
@@ -6,8 +7,13 @@ from ....models_dict import MODEL_REQUIREMENTS
 from ....doc_utils import ModelDefinition
 
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-albert']):
-    import tensorflow_text
+    from tensorflow.python.framework.errors_impl import NotFoundError
     import tensorflow_hub as hub
+    try:
+        import tensorflow_text
+    except NotFoundError:
+        print('The installed Tensorflow Text version is not aligned with tensorflow, make sure that tensorflow-text version is same version as tensorflow')
+
 
 AlbertModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/albert')
 __doc__ = AlbertModelDefinition.create_docs()
