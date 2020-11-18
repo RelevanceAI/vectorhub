@@ -5,6 +5,7 @@ vector_length: "512 (default)"
 release_date: "2020-03-11"
 repo: 'https://tfhub.dev/google/universal-sentence-encoder-qa/3'
 installation: "pip install vectorhub[encoders-text-tfhub-tftext]"
+category: text-text
 ---
 
 ## Description

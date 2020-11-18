@@ -6,6 +6,7 @@ paper: "https://arxiv.org/abs/1912.11370"
 repo: "https://github.com/google-research/big_transfer"
 installation: "pip install vectorhub[encoders-image-tfhub]"
 release_date: "2019-12-24"
+category: image
 ---
 
 ## Description

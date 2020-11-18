@@ -7,6 +7,7 @@ paper: "https://arxiv.org/abs/1810.04805v2"
 repo: "https://tfhub.dev/google/collections/bert/1"
 release_date: '2018-10-11'
 installation: "pip install vectorhub[encoders-text-tfhub]"
+category: text
 ---
 
 ## Description

@@ -5,6 +5,7 @@ vector_length: "2048 (default)"
 repo: 'https://tfhub.dev/google/imagenet/inception_v1/feature_vector/4'
 installation: "pip install vectorhub[encoders-image-tfhub]"
 release_date: "2015-12-11"
+category: image
 ---
 
 ## Description

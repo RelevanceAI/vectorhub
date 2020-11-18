@@ -6,6 +6,7 @@ paper: "https://arxiv.org/abs/1803.11175"
 repo: "https://tfhub.dev/google/universal-sentence-encoder-lite/2"
 installation: pip install vectorhub[encoders-text-tfhub]
 release_date: "2018-03-29"
+category: text
 ---
 
 ## Description
