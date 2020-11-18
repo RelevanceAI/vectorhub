@@ -51,8 +51,8 @@ class Bert2Vec(BaseText2Vec):
         try:
             self.model(dict(input_word_ids=input_word_ids, input_mask=input_mask, input_type_ids=input_type_ids))
         except ValueError:
-            self.model([input_word_ids, input_mask, input_type_ids])
             self.model_input_type = "list"
+            self.model([input_word_ids, input_mask, input_type_ids])
 
     def init_tokenizer(self):
         self.vocab_file = self.model.resolved_object.vocab_file.asset_path.numpy()
