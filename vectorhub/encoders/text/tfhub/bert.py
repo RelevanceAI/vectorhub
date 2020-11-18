@@ -41,13 +41,18 @@ class Bert2Vec(BaseText2Vec):
         self.normalize = normalize
         self.init(model_url)
         self.tokenizer = self.init_tokenizer()
+        self.model_input_type = "dict"
 
     def init(self, model_url: str):
         self.model = hub.KerasLayer(model_url)
         input_word_ids = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32)
         input_mask = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32)
         input_type_ids = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32)
-        self.model(dict(input_word_ids=input_word_ids, input_mask=input_mask, input_type_ids=input_type_ids))
+        try:
+            self.model(dict(input_word_ids=input_word_ids, input_mask=input_mask, input_type_ids=input_type_ids))
+        except ValueError:
+            self.model([input_word_ids, input_mask, input_type_ids])
+            self.model_input_type = "list"
 
     def init_tokenizer(self):
         self.vocab_file = self.model.resolved_object.vocab_file.asset_path.numpy()
@@ -84,17 +89,32 @@ class Bert2Vec(BaseText2Vec):
     @catch_vector_errors
     def encode(self, text: str):
         input_ids, input_mask, input_type_ids = self.process(text)
-        return self.model({
-            "input_word_ids": tf.convert_to_tensor(input_ids, tf.int32, name="input_word_ids"), 
-            "input_mask": tf.convert_to_tensor(input_mask, tf.int32, name="input_mask"), 
-            "input_type_ids": tf.convert_to_tensor(input_type_ids, tf.int32, name="input_type_ids")
-        })['pooled_output'].numpy().tolist()[0]
+        if self.model_input_type == "list":
+            return self.model([
+                tf.convert_to_tensor(input_ids, tf.int32, name="input_word_ids"), 
+                tf.convert_to_tensor(input_mask, tf.int32, name="input_mask"), 
+                tf.convert_to_tensor(input_type_ids, tf.int32, name="input_type_ids")
+            ])[0].numpy().tolist()[0]
+        else:
+            return self.model({
+                "input_word_ids": tf.convert_to_tensor(input_ids, tf.int32, name="input_word_ids"), 
+                "input_mask": tf.convert_to_tensor(input_mask, tf.int32, name="input_mask"), 
+                "input_type_ids": tf.convert_to_tensor(input_type_ids, tf.int32, name="input_type_ids")
+            })['pooled_output'].numpy().tolist()[0]
+
 
     @catch_vector_errors
     def bulk_encode(self, texts: list):
         input_ids, input_mask, input_type_ids = self.process(texts)
-        return self.model({
-            "input_word_ids": tf.convert_to_tensor(input_ids, tf.int32, name="input_word_ids"), 
-            "input_mask": tf.convert_to_tensor(input_mask, tf.int32, name="input_mask"), 
-            "input_type_ids": tf.convert_to_tensor(input_type_ids, tf.int32, name="input_type_ids")
-        })['pooled_output'].numpy().tolist()
+        if self.model_input_type == "list":
+            return self.model([
+                tf.convert_to_tensor(input_ids, tf.int32, name="input_word_ids"), 
+                tf.convert_to_tensor(input_mask, tf.int32, name="input_mask"), 
+                tf.convert_to_tensor(input_type_ids, tf.int32, name="input_type_ids")
+            ])[0].numpy().tolist()
+        else:
+            return self.model({
+                "input_word_ids": tf.convert_to_tensor(input_ids, tf.int32, name="input_word_ids"), 
+                "input_mask": tf.convert_to_tensor(input_mask, tf.int32, name="input_mask"), 
+                "input_type_ids": tf.convert_to_tensor(input_type_ids, tf.int32, name="input_type_ids")
+            })['pooled_output'].numpy().tolist()

@@ -10,7 +10,11 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['text-bi-encoder-tfhub-lareqa-
     import numpy as np
     import tensorflow.compat.v2 as tf
     import tensorflow_hub as hub
-    import tensorflow_text
+    from tensorflow.python.framework.errors_impl import NotFoundError
+    try:
+        import tensorflow_text
+    except NotFoundError:
+        print('The installed Tensorflow Text version is not aligned with tensorflow, make sure that tensorflow-text version is same version as tensorflow')
 
 LAReQAModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/text_text/tfhub/lareqa_qa')
 __doc__ = LAReQAModelDefinition.create_docs()

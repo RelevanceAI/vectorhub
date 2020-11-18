@@ -10,7 +10,11 @@ from .use import USE2Vec
 
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-use-multi']):
     import tensorflow as tf
-    import tensorflow_text
+    from tensorflow.python.framework.errors_impl import NotFoundError
+    try:
+        import tensorflow_text
+    except NotFoundError:
+        print('The installed Tensorflow Text version is not aligned with tensorflow, make sure that tensorflow-text version is same version as tensorflow')
 
 USELiteModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/use_lite.md')
 
