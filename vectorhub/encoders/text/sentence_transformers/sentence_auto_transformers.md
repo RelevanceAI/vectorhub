@@ -18,6 +18,6 @@ These are Sentence Transformer models from sbert.net by UKPLab.
 ```python
 #pip install vectorhub[encoders-text-sentence-transformers]
 from vectorhub.encoders.text.sentence_transformers import SentenceTransformer2Vec
-model = SentenceTransformer2Vec('bert-base-uncased')
+model = SentenceTransformer2Vec('distilroberta-base-paraphrase-v1')
 model.encode("I enjoy taking long walks along the beach with my dog.")
 ```
