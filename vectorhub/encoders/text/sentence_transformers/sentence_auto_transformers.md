@@ -6,6 +6,7 @@ paper: https://arxiv.org/abs/1908.10084
 repo: https://github.com/UKPLab/sentence-transformers
 release_date: "2019-08-27"
 installation: pip install vectorhub[encoders-text-sentence-transformers]
+category: text
 ---
 
 ## Description

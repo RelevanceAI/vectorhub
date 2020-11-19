@@ -6,6 +6,7 @@ paper: https://arxiv.org/abs/1704.04861
 repo: https://tfhub.dev/google/imagenet/mobilenet_v1_100_224/feature_vector/4
 release_date: "2017-04-17"
 installation: "pip install vectorhub[encoders-image-tfhub]"
+category: image
 ---
 
 ## Description

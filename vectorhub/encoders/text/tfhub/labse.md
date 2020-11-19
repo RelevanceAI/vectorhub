@@ -6,6 +6,7 @@ paper: "https://arxiv.org/pdf/2007.01852v1.pdf"
 repo: "https://tfhub.dev/google/LaBSE/1"
 installation: "pip install vectorhub[encoders-text-tfhub]"
 release_date: "2020-07-03"
+category: text
 ---
 
 ## Description

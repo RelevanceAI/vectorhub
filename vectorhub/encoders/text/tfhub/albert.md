@@ -7,6 +7,7 @@ paper: 'https://arxiv.org/abs/1909.11942'
 repo: 'https://tfhub.dev/tensorflow/albert_en_base/1'
 installation: "pip install vectorhub[encoders-text-tfhub]"
 release_date: "2019-09-26"
+category: text
 ---
 
 ## Description

@@ -5,6 +5,7 @@ vector_length: "512 (default)"
 release_date: "2020-03-11"
 repo: "https://tfhub.dev/google/vggish/1"
 installation: "pip install vectorhub[encoders-audio-tfhub]"
+category: audio
 ---
 
 ## Description

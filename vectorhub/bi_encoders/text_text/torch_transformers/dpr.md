@@ -5,6 +5,7 @@ vector_length: "768 (default)"
 release_date: "2020-10-04"
 paper: "https://arxiv.org/abs/2004.04906"
 installation: "pip install vectorhub[encoders-text-torch-transformers]"
+category: text-text
 ---
 
 ## Description

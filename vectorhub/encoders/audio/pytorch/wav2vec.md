@@ -6,6 +6,7 @@ paper: "https://arxiv.org/abs/2006.11477"
 repo: "https://github.com/pytorch/fairseq"
 installation: "pip install vectorhub[encoders-audio-pytorch]"
 release_date: "2020-06-20"
+category: audio
 ---
 
 ## Description

@@ -6,7 +6,7 @@ paper: "https://arxiv.org/abs/1409.4842"
 repo: 'https://tfhub.dev/google/imagenet/inception_v1/feature_vector/4'
 installation: "pip install vectorhub[encoders-image-tfhub]"
 release_date: "2015-12-11"
-
+category: image
 ---
 
 ## Description
