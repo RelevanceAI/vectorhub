@@ -13,7 +13,7 @@ def test_encoders_instantiation(name):
     encoder = AutoEncoder.from_model(name)
     if name not in ['text/use-lite']:
         if 'text' in name:
-            vector = encoder.encode("HI")
+            result = encoder.encode("HI")
             # We set this because sometimes it may 
             # result in 2 separate vectors.
         if 'image' in name:
