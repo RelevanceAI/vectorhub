@@ -36,11 +36,14 @@ class BaseImage2Vec(Base2Vec):
         except:
             return np.array(imageio.imread(b)[:, :, :3])
     
-    def to_grayscale(self, sample):
+    def to_grayscale(self, sample, rgb_weights=None):
         """
             Converting an image from RGB to Grayscale
         """
-        return np.dot(sample[...,:3], self.rgb_weights())
+        if rgb_weights is None:
+            return np.dot(sample[...,:3], self.rgb_weights)
+        else:
+            return np.dot(sample[...,:3], rgb_weights)
     
     @property
     def rgb_weights(self):
