@@ -2,6 +2,12 @@ from vectorhub.auto_encoder import AutoEncoder, ENCODER_MAPPINGS, list_all_auto_
 import warnings
 import pytest
 
+def is_vector_default(vector):
+    """
+        Return True if the vector is the default vector, False if it is not.
+    """
+    return vector[0] != 1e-7 and vector[1] != 1e-7 and vector[2] != 1e-7
+
 @pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
 def test_encoders_instantiation(name):
     encoder = AutoEncoder.from_model(name)
@@ -13,12 +19,17 @@ def test_encoders_instantiation(name):
         if 'image' in name:
             sample = encoder.read('https://getvectorai.com/assets/logo-square.png')
             result = encoder.encode(sample)
+            assert is_vector_default(result)
+            sample = encoder.to_grayscale(encoder.read('https://getvectorai.com/assets/logo-square.png'))
+            result = encoder.encode(sample)
+            assert is_vector_default(result)
         if 'audio' in name:
             sample = encoder.read(
             'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav', 16000
             )
             result = encoder.encode(sample)
-    assert vector[0] != 1e-7 and vector[1] != 1e-7
+    # Check to ensure that this isn't just the default vector
+    assert not is_vector_default(result)
     assert len(result) > 10
 
 @pytest.mark.parametrize('name', list(BIENCODER_MAPPINGS.keys()))
