@@ -5,10 +5,10 @@ if is_all_dependency_installed('encoders-image-tfhub'):
     import io
     import imageio
     import numpy as np
+    import matplotlib.pyplot as plt
     from urllib.request import urlopen, Request
     from urllib.parse import quote
     from skimage import transform
-
 
 class BaseImage2Vec(Base2Vec):
     def read(self, image: str):
@@ -16,6 +16,7 @@ class BaseImage2Vec(Base2Vec):
             An method to read images. 
             Args:
                 image: An image link/bytes/io Bytesio data format.
+                as_gray: read in the image as black and white
         """
         if type(image) == str:
             if 'http' in image:
@@ -31,9 +32,33 @@ class BaseImage2Vec(Base2Vec):
             raise ValueError("Cannot process data type. Ensure it is is string/bytes or BytesIO.")
         try:
             return np.array(imageio.imread(b, pilmode="RGB"))
+        # TODO: Flesh out exceptions
         except:
             return np.array(imageio.imread(b)[:, :, :3])
+    
+    def to_grayscale(self, sample):
+        """
+            Converting an image from RGB to Grayscale
+        """
+        return np.dot(sample[...,:3], self.rgb_weights())
+    
+    @property
+    def rgb_weights(self):
+        """
+            Get RGB weights for grayscaling.
+        """
+        return [0.2989, 0.5870, 0.1140]
 
+    def show_image(self, sample: np.array):
+        """
+            Show an image once it is read. 
+            Arg:
+                sample: Image that is read (numpy array)
+            Example:
+                >>> s
+        """
+        return plt.imshow(sample, cmap=plt.get_cmap("gray"))
+    
     def image_resize(self, image_array, width=0, height=0, rescale=0, resize_mode='symmetry'):
         if width and height:
             image_array = transform.resize(image_array, (width, height), mode=resize_mode, preserve_range=True)
