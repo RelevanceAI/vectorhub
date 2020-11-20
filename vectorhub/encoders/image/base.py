@@ -36,14 +36,14 @@ class BaseImage2Vec(Base2Vec):
         except:
             return np.array(imageio.imread(b)[:, :, :3])
     
-    def to_grayscale(self, sample, rgb_weights=None):
+    def to_grayscale(self, sample, rgb_weights: list=None):
         """
             Converting an image from RGB to Grayscale
         """
         if rgb_weights is None:
-            return np.dot(sample[...,:3], self.rgb_weights)
+            return np.repeat(np.dot(sample[...,:3], self.rgb_weights)[..., np.newaxis], 3, -1)
         else:
-            return np.dot(sample[...,:3], rgb_weights)
+            return np.repeat(np.dot(sample[...,:3], rgb_weights)[..., np.newaxis], 3, -1)
     
     @property
     def rgb_weights(self):
@@ -52,15 +52,15 @@ class BaseImage2Vec(Base2Vec):
         """
         return [0.2989, 0.5870, 0.1140]
 
-    def show_image(self, sample: np.array):
+    def show_image(self, sample: np.array, cmap=None, is_grayscale=True):
         """
             Show an image once it is read. 
             Arg:
                 sample: Image that is read (numpy array)
-            Example:
-                >>> s
         """
-        return plt.imshow(sample, cmap=plt.get_cmap("gray"))
+        if is_grayscale:
+            return plt.imshow(sample, cmap=plt.get_cmap("gray"))
+        return plt.imshow(sample, cmap=cmap)
     
     def image_resize(self, image_array, width=0, height=0, rescale=0, resize_mode='symmetry'):
         if width and height:
