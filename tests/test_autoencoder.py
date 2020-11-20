@@ -28,9 +28,9 @@ def test_encoders_instantiation(name):
             'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav', 16000
             )
             result = encoder.encode(sample)
-    # Check to ensure that this isn't just the default vector
-    assert not is_vector_default(result)
-    assert len(result) > 10
+        # Check to ensure that this isn't just the default vector
+        assert not is_vector_default(result)
+        assert len(result) > 10
 
 @pytest.mark.parametrize('name', list(BIENCODER_MAPPINGS.keys()))
 def test_biencoder_mappings(name):
