@@ -10,18 +10,16 @@ def test_encoders_instantiation(name):
             vector = encoder.encode("HI")
             # We set this because sometimes it may 
             # result in 2 separate vectors.
-            assert len(vector) > 10
         if 'image' in name:
             sample = encoder.read('https://getvectorai.com/assets/logo-square.png')
             result = encoder.encode(sample)
-            assert len(result) > 10
         if 'audio' in name:
             sample = encoder.read(
             'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav', 16000
             )
             result = encoder.encode(sample)
-            assert len(result) > 10
-    assert True
+    assert vector[0] != 1e-7 and vector[1] != 1e-7
+    assert len(result) > 10
 
 @pytest.mark.parametrize('name', list(BIENCODER_MAPPINGS.keys()))
 def test_biencoder_mappings(name):
