@@ -6,7 +6,7 @@ def is_vector_default(vector):
     """
         Return True if the vector is the default vector, False if it is not.
     """
-    return vector[0] != 1e-7 or vector[1] != 1e-7 or vector[2] != 1e-7
+    return vector[0] == 1e-7 and vector[1] == 1e-7 and vector[2] == 1e-7
 
 @pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
 def test_encoders_instantiation(name):
