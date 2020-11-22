@@ -52,7 +52,7 @@ class BaseImage2Vec(Base2Vec):
         """
         return [0.2989, 0.5870, 0.1140]
 
-    def show_image(self, sample: np.array, cmap=None, is_grayscale=True):
+    def show_image(self, sample, cmap=None, is_grayscale=True):
         """
             Show an image once it is read. 
             Arg:
