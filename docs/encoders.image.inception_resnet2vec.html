@@ -280,7 +280,30 @@ ImageNet classification (CLS) challenge.</p>
 <dt id="vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.read">
 <code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>An method to read images.
-:param image: An image link/bytes/io Bytesio data format.</p>
+:param image: An image link/bytes/io Bytesio data format.
+:param as_gray: read in the image as black and white</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.rgb_weights">
+<em class="property">property </em><code class="sig-name descname">rgb_weights</code><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.rgb_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get RGB weights for grayscaling.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.show_image">
+<code class="sig-name descname">show_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em class="sig-param"><span class="n">cmap</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_grayscale</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.show_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show an image once it is read.
+Arg:</p>
+<blockquote>
+<div><p>sample: Image that is read (numpy array)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.to_grayscale">
+<code class="sig-name descname">to_grayscale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">rgb_weights</span><span class="p">:</span> <span class="n">list</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.to_grayscale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converting an image from RGB to Grayscale</p>
 </dd></dl>
 
 <dl class="py method">
