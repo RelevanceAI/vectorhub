@@ -23,6 +23,8 @@ class Yamnet2Vec(BaseAudio2Vec):
 
     @catch_vector_errors
     def encode(self, audio, vector_operation='mean', layer='embeddings'):
+        if isinstance(audio, str):
+            audio = self.read(audio)
         outputs = self.model(audio)
         if layer == 'scores':
             return self._vector_operation(outputs[0], vector_operation)

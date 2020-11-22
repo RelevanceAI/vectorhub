@@ -24,4 +24,6 @@ class TrillDistilled2Vec(BaseAudio2Vec):
 
     @catch_vector_errors
     def encode(self, audio, vector_operation='mean'):
+        if isinstance(audio, str):
+            audio = self.read(audio)
         return self._vector_operation(self.model(samples=audio, sample_rate=16000)[self.layer], vector_operation)

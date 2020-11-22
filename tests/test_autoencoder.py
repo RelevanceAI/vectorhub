@@ -2,26 +2,35 @@ from vectorhub.auto_encoder import AutoEncoder, ENCODER_MAPPINGS, list_all_auto_
 import warnings
 import pytest
 
+def is_dummy_vector(vector):
+    """
+        Return True if the vector is the default vector, False if it is not.
+    """
+    return vector[0] == 1e-7 and vector[1] == 1e-7 and vector[2] == 1e-7
+
 @pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
 def test_encoders_instantiation(name):
     encoder = AutoEncoder.from_model(name)
     if name not in ['text/use-lite']:
         if 'text' in name:
-            vector = encoder.encode("HI")
+            result = encoder.encode("HI")
             # We set this because sometimes it may 
             # result in 2 separate vectors.
-            assert len(vector) > 10
         if 'image' in name:
             sample = encoder.read('https://getvectorai.com/assets/logo-square.png')
             result = encoder.encode(sample)
-            assert len(result) > 10
+            assert not is_dummy_vector(result)
+            sample = encoder.to_grayscale(encoder.read('https://getvectorai.com/assets/logo-square.png'))
+            result = encoder.encode(sample)
+            assert not is_dummy_vector(result)
         if 'audio' in name:
             sample = encoder.read(
             'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav', 16000
             )
             result = encoder.encode(sample)
-            assert len(result) > 10
-    assert True
+        # Check to ensure that this isn't just the default vector
+        assert not is_dummy_vector(result)
+        assert len(result) > 10
 
 @pytest.mark.parametrize('name', list(BIENCODER_MAPPINGS.keys()))
 def test_biencoder_mappings(name):

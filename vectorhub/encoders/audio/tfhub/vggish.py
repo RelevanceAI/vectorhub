@@ -24,4 +24,6 @@ class Vggish2Vec(BaseAudio2Vec):
 
     @catch_vector_errors
     def encode(self, audio, vector_operation='mean'):
+        if isinstance(audio, str):
+            audio = self.read(audio)
         return self._vector_operation(self.model(audio), vector_operation)
