@@ -62,7 +62,7 @@ class BaseImage2Vec(Base2Vec):
             return plt.imshow(sample, cmap=plt.get_cmap("gray"))
         return plt.imshow(sample, cmap=cmap)
     
-    def image_resize(self, image_array, width=0, height=0, rescale=0, resize_mode='symmetry'):
+    def image_resize(self, image_array, width=0, height=0, rescale=0, resize_mode='symmetric'):
         if width and height:
             image_array = transform.resize(image_array, (width, height), mode=resize_mode, preserve_range=True)
         if rescale:
