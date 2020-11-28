@@ -21,5 +21,4 @@ from vectorhub.encoders.audio.pytorch import Wav2Vec
 model = Wav2Vec()
 sample = model.read('https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav')
 model.encode(sample)
-"""
 ```
