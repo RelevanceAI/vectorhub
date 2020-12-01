@@ -21,7 +21,7 @@ jobs:
         pip install -e .
         python3 -m pip install vectorai
         python3 -m pip install torch torchvision
-        python3 -m pip install transformers
+        python3 -m pip install transformers==3.5.1
         python3 -m pip install tensorflow-text
         python3 -m pip install sentencepiece
     - name: Creating models.json
