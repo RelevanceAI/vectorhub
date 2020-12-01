@@ -18,8 +18,8 @@ are useful out-of-the-box to retrieve an answer given a question, as well as que
 ## Example
 
 ```
-#pip install vectorhub[encoders-text-tfhub-tftext]
-from vectorhub.bi_encoder.text_text.tfhub import USEQA2Vec
+#pip install vectorhub[encoders-text-tfhub]
+from vectorhub.bi_encoders.text_text.tfhub import USEQA2Vec
 model = USEQA2Vec()
 model.encode_question('How is the weather today?')
 model.encode_answer('The weather is great today.')
