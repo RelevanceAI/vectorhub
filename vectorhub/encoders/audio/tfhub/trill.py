@@ -33,6 +33,8 @@ class Trill2Vec(BaseAudio2Vec):
             >>> encoder.encode(...)
         
         """
+        if isinstance(audio, str):
+            audio = self.read(audio)
         return self._vector_operation(self.model(samples=audio, sample_rate=16000)[self.layer], vector_operation)
 
     @catch_vector_errors

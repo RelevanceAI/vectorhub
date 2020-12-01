@@ -34,6 +34,8 @@ class SpeechEmbedding2Vec(BaseAudio2Vec):
         >>> encoder = SpeechEmbedding2Vec()
         >>> encoder.encode(...)
         """
+        if isinstance(audio, str):
+            audio = self.read(audio)
         return self._vector_operation(self.model(tf.constant([audio]))[self.signature][0], vector_operation=vector_operation)[0]
 
     @catch_vector_errors
