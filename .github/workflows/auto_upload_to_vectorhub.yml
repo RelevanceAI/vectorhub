@@ -22,6 +22,7 @@ jobs:
         python3 -m pip install vectorai
         python3 -m pip install torch torchvision
         python3 -m pip install transformers
+        python3 -m pip install tensorflow-text
     - name: Creating models.json
       env:
             VH_USERNAME: ${{ secrets.VI_USERNAME }}
