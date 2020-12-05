@@ -1,9 +1,9 @@
 ---
 model_name: "Trill Distilled - Triplet Loss Network" 
 model_id: "audio/trill-distilled"
-vector_length: "512 (default)"
+vector_length: "2048 (default)"
 paper: "https://arxiv.org/abs/2002.12764"
-repo: "https://tfhub.dev/google/nonsemantic-speech-benchmark/trill/3"
+repo: "https://tfhub.dev/google/nonsemantic-speech-benchmark/trill-distilled/3"
 installation: "pip install vectorhub[encoders-audio-tfhub]"
 release_date: "2020-02-25"
 category: audio
