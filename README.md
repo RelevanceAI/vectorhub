@@ -40,12 +40,11 @@ Vector Hub provides:
 
 [New to Vectors](https://github.com/vector-ai/vectorhub#what-are-vectors)
 
+[Full list of models](https://hub.getvectorai.com/)
+
 [Google Colab Quickstart](https://go.vctr.ai/vectorhub-colab)
 
 [Documentation](https://go.vctr.ai/vectorhub-docs)
-
-[Full list of models](https://hub.getvectorai.com/)
-
 
 ## Why Vector Hub?
 
