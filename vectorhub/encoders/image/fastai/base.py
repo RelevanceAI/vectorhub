@@ -36,7 +36,10 @@ class FastAIBase(BaseImage2Vec):
     def extraction_layer(self):
         pass
 
-    def encode(self, image_url):
+    def encode(self, image):
         with hook_outputs(self.extraction_layer) as h:
-            y = self.learn.predict(self.read(image_url))
+            if isinstance(image, str):
+                y = self.learn.predict(self.read(image))
+            elif isinstance(image, np.array):
+                y = self.learn.predict(image)
         return h.stored[0].cpu().numpy().tolist()[0]
