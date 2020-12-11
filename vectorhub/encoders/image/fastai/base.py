@@ -41,6 +41,6 @@ class FastAIBase(BaseImage2Vec):
         with hook_outputs(self.extraction_layer) as h:
             if isinstance(image, str):
                 y = self.learn.predict(self.read(image))
-            elif isinstance(image, (np.array)):
+            elif isinstance(image, (np.ndarray, np.generic) ):
                 y = self.learn.predict(image)
         return h.stored[0].cpu().numpy().tolist()[0]
