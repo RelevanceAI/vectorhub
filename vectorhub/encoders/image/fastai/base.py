@@ -9,6 +9,7 @@ from ....import_utils import is_all_dependency_installed
 
 if is_all_dependency_installed('encoders-image-fastai'):
     import torch
+    import numpy as np
     from fastai.vision.all import *
     from fastai.torch_basics import *
     from fastai.data.all import *
@@ -40,6 +41,6 @@ class FastAIBase(BaseImage2Vec):
         with hook_outputs(self.extraction_layer) as h:
             if isinstance(image, str):
                 y = self.learn.predict(self.read(image))
-            elif isinstance(image, np.array):
+            elif isinstance(image, (np.array)):
                 y = self.learn.predict(image)
         return h.stored[0].cpu().numpy().tolist()[0]
