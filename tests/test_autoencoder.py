@@ -20,12 +20,11 @@ def test_encoders_instantiation(name):
             sample = encoder.read('https://getvectorai.com/assets/logo-square.png')
             result = encoder.encode(sample)
             assert not is_dummy_vector(result)
-            if 'fastai' in name:
-                # Skip the fastai as it has its own internal method for grayscaling
-                continue
-            sample = encoder.to_grayscale(encoder.read('https://getvectorai.com/assets/logo-square.png'))
-            result = encoder.encode(sample)
-            assert not is_dummy_vector(result)
+            # Skip the fastai as it has its own internal method for grayscaling
+            if 'fastai' not in name:
+                sample = encoder.to_grayscale(encoder.read('https://getvectorai.com/assets/logo-square.png'))
+                result = encoder.encode(sample)
+                assert not is_dummy_vector(result)
         if 'audio' in name:
             sample = encoder.read(
             'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav', 16000
