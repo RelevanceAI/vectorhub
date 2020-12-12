@@ -3,13 +3,13 @@
 """
 from abc import abstractproperty
 from ..base import BaseImage2Vec
-
-# We use wildcard imports for FastAI as this is the way it is handled in the documentation.
 from ....import_utils import is_all_dependency_installed
+from ....base import catch_vector_errors
 
 if is_all_dependency_installed('encoders-image-fastai'):
     import torch
     import numpy as np
+    # We use wildcard imports for FastAI as this is the way it is handled in the documentation.
     from fastai.vision.all import *
     from fastai.torch_basics import *
     from fastai.data.all import *
@@ -37,6 +37,7 @@ class FastAIBase(BaseImage2Vec):
     def extraction_layer(self):
         pass
 
+    @catch_vector_errors
     def encode(self, image):
         with hook_outputs(self.extraction_layer) as h:
             if isinstance(image, str):
