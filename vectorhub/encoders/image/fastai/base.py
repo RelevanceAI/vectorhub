@@ -42,8 +42,5 @@ class FastAIBase(BaseImage2Vec):
             if isinstance(image, str):
                 y = self.learn.predict(self.read(image))
             elif isinstance(image, (np.ndarray, np.generic)):
-                if np.max(image) > 1:
-                    # Normalize to between -1 and 1.
-                    image = image / 256
                 y = self.learn.predict(image)
         return h.stored[0].cpu().numpy().tolist()[0]

@@ -20,6 +20,9 @@ def test_encoders_instantiation(name):
             sample = encoder.read('https://getvectorai.com/assets/logo-square.png')
             result = encoder.encode(sample)
             assert not is_dummy_vector(result)
+            if 'fastai' in name:
+                # Skip the fastai as it has its own internal method for grayscaling
+                continue
             sample = encoder.to_grayscale(encoder.read('https://getvectorai.com/assets/logo-square.png'))
             result = encoder.encode(sample)
             assert not is_dummy_vector(result)
