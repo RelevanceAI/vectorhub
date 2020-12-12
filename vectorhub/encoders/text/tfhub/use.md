@@ -7,6 +7,7 @@ repo: "https://tfhub.dev/google/collections/universal-sentence-encoder/1"
 installation: "pip install vectorhub[encoders-text-tfhub]"
 release_date: "2018-03-29"
 category: text
+short_description: Greater-than-word length text encoder for semantic search.
 ---
 
 ## Description
