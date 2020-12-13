@@ -1,6 +1,6 @@
 ---
 model_id: "image/mobilenet-v2"
-model_name: "MobileNet" 
+model_name: "MobileNet V2"
 vector_length: "1792 (default)"
 paper: "https://arxiv.org/abs/1704.04861"
 repo: "https://tfhub.dev/google/imagenet/mobilenet_v1_100_224/feature_vector/4"

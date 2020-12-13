@@ -52,9 +52,10 @@ if __name__=="__main__":
 
     if not args.quick_run:
         for i, doc in enumerate(docs):
-            short_description = summarise(doc['description'])
-            docs[i]['short_description'] = short_description
-            print(short_description)
+            if 'short_description' not in docs[i].keys():
+                short_description = summarise(doc['description'])
+                docs[i]['short_description'] = short_description
+                print(short_description)
 
     vi_client = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
     if args.reset_collection:
