@@ -20,14 +20,39 @@ __doc__ = FastAIResnetModelDefinition.create_docs()
 
 class FastAIResnet2Vec(FastAIBase):
     definition = FastAIResnetModelDefinition
-    def __init__(self, databunch=None, architecture=resnet34):
+    def __init__(self, architecture='resnet34', databunch=None):
         """
-            For the FASTAI model, you should be able to use Resnet34, Resnet18, 
+            Refer to possible_architectures method for reference to which architectures can be instantiated. 
+            Args:
+                Architecture: The name of the architecture 
+                Databunch: A FastAI Data collection data type that is used to instantiate a learner object.
         """
         self.databunch = databunch
-        self.architecture = architecture
+        self.architecture = self.architecture_mappings[architecture]
         self._create_learner()
     
+    @property
+    def possible_architectures(self):
+        return list(self.architecture_mappings.keys())
+
+    @property
+    def architecture_mappings(self):
+        """
+            Architecture mappings
+        """
+        return {
+            'resnet18': resnet18,
+            'resnet34': resnet34,
+            'resnet50': resnet50,
+            'resnet101': resnet101,
+            'resnet152': resnet152,
+            'squeezenet1_0': squeezenet1_0,
+            'squeezenet1_1': squeezenet1_1,
+            'densenet121': densenet121,
+            'vgg16_bn': vgg16_bn,
+            'alexnet': alexnet
+        }
+
     @property
     def extraction_layer(self):
         """
