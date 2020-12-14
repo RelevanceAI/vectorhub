@@ -7,7 +7,7 @@ from ....models_dict import MODEL_REQUIREMENTS
 
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-labse']):
     import tensorflow as tf
-    if hasattr(tf, 'executing_eagerly')
+    if hasattr(tf, 'executing_eagerly'):
         if not tf.executing_eagerly():
             tf.enable_eager_execution()
     import tensorflow_hub as hub
