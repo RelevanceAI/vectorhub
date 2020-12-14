@@ -8,7 +8,7 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-bert']):
     import tensorflow as tf
     if hasattr(tf, 'executing_eagerly'):
         if not tf.executing_eagerly():
-            tf.enable_eager_execution()
+            tf.compat.v1.enable_eager_execution()
     import tensorflow_hub as hub
     import bert
     import numpy as np
