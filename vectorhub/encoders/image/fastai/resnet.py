@@ -10,10 +10,8 @@ from ..base import BaseImage2Vec
 from .base import FastAIBase
 
 if is_all_dependency_installed('encoders-image-fastai'):
-    from fastai.vision.all import *
-    from fastai.torch_basics import *
-    from fastai.data.all import *
-    from fastai.vision.core import *
+    from fastai.vision.all import (resnet34, resnet34, resnet50, resnet101, resnet152,
+        squeezenet1_0, squeezenet1_1, densenet121, vgg16_bn, alexnet)
 
 FastAIResnetModelDefinition = ModelDefinition(markdown_filepath="encoders/image/fastai/resnet_fastai")
 __doc__ = FastAIResnetModelDefinition.create_docs()

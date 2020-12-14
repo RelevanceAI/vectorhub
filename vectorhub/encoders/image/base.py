@@ -1,7 +1,8 @@
 from typing import Union
 from ...base import Base2Vec
-from ...import_utils import *
-if is_all_dependency_installed('encoders-image-tfhub'):
+from ...import_utils import is_all_dependency_installed
+# TODO: Change encoders-image-tfhub into general encoders-image
+if is_all_dependency_installed('encoders-image'):
     import io
     import imageio
     import numpy as np

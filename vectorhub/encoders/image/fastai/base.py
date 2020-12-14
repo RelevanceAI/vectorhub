@@ -10,10 +10,8 @@ if is_all_dependency_installed('encoders-image-fastai'):
     import torch
     import numpy as np
     # We use wildcard imports for FastAI as this is the way it is handled in the documentation.
-    from fastai.vision.all import *
-    from fastai.torch_basics import *
-    from fastai.data.all import *
-    from fastai.vision.core import *
+    from fastai.vision.all import cnn_learner, resnet34, ImageDataLoaders, error_rate, hook_outputs
+    from fastai.data.all import get_image_files, untar_data, URLs
 
 class FastAIBase(BaseImage2Vec):
     def __init__(self, databunch=None, architecture=None):
