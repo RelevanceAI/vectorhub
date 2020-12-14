@@ -14,7 +14,6 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-albert'])
     except NotFoundError:
         print('The installed Tensorflow Text version is not aligned with tensorflow, make sure that tensorflow-text version is same version as tensorflow')
 
-
 AlbertModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/albert')
 __doc__ = AlbertModelDefinition.create_docs()
 

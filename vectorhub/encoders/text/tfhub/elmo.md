@@ -1,7 +1,7 @@
 ---
 model_id: "text/elmo"
-model_name: "Elmo" 
-vector_length: "768 (default)"
+model_name: "Elmo (Embeddings From Language Models)" 
+vector_length: "1024 (default)"
 paper: "https://arxiv.org/pdf/2007.01852v1.pdf"
 repo: "https://tfhub.dev/google/LaBSE/1"
 installation: "pip install vectorhub[encoders-text-tfhub]"
