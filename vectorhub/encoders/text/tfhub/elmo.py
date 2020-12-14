@@ -9,7 +9,6 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-use']):
     import tensorflow_hub as hub
     import tensorflow.compat.v1 as tf
     import numpy as np
-    tf.disable_eager_execution()
 
 ElmoModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/elmo.md')
 
@@ -20,6 +19,7 @@ class Elmo2Vec(BaseText2Vec):
         definition = ElmoModelDefinition
         warnings.warn("We are disabling TF2 eager execution to run this. This may conflict with other models. If you need + \
             other models., try to use a fresh environment or a new virtual machine.")
+        tf.disable_eager_execution()
         self.model = hub.Module(model_url, trainable=trainable_model)
         self.vector_length = 1024
 
