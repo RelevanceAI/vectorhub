@@ -9,7 +9,7 @@ from collections import defaultdict
 from .models_dict import *
 from .import_utils import *
 
-def list_installed_models(extra_requirements_file: str=resource_filename('vectorhub', '../extra_requirements.json')):
+def list_installed_models(extra_requirements_file: str=resource_filename('vectorhub', 'extra_requirements.json')):
     """
         List models that are installed.
         We use resource_filename to resolve relative directory issues.
