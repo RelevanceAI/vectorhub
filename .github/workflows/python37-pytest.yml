@@ -46,7 +46,9 @@ jobs:
       - name: Install & Test for text tfhub
         run: |
           pip install -e ".[encoders-text-tfhub]"
-          pytest tests/encoders/text/tfhub
+          pytest tests/encoders/text/tfhub/test_bert.py
+          pytest tests/encoders/text/tfhub/test_elmo.py
+          pytest tests/encoders/text/tfhub/test_labse.py
 
       - name: Test cases text transformers
         run: |
