@@ -8,7 +8,6 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-use']):
     import tensorflow_hub as hub
     import tensorflow.compat.v1 as tf
     import numpy as np
-    tf.disable_eager_execution()
 
 ElmoModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/elmo.md')
 
@@ -30,6 +29,7 @@ class Elmo2Vec(BaseText2Vec):
         default: a fixed mean-pooling of all contextualized word representations with shape [batch_size, 1024].
         Note: The output layer word_emb is character-based and is not supported by VectorHub.
         """
+        tf.disable_eager_execution()
         sess = tf.Session()
         init = tf.global_variables_initializer()
         sess.run(init)
@@ -44,6 +44,7 @@ class Elmo2Vec(BaseText2Vec):
                 signature="default",
                 as_dict=True)[output_layer].eval(session=sess)[0].tolist()
         sess.close()
+        tf.enable_eager_execution()
         return vector
 
     @catch_vector_errors
@@ -56,6 +57,7 @@ class Elmo2Vec(BaseText2Vec):
             default: a fixed mean-pooling of all contextualized word representations with shape [batch_size, 1024].
         Note: The output layer word_emb is character-based and is not supported by VectorHub.
         """
+        tf.disable_eager_execution()
         sess = tf.Session()
         init = tf.global_variables_initializer()
         sess.run(init)
@@ -64,6 +66,7 @@ class Elmo2Vec(BaseText2Vec):
             signature="default",
             as_dict=True)[output_layer].eval(session=sess).tolist()
         sess.close()
+        tf.enable_eager_execution()
         if output_layer == 'default':
             return vectors
         else:
