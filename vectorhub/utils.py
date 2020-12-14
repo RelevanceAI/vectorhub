@@ -32,8 +32,9 @@ def list_models(return_names_only=False):
     if return_names_only:
         return [x.stem for x in list(Path('.').glob('**/[!_]*.py'))]
     
-    all_models = [str(x).replace('.py', '') for x in list(Path(resource_filename('vectorhub', 'text')).rglob(f'[!_]*.py'))] + \
-        [str(x).replace('.py', '') for x in list(Path(resource_filename('vectorhub', 'image')).rglob(f'[!_]*.py'))] + \
-        [str(x).replace('.py', '') for x in list(Path(resource_filename('vectorhub', 'audio')).rglob(f'[!_]*.py'))]
+    all_models = [str(x).replace('.py', '') for x in list(Path(resource_filename('vectorhub', 'encoders/text')).rglob(f'[!_]*.py'))] + \
+        [str(x).replace('.py', '') for x in list(Path(resource_filename('vectorhub', 'encoders/image')).rglob(f'[!_]*.py'))] + \
+        [str(x).replace('.py', '') for x in list(Path(resource_filename('vectorhub', 'encoders/audio')).rglob(f'[!_]*.py'))] + \
+        [str(x).replace('.py', '') for x in list(Path(resource_filename('vectorhub', 'bi_encoders/text_text')).rglob(f'[!_]*.py'))]
     return [x.split('vectorhub/')[-1] for x in all_models if '/base' not in x]
 
