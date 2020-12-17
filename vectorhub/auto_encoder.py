@@ -12,6 +12,7 @@ with warnings.catch_warnings():
     from .encoders.text.vectorai import *
     from .encoders.text.tf_transformers import *
     from .encoders.text.torch_transformers import *
+    from .encoders.text.sentence_transformers import *
     from .encoders.audio.vectorai import *
     from .encoders.audio.tfhub import *
     from .encoders.audio.pytorch import *
@@ -19,6 +20,7 @@ with warnings.catch_warnings():
     from .encoders.image.vectorai import *
     from .bi_encoders.text_text.tfhub import *
     from .bi_encoders.text_text.torch_transformers import *
+    from .bi_encoders.text_text.sentence_transformers import *
 
 # Include the class and then the requirements key from models_dict.py
 ENCODER_MAPPINGS = defaultdict(tuple, {
