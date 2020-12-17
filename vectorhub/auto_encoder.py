@@ -18,6 +18,7 @@ with warnings.catch_warnings():
     from .encoders.audio.pytorch import *
     from .encoders.image.tfhub import *
     from .encoders.image.vectorai import *
+    from .encoders.image.fastai import *
     from .bi_encoders.text_text.tfhub import *
     from .bi_encoders.text_text.torch_transformers import *
     from .bi_encoders.text_text.sentence_transformers import *
@@ -50,7 +51,8 @@ ENCODER_MAPPINGS = defaultdict(tuple, {
     MobileNetV12Vec.definition.model_id : (MobileNetV12Vec, "encoders-image-tfhub-mobilenet"),
     MobileNetV22Vec.definition.model_id : (MobileNetV22Vec, "encoders-image-tfhub-mobilenet"),
     ResnetV12Vec.definition.model_id : (ResnetV12Vec, "encoders-image-tfhub-resnet"),
-    ResnetV22Vec.definition.model_id : (ResnetV22Vec, "encoders-image-tfhub-resnet")
+    ResnetV22Vec.definition.model_id : (ResnetV22Vec, "encoders-image-tfhub-resnet"),
+    FastAIResnet2Vec.definition.model_id: (FastAIResnet2Vec, "encoders-image-fastai-resnet")
 })
 
 class AutoEncoder:
