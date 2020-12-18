@@ -11,10 +11,10 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - 'vectorhub/**'
-      - 'tests/**'
-      - 'setup.py'
+    # paths:
+    #   - 'vectorhub/**'
+    #   - 'tests/**'
+    #   - 'setup.py'
 
 jobs:
   run_test:
