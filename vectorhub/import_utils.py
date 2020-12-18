@@ -14,10 +14,11 @@ def get_package_requirements(requirement_type: str):
     requirements = {
         "numpy": ["core"],
         "requests": ["core"],
+        "PyYAML": ["core"],
         "pytest": ["test"],
         "sphinx-rtd-theme>=0.5.0": ["test"],
-        "imageio": ["encoders-image-tfhub"],
-        "scikit-image":  ["encoders-image-tfhub"],
+        "imageio": ["encoders-image", "encoders-image-tfhub"],
+        "scikit-image":  ["encoders-image", "encoders-image-tfhub"],
         "soundfile": ["encoders-audio-tfhub"],
         "librosa": ["audio-encoder", "encoders-audio-tfhub"],
         "tensorflow": ["encoders-text-tfhub", "encoders-audio-tfhub", "encoders-image-tfhub", "encoders-text-tf-transformers", "encoders-text-tfhub-windows"],
@@ -26,11 +27,12 @@ def get_package_requirements(requirement_type: str):
         "tf-models-official": ["encoders-text-tfhub", "encoders-text-tfhub-windows"],
         "bert-for-tf2": ["encoders-text-tfhub", "encoders-text-tfhub-windows"],
         "sentence-transformers": ["encoders-text-sentence-transformers"],
-        "torch>=1.6.0": ["encoders-audio-pytorch", "encoders-text-torch-transformers", "encoders-text-sentence-transformers"],
+        "torch>=1.6.0": ["encoders-audio-pytorch", "encoders-text-torch-transformers", "encoders-text-sentence-transformers", "encoders-image-fastai"],
         "fairseq": ["encoders-audio-pytorch"],
         "transformers": ["encoders-text-torch-transformers", "encoders-text-tf-transformers"],
         "moviepy": ["encoders-video"],
-        "opencv-python": ["encoders-video"]
+        "opencv-python": ["encoders-video"],
+        "fastai==2.1.8": ["encoders-image-fastai"]
     }
     dependencies = []
     for k, v in requirements.items():

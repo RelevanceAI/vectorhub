@@ -29,6 +29,7 @@ MODEL_REQUIREMENTS = {
     "encoders-image-tfhub-inception": "encoders-image-tfhub",
     "encoders-image-tfhub-inception-resnet": "encoders-image-tfhub",
     "encoders-image-tfhub-mobilenet": "encoders-image-tfhub",
+    "encoders-image-fastai-resnet": "encoders-image-fastai",
     "encoders-image-vectorai": None,
     
     "text-bi-encoder-tfhub-lareqa-qa": "encoders-text-tfhub",

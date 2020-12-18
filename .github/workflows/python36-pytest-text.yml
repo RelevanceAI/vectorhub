@@ -51,7 +51,7 @@ jobs:
         run: |
           pip install -e ".[encoders-text-tf-transformers]"
           pip install -e ".[encoders-text-torch-transformers]"
-
+      
       - name: Install dependencies and test bi-encoders tf-text-hub
         run: |
           pip install -e ".[encoders-text-tfhub]"

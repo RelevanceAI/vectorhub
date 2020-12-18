@@ -47,7 +47,7 @@ package_data.append('extra_requirements.json')
 
 setup(
     name="vectorhub",
-    version="1.0.7",
+    version="1.0.8",
     author="OnSearch Pty Ltd",
     author_email="dev@vctr.ai",
     package_data={'vectorhub': package_data},
