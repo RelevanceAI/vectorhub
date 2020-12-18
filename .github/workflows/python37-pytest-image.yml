@@ -46,3 +46,8 @@ jobs:
         run: |
           pip install -e ".[encoders-image-tfhub]"
           pytest tests/encoders/image/tfhub
+
+      - name: Install and test for image-fastai
+        run: |
+          pip install -e ".[encoders-image-fastai]"
+          pytest tests/encoders/image/fastai
