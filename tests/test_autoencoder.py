@@ -36,7 +36,7 @@ def test_encoders_instantiation(name):
 
 @pytest.mark.audio
 @pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
-def test_encoders_instantiation(name):
+def test_encoders_instantiation_audio(name):
     encoder = AutoEncoder.from_model(name)
     if name not in ['text/use-lite']:
         if 'audio' in name:
@@ -53,7 +53,7 @@ def test_encoders_instantiation(name):
 
 @pytest.mark.text
 @pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
-def test_encoders_instantiation(name):
+def test_encoders_instantiation_text(name):
     encoder = AutoEncoder.from_model(name)
     if name not in ['text/use-lite']:
         if 'text' in name:
@@ -67,7 +67,7 @@ def test_encoders_instantiation(name):
 
 @pytest.mark.image
 @pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
-def test_encoders_instantiation(name):
+def test_encoders_instantiation_image(name):
     encoder = AutoEncoder.from_model(name)
     if name not in ['text/use-lite']:
         if 'image' in name:
