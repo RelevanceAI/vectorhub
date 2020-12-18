@@ -35,14 +35,13 @@ jobs:
         run: |
           pip install -r requirements.txt
           pip install -e ".[test]"
+      
       - name: Test Vectorai models
         env:
             VI_USERNAME: ${{ secrets.VI_USERNAME }}
             VI_API_KEY: ${{ secrets.VI_API_KEY }}
         run: |
           pytest tests/encoders/text/vectorai
-          pytest tests/encoders/audio/vectorai
-          pytest tests/encoders/image/vectorai
       - name: Install & Test for text tfhub
         run: |
           pip install -e ".[encoders-text-tfhub]"
@@ -53,27 +52,7 @@ jobs:
           pip install -e ".[encoders-text-tf-transformers]"
           pip install -e ".[encoders-text-torch-transformers]"
 
-      - name: Install dependencies and test for audio tfhub
-        run: |
-          
-          pip install -e ".[encoders-audio-tfhub]"
-          pytest tests/encoders/audio/tfhub
-
-      - name: Install and test for image-tfhub
-        run: |
-          pip install -e ".[encoders-image-tfhub]"
-          pytest tests/encoders/image/tfhub
-
-      - name: Install and Test cases for encoders-audio-pytorch
-        run: |
-          pip install -e ".[encoders-audio-pytorch]"
-          pytest tests/encoders/audio/pytorch
-
       - name: Install dependencies and test bi-encoders tf-text-hub
         run: |
           pip install -e ".[encoders-text-tfhub]"
           pytest tests/bi_encoders/text_text/tfhub
-
-      - name: Test cases for Autoencoder
-        run: |
-          pytest tests/test_autoencoder.py
