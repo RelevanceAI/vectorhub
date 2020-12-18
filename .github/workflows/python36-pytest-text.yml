@@ -56,3 +56,7 @@ jobs:
         run: |
           pip install -e ".[encoders-text-tfhub]"
           pytest tests/bi_encoders/text_text/tfhub
+
+      - name: Test cases for Autoencoder
+        run: |
+          pytest -m text tests/test_autoencoder.py

@@ -51,3 +51,7 @@ jobs:
         run: |
           pip install -e ".[encoders-audio-pytorch]"
           pytest tests/encoders/audio/pytorch
+
+      - name: Test cases for Autoencoder
+        run: |
+          pytest -m audio tests/test_autoencoder.py

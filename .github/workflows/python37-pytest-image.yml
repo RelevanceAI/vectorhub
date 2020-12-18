@@ -51,3 +51,7 @@ jobs:
         run: |
           pip install -e ".[encoders-image-fastai]"
           pytest tests/encoders/image/fastai
+        
+      - name: Test cases for Autoencoder
+        run: |
+          pytest -m image tests/test_autoencoder.py
