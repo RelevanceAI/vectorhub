@@ -44,9 +44,12 @@ def test_encoders_instantiation(name):
             'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav', 16000
             )
             result = encoder.encode(sample)
-        # Check to ensure that this isn't just the default vector
-        assert not is_dummy_vector(result)
-        assert len(result) > 10
+            # Check to ensure that this isn't just the default vector
+            assert not is_dummy_vector(result)
+            assert len(result) > 10
+        else:
+            # Default to test passing otherwise
+            assert True
 
 @pytest.mark.text
 @pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
@@ -55,9 +58,12 @@ def test_encoders_instantiation(name):
     if name not in ['text/use-lite']:
         if 'text' in name:
             result = encoder.encode("HI")
-        # Check to ensure that this isn't just the default vector
-        assert not is_dummy_vector(result)
-        assert len(result) > 10
+            # Check to ensure that this isn't just the default vector
+            assert not is_dummy_vector(result)
+            assert len(result) > 10
+        else:
+            # Default to test passing otherwise
+            assert True
 
 @pytest.mark.image
 @pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
@@ -73,9 +79,12 @@ def test_encoders_instantiation(name):
                 sample = encoder.to_grayscale(encoder.read('https://getvectorai.com/assets/logo-square.png'))
                 result = encoder.encode(sample)
                 assert not is_dummy_vector(result)
-        # Check to ensure that this isn't just the default vector
-        assert not is_dummy_vector(result)
-        assert len(result) > 10
+            # Check to ensure that this isn't just the default vector
+            assert not is_dummy_vector(result)
+            assert len(result) > 10
+        else:
+            # Default to test passing otherwise
+            assert True
 
 
 @pytest.mark.parametrize('name', list(BIENCODER_MAPPINGS.keys()))
