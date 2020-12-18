@@ -54,4 +54,4 @@ jobs:
 
       - name: Test cases for Autoencoder
         run: |
-          pytest -m audio tests/test_autoencoder.py
+          pytest -v -m audio

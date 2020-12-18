@@ -81,4 +81,4 @@ jobs:
       
       - name: Test cases for Autoencoder
         run: |
-          pytest -m text tests/test_autoencoder.py
+          pytest -v -m text
