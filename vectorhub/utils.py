@@ -16,9 +16,12 @@ def list_installed_models(extra_requirements_file: str=resource_filename('vector
     """
     requirements = json.load(open(extra_requirements_file))
     print("The following packages are available to be used: ")
+    all_available_models = []
     for package, dependency in MODEL_REQUIREMENTS.items():
         if is_all_dependency_installed(dependency, raise_warning=False):
             print(package)
+            all_available_models.append(package)
+    return all_available_models
 
 def list_models(return_names_only=False):
     """
