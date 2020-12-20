@@ -1,12 +1,12 @@
 name: Upload Vectorhub Nightly
 
-# on:
-#   schedule:
-#     - cron: "0 0 * * *"
 on:
-  push:
-    branches:
-      - feature/add_vectorhub_nightly
+  schedule:
+    - cron: "0 0 * * *"
+# on:
+#   push:
+#     branches:
+#       - feature/add_vectorhub_nightly
 
 jobs:
   deploy:
