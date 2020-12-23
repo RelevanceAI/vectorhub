@@ -107,3 +107,24 @@ class Base2Vec:
             return np.max(vectors, axis=axis).tolist()
         else:
             return np.mean(vectors, axis=axis).tolist()
+
+    @property
+    def __name__(self):
+        """
+            Return the name of the model. If name is not set, returns the
+            model_id.
+        """
+        if hasattr(self, '_name'):
+            return self._name
+        elif hasattr('definition'):
+            if '/' in self.definition.model_id:
+                return self.definition.model_id.split('/')[1]
+            return self.definition.model_id
+        return ''
+    
+    @__name__.setter        
+    def __name__(self, value):
+        """
+            Set the name.
+        """
+        setattr(self, '_name', value)
