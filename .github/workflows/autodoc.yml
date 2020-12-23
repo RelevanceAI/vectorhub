@@ -23,6 +23,8 @@ jobs:
       run: |
         rm -rf docs
         rm -rf docsrc/_build
+        rm -rf docsrc/modules.rst
+        sphinx-apidoc -o docsrc vectorhub
         python -m sphinx docsrc/. docs
         touch docs/.nojekyll
         echo ${{ github.ref }}
