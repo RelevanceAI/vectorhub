@@ -1,0 +1,57 @@
+name: Run Pytest 3.7
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'vectorhub/**'
+      - 'tests/**'
+      - 'setup.py'
+  pull_request:
+    branches:
+      - main
+    # paths:
+    #   - 'vectorhub/**'
+    #   - 'tests/**'
+    #   - 'setup.py'
+
+jobs:
+  run_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Pytest 3.7
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.7"
+      - name: Install base dependencies
+        run: |
+          sudo apt-get install libsndfile1
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Install dependencies for tests
+        run: |
+          pip install -r requirements.txt
+          pip install -e ".[test]"
+      - name: Test Vectorai models
+        env:
+            VI_USERNAME: ${{ secrets.VI_USERNAME }}
+            VI_API_KEY: ${{ secrets.VI_API_KEY }}
+        run: |
+          pytest tests/encoders/audio/vectorai
+      - name: Install dependencies and test for audio tfhub
+        run: |
+          
+          pip install -e ".[encoders-audio-tfhub]"
+          pytest tests/encoders/audio/tfhub
+
+      - name: Install and Test cases for encoders-audio-pytorch
+        run: |
+          pip install -e ".[encoders-audio-pytorch]"
+          pytest tests/encoders/audio/pytorch
+
+      - name: Test cases for Autoencoder
+        run: |
+          pytest -v -m audio

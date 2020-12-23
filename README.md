@@ -59,6 +59,11 @@ To get started quickly install vectorhub:
 pip install vectorhub
 ```
 
+Alternatively if you require more up-to-date models/features and are okay if it is not fully stable, you can install the nightly version of VectorHub using:
+```
+pip install vectorhub-nightly
+```
+
 After this, our built-in dependency manager will tell you what to install when you instantiate
 a model. The main types of installation options can be found here: https://hub.getvectorai.com/
 
