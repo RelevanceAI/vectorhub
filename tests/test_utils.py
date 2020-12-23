@@ -21,6 +21,13 @@ def assert_vector_works(vector, vector_length=None):
         Assert that the vector works as intended.
     """
     assert isinstance(vector, list), "Not the right data type - needs to be a list!"
-    assert not is_dummy_vector(vector, vector_length),  "Is a dummy vector"
-    if vector_length is not None:
-        assert len(vector) == vector_length, f"Does not match vector length of {vector_length}"
+    if isinstance(vector[0], list):
+        # If this is a list of vectors as opposed to just one
+        for v in vector:
+            assert not is_dummy_vector(vector[0], vector_length),  "Is a dummy vector"
+            if vector_length is not None:
+                assert len(vector[0]) == vector_length, f"Does not match vector length of {vector_length}"
+    else:
+        assert not is_dummy_vector(vector, vector_length),  "Is a dummy vector"
+        if vector_length is not None:
+            assert len(vector) == vector_length, f"Does not match vector length of {vector_length}"
