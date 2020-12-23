@@ -1,12 +1,7 @@
-from vectorhub.auto_encoder import AutoEncoder, ENCODER_MAPPINGS, list_all_auto_models, BIENCODER_MAPPINGS, AutoBiEncoder
 import warnings
 import pytest
-
-def is_dummy_vector(vector):
-    """
-        Return True if the vector is the default vector, False if it is not.
-    """
-    return vector[0] == 1e-7 and vector[1] == 1e-7 and vector[2] == 1e-7
+from vectorhub.auto_encoder import AutoEncoder, ENCODER_MAPPINGS, list_all_auto_models, BIENCODER_MAPPINGS, AutoBiEncoder
+from .test_utils import *
 
 @pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
 def test_encoders_instantiation(name):

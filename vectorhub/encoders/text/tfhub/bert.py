@@ -6,6 +6,9 @@ from ....models_dict import MODEL_REQUIREMENTS
 from datetime import date
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-bert']):
     import tensorflow as tf
+    if hasattr(tf, 'executing_eagerly'):
+        if not tf.executing_eagerly():
+            tf.compat.v1.enable_eager_execution()
     import tensorflow_hub as hub
     import bert
     import numpy as np
