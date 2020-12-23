@@ -29,7 +29,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -219,7 +218,7 @@ We present a class of efficient models called MobileNets for mobile and embedded
 <span class="pre">from</span> <span class="pre">vectorhub.encoders.image.tfhub</span> <span class="pre">import</span> <span class="pre">MobileNetV12Vec</span>
 <span class="pre">model</span> <span class="pre">=</span> <span class="pre">MobileNetV12Vec()</span>
 <span class="pre">sample</span> <span class="pre">=</span> <span class="pre">model.read('https://getvectorai.com/assets/hub-logo-with-text.png')</span>
-<span class="pre">model.encode(sample)&quot;&quot;&quot;</span>
+<span class="pre">model.encode(sample)</span>
 <span class="pre">`</span></code></p>
 <dl class="py class">
 <dt id="vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec">
@@ -289,7 +288,7 @@ Arg:</p>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.to_grayscale">
-<code class="sig-name descname">to_grayscale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">rgb_weights</span><span class="p">:</span> <span class="n">list</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.to_grayscale" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">to_grayscale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">rgb_weights</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>list<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.to_grayscale" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converting an image from RGB to Grayscale</p>
 </dd></dl>
 

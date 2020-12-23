@@ -45,9 +45,18 @@ package_data = [str(x) for x in list(Path('vectorhub').rglob("*.md"))]
 # Also add the extra_requirements.json file
 package_data.append('extra_requirements.json')
 
+version = '1.0.8'
+
+if 'IS_VECTORHUB_NIGHTLY' in os.environ.keys():
+    from datetime import datetime
+    name = 'vectorhub-nightly'
+    version = version + '.' + datetime.today().date().__str__().replace('-', '.') 
+else:
+    name = 'vectorhub'
+
 setup(
-    name="vectorhub",
-    version="1.0.7",
+    name=name,
+    version=version,
     author="OnSearch Pty Ltd",
     author_email="dev@vctr.ai",
     package_data={'vectorhub': package_data},

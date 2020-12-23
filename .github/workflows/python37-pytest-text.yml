@@ -1,4 +1,4 @@
-name: Run Pytest 3.6
+name: Run Pytest 3.7
 
 on:
   push:
@@ -11,26 +11,26 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - 'vectorhub/**'
-      - 'tests/**'
-      - 'setup.py'
+    # paths:
+    #   - 'vectorhub/**'
+    #   - 'tests/**'
+    #   - 'setup.py'
 
 jobs:
   run_test:
     runs-on: ubuntu-latest
-    steps:
+    steps:  
       - uses: actions/checkout@v2
-      - name: Pytest 3.6
+      - name: Pytest 3.7
         uses: actions/setup-python@v2
         with:
-          python-version: "3.6"
+          python-version: "3.7"
+
       - name: Install base dependencies
         run: |
           sudo apt-get install libsndfile1
           python -m pip install --upgrade pip
           pip install -e .
-
       - name: Install dependencies for tests
         run: |
           pip install -r requirements.txt
@@ -66,6 +66,11 @@ jobs:
           pip install -e ".[encoders-image-tfhub]"
           pytest tests/encoders/image/tfhub
 
+      - name: Install and test for image-fastai
+        run: |
+          pip install -e ".[encoders-image-fastai]"
+          pytest tests/encoders/image/fastai
+
       - name: Install and Test cases for encoders-audio-pytorch
         run: |
           pip install -e ".[encoders-audio-pytorch]"
@@ -75,7 +80,7 @@ jobs:
         run: |
           pip install -e ".[encoders-text-tfhub]"
           pytest tests/bi_encoders/text_text/tfhub
-
+      
       - name: Test cases for Autoencoder
         run: |
-          pytest tests/test_autoencoder.py
+          pytest -v -m text
