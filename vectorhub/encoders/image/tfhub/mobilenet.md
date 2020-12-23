@@ -24,5 +24,5 @@ Trained on Imagenet (AKA ILSVRC-2012-CLS dataset for image classification).
 from vectorhub.encoders.image.tfhub import MobileNetV12Vec
 model = MobileNetV12Vec()
 sample = model.read('https://getvectorai.com/assets/hub-logo-with-text.png')
-model.encode(sample)"""
+model.encode(sample)
 ```
