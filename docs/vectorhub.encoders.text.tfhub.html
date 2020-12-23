@@ -1,0 +1,948 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>vectorhub.encoders.text.tfhub package &mdash; VectorHub 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="vectorhub.encoders.text.torch_transformers package" href="vectorhub.encoders.text.torch_transformers.html" />
+    <link rel="prev" title="vectorhub.encoders.text.tf_transformers package" href="vectorhub.encoders.text.tf_transformers.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> VectorHub
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">What is Vector Hub?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_add_a_model.html">How To Add Your Model To Vector Hub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_encoder.html">Guide to using Auto-Encoder</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Text Encoders</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.bert2vec.html">Bert2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.albert2vec.html">AlBert2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.labse2vec.html">LaBSE2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.use2vec.html">USE2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.use_multi2vec.html">USEMulti2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.legalbert2vec.html">LegalBert2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.transformer2vec.html">Transformer2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.sentencetransformer2vec.html">SentenceTransformer2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.vectorai2vec.html">ViText2Vec</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Image Encoders</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.bit2vec.html">Bit2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.inception2vec.html">Inception2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.resnet2vec.html">ResNet2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.inception_resnet2vec.html">InceptionResnet2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.mobilenet2vec.html">MobileNet2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.vectorai2vec.html">ViImage2Vec</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Audio Encoders</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.speech_embedding2vec.html">SpeechEmbedding2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.trill2vec.html">Trill2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.vggish2vec.html">Vggish2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.yamnet2vec.html">Yamnet2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.wav2vec.html">Wav2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.vectorai2vec.html">ViAudio2Vec</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Text Bi-Encoders</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bi_encoders.text_text.use_qa2vec.html">USEQA2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bi_encoders.text_text.lareqa_qa2vec.html">LAReQA2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bi_encoders.text_text.dpr2vec.html">DPR2Vec</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">vectorhub</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="vectorhub.html">vectorhub package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="vectorhub.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="vectorhub.bi_encoders.html">vectorhub.bi_encoders package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="vectorhub.encoders.html">vectorhub.encoders package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.auto_encoder">vectorhub.auto_encoder module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.base">vectorhub.base module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.doc_utils">vectorhub.doc_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.errors">vectorhub.errors module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.import_utils">vectorhub.import_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.models_dict">vectorhub.models_dict module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.utils">vectorhub.utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VectorHub</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">vectorhub</a> &raquo;</li>
+        
+          <li><a href="vectorhub.html">vectorhub package</a> &raquo;</li>
+        
+          <li><a href="vectorhub.encoders.html">vectorhub.encoders package</a> &raquo;</li>
+        
+          <li><a href="vectorhub.encoders.text.html">vectorhub.encoders.text package</a> &raquo;</li>
+        
+      <li>vectorhub.encoders.text.tfhub package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/vectorhub.encoders.text.tfhub.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vectorhub-encoders-text-tfhub-package">
+<h1>vectorhub.encoders.text.tfhub package<a class="headerlink" href="#vectorhub-encoders-text-tfhub-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-vectorhub.encoders.text.tfhub.albert">
+<span id="vectorhub-encoders-text-tfhub-albert-module"></span><h2>vectorhub.encoders.text.tfhub.albert module<a class="headerlink" href="#module-vectorhub.encoders.text.tfhub.albert" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: Albert - A Lite Bert</p>
+<p><strong>Vector Length</strong>: 768 (albert_en_base)</p>
+<p><strong>Description</strong>:
+Increasing model size when pretraining natural language representations often results in improved performance on downstream tasks. However, at some point further model increases become harder due to GPU/TPU memory limitations and longer training times. To address these problems, we present two parameter-reduction techniques to lower memory consumption and increase the training speed of BERT. Comprehensive empirical evidence shows that our proposed methods lead to models that scale much better compared to the original BERT. We also use a self-supervised loss that focuses on modeling inter-sentence coherence, and show it consistently helps downstream tasks with multi-sentence inputs. As a result, our best model establishes new state-of-the-art results on the GLUE, RACE, and squad benchmarks while having fewer parameters compared to BERT-large.</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/1909.11942">https://arxiv.org/abs/1909.11942</a></p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/tensorflow/albert_en_base/1">https://tfhub.dev/tensorflow/albert_en_base/1</a></p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2019-09-26</p>
+<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub]</span>
+<span class="pre">#FOR</span> <span class="pre">WINDOWS:</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub-windows]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.text.tfhub</span> <span class="pre">import</span> <span class="pre">Albert2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">Albert2Vec()</span>
+<span class="pre">model.encode(&quot;I</span> <span class="pre">enjoy</span> <span class="pre">taking</span> <span class="pre">long</span> <span class="pre">walks</span> <span class="pre">along</span> <span class="pre">the</span> <span class="pre">beach</span> <span class="pre">with</span> <span class="pre">my</span> <span class="pre">dog.&quot;)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.text.tfhub.albert.Albert2Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.text.tfhub.albert.</code><code class="sig-name descname">Albert2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/tensorflow/albert_en_base/2'</span></em>, <em class="sig-param"><span class="n">max_seq_length</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">228</span></em>, <em class="sig-param"><span class="n">normalize</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em>, <em class="sig-param"><span class="n">preprocessor_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'http://tfhub.dev/tensorflow/albert_en_preprocess/1'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.albert.Albert2Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.text.html#vectorhub.encoders.text.base.BaseText2Vec" title="vectorhub.encoders.text.base.BaseText2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.text.base.BaseText2Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.albert.Albert2Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.albert.Albert2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.albert.Albert2Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.albert.Albert2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.text.tfhub.albert.Albert2Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.text.tfhub.albert.Albert2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.albert.Albert2Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.albert.Albert2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.albert.Albert2Vec.init">
+<code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.albert.Albert2Vec.init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.albert.Albert2Vec.init_tokenizer">
+<code class="sig-name descname">init_tokenizer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">preprocessor_url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.albert.Albert2Vec.init_tokenizer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.albert.Albert2Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.albert.Albert2Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An abstract method to specify the read method to read the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.albert.Albert2Vec.test_word">
+<em class="property">property </em><code class="sig-name descname">test_word</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.albert.Albert2Vec.test_word" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.albert.Albert2Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.albert.Albert2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.albert.Albert2Vec.vector_length">
+<em class="property">property </em><code class="sig-name descname">vector_length</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.albert.Albert2Vec.vector_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the vector length of the model.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.text.tfhub.bert">
+<span id="vectorhub-encoders-text-tfhub-bert-module"></span><h2>vectorhub.encoders.text.tfhub.bert module<a class="headerlink" href="#module-vectorhub.encoders.text.tfhub.bert" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: BERT - Bidirectional Encoder Representations</p>
+<p><strong>Vector Length</strong>: 1024 (Bert Large)</p>
+<p><strong>Description</strong>:
+We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models, BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task-specific architecture modifications.</p>
+<p>![Bert Image](<a class="reference external" href="https://miro.medium.com/max/619/1*iJqlhZz-g6ZQJ53-rE9VvA.png">https://miro.medium.com/max/619/1*iJqlhZz-g6ZQJ53-rE9VvA.png</a>)</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/1810.04805v2">https://arxiv.org/abs/1810.04805v2</a></p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/collections/bert/1">https://tfhub.dev/google/collections/bert/1</a></p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2018-10-11</p>
+<p><strong>Limitations</strong>:
+* NA</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub]</span>
+<span class="pre">#FOR</span> <span class="pre">WINDOWS:</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub-windows]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.text.tfhub</span> <span class="pre">import</span> <span class="pre">Bert2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">Bert2Vec()</span>
+<span class="pre">model.encode(&quot;I</span> <span class="pre">enjoy</span> <span class="pre">taking</span> <span class="pre">long</span> <span class="pre">walks</span> <span class="pre">along</span> <span class="pre">the</span> <span class="pre">beach</span> <span class="pre">with</span> <span class="pre">my</span> <span class="pre">dog.&quot;)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.text.tfhub.bert.</code><code class="sig-name descname">Bert2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/3'</span></em>, <em class="sig-param"><span class="n">max_seq_length</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">64</span></em>, <em class="sig-param"><span class="n">normalize</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.text.html#vectorhub.encoders.text.base.BaseText2Vec" title="vectorhub.encoders.text.base.BaseText2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.text.base.BaseText2Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.init">
+<code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.init_tokenizer">
+<code class="sig-name descname">init_tokenizer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.init_tokenizer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.process">
+<code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_strings</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.process" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An abstract method to specify the read method to read the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.test_word">
+<em class="property">property </em><code class="sig-name descname">test_word</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.test_word" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.vector_length">
+<em class="property">property </em><code class="sig-name descname">vector_length</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.vector_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the vector length of the model.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.text.tfhub.elmo">
+<span id="vectorhub-encoders-text-tfhub-elmo-module"></span><h2>vectorhub.encoders.text.tfhub.elmo module<a class="headerlink" href="#module-vectorhub.encoders.text.tfhub.elmo" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: Elmo (Embeddings From Language Models)</p>
+<p><strong>Vector Length</strong>: 1024 (default)</p>
+<p><strong>Description</strong>:
+Computes contextualized word representations using character-based word representations and bidirectional LSTMs, as described in the paper “Deep contextualized word representations” [1].</p>
+<p>ELMo (Embeddings from Language Models) representations are deep as they are a function of all of the
+internal layers of the biLM. More specifically, we learn a linear combination of the vectors stacked above each input word for each end task.</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/pdf/2007.01852v1.pdf">https://arxiv.org/pdf/2007.01852v1.pdf</a></p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/LaBSE/1">https://tfhub.dev/google/LaBSE/1</a></p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2020-07-03</p>
+<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub]</span>
+<span class="pre">#FOR</span> <span class="pre">WINDOWS:</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub-windows]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.text.tfhub</span> <span class="pre">import</span> <span class="pre">Elmo2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">Elmo2Vec()</span>
+<span class="pre">model.encode(&quot;I</span> <span class="pre">enjoy</span> <span class="pre">taking</span> <span class="pre">long</span> <span class="pre">walks</span> <span class="pre">along</span> <span class="pre">the</span> <span class="pre">beach</span> <span class="pre">with</span> <span class="pre">my</span> <span class="pre">dog.&quot;)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.text.tfhub.elmo.Elmo2Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.text.tfhub.elmo.</code><code class="sig-name descname">Elmo2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/elmo/3'</span></em>, <em class="sig-param"><span class="n">trainable_model</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.elmo.Elmo2Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.text.html#vectorhub.encoders.text.base.BaseText2Vec" title="vectorhub.encoders.text.base.BaseText2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.text.base.BaseText2Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts</span></em>, <em class="sig-param"><span class="n">output_layer</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'elmo'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>The output layer can be one of the following:</dt><dd><p>lstm_outputs1: the first LSTM hidden state with shape [batch_size, max_length, 1024].
+lstm_outputs2: the second LSTM hidden state with shape [batch_size, max_length, 1024].
+elmo: the weighted sum of the 3 layers, where the weights are trainable. This tensor has shape [batch_size, max_length, 1024]
+default: a fixed mean-pooling of all contextualized word representations with shape [batch_size, 1024].</p>
+</dd>
+</dl>
+<p>Note: The output layer word_emb is character-based and is not supported by VectorHub.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em>, <em class="sig-param"><span class="n">output_layer</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'elmo'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>The output layer can be one of the following:
+lstm_outputs1: the first LSTM hidden state with shape [batch_size, max_length, 1024].
+lstm_outputs2: the second LSTM hidden state with shape [batch_size, max_length, 1024].
+elmo: the weighted sum of the 3 layers, where the weights are trainable. This tensor has shape [batch_size, max_length, 1024]
+default: a fixed mean-pooling of all contextualized word representations with shape [batch_size, 1024].
+Note: The output layer word_emb is character-based and is not supported by VectorHub.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An abstract method to specify the read method to read the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.test_word">
+<em class="property">property </em><code class="sig-name descname">test_word</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.test_word" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.vector_length">
+<em class="property">property </em><code class="sig-name descname">vector_length</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.vector_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the vector length of the model.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.text.tfhub.labse">
+<span id="vectorhub-encoders-text-tfhub-labse-module"></span><h2>vectorhub.encoders.text.tfhub.labse module<a class="headerlink" href="#module-vectorhub.encoders.text.tfhub.labse" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: LaBSE - Language-agnostic BERT Sentence Embedding</p>
+<p><strong>Vector Length</strong>: 768 (default)</p>
+<p><strong>Description</strong>:
+The language-agnostic BERT sentence embedding encodes text into high dimensional vectors. The model is trained and optimized to produce similar representations exclusively for bilingual sentence pairs that are translations of each other. So it can be used for mining for translations of a sentence in a larger corpus.</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/pdf/2007.01852v1.pdf">https://arxiv.org/pdf/2007.01852v1.pdf</a></p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/LaBSE/1">https://tfhub.dev/google/LaBSE/1</a></p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2020-07-03</p>
+<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub]</span>
+<span class="pre">#FOR</span> <span class="pre">WINDOWS:</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub-windows]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.text.tfhub</span> <span class="pre">import</span> <span class="pre">LaBSE2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">LaBSE2Vec()</span>
+<span class="pre">model.encode(&quot;I</span> <span class="pre">enjoy</span> <span class="pre">taking</span> <span class="pre">long</span> <span class="pre">walks</span> <span class="pre">along</span> <span class="pre">the</span> <span class="pre">beach</span> <span class="pre">with</span> <span class="pre">my</span> <span class="pre">dog.&quot;)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.text.tfhub.labse.LaBSE2Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.text.tfhub.labse.</code><code class="sig-name descname">LaBSE2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/LaBSE/1'</span></em>, <em class="sig-param"><span class="n">max_seq_length</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">128</span></em>, <em class="sig-param"><span class="n">normalize</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.labse.LaBSE2Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.text.html#vectorhub.encoders.text.base.BaseText2Vec" title="vectorhub.encoders.text.base.BaseText2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.text.base.BaseText2Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.init">
+<code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.init_tokenizer">
+<code class="sig-name descname">init_tokenizer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.init_tokenizer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.process">
+<code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_strings</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.process" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An abstract method to specify the read method to read the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.test_word">
+<em class="property">property </em><code class="sig-name descname">test_word</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.test_word" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.vector_length">
+<em class="property">property </em><code class="sig-name descname">vector_length</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.vector_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the vector length of the model.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.text.tfhub.use">
+<span id="vectorhub-encoders-text-tfhub-use-module"></span><h2>vectorhub.encoders.text.tfhub.use module<a class="headerlink" href="#module-vectorhub.encoders.text.tfhub.use" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: USE - Universal Sentence Encoder</p>
+<p><strong>Vector Length</strong>: 512 (Base model)</p>
+<p><strong>Description</strong>:
+We present models for encoding sentences into embedding vectors that specifically target transfer learning to other NLP tasks. The models are efficient and result in accurate performance on diverse transfer tasks. Two variants of the encoding models allow for trade-offs between accuracy and compute resources. For both variants, we investigate and report the relationship between model complexity, resource consumption, the availability of transfer task training data, and task performance. Comparisons are made with baselines that use word level transfer learning via pretrained word embeddings as well as baselines do not use any transfer learning. We find that transfer learning using sentence embeddings tends to outperform word level transfer. With transfer learning via sentence embeddings, we observe surprisingly good performance with minimal amounts of supervised training data for a transfer task. We obtain encouraging results on Word Embedding Association Tests (WEAT) targeted at detecting model bias. Our pre-trained sentence encoding models are made freely available for download and on TF Hub.”,</p>
+<p>![USE Image](<a class="reference external" href="https://www.gstatic.com/aihub/tfhub/universal-sentence-encoder/example-similarity.png">https://www.gstatic.com/aihub/tfhub/universal-sentence-encoder/example-similarity.png</a>)</p>
+<p>Image from [Google](<a class="reference external" href="https://tfhub.dev/google/universal-sentence-encoder/1">https://tfhub.dev/google/universal-sentence-encoder/1</a>).</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/1803.11175">https://arxiv.org/abs/1803.11175</a></p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/collections/universal-sentence-encoder/1">https://tfhub.dev/google/collections/universal-sentence-encoder/1</a></p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2018-03-29</p>
+<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub]</span>
+<span class="pre">#FOR</span> <span class="pre">WINDOWS:</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub-windows]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.text.tfhub</span> <span class="pre">import</span> <span class="pre">USE2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">USE2Vec()</span>
+<span class="pre">model.encode(&quot;I</span> <span class="pre">enjoy</span> <span class="pre">taking</span> <span class="pre">long</span> <span class="pre">walks</span> <span class="pre">along</span> <span class="pre">the</span> <span class="pre">beach</span> <span class="pre">with</span> <span class="pre">my</span> <span class="pre">dog.&quot;)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.text.tfhub.use.USE2Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.text.tfhub.use.</code><code class="sig-name descname">USE2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/universal-sentence-encoder/4'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use.USE2Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.text.html#vectorhub.encoders.text.base.BaseText2Vec" title="vectorhub.encoders.text.base.BaseText2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.text.base.BaseText2Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use.USE2Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts</span></em>, <em class="sig-param"><span class="n">threads</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">chunks</span><span class="o">=</span><span class="default_value">100</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use.USE2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use.USE2Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use.USE2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.text.tfhub.use.USE2Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use.USE2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use.USE2Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use.USE2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use.USE2Vec.init">
+<code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use.USE2Vec.init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use.USE2Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use.USE2Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An abstract method to specify the read method to read the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use.USE2Vec.test_word">
+<em class="property">property </em><code class="sig-name descname">test_word</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use.USE2Vec.test_word" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use.USE2Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use.USE2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use.USE2Vec.vector_length">
+<em class="property">property </em><code class="sig-name descname">vector_length</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use.USE2Vec.vector_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the vector length of the model.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.text.tfhub.use_lite">
+<span id="vectorhub-encoders-text-tfhub-use-lite-module"></span><h2>vectorhub.encoders.text.tfhub.use_lite module<a class="headerlink" href="#module-vectorhub.encoders.text.tfhub.use_lite" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="vectorhub.encoders.text.tfhub.use_lite.USELite2Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.text.tfhub.use_lite.</code><code class="sig-name descname">USELite2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/universal-sentence-encoder-lite/2'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_lite.USELite2Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.text.html#vectorhub.encoders.text.base.BaseText2Vec" title="vectorhub.encoders.text.base.BaseText2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.text.base.BaseText2Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts</span></em>, <em class="sig-param"><span class="n">threads</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">chunks</span><span class="o">=</span><span class="default_value">100</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.init">
+<code class="sig-name descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.process_texts">
+<code class="sig-name descname">process_texts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.process_texts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An abstract method to specify the read method to read the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.test_word">
+<em class="property">property </em><code class="sig-name descname">test_word</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.test_word" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.vector_length">
+<em class="property">property </em><code class="sig-name descname">vector_length</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.vector_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the vector length of the model.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.text.tfhub.use_multi">
+<span id="vectorhub-encoders-text-tfhub-use-multi-module"></span><h2>vectorhub.encoders.text.tfhub.use_multi module<a class="headerlink" href="#module-vectorhub.encoders.text.tfhub.use_multi" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: USE Multi - Universal Sentence Encoder Multilingual</p>
+<p><strong>Vector Length</strong>: 512 (Base model)</p>
+<p><strong>Description</strong>:
+The Universal Sentence Encoder Multilingual module is an extension of the Universal Sentence Encoder Large that includes training on multiple tasks across languages. Supports 16 languages (Arabic, Chinese-simplified, Chinese-traditional, English, French, German, Italian, Japanese, Korean, Dutch, Polish, Portuguese, Spanish, Thai, Turkish, Russian) text encoder.</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/1803.11175">https://arxiv.org/abs/1803.11175</a></p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/collections/universal-sentence-encoder/1">https://tfhub.dev/google/collections/universal-sentence-encoder/1</a></p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2018-03-29</p>
+<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-tfhub]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.text.tfhub</span> <span class="pre">import</span> <span class="pre">USEMulti2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">USEMulti2Vec()</span>
+<span class="pre">model.encode(&quot;I</span> <span class="pre">enjoy</span> <span class="pre">taking</span> <span class="pre">long</span> <span class="pre">walks</span> <span class="pre">along</span> <span class="pre">the</span> <span class="pre">beach</span> <span class="pre">with</span> <span class="pre">my</span> <span class="pre">dog.&quot;)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.text.tfhub.use_multi.</code><code class="sig-name descname">USEMulti2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/universal-sentence-encoder-multilingual/3'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#vectorhub.encoders.text.tfhub.use.USE2Vec" title="vectorhub.encoders.text.tfhub.use.USE2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.text.tfhub.use.USE2Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts</span></em>, <em class="sig-param"><span class="n">threads</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">chunks</span><span class="o">=</span><span class="default_value">100</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.init">
+<code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An abstract method to specify the read method to read the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.test_word">
+<em class="property">property </em><code class="sig-name descname">test_word</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.test_word" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.vector_length">
+<em class="property">property </em><code class="sig-name descname">vector_length</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.vector_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the vector length of the model.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.text.tfhub">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-vectorhub.encoders.text.tfhub" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="vectorhub.encoders.text.torch_transformers.html" class="btn btn-neutral float-right" title="vectorhub.encoders.text.torch_transformers package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="vectorhub.encoders.text.tf_transformers.html" class="btn btn-neutral float-left" title="vectorhub.encoders.text.tf_transformers package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Vector AI
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

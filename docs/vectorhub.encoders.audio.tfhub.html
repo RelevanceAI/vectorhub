@@ -1,0 +1,720 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>vectorhub.encoders.audio.tfhub package &mdash; VectorHub 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="vectorhub.encoders.audio.vectorai package" href="vectorhub.encoders.audio.vectorai.html" />
+    <link rel="prev" title="vectorhub.encoders.audio.pytorch package" href="vectorhub.encoders.audio.pytorch.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> VectorHub
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">What is Vector Hub?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_add_a_model.html">How To Add Your Model To Vector Hub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_encoder.html">Guide to using Auto-Encoder</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Text Encoders</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.bert2vec.html">Bert2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.albert2vec.html">AlBert2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.labse2vec.html">LaBSE2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.use2vec.html">USE2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.use_multi2vec.html">USEMulti2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.legalbert2vec.html">LegalBert2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.transformer2vec.html">Transformer2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.sentencetransformer2vec.html">SentenceTransformer2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.vectorai2vec.html">ViText2Vec</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Image Encoders</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.bit2vec.html">Bit2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.inception2vec.html">Inception2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.resnet2vec.html">ResNet2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.inception_resnet2vec.html">InceptionResnet2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.mobilenet2vec.html">MobileNet2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.vectorai2vec.html">ViImage2Vec</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Audio Encoders</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.speech_embedding2vec.html">SpeechEmbedding2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.trill2vec.html">Trill2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.vggish2vec.html">Vggish2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.yamnet2vec.html">Yamnet2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.wav2vec.html">Wav2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.vectorai2vec.html">ViAudio2Vec</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Text Bi-Encoders</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bi_encoders.text_text.use_qa2vec.html">USEQA2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bi_encoders.text_text.lareqa_qa2vec.html">LAReQA2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bi_encoders.text_text.dpr2vec.html">DPR2Vec</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">vectorhub</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="vectorhub.html">vectorhub package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="vectorhub.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="vectorhub.bi_encoders.html">vectorhub.bi_encoders package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="vectorhub.encoders.html">vectorhub.encoders package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.auto_encoder">vectorhub.auto_encoder module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.base">vectorhub.base module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.doc_utils">vectorhub.doc_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.errors">vectorhub.errors module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.import_utils">vectorhub.import_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.models_dict">vectorhub.models_dict module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.utils">vectorhub.utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VectorHub</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">vectorhub</a> &raquo;</li>
+        
+          <li><a href="vectorhub.html">vectorhub package</a> &raquo;</li>
+        
+          <li><a href="vectorhub.encoders.html">vectorhub.encoders package</a> &raquo;</li>
+        
+          <li><a href="vectorhub.encoders.audio.html">vectorhub.encoders.audio package</a> &raquo;</li>
+        
+      <li>vectorhub.encoders.audio.tfhub package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/vectorhub.encoders.audio.tfhub.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vectorhub-encoders-audio-tfhub-package">
+<h1>vectorhub.encoders.audio.tfhub package<a class="headerlink" href="#vectorhub-encoders-audio-tfhub-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-vectorhub.encoders.audio.tfhub.speech_embedding">
+<span id="vectorhub-encoders-audio-tfhub-speech-embedding-module"></span><h2>vectorhub.encoders.audio.tfhub.speech_embedding module<a class="headerlink" href="#module-vectorhub.encoders.audio.tfhub.speech_embedding" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: Speech Embedding</p>
+<p><strong>Vector Length</strong>: 96 (default)</p>
+<p><strong>Description</strong>:
+With the rise of low power speech-enabled devices, there is a growing demand to quickly produce models for recognizing arbitrary
+sets of keywords. As with many machine learning tasks, one of the most challenging parts in the model creation process is obtaining
+a sufficient amount of training data. In this paper, we explore the effectiveness of synthesized speech data in training small,
+spoken term detection models of around 400k parameters. Instead of training such models directly on the audio or low level features
+such as MFCCs, we use a pre-trained speech embedding model trained to extract useful features for keyword spotting models. Using this
+speech embedding, we show that a model which detects 10 keywords when trained on only synthetic speech is equivalent to a model trained
+on over 500 real examples. We also show that a model without our speech embeddings would need to be trained on over 4000 real examples to
+reach the same accuracy.</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/2002.01322">https://arxiv.org/abs/2002.01322</a></p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/speech_embedding/1">https://tfhub.dev/google/speech_embedding/1</a></p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2020-01-31</p>
+<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-audio-tfhub]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-audio-tfhub]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.audio.tfhub</span> <span class="pre">import</span> <span class="pre">SpeechEmbedding2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">SpeechEmbedding2Vec()</span>
+<span class="pre">sample</span> <span class="pre">=</span> <span class="pre">model.read('https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav')</span>
+<span class="pre">model.encode(sample)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.audio.tfhub.speech_embedding.SpeechEmbedding2Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.audio.tfhub.speech_embedding.</code><code class="sig-name descname">SpeechEmbedding2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/speech_embedding/1'</span></em>, <em class="sig-param"><span class="n">signature</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.speech_embedding.SpeechEmbedding2Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.audio.html#vectorhub.encoders.audio.base.BaseAudio2Vec" title="vectorhub.encoders.audio.base.BaseAudio2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.audio.base.BaseAudio2Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.speech_embedding.SpeechEmbedding2Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audios</span></em>, <em class="sig-param"><span class="n">vector_operation</span><span class="o">=</span><span class="default_value">'mean'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.speech_embedding.SpeechEmbedding2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.speech_embedding.SpeechEmbedding2Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.speech_embedding.SpeechEmbedding2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.audio.tfhub.speech_embedding.SpeechEmbedding2Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.speech_embedding.SpeechEmbedding2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.speech_embedding.SpeechEmbedding2Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audio</span></em>, <em class="sig-param"><span class="n">vector_operation</span><span class="o">=</span><span class="default_value">'mean'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.speech_embedding.SpeechEmbedding2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode the vector.
+Example:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">vectorhub.encoders.audio</span> <span class="kn">import</span> <span class="n">SpeechEmbedding2Vec</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">encoder</span> <span class="o">=</span> <span class="n">SpeechEmbedding2Vec</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.speech_embedding.SpeechEmbedding2Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audio</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">new_sampling_rate</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">16000</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.speech_embedding.SpeechEmbedding2Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An method to specify the read method to read the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.speech_embedding.SpeechEmbedding2Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.speech_embedding.SpeechEmbedding2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.audio.tfhub.trill">
+<span id="vectorhub-encoders-audio-tfhub-trill-module"></span><h2>vectorhub.encoders.audio.tfhub.trill module<a class="headerlink" href="#module-vectorhub.encoders.audio.tfhub.trill" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: Trill - Triplet Loss Network</p>
+<p><strong>Vector Length</strong>: 512 (default)</p>
+<p><strong>Description</strong>:
+The ultimate goal of transfer learning is to reduce labeled data requirements by exploiting a pre-existing embedding model trained for
+different datasets or tasks. The visual and language communities have established benchmarks to compare embeddings, but the speech
+community has yet to do so. This paper proposes a benchmark for comparing speech representations on non-semantic tasks, and proposes a
+representation based on an unsupervised triplet-loss objective. The proposed representation outperforms other representations on the
+benchmark, and even exceeds state-of-the-art performance on a number of transfer learning tasks. The embedding is trained on a publicly
+available dataset, and it is tested on a variety of low-resource downstream tasks, including personalization tasks and medical domain.
+The benchmark, models, and evaluation code are publicly released.”””</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/2002.12764">https://arxiv.org/abs/2002.12764</a></p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/nonsemantic-speech-benchmark/trill/3">https://tfhub.dev/google/nonsemantic-speech-benchmark/trill/3</a></p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2020-02-25</p>
+<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub['encoders-audio-tfhub-trill']</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[{}]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.audio.tfhub</span> <span class="pre">import</span> <span class="pre">Trill2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">Trill2Vec()</span>
+<span class="pre">sample</span> <span class="pre">=</span> <span class="pre">model.read('https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav')</span>
+<span class="pre">model.encode(sample)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.audio.tfhub.trill.Trill2Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.audio.tfhub.trill.</code><code class="sig-name descname">Trill2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/nonsemantic-speech-benchmark/trill/3'</span></em>, <em class="sig-param"><span class="n">layer</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'embedding'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.trill.Trill2Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.audio.html#vectorhub.encoders.audio.base.BaseAudio2Vec" title="vectorhub.encoders.audio.base.BaseAudio2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.audio.base.BaseAudio2Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.trill.Trill2Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">vector_operation</span><span class="o">=</span><span class="default_value">'mean'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.trill.Trill2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.trill.Trill2Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.trill.Trill2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.audio.tfhub.trill.Trill2Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.trill.Trill2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.trill.Trill2Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audio</span></em>, <em class="sig-param"><span class="n">vector_operation</span><span class="o">=</span><span class="default_value">'mean'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.trill.Trill2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">encoders.audio.trill</span> <span class="kn">import</span> <span class="n">Trill2Vec</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">encoder</span> <span class="o">=</span> <span class="n">Trill2Vec</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.trill.Trill2Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audio</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">new_sampling_rate</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">16000</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.trill.Trill2Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An method to specify the read method to read the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.trill.Trill2Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.trill.Trill2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.audio.tfhub.trill_distilled">
+<span id="vectorhub-encoders-audio-tfhub-trill-distilled-module"></span><h2>vectorhub.encoders.audio.tfhub.trill_distilled module<a class="headerlink" href="#module-vectorhub.encoders.audio.tfhub.trill_distilled" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: Trill Distilled - Triplet Loss Network</p>
+<p><strong>Vector Length</strong>: 2048 (default)</p>
+<p><strong>Description</strong>:
+The ultimate goal of transfer learning is to reduce labeled data requirements by exploiting a pre-existing embedding model trained for
+different datasets or tasks. The visual and language communities have established benchmarks to compare embeddings, but the speech
+community has yet to do so. This paper proposes a benchmark for comparing speech representations on non-semantic tasks, and proposes a
+representation based on an unsupervised triplet-loss objective. The proposed representation outperforms other representations on the
+benchmark, and even exceeds state-of-the-art performance on a number of transfer learning tasks. The embedding is trained on a publicly
+available dataset, and it is tested on a variety of low-resource downstream tasks, including personalization tasks and medical domain.
+The benchmark, models, and evaluation code are publicly released.</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/2002.12764">https://arxiv.org/abs/2002.12764</a></p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/nonsemantic-speech-benchmark/trill-distilled/3">https://tfhub.dev/google/nonsemantic-speech-benchmark/trill-distilled/3</a></p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2020-02-25</p>
+<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-audio-tfhub]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-audio-tfhub]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.audio.tfhub</span> <span class="pre">import</span> <span class="pre">TrillDistilled2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">TrillDistilled2Vec()</span>
+<span class="pre">sample</span> <span class="pre">=</span> <span class="pre">model.read('https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav')</span>
+<span class="pre">model.encode(sample)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.audio.tfhub.trill_distilled.TrillDistilled2Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.audio.tfhub.trill_distilled.</code><code class="sig-name descname">TrillDistilled2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/nonsemantic-speech-benchmark/trill-distilled/3'</span></em>, <em class="sig-param"><span class="n">layer</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'embedding'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.trill_distilled.TrillDistilled2Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.audio.html#vectorhub.encoders.audio.base.BaseAudio2Vec" title="vectorhub.encoders.audio.base.BaseAudio2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.audio.base.BaseAudio2Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.trill_distilled.TrillDistilled2Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audios</span></em>, <em class="sig-param"><span class="n">vector_operation</span><span class="o">=</span><span class="default_value">'mean'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.trill_distilled.TrillDistilled2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.trill_distilled.TrillDistilled2Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.trill_distilled.TrillDistilled2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.audio.tfhub.trill_distilled.TrillDistilled2Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.trill_distilled.TrillDistilled2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.trill_distilled.TrillDistilled2Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audio</span></em>, <em class="sig-param"><span class="n">vector_operation</span><span class="o">=</span><span class="default_value">'mean'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.trill_distilled.TrillDistilled2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.trill_distilled.TrillDistilled2Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audio</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">new_sampling_rate</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">16000</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.trill_distilled.TrillDistilled2Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An method to specify the read method to read the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.trill_distilled.TrillDistilled2Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.trill_distilled.TrillDistilled2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.audio.tfhub.vggish">
+<span id="vectorhub-encoders-audio-tfhub-vggish-module"></span><h2>vectorhub.encoders.audio.tfhub.vggish module<a class="headerlink" href="#module-vectorhub.encoders.audio.tfhub.vggish" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: VGGish</p>
+<p><strong>Vector Length</strong>: 128 (default)</p>
+<p><strong>Description</strong>:
+An audio event embedding model trained on the YouTube-8M dataset.
+VGGish should be used:
+- as a high-level feature extractor: the 128-D embedding output of VGGish can be used as the input features of another shallow model which can then be trained on a small amount of data for a particular task. This allows quickly creating specialized audio classifiers without requiring a lot of labeled data and without having to train a large model end-to-end.
+- as a warm start: the VGGish model parameters can be used to initialize part of a larger model which allows faster fine-tuning and model exploration.</p>
+<p><strong>Paper</strong>:</p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/vggish/1">https://tfhub.dev/google/vggish/1</a></p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2020-03-11</p>
+<p><strong>Limitations</strong>:
+VGGish has been trained on millions of YouTube videos and although these are very diverse, there can still be a domain
+mismatch between the average YouTube video and the audio inputs expected for any given task. You should expect to do some
+amount of fine-tuning and calibration to make VGGish usable in any system that you build.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-audio-tfhub]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-audio-tfhub]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.audio.tfhub</span> <span class="pre">import</span> <span class="pre">Vggish2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">Vggish2Vec()</span>
+<span class="pre">sample</span> <span class="pre">=</span> <span class="pre">model.read('https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav')</span>
+<span class="pre">model.encode(sample)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.audio.tfhub.vggish.Vggish2Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.audio.tfhub.vggish.</code><code class="sig-name descname">Vggish2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/vggish/1'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.vggish.Vggish2Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.audio.html#vectorhub.encoders.audio.base.BaseAudio2Vec" title="vectorhub.encoders.audio.base.BaseAudio2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.audio.base.BaseAudio2Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.vggish.Vggish2Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audios</span></em>, <em class="sig-param"><span class="n">vector_operation</span><span class="o">=</span><span class="default_value">'mean'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.vggish.Vggish2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.vggish.Vggish2Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.vggish.Vggish2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.audio.tfhub.vggish.Vggish2Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.vggish.Vggish2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.vggish.Vggish2Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audio</span></em>, <em class="sig-param"><span class="n">vector_operation</span><span class="o">=</span><span class="default_value">'mean'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.vggish.Vggish2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.vggish.Vggish2Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audio</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">new_sampling_rate</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">16000</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.vggish.Vggish2Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An method to specify the read method to read the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.vggish.Vggish2Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.vggish.Vggish2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.audio.tfhub.yamnet">
+<span id="vectorhub-encoders-audio-tfhub-yamnet-module"></span><h2>vectorhub.encoders.audio.tfhub.yamnet module<a class="headerlink" href="#module-vectorhub.encoders.audio.tfhub.yamnet" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: Yamnet</p>
+<p><strong>Vector Length</strong>: 1024 (default)</p>
+<p><strong>Description</strong>:
+YAMNet is an audio event classifier that takes audio waveform as input and makes independent predictions for each
+of 521 audio events from the AudioSet ontology. The model uses the MobileNet v1 architecture and was trained using
+the AudioSet corpus. This model was originally released in the TensorFlow Model Garden, where we have the model
+source code, the original model checkpoint, and more detailed documentation.
+This model can be used:</p>
+<ul class="simple">
+<li><p>as a stand-alone audio event classifier that provides a reasonable baseline across a wide variety of audio events.</p></li>
+<li><p>as a high-level feature extractor: the 1024-D embedding output of YAMNet can be used as the input features of another shallow model which can then be trained on a small amount of data for a particular task. This allows quickly creating specialized audio classifiers without requiring a lot of labeled data and without having to train a large model end-to-end.</p></li>
+<li><p>as a warm start: the YAMNet model parameters can be used to initialize part of a larger model which allows faster fine-tuning and model exploration.</p></li>
+</ul>
+<p><strong>Paper</strong>:</p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/yamnet/1">https://tfhub.dev/google/yamnet/1</a></p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2020-03-11</p>
+<p><strong>Limitations</strong>:
+YAMNet’s classifier outputs have not been calibrated across classes, so you cannot directly treat
+the outputs as probabilities. For any given task, you will very likely need to perform a calibration with task-specific data
+which lets you assign proper per-class score thresholds and scaling.
+YAMNet has been trained on millions of YouTube videos and although these are very diverse, there can still be a domain mismatch
+between the average YouTube video and the audio inputs expected for any given task. You should expect to do some amount of
+fine-tuning and calibration to make YAMNet usable in any system that you build.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-audio-tfhub]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-audio-tfhub]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.audio.tfhub</span> <span class="pre">import</span> <span class="pre">Yamnet2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">Yamnet2Vec()</span>
+<span class="pre">sample</span> <span class="pre">=</span> <span class="pre">model.read('https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav')</span>
+<span class="pre">model.encode(sample)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.audio.tfhub.yamnet.Yamnet2Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.audio.tfhub.yamnet.</code><code class="sig-name descname">Yamnet2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/yamnet/1'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.yamnet.Yamnet2Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.audio.html#vectorhub.encoders.audio.base.BaseAudio2Vec" title="vectorhub.encoders.audio.base.BaseAudio2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.audio.base.BaseAudio2Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.yamnet.Yamnet2Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audios</span></em>, <em class="sig-param"><span class="n">vector_operation</span><span class="o">=</span><span class="default_value">'mean'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.yamnet.Yamnet2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.yamnet.Yamnet2Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.yamnet.Yamnet2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.audio.tfhub.yamnet.Yamnet2Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.yamnet.Yamnet2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.yamnet.Yamnet2Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audio</span></em>, <em class="sig-param"><span class="n">vector_operation</span><span class="o">=</span><span class="default_value">'mean'</span></em>, <em class="sig-param"><span class="n">layer</span><span class="o">=</span><span class="default_value">'embeddings'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.yamnet.Yamnet2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.yamnet.Yamnet2Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audio</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">new_sampling_rate</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">16000</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.yamnet.Yamnet2Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An method to specify the read method to read the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.yamnet.Yamnet2Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.yamnet.Yamnet2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.audio.tfhub">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-vectorhub.encoders.audio.tfhub" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="vectorhub.encoders.audio.vectorai.html" class="btn btn-neutral float-right" title="vectorhub.encoders.audio.vectorai package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="vectorhub.encoders.audio.pytorch.html" class="btn btn-neutral float-left" title="vectorhub.encoders.audio.pytorch package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Vector AI
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

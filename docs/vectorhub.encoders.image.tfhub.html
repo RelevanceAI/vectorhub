@@ -1,0 +1,1424 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>vectorhub.encoders.image.tfhub package &mdash; VectorHub 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="vectorhub.encoders.image.vectorai package" href="vectorhub.encoders.image.vectorai.html" />
+    <link rel="prev" title="vectorhub.encoders.image.fastai package" href="vectorhub.encoders.image.fastai.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> VectorHub
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">What is Vector Hub?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_add_a_model.html">How To Add Your Model To Vector Hub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_encoder.html">Guide to using Auto-Encoder</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Text Encoders</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.bert2vec.html">Bert2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.albert2vec.html">AlBert2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.labse2vec.html">LaBSE2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.use2vec.html">USE2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.use_multi2vec.html">USEMulti2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.legalbert2vec.html">LegalBert2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.transformer2vec.html">Transformer2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.sentencetransformer2vec.html">SentenceTransformer2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.vectorai2vec.html">ViText2Vec</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Image Encoders</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.bit2vec.html">Bit2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.inception2vec.html">Inception2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.resnet2vec.html">ResNet2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.inception_resnet2vec.html">InceptionResnet2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.mobilenet2vec.html">MobileNet2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.vectorai2vec.html">ViImage2Vec</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Audio Encoders</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.speech_embedding2vec.html">SpeechEmbedding2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.trill2vec.html">Trill2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.vggish2vec.html">Vggish2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.yamnet2vec.html">Yamnet2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.wav2vec.html">Wav2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.vectorai2vec.html">ViAudio2Vec</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Text Bi-Encoders</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bi_encoders.text_text.use_qa2vec.html">USEQA2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bi_encoders.text_text.lareqa_qa2vec.html">LAReQA2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bi_encoders.text_text.dpr2vec.html">DPR2Vec</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">vectorhub</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="vectorhub.html">vectorhub package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="vectorhub.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="vectorhub.bi_encoders.html">vectorhub.bi_encoders package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="vectorhub.encoders.html">vectorhub.encoders package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.auto_encoder">vectorhub.auto_encoder module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.base">vectorhub.base module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.doc_utils">vectorhub.doc_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.errors">vectorhub.errors module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.import_utils">vectorhub.import_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.models_dict">vectorhub.models_dict module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.utils">vectorhub.utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VectorHub</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">vectorhub</a> &raquo;</li>
+        
+          <li><a href="vectorhub.html">vectorhub package</a> &raquo;</li>
+        
+          <li><a href="vectorhub.encoders.html">vectorhub.encoders package</a> &raquo;</li>
+        
+          <li><a href="vectorhub.encoders.image.html">vectorhub.encoders.image package</a> &raquo;</li>
+        
+      <li>vectorhub.encoders.image.tfhub package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/vectorhub.encoders.image.tfhub.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vectorhub-encoders-image-tfhub-package">
+<h1>vectorhub.encoders.image.tfhub package<a class="headerlink" href="#vectorhub-encoders-image-tfhub-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-vectorhub.encoders.image.tfhub.bit">
+<span id="vectorhub-encoders-image-tfhub-bit-module"></span><h2>vectorhub.encoders.image.tfhub.bit module<a class="headerlink" href="#module-vectorhub.encoders.image.tfhub.bit" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: BiT - Big Transfer, General Visual Representation Learning (Small)</p>
+<p><strong>Vector Length</strong>: 2048 (default)</p>
+<p><strong>Description</strong>:
+Transfer of pre-trained representations improves sample efficiency and simplifies hyperparameter tuning when training
+deep neural networks for vision. We revisit the paradigm of pre-training on large supervised datasets and fine-tuning the model
+on a target task. We scale up pre-training, and propose a simple recipe that we call Big Transfer (BiT). By combining a few carefully
+selected components, and transferring using a simple heuristic, we achieve strong performance on over 20 datasets. BiT performs well across
+a surprisingly wide range of data regimes – from 1 example per class to 1M total examples. BiT achieves 87.5% top-1 accuracy on ILSVRC-2012, 99.4% on CIFAR-10, and 76.3% on the 19 task Visual Task Adaptation Benchmark (VTAB). On small datasets, BiT attains 76.8% on
+ILSVRC-2012 with 10 examples per class, and 97.0% on CIFAR-10 with 10 examples per class. We conduct detailed analysis
+of the main components that lead to high transfer performance.</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/1912.11370">https://arxiv.org/abs/1912.11370</a></p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://github.com/google-research/big_transfer">https://github.com/google-research/big_transfer</a></p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2019-12-24</p>
+<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-tfhub]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-tfhub]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.image.tfhub</span> <span class="pre">import</span> <span class="pre">BitSmall2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">BitSmall2Vec()</span>
+<span class="pre">sample</span> <span class="pre">=</span> <span class="pre">model.read('https://getvectorai.com/assets/hub-logo-with-text.png')</span>
+<span class="pre">model.encode(sample)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.image.tfhub.bit.BitSmall2Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.image.tfhub.bit.</code><code class="sig-name descname">BitSmall2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/bit/s-r50x1/1'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit.BitSmall2Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.image.html#vectorhub.encoders.image.base.BaseImage2Vec" title="vectorhub.encoders.image.base.BaseImage2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.image.base.BaseImage2Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">images</span></em>, <em class="sig-param"><span class="n">threads</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">chunks</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.image_resize">
+<code class="sig-name descname">image_resize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image_array</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">height</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">rescale</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">resize_mode</span><span class="o">=</span><span class="default_value">'symmetric'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.image_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.init">
+<code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.list_of_urls">
+<em class="property">property </em><code class="sig-name descname">list_of_urls</code><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.list_of_urls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An method to read images.
+:param image: An image link/bytes/io Bytesio data format.
+:param as_gray: read in the image as black and white</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.rgb_weights">
+<em class="property">property </em><code class="sig-name descname">rgb_weights</code><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.rgb_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get RGB weights for grayscaling.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.show_image">
+<code class="sig-name descname">show_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">cmap</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_grayscale</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.show_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show an image once it is read.
+Arg:</p>
+<blockquote>
+<div><p>sample: Image that is read (numpy array)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.to_grayscale">
+<code class="sig-name descname">to_grayscale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">rgb_weights</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>list<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.to_grayscale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converting an image from RGB to Grayscale</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit.BitSmall2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.image.tfhub.bit_medium">
+<span id="vectorhub-encoders-image-tfhub-bit-medium-module"></span><h2>vectorhub.encoders.image.tfhub.bit_medium module<a class="headerlink" href="#module-vectorhub.encoders.image.tfhub.bit_medium" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: BiT Medium - Big Transfer, General Visual Representation Learning (Medium)</p>
+<p><strong>Vector Length</strong>: 2048 (default)</p>
+<p><strong>Description</strong>:
+Transfer of pre-trained representations improves sample efficiency and simplifies hyperparameter tuning when training
+deep neural networks for vision. We revisit the paradigm of pre-training on large supervised datasets and fine-tuning the model
+on a target task. We scale up pre-training, and propose a simple recipe that we call Big Transfer (BiT). By combining a few carefully
+selected components, and transferring using a simple heuristic, we achieve strong performance on over 20 datasets. BiT performs well across
+a surprisingly wide range of data regimes – from 1 example per class to 1M total examples. BiT achieves 87.5% top-1 accuracy on ILSVRC-2012,
+99.4% on CIFAR-10, and 76.3% on the 19 task Visual Task Adaptation Benchmark (VTAB). On small datasets, BiT attains 76.8% on
+ILSVRC-2012 with 10 examples per class, and 97.0% on CIFAR-10 with 10 examples per class. We conduct detailed analysis
+of the main components that lead to high transfer performance.</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/1912.11370">https://arxiv.org/abs/1912.11370</a></p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://github.com/google-research/big_transfer">https://github.com/google-research/big_transfer</a></p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2019-12-24</p>
+<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-tfhub]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-tfhub]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.image.tfhub</span> <span class="pre">import</span> <span class="pre">BitMedium2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">BitMedium2Vec()</span>
+<span class="pre">sample</span> <span class="pre">=</span> <span class="pre">model.read('https://getvectorai.com/assets/hub-logo-with-text.png')</span>
+<span class="pre">model.encode(sample)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.image.tfhub.bit_medium.</code><code class="sig-name descname">BitMedium2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/bit/m-r50x1/1'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#vectorhub.encoders.image.tfhub.bit.BitSmall2Vec" title="vectorhub.encoders.image.tfhub.bit.BitSmall2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.image.tfhub.bit.BitSmall2Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">images</span></em>, <em class="sig-param"><span class="n">threads</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">chunks</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.image_resize">
+<code class="sig-name descname">image_resize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image_array</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">height</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">rescale</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">resize_mode</span><span class="o">=</span><span class="default_value">'symmetric'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.image_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.init">
+<code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.list_of_urls">
+<em class="property">property </em><code class="sig-name descname">list_of_urls</code><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.list_of_urls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An method to read images.
+:param image: An image link/bytes/io Bytesio data format.
+:param as_gray: read in the image as black and white</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.rgb_weights">
+<em class="property">property </em><code class="sig-name descname">rgb_weights</code><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.rgb_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get RGB weights for grayscaling.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.show_image">
+<code class="sig-name descname">show_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">cmap</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_grayscale</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.show_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show an image once it is read.
+Arg:</p>
+<blockquote>
+<div><p>sample: Image that is read (numpy array)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.to_grayscale">
+<code class="sig-name descname">to_grayscale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">rgb_weights</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>list<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.to_grayscale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converting an image from RGB to Grayscale</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.bit_medium.BitMedium2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.image.tfhub.inception_resnet">
+<span id="vectorhub-encoders-image-tfhub-inception-resnet-module"></span><h2>vectorhub.encoders.image.tfhub.inception_resnet module<a class="headerlink" href="#module-vectorhub.encoders.image.tfhub.inception_resnet" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: Inception Resnet</p>
+<p><strong>Vector Length</strong>: 1536 (default)</p>
+<p><strong>Description</strong>:
+Very deep convolutional networks have been central to the largest advances in image recognition performance in
+recent years. One example is the Inception architecture that has been shown to achieve very good performance at
+relatively low computational cost. Recently, the introduction of residual connections in conjunction with a more traditional
+architecture has yielded state-of-the-art performance in the 2015 ILSVRC challenge; its performance was similar to the latest
+generation Inception-v3 network. This raises the question of whether there are any benefit in combining the Inception architecture
+with residual connections. Here we give clear empirical evidence that training with residual connections accelerates the training
+of Inception networks significantly. There is also some evidence of residual Inception networks outperforming similarly expensive
+Inception networks without residual connections by a thin margin. We also present several new streamlined architectures for both
+residual and non-residual Inception networks. These variations improve the single-frame recognition performance on the ILSVRC 2012
+classification task significantly. We further demonstrate how proper activation scaling stabilizes the training of very wide residual
+Inception networks. With an ensemble of three residual and one Inception-v4, we achieve 3.08 percent top-5 error on the test set of the
+ImageNet classification (CLS) challenge.</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/1602.07261">https://arxiv.org/abs/1602.07261</a></p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/imagenet/inception_resnet_v2/feature_vector/4">https://tfhub.dev/google/imagenet/inception_resnet_v2/feature_vector/4</a></p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2016-02-23</p>
+<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-tfhub]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-tfhub]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.image.tfhub</span> <span class="pre">import</span> <span class="pre">InceptionResnet2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">InceptionResnet2Vec()</span>
+<span class="pre">sample</span> <span class="pre">=</span> <span class="pre">model.read('https://getvectorai.com/assets/hub-logo-with-text.png')</span>
+<span class="pre">model.encode(sample)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.image.tfhub.inception_resnet.</code><code class="sig-name descname">InceptionResnet2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="o">=</span><span class="default_value">'https://tfhub.dev/google/imagenet/inception_resnet_v2/feature_vector/4'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.image.html#vectorhub.encoders.image.base.BaseImage2Vec" title="vectorhub.encoders.image.base.BaseImage2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.image.base.BaseImage2Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">images</span></em>, <em class="sig-param"><span class="n">threads</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">chunks</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode an image using InceptionResnet.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">vectorhub.image.encoder.tfhub</span> <span class="kn">import</span> <span class="n">inception_resnet</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">InceptionResnet2Vec</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">api_key</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;Hey!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.image_resize">
+<code class="sig-name descname">image_resize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image_array</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">height</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">rescale</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">resize_mode</span><span class="o">=</span><span class="default_value">'symmetric'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.image_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An method to read images.
+:param image: An image link/bytes/io Bytesio data format.
+:param as_gray: read in the image as black and white</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.rgb_weights">
+<em class="property">property </em><code class="sig-name descname">rgb_weights</code><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.rgb_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get RGB weights for grayscaling.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.show_image">
+<code class="sig-name descname">show_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">cmap</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_grayscale</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.show_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show an image once it is read.
+Arg:</p>
+<blockquote>
+<div><p>sample: Image that is read (numpy array)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.to_grayscale">
+<code class="sig-name descname">to_grayscale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">rgb_weights</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>list<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.to_grayscale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converting an image from RGB to Grayscale</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inception_resnet.InceptionResnet2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.image.tfhub.inceptionv1">
+<span id="vectorhub-encoders-image-tfhub-inceptionv1-module"></span><h2>vectorhub.encoders.image.tfhub.inceptionv1 module<a class="headerlink" href="#module-vectorhub.encoders.image.tfhub.inceptionv1" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: Inception V1</p>
+<p><strong>Vector Length</strong>: 1024 (default)</p>
+<p><strong>Description</strong>:
+We propose a deep convolutional neural network architecture codenamed “Inception”, which was responsible for setting the new state of the art for classification and detection in the ImageNet Large-Scale Visual Recognition Challenge 2014 (ILSVRC 2014). The main hallmark of this architecture is the improved utilization of the computing resources inside the network. This was achieved by a carefully crafted design that allows for increasing the depth and width of the network while keeping the computational budget constant. To optimize quality, the architectural decisions were based on the Hebbian principle and the intuition of multi-scale processing. One particular incarnation used in our submission for ILSVRC 2014 is called GoogLeNet, a 22 layers deep network, the quality of which is assessed in the context of classification and detection.</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/1409.4842">https://arxiv.org/abs/1409.4842</a></p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/imagenet/inception_v1/feature_vector/4">https://tfhub.dev/google/imagenet/inception_v1/feature_vector/4</a></p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2014-09-17</p>
+<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-tfhub]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-tfhub]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.image.tfhub</span> <span class="pre">import</span> <span class="pre">InceptionV12Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">InceptionV22Vec()</span>
+<span class="pre">sample</span> <span class="pre">=</span> <span class="pre">model.read('https://getvectorai.com/assets/hub-logo-with-text.png')</span>
+<span class="pre">model.encode(sample)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.image.tfhub.inceptionv1.</code><code class="sig-name descname">InceptionV12Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/imagenet/inception_v1/feature_vector/4'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.image.html#vectorhub.encoders.image.base.BaseImage2Vec" title="vectorhub.encoders.image.base.BaseImage2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.image.base.BaseImage2Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">images</span></em>, <em class="sig-param"><span class="n">threads</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">chunks</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.image_resize">
+<code class="sig-name descname">image_resize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image_array</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">height</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">rescale</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">resize_mode</span><span class="o">=</span><span class="default_value">'symmetric'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.image_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.init">
+<code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An method to read images.
+:param image: An image link/bytes/io Bytesio data format.
+:param as_gray: read in the image as black and white</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.rgb_weights">
+<em class="property">property </em><code class="sig-name descname">rgb_weights</code><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.rgb_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get RGB weights for grayscaling.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.show_image">
+<code class="sig-name descname">show_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">cmap</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_grayscale</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.show_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show an image once it is read.
+Arg:</p>
+<blockquote>
+<div><p>sample: Image that is read (numpy array)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.to_grayscale">
+<code class="sig-name descname">to_grayscale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">rgb_weights</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>list<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.to_grayscale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converting an image from RGB to Grayscale</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.image.tfhub.inceptionv2">
+<span id="vectorhub-encoders-image-tfhub-inceptionv2-module"></span><h2>vectorhub.encoders.image.tfhub.inceptionv2 module<a class="headerlink" href="#module-vectorhub.encoders.image.tfhub.inceptionv2" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: Inception</p>
+<p><strong>Vector Length</strong>: 1024 (default)</p>
+<p><strong>Description</strong>:
+We propose a deep convolutional neural network architecture codenamed “Inception”, which was responsible for setting the new state of the art for classification and detection in the ImageNet Large-Scale Visual Recognition Challenge 2014 (ILSVRC 2014). The main hallmark of this architecture is the improved utilization of the computing resources inside the network. This was achieved by a carefully crafted design that allows for increasing the depth and width of the network while keeping the computational budget constant. To optimize quality, the architectural decisions were based on the Hebbian principle and the intuition of multi-scale processing. One particular incarnation used in our submission for ILSVRC 2014 is called GoogLeNet, a 22 layers deep network, the quality of which is assessed in the context of classification and detection.</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/1409.4842">https://arxiv.org/abs/1409.4842</a></p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/imagenet/inception_v1/feature_vector/4">https://tfhub.dev/google/imagenet/inception_v1/feature_vector/4</a></p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2015-12-11</p>
+<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-tfhub]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-tfhub]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.image.tfhub</span> <span class="pre">import</span> <span class="pre">InceptionV22Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">InceptionV22Vec()</span>
+<span class="pre">sample</span> <span class="pre">=</span> <span class="pre">model.read('https://getvectorai.com/assets/hub-logo-with-text.png')</span>
+<span class="pre">model.encode(sample)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.image.tfhub.inceptionv2.</code><code class="sig-name descname">InceptionV22Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/imagenet/inception_v2/feature_vector/4'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec" title="vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">images</span></em>, <em class="sig-param"><span class="n">threads</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">chunks</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.image_resize">
+<code class="sig-name descname">image_resize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image_array</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">height</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">rescale</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">resize_mode</span><span class="o">=</span><span class="default_value">'symmetric'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.image_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.init">
+<code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An method to read images.
+:param image: An image link/bytes/io Bytesio data format.
+:param as_gray: read in the image as black and white</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.rgb_weights">
+<em class="property">property </em><code class="sig-name descname">rgb_weights</code><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.rgb_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get RGB weights for grayscaling.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.show_image">
+<code class="sig-name descname">show_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">cmap</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_grayscale</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.show_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show an image once it is read.
+Arg:</p>
+<blockquote>
+<div><p>sample: Image that is read (numpy array)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.to_grayscale">
+<code class="sig-name descname">to_grayscale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">rgb_weights</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>list<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.to_grayscale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converting an image from RGB to Grayscale</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv2.InceptionV22Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.image.tfhub.inceptionv3">
+<span id="vectorhub-encoders-image-tfhub-inceptionv3-module"></span><h2>vectorhub.encoders.image.tfhub.inceptionv3 module<a class="headerlink" href="#module-vectorhub.encoders.image.tfhub.inceptionv3" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: Inception</p>
+<p><strong>Vector Length</strong>: 2048 (default)</p>
+<p><strong>Description</strong>:
+We propose a deep convolutional neural network architecture codenamed “Inception”, which was responsible for setting the new state of the art for classification and detection in the ImageNet Large-Scale Visual Recognition Challenge 2014 (ILSVRC 2014). The main hallmark of this architecture is the improved utilization of the computing resources inside the network. This was achieved by a carefully crafted design that allows for increasing the depth and width of the network while keeping the computational budget constant. To optimize quality, the architectural decisions were based on the Hebbian principle and the intuition of multi-scale processing. One particular incarnation used in our submission for ILSVRC 2014 is called GoogLeNet, a 22 layers deep network, the quality of which is assessed in the context of classification and detection.</p>
+<p><strong>Paper</strong>:</p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/imagenet/inception_v1/feature_vector/4">https://tfhub.dev/google/imagenet/inception_v1/feature_vector/4</a></p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2015-12-11</p>
+<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-tfhub]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-tfhub]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.image.tfhub</span> <span class="pre">import</span> <span class="pre">InceptionV32Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">InceptionV32Vec()</span>
+<span class="pre">sample</span> <span class="pre">=</span> <span class="pre">model.read('https://getvectorai.com/assets/hub-logo-with-text.png')</span>
+<span class="pre">model.encode(sample)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.image.tfhub.inceptionv3.</code><code class="sig-name descname">InceptionV32Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/imagenet/inception_v3/feature_vector/4'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec" title="vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.image.tfhub.inceptionv1.InceptionV12Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">images</span></em>, <em class="sig-param"><span class="n">threads</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">chunks</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.image_resize">
+<code class="sig-name descname">image_resize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image_array</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">height</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">rescale</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">resize_mode</span><span class="o">=</span><span class="default_value">'symmetric'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.image_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.init">
+<code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An method to read images.
+:param image: An image link/bytes/io Bytesio data format.
+:param as_gray: read in the image as black and white</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.rgb_weights">
+<em class="property">property </em><code class="sig-name descname">rgb_weights</code><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.rgb_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get RGB weights for grayscaling.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.show_image">
+<code class="sig-name descname">show_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">cmap</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_grayscale</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.show_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show an image once it is read.
+Arg:</p>
+<blockquote>
+<div><p>sample: Image that is read (numpy array)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.to_grayscale">
+<code class="sig-name descname">to_grayscale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">rgb_weights</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>list<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.to_grayscale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converting an image from RGB to Grayscale</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.inceptionv3.InceptionV32Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.image.tfhub.mobilenet">
+<span id="vectorhub-encoders-image-tfhub-mobilenet-module"></span><h2>vectorhub.encoders.image.tfhub.mobilenet module<a class="headerlink" href="#module-vectorhub.encoders.image.tfhub.mobilenet" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: MobileNet</p>
+<p><strong>Vector Length</strong>: 1024 (default)</p>
+<p><strong>Description</strong>:
+We present a class of efficient models called MobileNets for mobile and embedded vision applications. MobileNets are based on a streamlined architecture that uses depth-wise separable convolutions to build light weight deep neural networks. We introduce two simple global hyper-parameters that efficiently trade off between latency and accuracy. These hyper-parameters allow the model builder to choose the right sized model for their application based on the constraints of the problem. We present extensive experiments on resource and accuracy tradeoffs and show strong performance compared to other popular models on ImageNet classification. We then demonstrate the effectiveness of MobileNets across a wide range of applications and use cases including object detection, finegrain classification, face attributes and large scale geo-localization.</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/1704.04861">https://arxiv.org/abs/1704.04861</a></p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/imagenet/mobilenet_v1_100_224/feature_vector/4">https://tfhub.dev/google/imagenet/mobilenet_v1_100_224/feature_vector/4</a></p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2017-04-17</p>
+<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-tfhub]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-tfhub]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.image.tfhub</span> <span class="pre">import</span> <span class="pre">MobileNetV12Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">MobileNetV12Vec()</span>
+<span class="pre">sample</span> <span class="pre">=</span> <span class="pre">model.read('https://getvectorai.com/assets/hub-logo-with-text.png')</span>
+<span class="pre">model.encode(sample)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.image.tfhub.mobilenet.</code><code class="sig-name descname">MobileNetV12Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/imagenet/mobilenet_v1_100_224/feature_vector/4'</span></em>, <em class="sig-param"><span class="n">resize_mode</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'symmetric'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.image.html#vectorhub.encoders.image.base.BaseImage2Vec" title="vectorhub.encoders.image.base.BaseImage2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.image.base.BaseImage2Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">images</span></em>, <em class="sig-param"><span class="n">threads</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">chunks</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.image_resize">
+<code class="sig-name descname">image_resize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image_array</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">height</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">rescale</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">resize_mode</span><span class="o">=</span><span class="default_value">'symmetric'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.image_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.init">
+<code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An method to read images.
+:param image: An image link/bytes/io Bytesio data format.
+:param as_gray: read in the image as black and white</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.rgb_weights">
+<em class="property">property </em><code class="sig-name descname">rgb_weights</code><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.rgb_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get RGB weights for grayscaling.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.show_image">
+<code class="sig-name descname">show_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">cmap</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_grayscale</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.show_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show an image once it is read.
+Arg:</p>
+<blockquote>
+<div><p>sample: Image that is read (numpy array)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.to_grayscale">
+<code class="sig-name descname">to_grayscale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">rgb_weights</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>list<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.to_grayscale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converting an image from RGB to Grayscale</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.image.tfhub.mobilenetv2">
+<span id="vectorhub-encoders-image-tfhub-mobilenetv2-module"></span><h2>vectorhub.encoders.image.tfhub.mobilenetv2 module<a class="headerlink" href="#module-vectorhub.encoders.image.tfhub.mobilenetv2" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: MobileNet V2</p>
+<p><strong>Vector Length</strong>: 1792 (default)</p>
+<p><strong>Description</strong>:
+We present a class of efficient models called MobileNets for mobile and embedded vision applications. MobileNets are based on a streamlined architecture that uses depth-wise separable convolutions to build light weight deep neural networks. We introduce two simple global hyper-parameters that efficiently trade off between latency and accuracy. These hyper-parameters allow the model builder to choose the right sized model for their application based on the constraints of the problem. We present extensive experiments on resource and accuracy tradeoffs and show strong performance compared to other popular models on ImageNet classification. We then demonstrate the effectiveness of MobileNets across a wide range of applications and use cases including object detection, finegrain classification, face attributes and large scale geo-localization.</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/1704.04861">https://arxiv.org/abs/1704.04861</a></p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/imagenet/mobilenet_v1_100_224/feature_vector/4">https://tfhub.dev/google/imagenet/mobilenet_v1_100_224/feature_vector/4</a></p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2018-01-13</p>
+<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-tfhub]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-tfhub]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.image.tfhub</span> <span class="pre">import</span> <span class="pre">MobileNetV22Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">MobileNetV22Vec()</span>
+<span class="pre">sample</span> <span class="pre">=</span> <span class="pre">model.read('https://getvectorai.com/assets/hub-logo-with-text.png')</span>
+<span class="pre">model.encode(sample)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.image.tfhub.mobilenetv2.</code><code class="sig-name descname">MobileNetV22Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/imagenet/mobilenet_v2_140_224/feature_vector/4'</span></em>, <em class="sig-param"><span class="n">resize_mode</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'symmetric'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec" title="vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">images</span></em>, <em class="sig-param"><span class="n">threads</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">chunks</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.image_resize">
+<code class="sig-name descname">image_resize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image_array</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">height</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">rescale</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">resize_mode</span><span class="o">=</span><span class="default_value">'symmetric'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.image_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.init">
+<code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An method to read images.
+:param image: An image link/bytes/io Bytesio data format.
+:param as_gray: read in the image as black and white</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.rgb_weights">
+<em class="property">property </em><code class="sig-name descname">rgb_weights</code><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.rgb_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get RGB weights for grayscaling.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.show_image">
+<code class="sig-name descname">show_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">cmap</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_grayscale</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.show_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show an image once it is read.
+Arg:</p>
+<blockquote>
+<div><p>sample: Image that is read (numpy array)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.to_grayscale">
+<code class="sig-name descname">to_grayscale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">rgb_weights</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>list<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.to_grayscale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converting an image from RGB to Grayscale</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenetv2.MobileNetV22Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.image.tfhub.resnet">
+<span id="vectorhub-encoders-image-tfhub-resnet-module"></span><h2>vectorhub.encoders.image.tfhub.resnet module<a class="headerlink" href="#module-vectorhub.encoders.image.tfhub.resnet" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: ResNet</p>
+<p><strong>Vector Length</strong>: 2048 (default)</p>
+<p><strong>Description</strong>:
+Deeper neural networks are more difficult to train. We present a residual learning framework to ease the training of networks that are substantially deeper than those used previously. We explicitly reformulate the layers as learning residual functions with reference to the layer inputs, instead of learning unreferenced functions. We provide comprehensive empirical evidence showing that these residual networks are easier to optimize, and can gain accuracy from considerably increased depth. On the ImageNet dataset we evaluate residual nets with a depth of up to 152 layers—8x deeper than VGG nets but still having lower complexity. An ensemble of these residual nets achieves 3.57% error on the ImageNet test set. This result won the 1st place on the ILSVRC 2015 classification task. We also present analysis on CIFAR-10 with 100 and 1000 layers.</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/1512.03385">https://arxiv.org/abs/1512.03385</a></p>
+<p><strong>Repository</strong>:</p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2015-12-10</p>
+<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-tfhub]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>This is an example</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-tfhub]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.image.tfhub</span> <span class="pre">import</span> <span class="pre">ResnetV12Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">ResnetV12Vec()</span>
+<span class="pre">sample</span> <span class="pre">=</span> <span class="pre">model.read('https://getvectorai.com/assets/hub-logo-with-text.png')</span>
+<span class="pre">model.encode(sample)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.image.tfhub.resnet.</code><code class="sig-name descname">ResnetV12Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/imagenet/resnet_v1_50/feature_vector/4'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.image.html#vectorhub.encoders.image.base.BaseImage2Vec" title="vectorhub.encoders.image.base.BaseImage2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.image.base.BaseImage2Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">images</span></em>, <em class="sig-param"><span class="n">threads</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">chunks</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.image_resize">
+<code class="sig-name descname">image_resize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image_array</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">height</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">rescale</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">resize_mode</span><span class="o">=</span><span class="default_value">'symmetric'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.image_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.init">
+<code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An method to read images.
+:param image: An image link/bytes/io Bytesio data format.
+:param as_gray: read in the image as black and white</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.rgb_weights">
+<em class="property">property </em><code class="sig-name descname">rgb_weights</code><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.rgb_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get RGB weights for grayscaling.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.show_image">
+<code class="sig-name descname">show_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">cmap</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_grayscale</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.show_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show an image once it is read.
+Arg:</p>
+<blockquote>
+<div><p>sample: Image that is read (numpy array)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.to_grayscale">
+<code class="sig-name descname">to_grayscale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">rgb_weights</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>list<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.to_grayscale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converting an image from RGB to Grayscale</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.image.tfhub.resnetv2">
+<span id="vectorhub-encoders-image-tfhub-resnetv2-module"></span><h2>vectorhub.encoders.image.tfhub.resnetv2 module<a class="headerlink" href="#module-vectorhub.encoders.image.tfhub.resnetv2" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: ResNet</p>
+<p><strong>Vector Length</strong>: 2048 (default)</p>
+<p><strong>Description</strong>:
+Deeper neural networks are more difficult to train. We present a residual learning framework to ease the training of networks that are substantially deeper than those used previously. We explicitly reformulate the layers as learning residual functions with reference to the layer inputs, instead of learning unreferenced functions. We provide comprehensive empirical evidence showing that these residual networks are easier to optimize, and can gain accuracy from considerably increased depth. On the ImageNet dataset we evaluate residual nets with a depth of up to 152 layers—8x deeper than VGG nets but still having lower complexity. An ensemble of these residual nets achieves 3.57% error on the ImageNet test set. This result won the 1st place on the ILSVRC 2015 classification task. We also present analysis on CIFAR-10 with 100 and 1000 layers.</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/1512.03385">https://arxiv.org/abs/1512.03385</a></p>
+<p><strong>Repository</strong>:</p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2016-03-16</p>
+<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub['encoders-image-tfhub']</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub['encoders-image-tfhub']</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.image.tfhub</span> <span class="pre">import</span> <span class="pre">ResnetV22Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">ResnetV22Vec()</span>
+<span class="pre">sample</span> <span class="pre">=</span> <span class="pre">model.read('https://getvectorai.com/assets/hub-logo-with-text.png')</span>
+<span class="pre">model.encode(sample)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.image.tfhub.resnetv2.</code><code class="sig-name descname">ResnetV22Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/imagenet/resnet_v2_50/feature_vector/4'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec" title="vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.image.tfhub.resnet.ResnetV12Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">images</span></em>, <em class="sig-param"><span class="n">threads</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">chunks</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.image_resize">
+<code class="sig-name descname">image_resize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image_array</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">height</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">rescale</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">resize_mode</span><span class="o">=</span><span class="default_value">'symmetric'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.image_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.init">
+<code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An method to read images.
+:param image: An image link/bytes/io Bytesio data format.
+:param as_gray: read in the image as black and white</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.rgb_weights">
+<em class="property">property </em><code class="sig-name descname">rgb_weights</code><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.rgb_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get RGB weights for grayscaling.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.show_image">
+<code class="sig-name descname">show_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">cmap</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_grayscale</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.show_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show an image once it is read.
+Arg:</p>
+<blockquote>
+<div><p>sample: Image that is read (numpy array)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.to_grayscale">
+<code class="sig-name descname">to_grayscale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">rgb_weights</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>list<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.to_grayscale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converting an image from RGB to Grayscale</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.resnetv2.ResnetV22Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.image.tfhub">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-vectorhub.encoders.image.tfhub" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="vectorhub.encoders.image.vectorai.html" class="btn btn-neutral float-right" title="vectorhub.encoders.image.vectorai package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="vectorhub.encoders.image.fastai.html" class="btn btn-neutral float-left" title="vectorhub.encoders.image.fastai package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Vector AI
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

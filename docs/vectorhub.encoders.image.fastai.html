@@ -1,0 +1,487 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>vectorhub.encoders.image.fastai package &mdash; VectorHub 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="vectorhub.encoders.image.tfhub package" href="vectorhub.encoders.image.tfhub.html" />
+    <link rel="prev" title="vectorhub.encoders.image package" href="vectorhub.encoders.image.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> VectorHub
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">What is Vector Hub?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_add_a_model.html">How To Add Your Model To Vector Hub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_encoder.html">Guide to using Auto-Encoder</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Text Encoders</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.bert2vec.html">Bert2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.albert2vec.html">AlBert2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.labse2vec.html">LaBSE2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.use2vec.html">USE2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.use_multi2vec.html">USEMulti2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.legalbert2vec.html">LegalBert2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.transformer2vec.html">Transformer2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.sentencetransformer2vec.html">SentenceTransformer2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.vectorai2vec.html">ViText2Vec</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Image Encoders</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.bit2vec.html">Bit2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.inception2vec.html">Inception2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.resnet2vec.html">ResNet2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.inception_resnet2vec.html">InceptionResnet2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.mobilenet2vec.html">MobileNet2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.vectorai2vec.html">ViImage2Vec</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Audio Encoders</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.speech_embedding2vec.html">SpeechEmbedding2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.trill2vec.html">Trill2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.vggish2vec.html">Vggish2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.yamnet2vec.html">Yamnet2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.wav2vec.html">Wav2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.vectorai2vec.html">ViAudio2Vec</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Text Bi-Encoders</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bi_encoders.text_text.use_qa2vec.html">USEQA2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bi_encoders.text_text.lareqa_qa2vec.html">LAReQA2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bi_encoders.text_text.dpr2vec.html">DPR2Vec</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">vectorhub</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="vectorhub.html">vectorhub package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="vectorhub.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="vectorhub.bi_encoders.html">vectorhub.bi_encoders package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="vectorhub.encoders.html">vectorhub.encoders package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.auto_encoder">vectorhub.auto_encoder module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.base">vectorhub.base module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.doc_utils">vectorhub.doc_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.errors">vectorhub.errors module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.import_utils">vectorhub.import_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.models_dict">vectorhub.models_dict module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub.utils">vectorhub.utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vectorhub.html#module-vectorhub">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VectorHub</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">vectorhub</a> &raquo;</li>
+        
+          <li><a href="vectorhub.html">vectorhub package</a> &raquo;</li>
+        
+          <li><a href="vectorhub.encoders.html">vectorhub.encoders package</a> &raquo;</li>
+        
+          <li><a href="vectorhub.encoders.image.html">vectorhub.encoders.image package</a> &raquo;</li>
+        
+      <li>vectorhub.encoders.image.fastai package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/vectorhub.encoders.image.fastai.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vectorhub-encoders-image-fastai-package">
+<h1>vectorhub.encoders.image.fastai package<a class="headerlink" href="#vectorhub-encoders-image-fastai-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-vectorhub.encoders.image.fastai.base">
+<span id="vectorhub-encoders-image-fastai-base-module"></span><h2>vectorhub.encoders.image.fastai.base module<a class="headerlink" href="#module-vectorhub.encoders.image.fastai.base" title="Permalink to this headline">¶</a></h2>
+<p>The base class for FastAI as much of it can be replaced easily by changing the model.</p>
+<dl class="py class">
+<dt id="vectorhub.encoders.image.fastai.base.FastAIBase">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.image.fastai.base.</code><code class="sig-name descname">FastAIBase</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">databunch</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">architecture</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.fastai.base.FastAIBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.image.html#vectorhub.encoders.image.base.BaseImage2Vec" title="vectorhub.encoders.image.base.BaseImage2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.image.base.BaseImage2Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.image.fastai.base.FastAIBase.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.fastai.base.FastAIBase.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.fastai.base.FastAIBase.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.fastai.base.FastAIBase.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.fastai.base.FastAIBase.extraction_layer">
+<em class="property">abstract property </em><code class="sig-name descname">extraction_layer</code><a class="headerlink" href="#vectorhub.encoders.image.fastai.base.FastAIBase.extraction_layer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.fastai.base.FastAIBase.image_resize">
+<code class="sig-name descname">image_resize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image_array</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">height</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">rescale</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">resize_mode</span><span class="o">=</span><span class="default_value">'symmetric'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.fastai.base.FastAIBase.image_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.fastai.base.FastAIBase.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.fastai.base.FastAIBase.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An method to read images.
+:param image: An image link/bytes/io Bytesio data format.
+:param as_gray: read in the image as black and white</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.fastai.base.FastAIBase.rgb_weights">
+<em class="property">property </em><code class="sig-name descname">rgb_weights</code><a class="headerlink" href="#vectorhub.encoders.image.fastai.base.FastAIBase.rgb_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get RGB weights for grayscaling.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.fastai.base.FastAIBase.show_image">
+<code class="sig-name descname">show_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">cmap</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_grayscale</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.fastai.base.FastAIBase.show_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show an image once it is read.
+Arg:</p>
+<blockquote>
+<div><p>sample: Image that is read (numpy array)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.fastai.base.FastAIBase.to_grayscale">
+<code class="sig-name descname">to_grayscale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">rgb_weights</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>list<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.fastai.base.FastAIBase.to_grayscale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converting an image from RGB to Grayscale</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.fastai.base.FastAIBase.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.fastai.base.FastAIBase.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.image.fastai.resnet">
+<span id="vectorhub-encoders-image-fastai-resnet-module"></span><h2>vectorhub.encoders.image.fastai.resnet module<a class="headerlink" href="#module-vectorhub.encoders.image.fastai.resnet" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: ResNet</p>
+<p><strong>Vector Length</strong>: 1024 (default)</p>
+<p><strong>Description</strong>:
+Deeper neural networks are more difficult to train. We present a residual learning framework to ease the training of networks that are substantially deeper than those used previously. We explicitly reformulate the layers as learning residual functions with reference to the layer inputs, instead of learning unreferenced functions. We provide comprehensive empirical evidence showing that these residual networks are easier to optimize, and can gain accuracy from considerably increased depth. On the ImageNet dataset we evaluate residual nets with a depth of up to 152 layers—8x deeper than VGG nets but still having lower complexity. An ensemble of these residual nets achieves 3.57% error on the ImageNet test set. This result won the 1st place on the ILSVRC 2015 classification task. We also present analysis on CIFAR-10 with 100 and 1000 layers.</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/1512.03385">https://arxiv.org/abs/1512.03385</a></p>
+<p><strong>Repository</strong>:</p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2015-12-10</p>
+<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-fastai]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-image-fastai]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.image.fastai</span> <span class="pre">import</span> <span class="pre">FastAIResnet2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">FastAIResnet2Vec()</span>
+<span class="pre">sample</span> <span class="pre">=</span> <span class="pre">model.read('https://getvectorai.com/assets/hub-logo-with-text.png')</span>
+<span class="pre">model.encode(sample)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.image.fastai.resnet.</code><code class="sig-name descname">FastAIResnet2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">architecture</span><span class="o">=</span><span class="default_value">'resnet34'</span></em>, <em class="sig-param"><span class="n">databunch</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#vectorhub.encoders.image.fastai.base.FastAIBase" title="vectorhub.encoders.image.fastai.base.FastAIBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.image.fastai.base.FastAIBase</span></code></a></p>
+<p>Refer to possible_architectures method for reference to which architectures can be instantiated.
+:param Architecture: The name of the architecture
+:param Databunch: A FastAI Data collection data type that is used to instantiate a learner object.</p>
+<dl class="py method">
+<dt id="vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.architecture_mappings">
+<em class="property">property </em><code class="sig-name descname">architecture_mappings</code><a class="headerlink" href="#vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.architecture_mappings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Architecture mappings</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.extraction_layer">
+<em class="property">property </em><code class="sig-name descname">extraction_layer</code><a class="headerlink" href="#vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.extraction_layer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Here we selected the default to be layer_num 1 to extract the layer with the highest number of dimensions
+after it has been flattened.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.image_resize">
+<code class="sig-name descname">image_resize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image_array</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">height</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">rescale</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">resize_mode</span><span class="o">=</span><span class="default_value">'symmetric'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.image_resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.possible_architectures">
+<em class="property">property </em><code class="sig-name descname">possible_architectures</code><a class="headerlink" href="#vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.possible_architectures" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">image</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An method to read images.
+:param image: An image link/bytes/io Bytesio data format.
+:param as_gray: read in the image as black and white</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.rgb_weights">
+<em class="property">property </em><code class="sig-name descname">rgb_weights</code><a class="headerlink" href="#vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.rgb_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get RGB weights for grayscaling.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.show_image">
+<code class="sig-name descname">show_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">cmap</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">is_grayscale</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.show_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show an image once it is read.
+Arg:</p>
+<blockquote>
+<div><p>sample: Image that is read (numpy array)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.to_grayscale">
+<code class="sig-name descname">to_grayscale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">rgb_weights</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>list<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.to_grayscale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converting an image from RGB to Grayscale</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.fastai.resnet.FastAIResnet2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.
+:param model_url: The URl of the the model in question
+:param list_of_urls: The list of URLS for the model in question</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.encoders.image.fastai">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-vectorhub.encoders.image.fastai" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="vectorhub.encoders.image.tfhub.html" class="btn btn-neutral float-right" title="vectorhub.encoders.image.tfhub package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="vectorhub.encoders.image.html" class="btn btn-neutral float-left" title="vectorhub.encoders.image package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Vector AI
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
