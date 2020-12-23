@@ -4,7 +4,7 @@
 import pytest
 import numpy as np
 from vectorhub.encoders.text.torch_transformers import Longformer2Vec
-from ...test_utils import assert_vector_works
+from ....test_utils import assert_vector_works
 
 MODEL_LIST = [
     "allenai/longformer-base-4096",

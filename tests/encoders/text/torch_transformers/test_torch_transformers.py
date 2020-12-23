@@ -3,7 +3,7 @@
 """
 import pytest
 from vectorhub.encoders.text.torch_transformers import Transformer2Vec
-
+from ....test_utils import assert_vector_works
 MODEL_LIST = [
     "bert-base-uncased", 
     "distilbert-base-uncased", 
