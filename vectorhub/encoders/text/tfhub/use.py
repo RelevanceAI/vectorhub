@@ -6,6 +6,9 @@ from ..base import BaseText2Vec
 from datetime import date
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-use']):
     import tensorflow_hub as hub
+    if hasattr(tf, 'executing_eagerly'):
+        if not tf.executing_eagerly():
+            tf.compat.v1.enable_eager_execution()
 
 USEModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/use.md')
 

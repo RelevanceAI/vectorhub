@@ -10,6 +10,9 @@ from .use import USE2Vec
 
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-use-multi']):
     import tensorflow as tf
+    if hasattr(tf, 'executing_eagerly'):
+        if not tf.executing_eagerly():
+            tf.compat.v1.enable_eager_execution()
     from tensorflow.python.framework.errors_impl import NotFoundError
     try:
         import tensorflow_text
