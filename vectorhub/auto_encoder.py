@@ -27,7 +27,7 @@ with warnings.catch_warnings():
 ENCODER_MAPPINGS = defaultdict(tuple, {
     Albert2Vec.definition.model_id : (Albert2Vec, "encoders-text-tfhub-albert"),
     Bert2Vec.definition.model_id : (Bert2Vec, "encoders-text-tfhub-bert"),
-    Elmo2Vec.definition.model_id: (Elmo2Vec, "encoders-image-tfhub-elmo"),
+    Elmo2Vec.definition.model_id: (Elmo2Vec, "encoders-text-tfhub-elmo"),
     LaBSE2Vec.definition.model_id : (LaBSE2Vec, "encoders-text-tfhub-labse"),
     LegalBert2Vec.definition.model_id: (LegalBert2Vec, "encoders-text-torch-transformers-legalbert"),
     Longformer2Vec.definition.model_id: (Longformer2Vec, "encoders-text-torch-transformers-longformer"),
