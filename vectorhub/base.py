@@ -116,7 +116,7 @@ class Base2Vec:
         """
         if hasattr(self, '_name'):
             return self._name
-        elif hasattr('definition'):
+        elif hasattr(self, 'definition'):
             if '/' in self.definition.model_id:
                 return self.definition.model_id.split('/')[1]
             return self.definition.model_id
