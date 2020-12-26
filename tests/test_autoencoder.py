@@ -65,9 +65,13 @@ def test_encoders_instantiation_text(name):
 def test_encoders_instantiation_image(name):
     if name not in ['text/use-lite']:
         if name not in ['text/elmo'] and 'tfhub' in ENCODER_MAPPINGS[name][1]:
-            if hasattr(tf, 'executing_eagerly'):
-                if not tf.executing_eagerly():
-                    tf.compat.v1.enable_eager_execution()
+            try:
+                import tensorflow as tf
+                if hasattr(tf, 'executing_eagerly'):
+                    if not tf.executing_eagerly():
+                        tf.compat.v1.enable_eager_execution()
+            except:
+                pass
         if 'image' in name:
             encoder = AutoEncoder.from_model(name)
             sample = encoder.read('https://getvectorai.com/assets/logo-square.png')
