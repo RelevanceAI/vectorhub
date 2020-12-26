@@ -1,5 +1,5 @@
 import numpy as np
-from vectorhub.utils import *
+from vectorhub.utils import list_models, list_installed_models
 
 def test_list_models():
     assert len(list_models()) > 0
@@ -31,3 +31,34 @@ def assert_vector_works(vector, vector_length=None):
         assert not is_dummy_vector(vector, vector_length),  "Is a dummy vector"
         if vector_length is not None:
             assert len(vector) == vector_length, f"Does not match vector length of {vector_length}"
+
+class AssertModelWorks:
+    def __init__(self, model, vector_length, model_type='image'):
+        assert model_type in ['image', 'audio', 'text'], "Needs to be image, audio or text"
+        self.model = model
+        self.vector_length = vector_length
+        self.model_type = model_type
+        self.image_url = 'https://getvectorai.com/assets/logo-square.png'
+        self.audio_url = 'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav'
+        self.audio_sample_rate =  16000
+        self.sentence = "Cats enjoy purring in the nature."
+    
+    def assert_encode_works(self):
+        if self.model_type == 'image':
+            assert_vector_works(self.model.encode(self.image_url), self.vector_length)
+        elif self.model_type == 'audio':
+            assert_vector_works(self.model.encode(self.audio_url), self.vector_length)
+        elif model_type == 'text':
+            assert_vector_works(self.model.encode(self.sentence), self.vector_length)
+
+    def assert_bulk_encode_works(self):
+        if self.model_type == 'image':
+            assert_vector_works(self.model.bulk_encode([self.image_url, self.image_url, self.image_url]), self.vector_length)
+        elif self.model_type == 'audio':
+            assert_vector_works(self.model.bulk_encode([self.audio_url, self.audio_url, self.audio_url]), self.vector_length)
+        elif model_type == 'text':
+            assert_vector_works(self.model.bulk_encode([self.sentence, self.sentence, self.sentence]), self.vector_length)
+
+    def assert_encoding_methods_work(self):
+        self.assert_encode_works()
+        self.assert_bulk_encode_works()
