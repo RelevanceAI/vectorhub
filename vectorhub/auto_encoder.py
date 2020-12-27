@@ -27,11 +27,15 @@ with warnings.catch_warnings():
 ENCODER_MAPPINGS = defaultdict(tuple, {
     Albert2Vec.definition.model_id : (Albert2Vec, "encoders-text-tfhub-albert"),
     Bert2Vec.definition.model_id : (Bert2Vec, "encoders-text-tfhub-bert"),
+    Elmo2Vec.definition.model_id: (Elmo2Vec, "encoders-text-tfhub-elmo"),
     LaBSE2Vec.definition.model_id : (LaBSE2Vec, "encoders-text-tfhub-labse"),
     LegalBert2Vec.definition.model_id: (LegalBert2Vec, "encoders-text-torch-transformers-legalbert"),
+    Longformer2Vec.definition.model_id: (Longformer2Vec, "encoders-text-torch-transformers-longformer"),
     USE2Vec.definition.model_id : (USE2Vec, "encoders-text-tfhub-use"),
     USEMulti2Vec.definition.model_id : (USEMulti2Vec, "encoders-text-tfhub-use"),
     USELite2Vec.definition.model_id : (USELite2Vec, "encoders-text-tfhub-use"),
+    
+
     # "text/tf-transformers" : (TFTransformer2Vec, "encoders-text-tf-transformers"),
     # "text/torch-transformers" : (Transformer2Vec, "encoders-text-torch-transformers"),
 
@@ -52,7 +56,7 @@ ENCODER_MAPPINGS = defaultdict(tuple, {
     MobileNetV22Vec.definition.model_id : (MobileNetV22Vec, "encoders-image-tfhub-mobilenet"),
     ResnetV12Vec.definition.model_id : (ResnetV12Vec, "encoders-image-tfhub-resnet"),
     ResnetV22Vec.definition.model_id : (ResnetV22Vec, "encoders-image-tfhub-resnet"),
-    FastAIResnet2Vec.definition.model_id: (FastAIResnet2Vec, "encoders-image-fastai-resnet")
+    FastAIResnet2Vec.definition.model_id: (FastAIResnet2Vec, "encoders-image-fastai-resnet"),
 })
 
 class AutoEncoder:
