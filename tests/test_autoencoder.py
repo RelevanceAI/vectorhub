@@ -8,7 +8,7 @@ from .test_utils import *
 def test_encoders_instantiation_audio(name):
     if 'audio' in name:
         encoder = AutoEncoder.from_model(name)
-        assert_encoder_works(encoder)
+        assert_encoder_works(encoder, model_type='audio')
     else:
         # Default to test passing otherwise
         assert True
