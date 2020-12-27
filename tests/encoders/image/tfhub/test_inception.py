@@ -1,46 +1,24 @@
 import numpy as np
 from vectorhub.encoders.image.tfhub import InceptionV12Vec, InceptionV22Vec, InceptionV32Vec
+from ....test_utils import assert_model_works
 
-
-def test_inception_v1_initialize():
+def test_inception_v1_works():
     """
-    Testing for inception v1 initialize
+    Test that mobilenet v1 works.
     """
-    client = InceptionV12Vec()
-    assert True
+    model = InceptionV12Vec()
+    assert_model_works(model, 1024, model_type='image')
 
-
-def test_inception_v1_encode():
+def test_inception_v2_works():
     """
-    Testing for inception v1 encode
+    Test that mobilenet v1 works.
     """
-    client = InceptionV12Vec()
-    sample = client.read('https://getvectorai.com/assets/logo-square.png')
-    result = client.encode(sample)
-    assert np.array(result).shape == (1024,)
+    model = InceptionV22Vec()
+    assert_model_works(model, 1536, model_type='image')
 
-
-def test_inception_v1_bulk_encode():
-    """
-    Testing for inception v1 bulk encode
-    """
-    client = InceptionV12Vec()
-    sample = client.read('https://getvectorai.com/assets/logo-square.png')
-    result = client.bulk_encode([sample, sample])
-    assert np.array(result).shape == (2, 1024)
-
-
-def test_inception_v2_initialize():
-    """
-    Testing for inception v2 initialize
-    """
-    client = InceptionV22Vec()
-    assert True
-
-
-def test_inception_v3_initialize():
+def test_inception_v3_works():
     """
     Testing for inception v3 initialize
     """
-    client = InceptionV32Vec()
-    assert True
+    model = InceptionV32Vec()
+    assert_model_works(model, 2048, model_type='image')

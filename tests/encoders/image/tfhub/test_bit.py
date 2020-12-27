@@ -1,44 +1,17 @@
 import numpy as np
 from vectorhub.encoders.image.tfhub import BitMedium2Vec, BitSmall2Vec
+from ....test_utils import assert_model_works
 
-def test_bit_initialize():
+def test_bit_medium_works():
     """
-    Testing for initialize bit model
+    Testing BIT medium works
     """
-    client = BitMedium2Vec()
-    assert True
+    model = BitMedium2Vec()
+    assert_model_works(model, 2048, model_type='image')
 
-
-def test_bit_encode():
+def test_bit_small_works():
     """
-    Testing for bit model single encode
+    Testing BIT small works
     """
-    client = BitMedium2Vec()
-    image = client.read('https://getvectorai.com/assets/logo-square.png')
-
-    encoding = client.encode(image)
-    assert np.array(encoding).shape == (2048,)
-
-
-def test_bit_bulk_encode():
-    """
-    Testing for bit model bulk encode
-    """
-    client = BitMedium2Vec()
-    images_list = [
-        'https://getvectorai.com/assets/logo-square.png',
-        'https://getvectorai.com/assets/logo-square.png'
-    ]
-
-    samples = [client.read(c) for c in images_list]
-    encodings = client.bulk_encode(samples)
-    assert np.array(encodings).shape == (
-        np.array(images_list).shape[0], 2048)
-
-
-def test_bit_small_initialize():
-    """
-    Testing for bit small initialize
-    """
-    client = BitSmall2Vec()
-    assert True
+    model = BitSmall2Vec()
+    assert_model_works(model, 2048, model_type='image')
