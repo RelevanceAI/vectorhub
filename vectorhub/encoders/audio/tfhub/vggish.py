@@ -1,13 +1,14 @@
 from datetime import date
-from ....import_utils import *
+from ....import_utils import is_all_dependency_installed
 from ....models_dict import MODEL_REQUIREMENTS
+from ....base import catch_vector_errors
+from ....doc_utils import ModelDefinition
+from ..base import BaseAudio2Vec
+
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-audio-tfhub-vggish']):
     import tensorflow as tf
     import tensorflow_hub as hub
 
-from ....base import catch_vector_errors
-from ....doc_utils import ModelDefinition
-from ..base import BaseAudio2Vec
 
 VggishModelDefinition = ModelDefinition(markdown_filepath='encoders/audio/tfhub/vggish')
 
@@ -27,3 +28,7 @@ class Vggish2Vec(BaseAudio2Vec):
         if isinstance(audio, str):
             audio = self.read(audio)
         return self._vector_operation(self.model(audio), vector_operation)
+
+    @catch_vector_errors
+    def bulk_encode(self, audios, vector_operation='mean'):
+        return [self.encode(audio, vector_operation=vector_operation) for audio in audios]

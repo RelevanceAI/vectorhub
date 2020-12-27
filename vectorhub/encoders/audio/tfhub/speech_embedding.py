@@ -24,6 +24,12 @@ class SpeechEmbedding2Vec(BaseAudio2Vec):
             'https://tfhub.dev/google/', '').replace('/', '_')
         self.vector_length = 96
 
+    @property
+    def urls(self):
+        return {
+            'https://tfhub.dev/google/speech_embedding/1': {'vector_length': 96}
+        }
+
     @catch_vector_errors
     def encode(self, audio, vector_operation='mean'):
         """
@@ -40,4 +46,5 @@ class SpeechEmbedding2Vec(BaseAudio2Vec):
 
     @catch_vector_errors
     def bulk_encode(self, audios, vector_operation='mean'):
+        audios = [self.read(audio) for audio in audios if isinstance(audio, str) else audio]
         return self._vector_operation(self.model(tf.constant(audios))[self.signature][0], vector_operation=vector_operation)

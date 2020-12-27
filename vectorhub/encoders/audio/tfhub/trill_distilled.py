@@ -27,3 +27,7 @@ class TrillDistilled2Vec(BaseAudio2Vec):
         if isinstance(audio, str):
             audio = self.read(audio)
         return self._vector_operation(self.model(samples=audio, sample_rate=16000)[self.layer], vector_operation)
+    
+    @catch_vector_errors
+    def bulk_encode(self, audios, vector_operation='mean'):
+        return [self.encode(audio, vector_operation=vector_operation) for audio in audios]
