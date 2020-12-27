@@ -23,16 +23,16 @@ def test_encoders_audio(name):
 @pytest.mark.text
 @pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
 def test_encoders_text(name):
-    if name not in ['text/use-lite']:
+    if name not in ['text/use-lite', 'text/elmo']:
         if 'text' in name:
-            if name not in ['text/elmo'] and 'tfhub' in ENCODER_MAPPINGS[name][1]:
-                try:
-                    import tensorflow as tf
-                    if hasattr(tf, 'executing_eagerly'):
-                        if not tf.executing_eagerly():
-                            tf.compat.v1.enable_eager_execution()
-                except:
-                    pass
+            # if name not in ['text/elmo'] and 'tfhub' in ENCODER_MAPPINGS[name][1]:
+            #     try:
+            #         import tensorflow as tf
+            #         if hasattr(tf, 'executing_eagerly'):
+            #             if not tf.executing_eagerly():
+            #                 tf.compat.v1.enable_eager_execution()
+            #     except:
+            #         pass
             encoder = AutoEncoder.from_model(name)
             result = encoder.encode("HI")
             # Check to ensure that this isn't just the default vector
