@@ -28,6 +28,15 @@ class LegalBert2Vec(BaseText2Vec):
             "nlpaueb/legal-bert-base-uncased": "Trained on all the above", 
             "nlpaueb/legal-bert-small-uncased": "Trained on all the above"
         }
+    @property
+    def urls(self):
+        return {
+            "nlpaueb/bert-base-uncased-contracts": {},
+            "nlpaueb/bert-base-uncased-eurlex": {},
+            "nlpaueb/bert-base-uncased-echr	": {},
+            "nlpaueb/legal-bert-base-uncased": {},
+            "nlpaueb/legal-bert-small-uncased": {},
+        }
 
     @catch_vector_errors
     def encode(self, text: Union[str, List[str]]) -> List[float]:
@@ -35,7 +44,6 @@ class LegalBert2Vec(BaseText2Vec):
             Encode words using transformers.
             Args:
                 text: str
-
         """
         if isinstance(text, str):
             return torch.mean(self.model(**self.tokenizer(text, return_tensors='pt'))[0], axis=1).detach().tolist()[0]
