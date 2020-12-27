@@ -14,7 +14,7 @@ def test_inception_v2_works():
     Test that mobilenet v1 works.
     """
     model = InceptionV22Vec()
-    assert_encoder_works(model, 1536, model_type='image')
+    assert_encoder_works(model, 1024, model_type='image')
 
 def test_inception_v3_works():
     """

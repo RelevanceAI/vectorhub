@@ -67,5 +67,11 @@ def assert_encoder_works(model, vector_length=None, model_type='image'):
     """
     Assert that a model works.
     """
+    if vector_length is None:
+        try:
+            # Use the embedded URL module for now. 
+            vector_length = model.urls[model.model_url]['vector_length']
+        except:
+            pass
     model_check = AssertModelWorks(model=model, vector_length=vector_length, model_type=model_type)
     model_check.assert_encoding_methods_work()

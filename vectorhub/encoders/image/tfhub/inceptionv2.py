@@ -22,6 +22,7 @@ __doc__ = InceptionV2ModelDefinition.create_docs()
 class InceptionV22Vec(InceptionV12Vec):
     definition = InceptionV2ModelDefinition
     def __init__(self, model_url: str = 'https://tfhub.dev/google/imagenet/inception_v2/feature_vector/4'):
+        self.model_url = model_url
         self.init(model_url)
         self.vector_length = 1024
 
