@@ -1,22 +1,10 @@
-from vectorhub.encoders.audio.pytorch.wav2vec import Wav2Vec
 import numpy as np
+from vectorhub.encoders.audio.pytorch.wav2vec import Wav2Vec
+from ....test_utils import assert_encoder_works
 
-
-def test_fairseq_initialize():
+def test_fairseq_works():
     """
-    Testing for fairseq initialize
+    Simple testing for Fairseq working.
     """
-
-    client = Wav2Vec()
-    assert True
-
-
-def test_fairseq_encoder():
-    """
-    Testing for fairseq single encode
-    """
-    client = Wav2Vec()
-    audio = client.read(
-        'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav')
-    output = client.encode(audio)
-    assert len(output) == 512
+    enc = Wav2Vec()
+    assert_model_works(enc, vector_length=512, model_type='audio')
