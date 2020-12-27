@@ -1,5 +1,6 @@
-from vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers import SentenceTransformer2Vec, LIST_OF_URLS
 import gc
+from vectorhub.encoders.text.sentence_transformers.sentence_auto_transformers import SentenceTransformer2Vec, LIST_OF_URLS
+from ....test_utils import assert_encoder_works
 
 def test_sentence_transformers():
     """
@@ -7,6 +8,5 @@ def test_sentence_transformers():
     """
     for k, v in LIST_OF_URLS.items():
         enc = SentenceTransformer2Vec(model_name=k)
-        assert len(enc.encode("Let us go to the beach today.")) == v['vector_length']
-        assert len(enc.bulk_encode(["hi", "whats up"])) == 2
+        assert_encoder_works(enc, model_type='text')
         del enc; gc.collect();

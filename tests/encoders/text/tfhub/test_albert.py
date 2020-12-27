@@ -1,10 +1,10 @@
-from vectorhub.encoders.text.tfhub import Albert2Vec
 import numpy as np
+from vectorhub.encoders.text.tfhub import Albert2Vec
+from ....test_utils import assert_encoder_works 
 
 def test_albert_encode():
     """
     Testing for albert initialize
     """
-    client = Albert2Vec()
-    result = client.encode('Cat')
-    assert np.array(result).shape == (768,)
+    enc = Albert2Vec()
+    assert_encoder_works(enc, 768, 'text')

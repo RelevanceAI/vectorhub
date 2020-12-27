@@ -3,23 +3,17 @@
 """
 import pytest
 from vectorhub.encoders.text.torch_transformers import Transformer2Vec
-from ....test_utils import assert_vector_works
+from ....test_utils import assert_encoder_works 
+
 MODEL_LIST = [
     "bert-base-uncased", 
     "distilbert-base-uncased", 
     "facebook/bart-base"
 ]
 
+# TODO: Add vector output into the model name and type
+
 @pytest.mark.parametrize("model_name", MODEL_LIST)
 def test_torch_transformer_encode(model_name):
     model = Transformer2Vec(model_name)
-    vector = model.encode("Hi!")
-    assert_vector_works(vector)
-    assert len(vector) > 0
-
-@pytest.mark.parametrize("model_name", MODEL_LIST)
-def test_torch_transformer_bulk_encode(model_name):
-    model = Transformer2Vec(model_name)
-    vector = model.bulk_encode(["Hi!", "there"])
-    assert len(vector) == 2
-    assert_vector_works(vector)
+    assert_encoder_works(model, model_type='text')
