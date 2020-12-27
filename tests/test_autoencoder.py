@@ -4,7 +4,7 @@ from vectorhub.auto_encoder import AutoEncoder, ENCODER_MAPPINGS, list_all_auto_
 from .test_utils import *
 
 @pytest.mark.audio
-@pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
+@pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys())[0:3])
 def test_encoders_instantiation_audio(name):
     if 'audio' in name:
         encoder = AutoEncoder.from_model(name)
@@ -14,7 +14,7 @@ def test_encoders_instantiation_audio(name):
         assert True
 
 @pytest.mark.text
-@pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
+@pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys())[0:3])
 def test_encoders_instantiation_text(name):
     if name not in ['text/use-lite', 'text/elmo']:
         if 'text' in name:
@@ -26,7 +26,7 @@ def test_encoders_instantiation_text(name):
 
 
 @pytest.mark.image
-@pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
+@pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys())[0:3])
 def test_encoders_instantiation_image(name):
     if 'image' in name:
         encoder = AutoEncoder.from_model(name)
@@ -40,7 +40,7 @@ def test_encoders_instantiation_image(name):
         assert True
 
 @pytest.mark.text
-@pytest.mark.parametrize('name', list(BIENCODER_MAPPINGS.keys()))
+@pytest.mark.parametrize('name', list(BIENCODER_MAPPINGS.keys())[0:3])
 def test_auto_biencoders(name):
     if 'text_text' in name:
         bi_encoder = AutoBiEncoder.from_model(name)
