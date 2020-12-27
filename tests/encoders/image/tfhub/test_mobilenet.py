@@ -15,4 +15,4 @@ def test_mobilenet_v2_model_works():
     Test that mobilenet v2 works.
     """
     model = MobileNetV22Vec()
-    assert_encoder_works(model, 1024, model_type='image')
+    assert_encoder_works(model, 1792,model_type='image')
