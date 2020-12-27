@@ -34,7 +34,8 @@ def assert_vector_works(vector, vector_length=None):
 
 class AssertModelWorks:
     def __init__(self, model, vector_length, data_type='image', model_type='encoder'):
-        assert model_type in ['image', 'audio', 'text'], "Needs to be image, audio or text"
+        assert data_type in ['image', 'audio', 'text'], "data_type needs to be image, audio or text"
+        assert model_type in ['bi_encoder', 'encoder'], "model_type needs to be bi_encoder or encoder"
         self.model = model
         self.vector_length = vector_length
         self.model_type = model_type
