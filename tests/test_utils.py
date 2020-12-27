@@ -48,7 +48,7 @@ class AssertModelWorks:
             assert_vector_works(self.model.encode(self.image_url), self.vector_length)
         elif self.model_type == 'audio':
             assert_vector_works(self.model.encode(self.audio_url), self.vector_length)
-        elif model_type == 'text':
+        elif self.model_type == 'text':
             assert_vector_works(self.model.encode(self.sentence), self.vector_length)
 
     def assert_bulk_encode_works(self):
@@ -56,7 +56,7 @@ class AssertModelWorks:
             assert_vector_works(self.model.bulk_encode([self.image_url, self.image_url, self.image_url]), self.vector_length)
         elif self.model_type == 'audio':
             assert_vector_works(self.model.bulk_encode([self.audio_url, self.audio_url, self.audio_url]), self.vector_length)
-        elif model_type == 'text':
+        elif self.model_type == 'text':
             assert_vector_works(self.model.bulk_encode([self.sentence, self.sentence, self.sentence]), self.vector_length)
 
     def assert_encoding_methods_work(self):
