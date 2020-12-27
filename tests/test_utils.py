@@ -63,9 +63,9 @@ class AssertModelWorks:
         self.assert_encode_works()
         self.assert_bulk_encode_works()
 
-def assert_model_works(model, vector_length, model_type='image'):
+def assert_encoder_works(model, vector_length=None, model_type='image'):
     """
     Assert that a model works.
     """
-    assert_model = AssertModelWorks(model=model, vector_length=vector_length, model_type=model_type)
-    assert_model.assert_encoding_methods_work()
+    model_check = AssertModelWorks(model=model, vector_length=vector_length, model_type=model_type)
+    model_check.assert_encoding_methods_work()

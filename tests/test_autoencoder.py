@@ -32,60 +32,43 @@ def test_encoders_instantiation(name):
 @pytest.mark.audio
 @pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
 def test_encoders_instantiation_audio(name):
-    if name not in ['text/use-lite']:
-        if 'audio' in name:
-            encoder = AutoEncoder.from_model(name)
-            sample = encoder.read(
-            'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav', 16000
-            )
-            result = encoder.encode(sample)
-            # Check to ensure that this isn't just the default vector
-            assert not is_dummy_vector(result)
-            assert len(result) > 10
-        else:
-            # Default to test passing otherwise
-            assert True
+    if 'audio' in name:
+        encoder = AutoEncoder.from_model(name)
+        assert model_works(encoder)
+    else:
+        # Default to test passing otherwise
+        assert True
 
 @pytest.mark.text
 @pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
 def test_encoders_instantiation_text(name):
-    if name not in ['text/use-lite']:
-        if 'text' in name:
-            encoder = AutoEncoder.from_model(name)
-            result = encoder.encode("HI")
-            # Check to ensure that this isn't just the default vector
-            assert not is_dummy_vector(result)
-            assert len(result) > 10
-        else:
-            # Default to test passing otherwise
-            assert True
+    if 'text' in name:
+        encoder = AutoEncoder.from_model(name)
+        assert_encoder_works(encoder, model_type='text')
+    else:
+        # Default to test passing otherwise
+        assert True
 
 @pytest.mark.image
 @pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
 def test_encoders_instantiation_image(name):
-    if name not in ['text/use-lite']:
-        if 'image' in name:
-            encoder = AutoEncoder.from_model(name)
-            sample = encoder.read('https://getvectorai.com/assets/logo-square.png')
+    if 'image' in name:
+        encoder = AutoEncoder.from_model(name)
+        assert_encoder_works(encoder)
+        if 'fastai' not in name:
+            sample = encoder.to_grayscale(encoder.read('https://getvectorai.com/assets/logo-square.png'))
             result = encoder.encode(sample)
             assert not is_dummy_vector(result)
-            # Skip the fastai as it has its own internal method for grayscaling
-            if 'fastai' not in name:
-                sample = encoder.to_grayscale(encoder.read('https://getvectorai.com/assets/logo-square.png'))
-                result = encoder.encode(sample)
-                assert not is_dummy_vector(result)
-            # Check to ensure that this isn't just the default vector
-            assert not is_dummy_vector(result)
-            assert len(result) > 10
-        else:
-            # Default to test passing otherwise
-            assert True
+    else:
+        # Default to test passing otherwise
+        assert True
 
 @pytest.mark.text
 @pytest.mark.parametrize('name', list(BIENCODER_MAPPINGS.keys()))
 def test_biencoder_mappings(name):
     if 'text_text' in name:
         bi_encoder = AutoBiEncoder.from_model(name)
+        assert_encoder_works(bi_encoder)
         vector = bi_encoder.encode_question("Why?")
         assert len(vector) > 10
         vector = bi_encoder.encode_answer("Yes!")
