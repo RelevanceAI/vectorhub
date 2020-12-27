@@ -22,6 +22,12 @@ class Trill2Vec(BaseAudio2Vec):
         self.model_name = model_url.replace(
             'https://tfhub.dev/google/', '').replace('/', '_')
         self.vector_length = 512
+
+    @property
+    def urls(self):
+        return {
+            'https://tfhub.dev/google/nonsemantic-speech-benchmark/trill/3': {'vector_length': 512}
+        }
     
     @catch_vector_errors
     def encode(self, audio, vector_operation='mean'):

@@ -22,6 +22,12 @@ class Vggish2Vec(BaseAudio2Vec):
             'https://tfhub.dev/google/', '').replace('/', '')
         self.model = hub.load(self.model_url)
         self.vector_length = 128
+    
+    @property
+    def urls(self):
+        return {
+            'https://tfhub.dev/google/vggish/1': {'vector_length': 128}
+        }
 
     @catch_vector_errors
     def encode(self, audio, vector_operation='mean'):
