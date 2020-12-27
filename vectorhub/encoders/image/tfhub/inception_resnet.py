@@ -20,6 +20,12 @@ class InceptionResnet2Vec(BaseImage2Vec):
         self.model = hub.load(self.model_url)
         self.vector_length = 1536
 
+    @property
+    def urls(self):
+        return {
+            "https://tfhub.dev/google/imagenet/inception_resnet_v2/feature_vector/4": {"vector_length": 1536}
+        }
+
     @catch_vector_errors
     def encode(self, image):
         """

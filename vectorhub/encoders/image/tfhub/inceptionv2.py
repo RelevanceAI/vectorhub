@@ -24,3 +24,12 @@ class InceptionV22Vec(InceptionV12Vec):
     def __init__(self, model_url: str = 'https://tfhub.dev/google/imagenet/inception_v2/feature_vector/4'):
         self.init(model_url)
         self.vector_length = 1024
+
+    @property
+    def urls(self):
+        """
+        URLS for inception.
+        """
+        return {
+            'https://tfhub.dev/google/imagenet/inception_v2/feature_vector/4': {'vector_length': 1024}
+        }

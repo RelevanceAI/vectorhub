@@ -29,3 +29,15 @@ class ResnetV22Vec(ResnetV12Vec):
         self.validate_model_url(model_url, list_of_urls)
         self.init(model_url)
         self.vector_length = 2048
+
+    @property
+    def urls(self):
+        return {
+            'https://tfhub.dev/google/imagenet/resnet_v2_50/feature_vector/4': {'vector_length': 2048}, 
+
+            # 101 layers
+            'https://tfhub.dev/google/imagenet/resnet_v2_101/feature_vector/4':{'vector_length': 2048}, 
+
+            # 152 layers
+            'https://tfhub.dev/google/imagenet/resnet_v2_152/feature_vector/4':{'vector_length': 2048}, 
+        }

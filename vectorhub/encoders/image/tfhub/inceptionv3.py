@@ -30,3 +30,9 @@ class InceptionV32Vec(InceptionV12Vec):
         ]
         self.init(model_url)
         self.vector_length = 2048
+    
+    @property
+    def urls(self):
+        return {
+            "https://tfhub.dev/google/inaturalist/inception_v3/feature_vector/4": {'vector_length': 2048}
+        }

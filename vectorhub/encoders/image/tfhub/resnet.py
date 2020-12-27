@@ -29,6 +29,20 @@ class ResnetV12Vec(BaseImage2Vec):
         self.init(model_url)
         self.vector_length = 2048
 
+    @property
+    def urls(self):
+        return {
+            # 50 layers
+            'https://tfhub.dev/google/imagenet/resnet_v1_50/feature_vector/4':{'vector_length': 2048},
+
+            # 101 layers
+            'https://tfhub.dev/google/imagenet/resnet_v1_101/feature_vector/4':{'vector_length': 2048},
+
+            # 152 layers
+            'https://tfhub.dev/google/imagenet/resnet_v1_152/feature_vector/4':{'vector_length': 2048},
+        }
+
+
     def init(self, model_url: str):
         self.model_url = model_url
         self.model_name = self.model_url.replace(

@@ -7,7 +7,6 @@ from ..base import BaseImage2Vec
 if is_all_dependency_installed('encoders-image-tfhub'):
     import tensorflow as tf
     import tensorflow_hub as hub
-    import traceback
 
 BITModelDefinition = ModelDefinition(markdown_filepath='encoders/image/tfhub/bit')
 
@@ -30,6 +29,19 @@ class BitSmall2Vec(BaseImage2Vec):
             'https://tfhub.dev/google/bit/s-r152x4/1': {"vector_length":8192},   # 8192 output shape
         }
 
+    @property
+    def urls(self):
+        """
+        Get the urls and their vector length.
+        """
+        return {
+            'https://tfhub.dev/google/bit/s-r50x1/1': {"vector_length":2048}, # 2048 output shape
+            'https://tfhub.dev/google/bit/s-r50x3/1': {"vector_length":6144},   # 6144 output shape
+            'https://tfhub.dev/google/bit/s-r101x1/1': {"vector_length":2048},  # 2048 output shape
+            'https://tfhub.dev/google/bit/s-r101x3/1': {"vector_length":6144},  # 6144 output shape
+            'https://tfhub.dev/google/bit/s-r152x4/1': {"vector_length":8192},   # 8192 output shape
+        }
+
     def init(self, model_url: str):
         self.model_url = model_url
         self.model_name = self.model_url.replace(
@@ -43,5 +55,9 @@ class BitSmall2Vec(BaseImage2Vec):
         return self.model([image]).numpy().tolist()[0]
 
     @catch_vector_errors
-    def bulk_encode(self, images, threads=10, chunks=10):
-        return [i for c in self.chunk(images, chunks) for i in self.model(c).numpy().tolist()]
+    def bulk_encode(self, images):
+        """
+            Bulk encode. Chunk size should be specified outside of the images.
+        """
+        # TODO: Change from list comprehension to properly read
+        return [self.encode(x) for x in images]
