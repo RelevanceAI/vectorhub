@@ -8,4 +8,4 @@ from ....test_utils import assert_encoder_works
 
 def test_torch_transformer_encode():
     model = Longformer2Vec()
-    assert_encoder_works(model, model_type='text')
+    assert_encoder_works(model, data_type='text')

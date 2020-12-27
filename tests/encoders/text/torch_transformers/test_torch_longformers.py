@@ -20,4 +20,4 @@ VECTOR_OUTPUT = {
 @pytest.mark.parametrize("model_name", MODEL_LIST)
 def test_torch_transformer_encode(model_name):
     model = Longformer2Vec(model_name)
-    assert_encoder_works(model, vector_Length=VECTOR_OUTPUT[model_name], model_type='text')
+    assert_encoder_works(model, vector_Length=VECTOR_OUTPUT[model_name], data_type='text')

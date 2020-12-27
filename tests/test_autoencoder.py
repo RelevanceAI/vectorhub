@@ -8,7 +8,7 @@ from .test_utils import *
 def test_encoders_instantiation_audio(name):
     if 'audio' in name:
         encoder = AutoEncoder.from_model(name)
-        assert_encoder_works(encoder, model_type='audio')
+        assert_encoder_works(encoder, data_type='audio')
     else:
         # Default to test passing otherwise
         assert True
@@ -19,7 +19,7 @@ def test_encoders_instantiation_text(name):
     if name not in ['text/use-lite', 'text/elmo']:
         if 'text' in name:
             encoder = AutoEncoder.from_model(name)
-            assert_encoder_works(encoder, model_type='text')
+            assert_encoder_works(encoder, data_type='text')
         else:
             # Default to test passing otherwise
             assert True
@@ -30,7 +30,7 @@ def test_encoders_instantiation_text(name):
 def test_encoders_instantiation_image(name):
     if 'image' in name:
         encoder = AutoEncoder.from_model(name)
-        assert_encoder_works(encoder)
+        assert_encoder_works(encoder, data_type='image')
         if 'fastai' not in name:
             sample = encoder.to_grayscale(encoder.read('https://getvectorai.com/assets/logo-square.png'))
             result = encoder.encode(sample)
@@ -44,12 +44,7 @@ def test_encoders_instantiation_image(name):
 def test_auto_biencoders(name):
     if 'text_text' in name:
         bi_encoder = AutoBiEncoder.from_model(name)
-        assert_encoder_works(bi_encoder)
-        vector = bi_encoder.encode_question("Why?")
-        assert len(vector) > 10
-        vector = bi_encoder.encode_answer("Yes!")
-        assert len(vector) > 10
-    assert True
+        assert_encoder_works(bi_encoder, data_type='text', model_type='bi_encoder')
 
 def test_listing_all_models():
     """

@@ -16,4 +16,4 @@ MODEL_LIST = [
 @pytest.mark.parametrize("model_name", MODEL_LIST)
 def test_torch_transformer_encode(model_name):
     model = Transformer2Vec(model_name)
-    assert_encoder_works(model, model_type='text')
+    assert_encoder_works(model, data_type='text')

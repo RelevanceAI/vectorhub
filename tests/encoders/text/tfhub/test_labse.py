@@ -7,4 +7,4 @@ def test_labse_encode():
     Testing for labse encode
     """
     encoder = LaBSE2Vec()
-    assert_encoder_works(encoder, vector_length=768, model_type='text')
+    assert_encoder_works(encoder, vector_length=768, data_type='text')

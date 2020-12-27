@@ -7,4 +7,4 @@ def test_vggish_initialize():
     Testing for the vggish initialize
     """
     model = Vggish2Vec()
-    assert_encoder_works(model, vector_length=128, model_type='audio')
+    assert_encoder_works(model, vector_length=128, data_type='audio')

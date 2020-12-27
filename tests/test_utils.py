@@ -33,39 +33,52 @@ def assert_vector_works(vector, vector_length=None):
             assert len(vector) == vector_length, f"Does not match vector length of {vector_length}"
 
 class AssertModelWorks:
-    def __init__(self, model, vector_length, model_type='image'):
+    def __init__(self, model, vector_length, data_type='image', model_type='encoder'):
         assert model_type in ['image', 'audio', 'text'], "Needs to be image, audio or text"
         self.model = model
         self.vector_length = vector_length
         self.model_type = model_type
+        self.data_type = data_type
         self.image_url = 'https://getvectorai.com/assets/logo-square.png'
         self.audio_url = 'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav'
         self.audio_sample_rate =  16000
         self.sentence = "Cats enjoy purring in the nature."
     
     def assert_encode_works(self):
-        if self.model_type == 'image':
+        if self.data_type == 'image':
             assert_vector_works(self.model.encode(self.image_url), self.vector_length)
-        elif self.model_type == 'audio':
+        elif self.data_type == 'audio':
             assert_vector_works(self.model.encode(self.audio_url), self.vector_length)
-        elif self.model_type == 'text':
+        elif self.data_type == 'text':
             assert_vector_works(self.model.encode(self.sentence), self.vector_length)
 
     def assert_bulk_encode_works(self):
-        if self.model_type == 'image':
+        if self.data_type == 'image':
             assert_vector_works(self.model.bulk_encode([self.image_url, self.image_url, self.image_url]), self.vector_length)
-        elif self.model_type == 'audio':
+        elif self.data_type == 'audio':
             assert_vector_works(self.model.bulk_encode([self.audio_url, self.audio_url, self.audio_url]), self.vector_length)
-        elif self.model_type == 'text':
+        elif self.data_type == 'text':
             assert_vector_works(self.model.bulk_encode([self.sentence, self.sentence, self.sentence]), self.vector_length)
 
     def assert_encoding_methods_work(self):
-        self.assert_encode_works()
-        self.assert_bulk_encode_works()
+        if self.model_type == 'encoder':
+            self.assert_encode_works()
+            self.assert_bulk_encode_works()
+        elif self.model_type == 'bi_encoder':
+            self.assert_biencode_works()
+            self.assert_bulk_biencode_works()
+    
+    def assert_biencode_works(self):
+        if self.data_type == 'text':
+            assert_vector_works(self.model.encode_question(self.sentence), self.vector_length)
 
-def assert_encoder_works(model, vector_length=None, model_type='image'):
+    def assert_bulk_biencode_works(self):
+        if self.data_type == 'text':
+            assert_vector_works(self.model.encode_answer(self.sentence), self.vector_length)
+
+def assert_encoder_works(model, vector_length=None, data_type='image', model_type='encoder'):
     """
-    Assert that a model works.
+    Assert that an encoder works
     """
     if vector_length is None:
         try:
@@ -73,5 +86,6 @@ def assert_encoder_works(model, vector_length=None, model_type='image'):
             vector_length = model.urls[model.model_url]['vector_length']
         except:
             pass
-    model_check = AssertModelWorks(model=model, vector_length=vector_length, model_type=model_type)
+    model_check = AssertModelWorks(model=model, vector_length=vector_length, 
+    data_type=data_type, model_type=model_type)
     model_check.assert_encoding_methods_work()

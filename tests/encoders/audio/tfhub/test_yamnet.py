@@ -8,4 +8,4 @@ def test_yamnet_initialize():
     Testing for the yamnet initialize
     """
     model = Yamnet2Vec()
-    assert_encoder_works(model, vector_length=1024, model_type='audio')
+    assert_encoder_works(model, vector_length=1024, data_type='audio')

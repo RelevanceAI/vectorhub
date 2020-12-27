@@ -7,4 +7,4 @@ def test_bert_encode():
     Testing for bert encoding
     """
     encoder = Bert2Vec()
-    assert_encoder_works(encoder, vector_length=1024, model_type='text')
+    assert_encoder_works(encoder, vector_length=1024, data_type='text')

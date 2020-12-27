@@ -7,4 +7,4 @@ def test_fairseq_works():
     Simple testing for Fairseq working.
     """
     enc = Wav2Vec()
-    assert_encoder_works(enc, vector_length=512, model_type='audio')
+    assert_encoder_works(enc, vector_length=512, data_type='audio')

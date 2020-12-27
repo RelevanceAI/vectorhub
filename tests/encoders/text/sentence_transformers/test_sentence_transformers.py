@@ -8,5 +8,5 @@ def test_sentence_transformers():
     """
     for k, v in LIST_OF_URLS.items():
         enc = SentenceTransformer2Vec(model_name=k)
-        assert_encoder_works(enc, model_type='text')
+        assert_encoder_works(enc, data_type='text')
         del enc; gc.collect();
