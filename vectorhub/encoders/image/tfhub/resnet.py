@@ -56,5 +56,5 @@ class ResnetV12Vec(BaseImage2Vec):
         return self.model([image]).numpy().tolist()[0]
 
     @catch_vector_errors
-    def bulk_encode(self, images, threads=10, chunks=10):
-        return [i for c in self.chunk(images, chunks) for i in self.model(c).numpy().tolist()]
+    def bulk_encode(self, images: List[str]):
+        return [self.encode(x) for x in images]

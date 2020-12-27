@@ -47,4 +47,4 @@ class InceptionV12Vec(BaseImage2Vec):
 
     @catch_vector_errors
     def bulk_encode(self, images, threads=10, chunks=10):
-        return [i for c in self.chunk(images, chunks) for i in self.model(c).numpy().tolist()]
+        return [self.encode(x) for x in images]
