@@ -1,9 +1,11 @@
-from ..base import BaseImage2Vec
+from datetime import date
+from typing import List
 from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
-from ....import_utils import *
+from ....import_utils import is_all_dependency_installed
 from ....models_dict import MODEL_REQUIREMENTS
-from datetime import date
+from ..base import BaseImage2Vec
+
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-image-tfhub-resnet']):
     import tensorflow as tf
     import tensorflow_hub as hub
