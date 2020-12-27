@@ -3,35 +3,9 @@ import pytest
 from vectorhub.auto_encoder import AutoEncoder, ENCODER_MAPPINGS, list_all_auto_models, BIENCODER_MAPPINGS, AutoBiEncoder
 from .test_utils import *
 
-@pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
-def test_encoders_instantiation(name):
-    encoder = AutoEncoder.from_model(name)
-    if name not in ['text/use-lite']:
-        if 'text' in name:
-            result = encoder.encode("HI")
-            # We set this because sometimes it may 
-            # result in 2 separate vectors.
-        if 'image' in name:
-            sample = encoder.read('https://getvectorai.com/assets/logo-square.png')
-            result = encoder.encode(sample)
-            assert not is_dummy_vector(result)
-            # Skip the fastai as it has its own internal method for grayscaling
-            if 'fastai' not in name:
-                sample = encoder.to_grayscale(encoder.read('https://getvectorai.com/assets/logo-square.png'))
-                result = encoder.encode(sample)
-                assert not is_dummy_vector(result)
-        if 'audio' in name:
-            sample = encoder.read(
-            'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav', 16000
-            )
-            result = encoder.encode(sample)
-        # Check to ensure that this isn't just the default vector
-        assert not is_dummy_vector(result)
-        assert len(result) > 10
-
 @pytest.mark.audio
 @pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
-def test_encoders_instantiation_audio(name):
+def test_encoders_audio(name):
     if name not in ['text/use-lite']:
         if 'audio' in name:
             encoder = AutoEncoder.from_model(name)
@@ -48,9 +22,17 @@ def test_encoders_instantiation_audio(name):
 
 @pytest.mark.text
 @pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
-def test_encoders_instantiation_text(name):
+def test_encoders_text(name):
     if name not in ['text/use-lite']:
         if 'text' in name:
+            if name not in ['text/elmo'] and 'tfhub' in ENCODER_MAPPINGS[name][1]:
+                try:
+                    import tensorflow as tf
+                    if hasattr(tf, 'executing_eagerly'):
+                        if not tf.executing_eagerly():
+                            tf.compat.v1.enable_eager_execution()
+                except:
+                    pass
             encoder = AutoEncoder.from_model(name)
             result = encoder.encode("HI")
             # Check to ensure that this isn't just the default vector
@@ -64,14 +46,6 @@ def test_encoders_instantiation_text(name):
 @pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
 def test_encoders_instantiation_image(name):
     if name not in ['text/use-lite']:
-        if name not in ['text/elmo'] and 'tfhub' in ENCODER_MAPPINGS[name][1]:
-            try:
-                import tensorflow as tf
-                if hasattr(tf, 'executing_eagerly'):
-                    if not tf.executing_eagerly():
-                        tf.compat.v1.enable_eager_execution()
-            except:
-                pass
         if 'image' in name:
             encoder = AutoEncoder.from_model(name)
             sample = encoder.read('https://getvectorai.com/assets/logo-square.png')
@@ -91,7 +65,7 @@ def test_encoders_instantiation_image(name):
 
 @pytest.mark.text
 @pytest.mark.parametrize('name', list(BIENCODER_MAPPINGS.keys()))
-def test_biencoder_mappings(name):
+def test_auto_biencoders(name):
     if 'text_text' in name:
         bi_encoder = AutoBiEncoder.from_model(name)
         vector = bi_encoder.encode_question("Why?")
