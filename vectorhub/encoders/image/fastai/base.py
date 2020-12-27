@@ -43,3 +43,7 @@ class FastAIBase(BaseImage2Vec):
             elif isinstance(image, (np.ndarray, np.generic)):
                 y = self.learn.predict(image)
         return h.stored[0].cpu().numpy().tolist()[0]
+    
+    @catch_vector_errors
+    def bulk_encode(self, images):
+        return [self.encode(x) for x in images]
