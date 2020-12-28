@@ -44,6 +44,7 @@ class AssertModelWorks:
         self.audio_url = 'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav'
         self.audio_sample_rate =  16000
         self.sentence = "Cats enjoy purring in the nature."
+        self.question = "Where do cats enjoy purring?"
     
     def assert_encode_works(self):
         if self.data_type == 'image':
@@ -71,7 +72,8 @@ class AssertModelWorks:
     
     def assert_biencode_works(self):
         if self.data_type == 'text':
-            assert_vector_works(self.model.encode_question(self.sentence), self.vector_length)
+            assert_vector_works(self.model.encode_question(self.question), self.vector_length)
+            assert_vector_works(self.model.encode_answer(self.sentence), self.vector_length)
 
     def assert_bulk_biencode_works(self):
         if self.data_type == 'text':
