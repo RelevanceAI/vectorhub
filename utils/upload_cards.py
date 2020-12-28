@@ -33,7 +33,6 @@ if __name__=="__main__":
     LOGGER.debug("Number of documents are: ")
     LOGGER.debug(len(docs))
     # Get _id across all documents
-    ids = vi_client.get_field_across_documents('_id', docs)
 
     LOGGER.debug("Marksdowns without example:")
     def remove_example_from_description(text):
@@ -68,6 +67,7 @@ if __name__=="__main__":
                 # LOGGER.debug(short_description)
 
     vi_client = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
+    ids = vi_client.get_field_across_documents('_id', docs)
     if args.reset_collection:
         if args.collection_name in vi_client.list_collections():
             vi_client.delete_collection(args.collection_name)
