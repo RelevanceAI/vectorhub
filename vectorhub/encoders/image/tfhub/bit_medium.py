@@ -26,3 +26,16 @@ class BitMedium2Vec(BitSmall2Vec):
         self.validate_model_url(model_url, list_of_urls)
         self.init(model_url)
         self.vector_length = list_of_urls[model_url]["vector_length"]
+    
+    @property
+    def urls(self):
+        """
+        A simple dictionary with urls and their vector lengths
+        """
+        return {
+            'https://tfhub.dev/google/bit/m-r50x1/1': {"vector_length":2048},  # 2048 output shape
+            'https://tfhub.dev/google/bit/m-r50x3/1': {"vector_length":6144}, # 6144 output shape
+            'https://tfhub.dev/google/bit/m-r101x1/1': {"vector_length":2048},  # 2048 output shape
+            'https://tfhub.dev/google/bit/m-r101x3/1': {"vector_length":6144},  # 6144 output shape
+            'https://tfhub.dev/google/bit/m-r152x4/1': {"vector_length":8192},  # 8192 output shape
+        }

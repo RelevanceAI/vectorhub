@@ -1,5 +1,5 @@
-from vectorhub.encoders.text.vectorai import ViText2Vec
 import os
+from vectorhub.encoders.text.vectorai import ViText2Vec
 
 def test_encoder():
     enc = ViText2Vec(os.environ['VI_USERNAME'], os.environ['VI_API_KEY'])

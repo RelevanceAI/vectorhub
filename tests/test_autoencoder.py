@@ -4,75 +4,47 @@ from vectorhub.auto_encoder import AutoEncoder, ENCODER_MAPPINGS, list_all_auto_
 from .test_utils import *
 
 @pytest.mark.audio
-@pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
-def test_encoders_audio(name):
-    if name not in ['text/use-lite']:
-        if 'audio' in name:
-            encoder = AutoEncoder.from_model(name)
-            sample = encoder.read(
-            'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav', 16000
-            )
-            result = encoder.encode(sample)
-            # Check to ensure that this isn't just the default vector
-            assert not is_dummy_vector(result)
-            assert len(result) > 10
-        else:
-            # Default to test passing otherwise
-            assert True
+@pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys())[0:3])
+def test_encoders_instantiation_audio(name):
+    if 'audio' in name:
+        encoder = AutoEncoder.from_model(name)
+        assert_encoder_works(encoder, data_type='audio')
+    else:
+        # Default to test passing otherwise
+        assert True
 
 @pytest.mark.text
-@pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
-def test_encoders_text(name):
+@pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys())[0:3])
+def test_encoders_instantiation_text(name):
     if name not in ['text/use-lite', 'text/elmo']:
         if 'text' in name:
-            # if name not in ['text/elmo'] and 'tfhub' in ENCODER_MAPPINGS[name][1]:
-            #     try:
-            #         import tensorflow as tf
-            #         if hasattr(tf, 'executing_eagerly'):
-            #             if not tf.executing_eagerly():
-            #                 tf.compat.v1.enable_eager_execution()
-            #     except:
-            #         pass
             encoder = AutoEncoder.from_model(name)
-            result = encoder.encode("HI")
-            # Check to ensure that this isn't just the default vector
-            assert not is_dummy_vector(result)
-            assert len(result) > 10
+            assert_encoder_works(encoder, data_type='text')
         else:
             # Default to test passing otherwise
             assert True
+
 
 @pytest.mark.image
-@pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys()))
+@pytest.mark.parametrize('name', list(ENCODER_MAPPINGS.keys())[0:3])
 def test_encoders_instantiation_image(name):
-    if name not in ['text/use-lite']:
-        if 'image' in name:
-            encoder = AutoEncoder.from_model(name)
-            sample = encoder.read('https://getvectorai.com/assets/logo-square.png')
+    if 'image' in name:
+        encoder = AutoEncoder.from_model(name)
+        assert_encoder_works(encoder, data_type='image')
+        if 'fastai' not in name:
+            sample = encoder.to_grayscale(encoder.read('https://getvectorai.com/assets/logo-square.png'))
             result = encoder.encode(sample)
             assert not is_dummy_vector(result)
-            # Skip the fastai as it has its own internal method for grayscaling
-            if 'fastai' not in name:
-                sample = encoder.to_grayscale(encoder.read('https://getvectorai.com/assets/logo-square.png'))
-                result = encoder.encode(sample)
-                assert not is_dummy_vector(result)
-            # Check to ensure that this isn't just the default vector
-            assert not is_dummy_vector(result)
-            assert len(result) > 10
-        else:
-            # Default to test passing otherwise
-            assert True
+    else:
+        # Default to test passing otherwise
+        assert True
 
 @pytest.mark.text
-@pytest.mark.parametrize('name', list(BIENCODER_MAPPINGS.keys()))
+@pytest.mark.parametrize('name', list(BIENCODER_MAPPINGS.keys())[0:3])
 def test_auto_biencoders(name):
     if 'text_text' in name:
         bi_encoder = AutoBiEncoder.from_model(name)
-        vector = bi_encoder.encode_question("Why?")
-        assert len(vector) > 10
-        vector = bi_encoder.encode_answer("Yes!")
-        assert len(vector) > 10
-    assert True
+        assert_encoder_works(bi_encoder, data_type='text', model_type='bi_encoder')
 
 def test_listing_all_models():
     """

@@ -22,8 +22,23 @@ class TrillDistilled2Vec(BaseAudio2Vec):
             'https://tfhub.dev/google/', '').replace('/', '_')
         self.vector_length = 2048
 
+    @property
+    def urls(self):
+        """
+        Return the URLS of models and their vector length
+        """
+        return {
+            'https://tfhub.dev/google/nonsemantic-speech-benchmark/trill-distilled/3': {'vector_length': 2048}
+        }
+
+
     @catch_vector_errors
-    def encode(self, audio, vector_operation='mean'):
+    def encode(self, audio, vector_operation='mean', sample_rate=16000):
         if isinstance(audio, str):
             audio = self.read(audio)
-        return self._vector_operation(self.model(samples=audio, sample_rate=16000)[self.layer], vector_operation)
+        return self._vector_operation(self.model(samples=audio, sample_rate=sample_rate)[self.layer], vector_operation)
+    
+    @catch_vector_errors
+    def bulk_encode(self, audios, vector_operation='mean'):
+        audios = [self.read(audio) if isinstance(audio, str) else audio for audio in audios]
+        return [self.encode(audio, vector_operation=vector_operation) for audio in audios]

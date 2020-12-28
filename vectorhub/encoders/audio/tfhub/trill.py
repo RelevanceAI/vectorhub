@@ -22,6 +22,12 @@ class Trill2Vec(BaseAudio2Vec):
         self.model_name = model_url.replace(
             'https://tfhub.dev/google/', '').replace('/', '_')
         self.vector_length = 512
+
+    @property
+    def urls(self):
+        return {
+            'https://tfhub.dev/google/nonsemantic-speech-benchmark/trill/3': {'vector_length': 512}
+        }
     
     @catch_vector_errors
     def encode(self, audio, vector_operation='mean'):
@@ -38,5 +44,6 @@ class Trill2Vec(BaseAudio2Vec):
         return self._vector_operation(self.model(samples=audio, sample_rate=16000)[self.layer], vector_operation)
 
     @catch_vector_errors
-    def bulk_encode(self, data, vector_operation='mean'):
-        return [self.encode(c) for c in data]
+    def bulk_encode(self, audios, vector_operation='mean'):
+        audios = [self.read(audio) if isinstance(audio, str) else audio for audio in audios]
+        return [self.encode(audio) for audio in audios]

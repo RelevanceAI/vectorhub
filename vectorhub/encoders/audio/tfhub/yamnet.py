@@ -20,6 +20,12 @@ class Yamnet2Vec(BaseAudio2Vec):
         self.model_name = self.model_url.replace(
             'https://tfhub.dev/google/', '').replace('/', '_')
         self.vector_length = 1024
+    
+    @property
+    def urls(self):
+        return {
+            'https://tfhub.dev/google/yamnet/1': {'vector_length': 1024}
+        }
 
     @catch_vector_errors
     def encode(self, audio, vector_operation='mean', layer='embeddings'):
@@ -32,3 +38,8 @@ class Yamnet2Vec(BaseAudio2Vec):
             return self._vector_operation(outputs[2], vector_operation)
         else:
             return self._vector_operation(outputs[1], vector_operation)
+    
+    @catch_vector_errors
+    def bulk_encode(self, audios, vector_operation='mean', layer='embeddings'):
+        audios = [self.read(audio) if isinstance(audio, str) else audio for audio in audios]
+        return [self.encode(audio, vector_operation=vector_operation, layer=layer) for audio in audios]

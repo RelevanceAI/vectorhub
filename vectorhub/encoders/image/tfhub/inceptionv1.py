@@ -23,6 +23,15 @@ class InceptionV12Vec(BaseImage2Vec):
     def __init__(self, model_url: str = 'https://tfhub.dev/google/imagenet/inception_v1/feature_vector/4'):
         self.init(model_url)
         self.vector_length = 1024
+    
+    @property
+    def urls(self):
+        """
+        URLs and their vector lengths.
+        """
+        return {
+           'https://tfhub.dev/google/imagenet/inception_v1/feature_vector/4': {'vector_length': 1024}
+        }
 
     def init(self, model_url: str):
         self.model_url = model_url
@@ -37,5 +46,5 @@ class InceptionV12Vec(BaseImage2Vec):
         return self.model([image]).numpy().tolist()[0]
 
     @catch_vector_errors
-    def bulk_encode(self, images, threads=10, chunks=10):
-        return [i for c in self.chunk(images, chunks) for i in self.model(c).numpy().tolist()]
+    def bulk_encode(self, images):
+        return [self.encode(x) for x in images]

@@ -42,12 +42,17 @@ class Longformer2Vec(BaseText2Vec):
             "Not a string or a list of strings, please enter valid data type.")
 
     @catch_vector_errors
-    def bulk_encode(self, texts: List[str]) -> List[List[float]]:
+    def bulk_encode(self, texts: List[str], pooling_method='mean') -> List[List[float]]:
         """
             Encode multiple sentences using transformers.
             args:
                 texts: List[str]
         """
         # We use pad_to_multiple_of as other arguments usually do not work.
-        return torch.mean(self.model(**self.tokenizer(texts, return_tensors='pt', pad_to_multiple_of=self.tokenizer.model_max_length,
-                                                      truncation=True, padding=True))[0], axis=1).detach().tolist()
+        if pooling_method == 'mean':
+            return torch.mean(
+                self.model(**self.tokenizer(texts, return_tensors='pt', 
+                pad_to_multiple_of=self.tokenizer.model_max_length,
+                truncation=True, padding=True))[0], axis=1).detach().tolist()
+        else:
+            raise NotImplementedError

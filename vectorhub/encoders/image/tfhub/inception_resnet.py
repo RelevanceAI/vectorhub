@@ -1,6 +1,7 @@
+from typing import List
 from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
-from ....import_utils import *
+from ....import_utils import is_all_dependency_installed
 from ..base import BaseImage2Vec
 if is_all_dependency_installed('encoders-image-tfhub'):
     import tensorflow as tf
@@ -20,6 +21,12 @@ class InceptionResnet2Vec(BaseImage2Vec):
         self.model = hub.load(self.model_url)
         self.vector_length = 1536
 
+    @property
+    def urls(self):
+        return {
+            "https://tfhub.dev/google/imagenet/inception_resnet_v2/feature_vector/4": {"vector_length": 1536}
+        }
+
     @catch_vector_errors
     def encode(self, image):
         """
@@ -35,5 +42,5 @@ class InceptionResnet2Vec(BaseImage2Vec):
         return self.model([image]).numpy().tolist()[0]
     
     @catch_vector_errors
-    def bulk_encode(self, images, threads=10, chunks=10):
-        return [i for c in self.chunk(images, chunks) for i in self.model(c).numpy().tolist()]
+    def bulk_encode(self, images):
+        return [self.encode(x) for x in images]

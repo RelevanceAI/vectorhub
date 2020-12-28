@@ -1,37 +1,18 @@
-from vectorhub.encoders.image.tfhub import MobileNetV12Vec, MobileNetV22Vec
 import numpy as np
+from vectorhub.encoders.image.tfhub import MobileNetV12Vec, MobileNetV22Vec
+from ....test_utils import assert_encoder_works
 
 
-def test_mobilenet_v1_initialize():
+def test_mobilenet_model_works():
     """
-    Testing for mobilenet v1 initialize
+    Test that mobilenet v1 works.
     """
-    client = MobileNetV12Vec()
-    assert True
+    model = MobileNetV12Vec()
+    assert_encoder_works(model, 1024, data_type='image')
 
-
-def test_mobilenet_v1_encode():
+def test_mobilenet_v2_model_works():
     """
-    Testing for mobilenet v1 encode
+    Test that mobilenet v2 works.
     """
-    client = MobileNetV12Vec()
-    sample = client.read('https://getvectorai.com/assets/logo-square.png')
-    result = client.encode(sample)
-    assert np.array(result).shape == (1024,)
-
-
-def test_mobilenet_v1_bulk_encode():
-    """
-    Testing for mobilenet v1 bulk encode
-    """
-    client = MobileNetV12Vec()
-    sample = client.read('https://getvectorai.com/assets/logo-square.png')
-    result = client.bulk_encode([sample, sample])
-    assert np.array(result).shape == (2, 1024)
-
-def test_mobilenet_v2_initialize():
-    """
-    Testing for mobilenet v2 initialize
-    """
-    client = MobileNetV22Vec()
-    assert True
+    model = MobileNetV22Vec()
+    assert_encoder_works(model, 1792, data_type='image')

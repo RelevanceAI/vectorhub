@@ -1,26 +1,20 @@
-from vectorhub.bi_encoders.text_text.tfhub import USEMultiQA2Vec, USEQA2Vec
 import numpy as np
-
+from vectorhub.bi_encoders.text_text.tfhub import USEMultiQA2Vec, USEQA2Vec
+from ....test_utils import assert_encoder_works
 
 def test_use_multi_qa_initialize():
     """
     Testing for USE-Multi-QA initialize
     """
-    client = USEMultiQA2Vec()
-    assert True
-
+    encoder = USEMultiQA2Vec()
+    assert_encoder_works(encoder, data_type='text', model_type='bi_encoder')
 
 def test_use_multi_qa_single_encode():
     """
     Testing for USE-Multi-QA single encode
     """
-    client = USEMultiQA2Vec()
-    question_emb = client.encode_question('What is your age?')
-    answer_emb = client.encode_answer(
-        'I am 20 years old.', 'I will be 21 next year.')
-    assert len(question_emb) == 512
-    assert len(answer_emb) == 512
-
+    encoder = USEMultiQA2Vec()
+    assert_encoder_works(encoder, data_type='text', model_type='bi_encoder')
 
 def test_use_multi_qa_bulk_encode():
     """
@@ -36,7 +30,7 @@ def test_use_multi_qa_bulk_encode():
 
 def test_use_qa_initialize():
     """
-    Testing for USE-QA initialize
+    Testing for USE-QA.
     """
-    client = USEQA2Vec()
-    assert True
+    encoder = USEQA2Vec()
+    assert_encoder_works(encoder, data_type='text', model_type='bi_encoder')

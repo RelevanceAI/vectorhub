@@ -1,8 +1,9 @@
 from vectorhub.bi_encoders.text_text.tfhub import LAReQA2Vec
+from ....test_utils import assert_encoder_works
 
-def test_lare_qa_initialize():
+def test_lare_qa_works():
     """
-    Testing for LAReQA initialize
+    Testing for LAReQA works
     """
-    client = LAReQA2Vec()
-    assert True
+    encoder = LAReQA2Vec()
+    assert_encoder_works(encoder, data_type='text', model_type='bi_encoder')

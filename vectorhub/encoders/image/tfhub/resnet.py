@@ -1,9 +1,11 @@
-from ..base import BaseImage2Vec
+from datetime import date
+from typing import List
 from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
-from ....import_utils import *
+from ....import_utils import is_all_dependency_installed
 from ....models_dict import MODEL_REQUIREMENTS
-from datetime import date
+from ..base import BaseImage2Vec
+
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-image-tfhub-resnet']):
     import tensorflow as tf
     import tensorflow_hub as hub
@@ -29,6 +31,20 @@ class ResnetV12Vec(BaseImage2Vec):
         self.init(model_url)
         self.vector_length = 2048
 
+    @property
+    def urls(self):
+        return {
+            # 50 layers
+            'https://tfhub.dev/google/imagenet/resnet_v1_50/feature_vector/4':{'vector_length': 2048},
+
+            # 101 layers
+            'https://tfhub.dev/google/imagenet/resnet_v1_101/feature_vector/4':{'vector_length': 2048},
+
+            # 152 layers
+            'https://tfhub.dev/google/imagenet/resnet_v1_152/feature_vector/4':{'vector_length': 2048},
+        }
+
+
     def init(self, model_url: str):
         self.model_url = model_url
         self.model_name = self.model_url.replace(
@@ -42,5 +58,5 @@ class ResnetV12Vec(BaseImage2Vec):
         return self.model([image]).numpy().tolist()[0]
 
     @catch_vector_errors
-    def bulk_encode(self, images, threads=10, chunks=10):
-        return [i for c in self.chunk(images, chunks) for i in self.model(c).numpy().tolist()]
+    def bulk_encode(self, images: List[str]):
+        return [self.encode(x) for x in images]
