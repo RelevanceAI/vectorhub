@@ -17,6 +17,7 @@ LOGGER = logging.getLogger(__name__)
 logging.basicConfig(format=FORMAT, level=logging.WARNING)
 c_handler = logging.StreamHandler()
 c_handler.setLevel(logging.WARNING)
+c_format = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
 c_handler.setFormatter(c_format)
 LOGGER.addHandler(c_handler)
 
