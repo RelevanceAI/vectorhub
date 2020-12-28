@@ -95,7 +95,7 @@ class MobileNetV12Vec(BaseImage2Vec):
     def encode(self, image):
         if isinstance(image, str):
             image = self.image_resize(self.read(image), self.image_dimensions, self.image_dimensions,
-            resize_mide=self.resize_mode)[np.newaxis, ...]
+            resize_mode=self.resize_mode)[np.newaxis, ...]
         return self.model(image).numpy().tolist()[0]
 
     @catch_vector_errors
