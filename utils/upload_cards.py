@@ -26,7 +26,6 @@ if __name__=="__main__":
     parser.add_argument('--quick_run', action='store_true')
     parser.add_argument('--reset_collection', action='store_true')
     parser.add_argument('--evaluate_results', action='store_true')
-    parser.add_argument('--insert_into_collection', action='store_true')
     args = parser.parse_args()
     
     docs =  get_model_definitions(None)
@@ -74,8 +73,7 @@ if __name__=="__main__":
             time.sleep(5)
     text_encoder = ViText2Vec(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
 
-    if args.insert_into_collection:
-        response = vi_client.insert_documents(args.collection_name, docs, models={'description': text_encoder})
+    response = vi_client.insert_documents(args.collection_name, docs, models={'description': text_encoder})
 
     LOGGER.debug(response)
     if response['failed'] != 0:
