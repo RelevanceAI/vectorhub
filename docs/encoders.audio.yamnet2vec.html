@@ -241,7 +241,7 @@ fine-tuning and calibration to make YAMNet usable in any system that you build.<
 <dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.audio.html#vectorhub.encoders.audio.base.BaseAudio2Vec" title="vectorhub.encoders.audio.base.BaseAudio2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.audio.base.BaseAudio2Vec</span></code></a></p>
 <dl class="py method">
 <dt id="vectorhub.encoders.audio.tfhub.yamnet.Yamnet2Vec.bulk_encode">
-<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audios</span></em>, <em class="sig-param"><span class="n">vector_operation</span><span class="o">=</span><span class="default_value">'mean'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.yamnet.Yamnet2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audios</span></em>, <em class="sig-param"><span class="n">vector_operation</span><span class="o">=</span><span class="default_value">'mean'</span></em>, <em class="sig-param"><span class="n">layer</span><span class="o">=</span><span class="default_value">'embeddings'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.yamnet.Yamnet2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -272,6 +272,11 @@ fine-tuning and calibration to make YAMNet usable in any system that you build.<
 <code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audio</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">new_sampling_rate</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">16000</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.yamnet.Yamnet2Vec.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>An method to specify the read method to read the data.</p>
 </dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.audio.tfhub.yamnet.Yamnet2Vec.urls">
+<em class="property">property </em><code class="sig-name descname">urls</code><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.yamnet.Yamnet2Vec.urls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.audio.tfhub.yamnet.Yamnet2Vec.validate_model_url">

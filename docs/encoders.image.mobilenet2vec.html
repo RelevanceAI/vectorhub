@@ -226,8 +226,9 @@ We present a class of efficient models called MobileNets for mobile and embedded
 <dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.image.html#vectorhub.encoders.image.base.BaseImage2Vec" title="vectorhub.encoders.image.base.BaseImage2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.image.base.BaseImage2Vec</span></code></a></p>
 <dl class="py method">
 <dt id="vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.bulk_encode">
-<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">images</span></em>, <em class="sig-param"><span class="n">threads</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">chunks</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">images</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bulk encode. Chunk size should be specified outside of the images.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.chunk">
@@ -291,6 +292,11 @@ Arg:</p>
 <code class="sig-name descname">to_grayscale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample</span></em>, <em class="sig-param"><span class="n">rgb_weights</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>list<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.to_grayscale" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converting an image from RGB to Grayscale</p>
 </dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.urls">
+<em class="property">property </em><code class="sig-name descname">urls</code><a class="headerlink" href="#vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.urls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.image.tfhub.mobilenet.MobileNetV12Vec.validate_model_url">

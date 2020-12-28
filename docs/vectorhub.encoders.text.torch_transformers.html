@@ -299,6 +299,11 @@ BERT has achieved impressive performance in several NLP tasks. However, there ha
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="vectorhub.encoders.text.torch_transformers.legal_bert.LegalBert2Vec.urls">
+<em class="property">property </em><code class="sig-name descname">urls</code><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.legal_bert.LegalBert2Vec.urls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="vectorhub.encoders.text.torch_transformers.legal_bert.LegalBert2Vec.validate_model_url">
 <em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.legal_bert.LegalBert2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validate the model url belongs in the list of urls. This is to help
@@ -444,7 +449,7 @@ From the abstract of the paper:</p>
 <dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.text.html#vectorhub.encoders.text.base.BaseText2Vec" title="vectorhub.encoders.text.base.BaseText2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.text.base.BaseText2Vec</span></code></a></p>
 <dl class="py method">
 <dt id="vectorhub.encoders.text.torch_transformers.torch_longformers.Longformer2Vec.bulk_encode">
-<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>List<span class="p">[</span>float<span class="p">]</span><span class="p">]</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_longformers.Longformer2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">pooling_method</span><span class="o">=</span><span class="default_value">'mean'</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>List<span class="p">[</span>float<span class="p">]</span><span class="p">]</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_longformers.Longformer2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encode multiple sentences using transformers.
 :param texts: List[str]</p>
 </dd></dl>
