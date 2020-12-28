@@ -91,47 +91,11 @@ class MobileNetV12Vec(BaseImage2Vec):
         ])
         self.model.build([None, self.image_dimensions, self.image_dimensions, 3])
     
-    def _read(self, image: str):
-        """
-            An method to read images. 
-            Args:
-                image: An image link/bytes/io Bytesio data format.
-                as_gray: read in the image as black and white
-        """
-        if type(image) == str:
-            if 'http' in image:
-                b = io.BytesIO(urlopen(Request(
-                    quote(image, safe=':/?*=\''), headers={'User-Agent': "Mozilla/5.0"})).read())
-            else:
-                b = image
-        elif type(image) == bytes:
-            b = io.BytesIO(image)
-        elif type(image) == io.BytesIO:
-            b = image
-        else:
-            raise ValueError("Cannot process data type. Ensure it is is string/bytes or BytesIO.")
-        try:
-            return np.array(imageio.imread(b, pilmode="RGB"))
-        # TODO: Flesh out exceptions
-        except:
-            return np.array(imageio.imread(b)[:, :, :3])
-    
-    def read(self, image, as_mobilenet_input=True):
-        """
-            Read in the images.
-            Args:
-                image: The link to the image
-                as_mobilenet_input: Reading in the image as MobileNet input
-        """
-        if as_mobilenet_input:
-            return self.image_resize(self._read(image), self.image_dimensions, 
-            self.image_dimensions, resize_mode=self.resize_mode)[np.newaxis, ...]
-        return self._read(image)
-    
     @catch_vector_errors
     def encode(self, image):
         if isinstance(image, str):
-            image = self.read(image)
+            image = self.image_resize(self.read(image), self.image_dimensions, self.image_dimensions,
+            resize_mide=self.resize_mode)[np.newaxis, ...]
         return self.model(image).numpy().tolist()[0]
 
     @catch_vector_errors
@@ -139,5 +103,5 @@ class MobileNetV12Vec(BaseImage2Vec):
         """
             Bulk encode. Chunk size should be specified outside of the images.
         """
-        # TODO: Change from list comprehension to properly read
+        # TODO: Change from list comprehension to properly read in bulk
         return [self.encode(x) for x in images]
