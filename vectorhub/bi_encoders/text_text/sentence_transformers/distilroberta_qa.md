@@ -1,4 +1,5 @@
 ---
+model_id: 'text_text/distilled-roberta-qa'
 model_name: "Distilled Roberta QA"
 vector_length: "768 (default)"
 paper: "https://arxiv.org/abs/1908.10084"
