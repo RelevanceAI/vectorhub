@@ -2,6 +2,7 @@ import functools
 import warnings
 import traceback
 import numpy as np
+import requests
 from .errors import ModelError
 from typing import Any, List
 from abc import ABC, abstractmethod
@@ -62,6 +63,7 @@ class Base2Vec:
 
             # TODO:
             Improve model URL validation to not include final number in URl string.
+
             Args:
                 model_url: The URl of the the model in question
                 list_of_urls: The list of URLS for the model in question
@@ -69,8 +71,17 @@ class Base2Vec:
         """
         if model_url in list_of_urls:
             return True
-        warnings.warn("We have not tested this url. Please use URL at your own risk.")
- 
+        # TODO: Give a documentation link to debugging the Model URL.
+        warnings.warn("We have not tested this url. Please use URL at your own risk." + \
+            "Please use the is_url_working method to test if this is a working url.")
+    
+    @staticmethod
+    def is_url_working(url):
+        response = requests.head(url)
+        if response.status_code == 200:
+            return True
+        return False
+
     @classmethod
     def chunk(self, lst: List, chunk_size: int):
         """
