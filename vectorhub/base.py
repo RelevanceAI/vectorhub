@@ -67,11 +67,10 @@ class Base2Vec:
                 list_of_urls: The list of URLS for the model in question
         
         """
-        if(model_url in list_of_urls):
+        if model_url in list_of_urls:
             return True
-        raise ModelError(
-            message="We currently not support this url. If issue persist then contact us.")
-            
+        warnings.warn("We have not tested this url. Please use URL at your own risk.")
+ 
     @classmethod
     def chunk(self, lst: List, chunk_size: int):
         """
