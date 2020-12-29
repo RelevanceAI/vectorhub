@@ -26,10 +26,13 @@ __doc__ = USEMultiModelDefinition.create_docs()
 class USEMulti2Vec(USE2Vec):
     definition = USEMultiModelDefinition
     def __init__(self, model_url: str = 'https://tfhub.dev/google/universal-sentence-encoder-multilingual/3'):
-        list_of_urls = [
-            "https://tfhub.dev/google/universal-sentence-encoder-multilingual/3",
-            "https://tfhub.dev/google/universal-sentence-encoder-multilingual-large/3",
-        ]
-        self.validate_model_url(model_url, list_of_urls)
+        self.validate_model_url(model_url, list(self.urls.keys()))
         self.init(model_url)
         self.vector_length = 512
+
+    @property
+    def urls(self):
+        return {
+            "https://tfhub.dev/google/universal-sentence-encoder-multilingual/3": {'vector_length': 512},
+            "https://tfhub.dev/google/universal-sentence-encoder-multilingual-large/3": {'vector_length': 512}
+        }
