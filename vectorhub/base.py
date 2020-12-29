@@ -71,9 +71,16 @@ class Base2Vec:
         """
         if model_url in list_of_urls:
             return True
-        # TODO: Give a documentation link to debugging the Model URL.
+        # Add a list of urls caveat 
+        if 'tfhub' in model_url:
+            # If the url has a number in it then we can take that into account
+            for url in list_of_urls:
+                if model_url[:-1] in url:
+                    return True
+        # TODO: Write documentation link to debugging the Model URL.
         warnings.warn("We have not tested this url. Please use URL at your own risk." + \
-            "Please use the is_url_working method to test if this is a working url.")
+            "Please use the is_url_working method to test if this is a working url if " + \
+            "this is not a local directory.", UserWarning)
     
     @staticmethod
     def is_url_working(url):
