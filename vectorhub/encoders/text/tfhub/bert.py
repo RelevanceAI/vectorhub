@@ -19,7 +19,8 @@ __doc__ = BertModelDefinition.create_docs()
 
 class Bert2Vec(BaseText2Vec):
     definition = BertModelDefinition
-    def __init__(self, model_url: str = 'https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/3', max_seq_length: int = 64, normalize: bool = True):
+    def __init__(self, model_url: str = 'https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/3', 
+    max_seq_length: int = 64, normalize: bool = True):
         list_of_urls = [
             'https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/2',
             'https://tfhub.dev/tensorflow/bert_en_wwm_cased_L-24_H-1024_A-16/2',
@@ -45,6 +46,28 @@ class Bert2Vec(BaseText2Vec):
         self.model_input_type = "dict"
         self.init(model_url)
         self.tokenizer = self.init_tokenizer()
+
+    @property
+    def urls(self):
+        {
+            'https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/2': {'vector_length': 1024},
+            'https://tfhub.dev/tensorflow/bert_en_wwm_cased_L-24_H-1024_A-16/2': {'vector_length': 1024},
+            'https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/2': {'vector_length': 768},
+            'https://tfhub.dev/tensorflow/bert_en_wwm_uncased_L-24_H-1024_A-16/2': {'vector_length': 1024},
+            'https://tfhub.dev/tensorflow/bert_en_cased_L-24_H-1024_A-16/2': {'vector_length': 1024},
+            'https://tfhub.dev/tensorflow/bert_en_cased_L-12_H-768_A-12/2': {'vector_length': 768},
+            'https://tfhub.dev/tensorflow/bert_zh_L-12_H-768_A-12/2': {'vector_length': 768},
+            'https://tfhub.dev/tensorflow/bert_multi_cased_L-12_H-768_A-12/2': {'vector_length': 768},
+
+            'https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/3': {'vector_length': 1024},
+            'https://tfhub.dev/tensorflow/bert_en_wwm_cased_L-24_H-1024_A-16/3': {'vector_length': 1024},
+            'https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/3': {'vector_length': 768},
+            'https://tfhub.dev/tensorflow/bert_en_wwm_uncased_L-24_H-1024_A-16/3': {'vector_length': 1024},
+            'https://tfhub.dev/tensorflow/bert_en_cased_L-24_H-1024_A-16/3': {'vector_length': 1024},
+            'https://tfhub.dev/tensorflow/bert_en_cased_L-12_H-768_A-12/3': {'vector_length': 768},
+            'https://tfhub.dev/tensorflow/bert_zh_L-12_H-768_A-12/3': {'vector_length': 768},
+            'https://tfhub.dev/tensorflow/bert_multi_cased_L-12_H-768_A-12/3': {'vector_length': 768},
+        }
 
     def init(self, model_url: str):
         self.model = hub.KerasLayer(model_url)
@@ -90,7 +113,7 @@ class Bert2Vec(BaseText2Vec):
         return np.array(input_ids_all), np.array(input_mask_all),  np.array(input_type_ids_all)
 
     @catch_vector_errors
-    def encode(self, text: str):
+    def encode(self, text: str, pooling_strategy='pooled_output'):
         input_ids, input_mask, input_type_ids = self.process(text)
         if self.model_input_type == "list":
             return self.model([
@@ -103,11 +126,11 @@ class Bert2Vec(BaseText2Vec):
                 "input_word_ids": tf.convert_to_tensor(input_ids, tf.int32, name="input_word_ids"), 
                 "input_mask": tf.convert_to_tensor(input_mask, tf.int32, name="input_mask"), 
                 "input_type_ids": tf.convert_to_tensor(input_type_ids, tf.int32, name="input_type_ids")
-            })['pooled_output'].numpy().tolist()[0]
+            })[pooling_strategy].numpy().tolist()[0]
 
 
     @catch_vector_errors
-    def bulk_encode(self, texts: list):
+    def bulk_encode(self, texts: list, pooling_strategy='pooled_output'):
         input_ids, input_mask, input_type_ids = self.process(texts)
         if self.model_input_type == "list":
             return self.model([
@@ -120,4 +143,4 @@ class Bert2Vec(BaseText2Vec):
                 "input_word_ids": tf.convert_to_tensor(input_ids, tf.int32, name="input_word_ids"), 
                 "input_mask": tf.convert_to_tensor(input_mask, tf.int32, name="input_mask"), 
                 "input_type_ids": tf.convert_to_tensor(input_type_ids, tf.int32, name="input_type_ids")
-            })['pooled_output'].numpy().tolist()
+            })[pooling_strategy].numpy().tolist()
