@@ -27,6 +27,12 @@ class LaBSE2Vec(BaseText2Vec):
         self.tokenizer = self.init_tokenizer()
         self.vector_length = 768
 
+    @property
+    def urls(self):
+        return {
+            'https://tfhub.dev/google/LaBSE/1': {'vector_length': 768}
+        }
+
     def init(self, model_url: str):
         self.model_layer = hub.KerasLayer(model_url)
         input_word_ids = tf.keras.layers.Input(shape=(self.max_seq_length,), dtype=tf.int32,

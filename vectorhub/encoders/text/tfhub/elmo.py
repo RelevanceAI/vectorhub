@@ -22,6 +22,12 @@ class Elmo2Vec(BaseText2Vec):
         tf.disable_eager_execution()
         self.model = hub.Module(model_url, trainable=trainable_model)
         self.vector_length = 1024
+    
+    @property
+    def urls(self):
+        return {
+           "https://tfhub.dev/google/elmo/3": {'vector_length': 1024}
+        }
 
     @catch_vector_errors
     def encode(self, text, output_layer: str="elmo"):
