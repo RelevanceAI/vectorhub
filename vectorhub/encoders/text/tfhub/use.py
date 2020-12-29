@@ -19,13 +19,16 @@ class USE2Vec(BaseText2Vec):
     definition = USEModelDefinition
     # or layer19
     def __init__(self, model_url: str = 'https://tfhub.dev/google/universal-sentence-encoder/4'):
-        list_of_urls = [
-            "https://tfhub.dev/google/universal-sentence-encoder/4",
-            "https://tfhub.dev/google/universal-sentence-encoder-large/5",
-        ]
-        self.validate_model_url(model_url, list_of_urls)
+        self.validate_model_url(model_url, list(self.urls.keys()))
         self.init(model_url)
         self.vector_length = 512
+
+    @property
+    def urls(self):
+        return {
+            "https://tfhub.dev/google/universal-sentence-encoder/4": {'vector_length': 512},
+            "https://tfhub.dev/google/universal-sentence-encoder-large/5": {'vector_length': 512}
+        }
 
     def init(self, model_url: str):
         self.model_url = model_url
