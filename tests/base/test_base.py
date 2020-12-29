@@ -16,7 +16,7 @@ def test_catch_vector_errors():
 
 def test_validate_urls_raises_warning():
     enc = Base2Vec()
-    with pytest.raises(UserWarning):
+    with pytest.warns(UserWarning):
         # Assert this is false
         assert not enc.validate_model_url('testing_url', ['testing_url_2', 'fake_url'])
 

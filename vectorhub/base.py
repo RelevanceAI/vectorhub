@@ -71,7 +71,7 @@ class Base2Vec:
         """
         if model_url in list_of_urls:
             return True
-        # Add a list of urls caveat 
+
         if 'tfhub' in model_url:
             # If the url has a number in it then we can take that into account
             for url in list_of_urls:
