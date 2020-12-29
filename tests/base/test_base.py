@@ -1,7 +1,7 @@
 """
     Tests for various base functions occur here.
 """
-
+import pytest
 import numpy as np 
 from vectorhub.base import catch_vector_errors, Base2Vec
 from vectorhub.encoders.text.torch_transformers import Transformer2Vec
