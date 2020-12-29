@@ -13,6 +13,16 @@ category: text
 
 The language-agnostic BERT sentence embedding encodes text into high dimensional vectors. The model is trained and optimized to produce similar representations exclusively for bilingual sentence pairs that are translations of each other. So it can be used for mining for translations of a sentence in a larger corpus.
 
+## Working in Colab
+
+If you are using this in colab and want to save this so you don't have to reload, use: 
+
+```
+import os 
+os.environ['TFHUB_CACHE_DIR'] = "drive/MyDrive/"
+os.environ["TFHUB_MODEL_LOAD_FORMAT"] = "COMPRESSED"
+```
+
 ## Example
 
 ```python

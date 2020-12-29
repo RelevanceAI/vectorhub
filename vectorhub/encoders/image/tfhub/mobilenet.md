@@ -17,6 +17,16 @@ We present a class of efficient models called MobileNets for mobile and embedded
 
 Trained on Imagenet (AKA ILSVRC-2012-CLS dataset for image classification).
 
+## Working in Colab
+
+If you are using this in colab and want to save this so you don't have to reload, use: 
+
+```
+import os 
+os.environ['TFHUB_CACHE_DIR'] = "drive/MyDrive/"
+os.environ["TFHUB_MODEL_LOAD_FORMAT"] = "COMPRESSED"
+```
+
 ## Example
 
 ```python

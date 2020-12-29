@@ -20,6 +20,17 @@ speech embedding, we show that a model which detects 10 keywords when trained on
 on over 500 real examples. We also show that a model without our speech embeddings would need to be trained on over 4000 real examples to 
 reach the same accuracy.
 
+
+## Working in Colab
+
+If you are using this in colab and want to save this so you don't have to reload, use: 
+
+```
+import os 
+os.environ['TFHUB_CACHE_DIR'] = "drive/MyDrive/"
+os.environ["TFHUB_MODEL_LOAD_FORMAT"] = "COMPRESSED"
+```
+
 ## Example
 
 ```
@@ -28,4 +39,5 @@ from vectorhub.encoders.audio.tfhub import SpeechEmbedding2Vec
 model = SpeechEmbedding2Vec()
 sample = model.read('https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav')
 model.encode(sample)
+
 ```

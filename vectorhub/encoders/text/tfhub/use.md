@@ -22,6 +22,16 @@ Image from [Google](https://tfhub.dev/google/universal-sentence-encoder/1).
 
 Wikipedia, Web News, web question-answering pages and discussion forums. 
 
+## Working in Colab
+
+If you are using this in colab and want to save this so you don't have to reload, use: 
+
+```
+import os 
+os.environ['TFHUB_CACHE_DIR'] = "drive/MyDrive/"
+os.environ["TFHUB_MODEL_LOAD_FORMAT"] = "COMPRESSED"
+```
+
 ## Example
 
 ```python
