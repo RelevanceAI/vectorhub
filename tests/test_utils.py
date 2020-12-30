@@ -115,7 +115,7 @@ class AssertModelWorks:
         ViClient = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
         CN = 'test_vectorhub_' + self.random_string
         with TempClient(vi_client, CN) as client:
-            response = client.insert_documents(CN, self.sample_documents
+            response = client.insert_documents(CN, self.sample_documents,
             {self.field_to_encode_mapping: self.model})
             assert len(response['failed_document_ids']) == 0
 
