@@ -89,7 +89,7 @@ class AssertModelWorks:
         return {
             'image_url': 'https://getvectorai.com/assets/logo-square.png',
             'audio_url': 'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav',
-            'text': "Cats love purring on the beach."
+            'text': "Cats love purring on the beach.",
             'question': "Where do cats love purring?"
         }
     
