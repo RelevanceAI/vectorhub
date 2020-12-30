@@ -5,14 +5,14 @@ import pytest
 import numpy as np 
 from vectorhub.base import catch_vector_errors, Base2Vec
 from vectorhub.encoders.text.torch_transformers import Transformer2Vec
+from ..test_utils import is_dummy_vector
 
 def test_catch_vector_errors():
     """Test the catch vector errors.
     """
     encoder = Transformer2Vec('bert-base-uncased')
     vectors = encoder.encode(np.nan)
-    assert len(vectors) == 768
-    assert vectors[0] == 1e-7
+    assert is_dummy_vector(vectors, 768)
 
 def test_validate_urls_raises_warning():
     enc = Base2Vec()
