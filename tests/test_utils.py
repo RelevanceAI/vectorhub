@@ -147,7 +147,7 @@ class AssertModelWorks:
             self.sample_documents,
             {self.field_to_encode_mapping: self.model},
             use_bulk_encode=True, workers=4)
-            assert len(response['failed_document_ids']) = 0
+            assert len(response['failed_document_ids']) == 0
     
     def assert_insertion_into_vectorai_works(self):
         self.assert_insert_vectorai_simple()
