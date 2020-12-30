@@ -1,5 +1,8 @@
 import numpy as np
+import random
+import string
 from vectorhub.utils import list_models, list_installed_models
+from vectorai.tests.utils import TempClient
 
 def test_list_models():
     assert len(list_models()) > 0
@@ -41,7 +44,7 @@ class AssertModelWorks:
         self.model_type = model_type
         self.data_type = data_type
         self.image_url = 'https://getvectorai.com/assets/logo-square.png'
-        self.audio_url = 'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav'
+        self.audio_url = 'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav' 
         self.audio_sample_rate =  16000
         self.sentence = "Cats enjoy purring in the nature."
         self.question = "Where do cats enjoy purring?"
@@ -78,6 +81,80 @@ class AssertModelWorks:
     def assert_bulk_biencode_works(self):
         if self.data_type == 'text':
             assert_vector_works(self.model.encode_answer(self.sentence), self.vector_length)
+    
+    @property
+    def sample_document(self):
+        """Sample documents.
+        """
+        return {
+            'image_url': 'https://getvectorai.com/assets/logo-square.png',
+            'audio_url': 'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav',
+            'text': "Cats love purring on the beach."
+            'question': "Where do cats love purring?"
+        }
+    
+    @property
+    def sample_documents(self):
+        return [self.sample_documents] * 30
+
+    @property
+    def field_to_encode_mapping(self):
+        if self.data_type == 'text':
+            return 'text'
+        if self.data_type == 'image':
+            return 'image_url'
+        if self.data_type == 'audio':
+            return 'audio_url'
+
+    @property
+    def random_string(self, length=8):
+        letters = string.ascii_lowercase
+        return ''.join(random.choice(letters) for i in range(length))
+
+    def assert_insert_vectorai_simple(self):
+        ViClient = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
+        CN = 'test_vectorhub_' + self.random_string
+        with TempClient(vi_client, CN) as client:
+            response = client.insert_documents(CN, self.sample_documents
+            {self.field_to_encode_mapping: self.model})
+            assert len(response['failed_document_ids']) == 0
+
+    def assert_insert_vectorai_bulk_encode(self):
+        ViClient = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
+        CN = 'test_vectorhub_' + self.random_string
+        with TempClient(vi_client, CN) as client:
+            response = client.insert_documents(CN,
+            self.sample_documents,
+            {self.field_to_encode_mapping: self.model},
+            use_bulk_encode=True)
+            assert len(response['failed_document_ids']) == 0
+
+    def assert_insert_vectorai_with_multiprocessing(self):
+        ViClient = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
+        CN = 'test_vectorhub_' + self.random_string
+        with TempClient(vi_client, CN) as client:
+            response = client.insert_documents(CN,
+            self.sample_documents,
+            {self.field_to_encode_mapping: self.model},
+            use_bulk_encode=False, workers=4)
+            assert len(response['failed_document_ids']) == 0
+
+    def assert_insert_vectorai_with_multiprocessing_with_bulk_encode(self):
+        ViClient = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
+        CN = 'test_vectorhub_' + self.random_string
+        with TempClient(vi_client, CN) as client:
+            response = client.insert_documents(CN,
+            self.sample_documents,
+            {self.field_to_encode_mapping: self.model},
+            use_bulk_encode=True, workers=4)
+            assert len(response['failed_document_ids']) = 0
+    
+    def assert_insertion_into_vectorai_works(self):
+        self.assert_insert_vectorai_simple()
+        self.assert_insert_vectorai_bulk_encode()
+        self.assert_insert_vectorai_with_multiprocessing()
+        self.assert_insert_vectorai_with_multiprocessing_with_bulk_encode()
+
 
 def assert_encoder_works(model, vector_length=None, data_type='image', model_type='encoder'):
     """
