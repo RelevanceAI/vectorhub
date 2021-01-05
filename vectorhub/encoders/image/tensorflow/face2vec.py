@@ -56,7 +56,7 @@ class Face2Vec(BaseImage2Vec):
         """
         return {'https://drive.google.com/u/0/uc?id=1PZ_6Zsy1Vb0s0JmjEmVd8FS99zoMCiN1&export=download': {'vector_length': 512}}
 
-    def extract_face(self, image_input: Union[str, np.ndarray], reshape_size=None):
+    def extract_face(self, image_input, reshape_size=None):
         if isinstance(image_input, str):
             pixels = self.read(image_input)
         elif isinstance(image_input, np.ndarray):

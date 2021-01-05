@@ -51,6 +51,10 @@ jobs:
         run: |
           pip install -e ".[encoders-image-fastai]"
           pytest tests/encoders/image/fastai
+      
+      - name: Install and test for face2vec models
+        run: |
+          pip install -e .["encoders-image-tensorflow-face-detection"]
 
       - name: Test cases for Autoencoder
         run: |

@@ -45,12 +45,11 @@ jobs:
       - name: Install and test for image-tfhub
         run: |
           pip install -e ".[encoders-image-tfhub]"
-          pytest tests/encoders/image/tfhub
+          pytest tests/encoders/image/tfhub      
 
-      - name: Install and test for image-fastai
+      - name: Install and test for face2vec models
         run: |
-          pip install -e ".[encoders-image-fastai]"
-          pytest tests/encoders/image/fastai
+          pip install -e .["encoders-image-tensorflow-face-detection"]
         
       - name: Test cases for Autoencoder
         run: |
