@@ -4,7 +4,7 @@ model_name: "FaceNet"
 vector_length: "512 (default)"
 paper: "https://arxiv.org/pdf/1503.03832.pdf"
 repo: "N/A" 
-installation: "pip install vectorhub[encoders-image-tensorflow]"
+installation: "pip install vectorhub[encoders-image-tensorflow-face-detection]"
 release_date: "2015-03-12"
 category: image
 ---
