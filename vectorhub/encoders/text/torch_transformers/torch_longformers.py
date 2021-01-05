@@ -26,6 +26,13 @@ class Longformer2Vec(BaseText2Vec):
             'allenai/longformer-large-4096': 'Starting from RoBERTa-large checkpoint, trained on documents of max length 4,096'
         }
 
+    @property
+    def urls(self):
+        return {
+            'allenai/longformer-base-4096': {'vector_length': 4096},
+            'allenai/longformer-large-4096': {'vector_length': 4096}
+        }
+
     @catch_vector_errors
     def encode(self, text: Union[str, List[str]]) -> List[float]:
         """

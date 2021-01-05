@@ -13,6 +13,31 @@ category: text
 
 The language-agnostic BERT sentence embedding encodes text into high dimensional vectors. The model is trained and optimized to produce similar representations exclusively for bilingual sentence pairs that are translations of each other. So it can be used for mining for translations of a sentence in a larger corpus.
 
+## Working in Colab
+
+If you are using this in colab and want to save this so you don't have to reload, use: 
+
+```
+import os 
+os.environ['TFHUB_CACHE_DIR'] = "drive/MyDrive/"
+os.environ["TFHUB_MODEL_LOAD_FORMAT"] = "COMPRESSED"
+```
+
+## Training Corpora 
+
+LABSE has 2 types of data:
+- Monolingual data (CommonCrawl and Wikipedia)
+- Bilingual translation pairs (translation corpus is constructed from webpages using a bitext mining system)
+
+The extracted sentence pairs are filtered by a pre-trained contrastive data-selection (CDS) scoring model.
+Human annotators manually evaluate sentence pairs from a small sub-set of the harvested pairs and mark the pairs as either "GOOD" or "BAD" translations, from which 80% of the retrained pairs from the manual are rated as "GOOD".
+
+## Training Setup
+
+Short lines less than 10 characters and long lines more than 5000 characters are removed.
+Wiki data was extracted from the 05-21-2020 dump using WikiExtractor.
+
+
 ## Example
 
 ```python

@@ -13,6 +13,16 @@ category: text
 
 The Universal Sentence Encoder Multilingual module is an extension of the Universal Sentence Encoder Large that includes training on multiple tasks across languages. Supports 16 languages (Arabic, Chinese-simplified, Chinese-traditional, English, French, German, Italian, Japanese, Korean, Dutch, Polish, Portuguese, Spanish, Thai, Turkish, Russian) text encoder.
 
+## Working in Colab
+
+If you are using this in colab and want to save this so you don't have to reload, use: 
+
+```
+import os 
+os.environ['TFHUB_CACHE_DIR'] = "drive/MyDrive/"
+os.environ["TFHUB_MODEL_LOAD_FORMAT"] = "COMPRESSED"
+```
+
 ## Example
 
 ```python

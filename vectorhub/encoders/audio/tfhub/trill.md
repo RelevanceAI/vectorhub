@@ -19,6 +19,17 @@ benchmark, and even exceeds state-of-the-art performance on a number of transfer
 available dataset, and it is tested on a variety of low-resource downstream tasks, including personalization tasks and medical domain. 
 The benchmark, models, and evaluation code are publicly released."""
 
+## Working in Colab
+
+If you are using this in colab and want to save this so you don't have to reload, use: 
+
+```
+import os 
+os.environ['TFHUB_CACHE_DIR'] = "drive/MyDrive/"
+os.environ["TFHUB_MODEL_LOAD_FORMAT"] = "COMPRESSED"
+```
+
+
 ## Example
 
 ```python

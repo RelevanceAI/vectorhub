@@ -42,3 +42,4 @@ jobs:
           pytest tests/test_import_utils.py
           pytest tests/test_model_to_dict.py
           pytest tests/test_utils.py
+          pytest tests/base/test_base.py

@@ -16,6 +16,16 @@ We introduce a new language representation model called BERT, which stands for B
 
 ![Bert Image](https://miro.medium.com/max/619/1*iJqlhZz-g6ZQJ53-rE9VvA.png)
 
+## Working in Colab
+
+If you are using this in colab and want to save this so you don't have to reload, use: 
+
+```
+import os 
+os.environ['TFHUB_CACHE_DIR'] = "drive/MyDrive/"
+os.environ["TFHUB_MODEL_LOAD_FORMAT"] = "COMPRESSED"
+```
+
 ## Example
 
 ```python
