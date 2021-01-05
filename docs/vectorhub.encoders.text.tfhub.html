@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>vectorhub.encoders.text.tfhub package &mdash; VectorHub 0.1 documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -50,7 +53,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> VectorHub
+            <a href="index.html" class="icon icon-home"> VectorHub
           
 
           
@@ -185,6 +188,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -204,7 +209,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/vectorhub.encoders.text.tfhub.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -253,7 +258,7 @@ Increasing model size when pretraining natural language representations often re
 <dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.text.html#vectorhub.encoders.text.base.BaseText2Vec" title="vectorhub.encoders.text.base.BaseText2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.text.base.BaseText2Vec</span></code></a></p>
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.albert.Albert2Vec.bulk_encode">
-<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.albert.Albert2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts</span><span class="p">:</span> <span class="n">list</span></em>, <em class="sig-param"><span class="n">pooling_strategy</span><span class="o">=</span><span class="default_value">'pooled_output'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.albert.Albert2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -276,7 +281,7 @@ Increasing model size when pretraining natural language representations often re
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.albert.Albert2Vec.encode">
-<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.albert.Albert2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">pooling_strategy</span><span class="o">=</span><span class="default_value">'pooled_output'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.albert.Albert2Vec.encode" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -287,6 +292,11 @@ Increasing model size when pretraining natural language representations often re
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.albert.Albert2Vec.init_tokenizer">
 <code class="sig-name descname">init_tokenizer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">preprocessor_url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.albert.Albert2Vec.init_tokenizer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.albert.Albert2Vec.is_url_working">
+<em class="property">static </em><code class="sig-name descname">is_url_working</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.albert.Albert2Vec.is_url_working" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -301,14 +311,25 @@ Increasing model size when pretraining natural language representations often re
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.albert.Albert2Vec.urls">
+<em class="property">property </em><code class="sig-name descname">urls</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.albert.Albert2Vec.urls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.albert.Albert2Vec.validate_model_url">
 <em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.albert.Albert2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validate the model url belongs in the list of urls. This is to help
 users to avoid mis-spelling the name of the model.</p>
 <p># TODO:
-Improve model URL validation to not include final number in URl string.
-:param model_url: The URl of the the model in question
-:param list_of_urls: The list of URLS for the model in question</p>
+Improve model URL validation to not include final number in URl string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_url</strong> – The URl of the the model in question</p></li>
+<li><p><strong>list_of_urls</strong> – The list of URLS for the model in question</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -352,7 +373,7 @@ We introduce a new language representation model called BERT, which stands for B
 <dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.text.html#vectorhub.encoders.text.base.BaseText2Vec" title="vectorhub.encoders.text.base.BaseText2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.text.base.BaseText2Vec</span></code></a></p>
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.bulk_encode">
-<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts</span><span class="p">:</span> <span class="n">list</span></em>, <em class="sig-param"><span class="n">pooling_strategy</span><span class="o">=</span><span class="default_value">'pooled_output'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -375,7 +396,7 @@ We introduce a new language representation model called BERT, which stands for B
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.encode">
-<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">pooling_strategy</span><span class="o">=</span><span class="default_value">'pooled_output'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.encode" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -386,6 +407,11 @@ We introduce a new language representation model called BERT, which stands for B
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.init_tokenizer">
 <code class="sig-name descname">init_tokenizer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.init_tokenizer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.is_url_working">
+<em class="property">static </em><code class="sig-name descname">is_url_working</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.is_url_working" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -405,14 +431,25 @@ We introduce a new language representation model called BERT, which stands for B
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.urls">
+<em class="property">property </em><code class="sig-name descname">urls</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.urls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.bert.Bert2Vec.validate_model_url">
 <em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.bert.Bert2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validate the model url belongs in the list of urls. This is to help
 users to avoid mis-spelling the name of the model.</p>
 <p># TODO:
-Improve model URL validation to not include final number in URl string.
-:param model_url: The URl of the the model in question
-:param list_of_urls: The list of URLS for the model in question</p>
+Improve model URL validation to not include final number in URl string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_url</strong> – The URl of the the model in question</p></li>
+<li><p><strong>list_of_urls</strong> – The list of URLS for the model in question</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -432,8 +469,8 @@ Improve model URL validation to not include final number in URl string.
 Computes contextualized word representations using character-based word representations and bidirectional LSTMs, as described in the paper “Deep contextualized word representations” [1].</p>
 <p>ELMo (Embeddings from Language Models) representations are deep as they are a function of all of the
 internal layers of the biLM. More specifically, we learn a linear combination of the vectors stacked above each input word for each end task.</p>
-<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/pdf/2007.01852v1.pdf">https://arxiv.org/pdf/2007.01852v1.pdf</a></p>
-<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/LaBSE/1">https://tfhub.dev/google/LaBSE/1</a></p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/1802.05365">https://arxiv.org/abs/1802.05365</a></p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://tfhub.dev/google/elmo/3">https://tfhub.dev/google/elmo/3</a></p>
 <p><strong>Architecture</strong>: Not stated.</p>
 <p><strong>Tasks</strong>: Not stated.</p>
 <p><strong>Release Date</strong>: 2020-07-03</p>
@@ -497,6 +534,11 @@ Note: The output layer word_emb is character-based and is not supported by Vecto
 </dd></dl>
 
 <dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.is_url_working">
+<em class="property">static </em><code class="sig-name descname">is_url_working</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.is_url_working" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.read">
 <code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>An abstract method to specify the read method to read the data.</p>
@@ -508,14 +550,25 @@ Note: The output layer word_emb is character-based and is not supported by Vecto
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.urls">
+<em class="property">property </em><code class="sig-name descname">urls</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.urls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.validate_model_url">
 <em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.elmo.Elmo2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validate the model url belongs in the list of urls. This is to help
 users to avoid mis-spelling the name of the model.</p>
 <p># TODO:
-Improve model URL validation to not include final number in URl string.
-:param model_url: The URl of the the model in question
-:param list_of_urls: The list of URLS for the model in question</p>
+Improve model URL validation to not include final number in URl string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_url</strong> – The URl of the the model in question</p></li>
+<li><p><strong>list_of_urls</strong> – The list of URLS for the model in question</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -594,6 +647,11 @@ The language-agnostic BERT sentence embedding encodes text into high dimensional
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.is_url_working">
+<em class="property">static </em><code class="sig-name descname">is_url_working</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.is_url_working" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.process">
 <code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_strings</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.process" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -610,14 +668,25 @@ The language-agnostic BERT sentence embedding encodes text into high dimensional
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.urls">
+<em class="property">property </em><code class="sig-name descname">urls</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.urls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.validate_model_url">
 <em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.labse.LaBSE2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validate the model url belongs in the list of urls. This is to help
 users to avoid mis-spelling the name of the model.</p>
 <p># TODO:
-Improve model URL validation to not include final number in URl string.
-:param model_url: The URl of the the model in question
-:param list_of_urls: The list of URLS for the model in question</p>
+Improve model URL validation to not include final number in URl string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_url</strong> – The URl of the the model in question</p></li>
+<li><p><strong>list_of_urls</strong> – The list of URLS for the model in question</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -693,6 +762,11 @@ We present models for encoding sentences into embedding vectors that specificall
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use.USE2Vec.is_url_working">
+<em class="property">static </em><code class="sig-name descname">is_url_working</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use.USE2Vec.is_url_working" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.use.USE2Vec.read">
 <code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use.USE2Vec.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>An abstract method to specify the read method to read the data.</p>
@@ -704,14 +778,25 @@ We present models for encoding sentences into embedding vectors that specificall
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use.USE2Vec.urls">
+<em class="property">property </em><code class="sig-name descname">urls</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use.USE2Vec.urls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.use.USE2Vec.validate_model_url">
 <em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use.USE2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validate the model url belongs in the list of urls. This is to help
 users to avoid mis-spelling the name of the model.</p>
 <p># TODO:
-Improve model URL validation to not include final number in URl string.
-:param model_url: The URl of the the model in question
-:param list_of_urls: The list of URLS for the model in question</p>
+Improve model URL validation to not include final number in URl string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_url</strong> – The URl of the the model in question</p></li>
+<li><p><strong>list_of_urls</strong> – The list of URLS for the model in question</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -763,6 +848,11 @@ Improve model URL validation to not include final number in URl string.
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.is_url_working">
+<em class="property">static </em><code class="sig-name descname">is_url_working</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.is_url_working" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.process_texts">
 <code class="sig-name descname">process_texts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_lite.USELite2Vec.process_texts" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -784,9 +874,15 @@ Improve model URL validation to not include final number in URl string.
 <dd><p>Validate the model url belongs in the list of urls. This is to help
 users to avoid mis-spelling the name of the model.</p>
 <p># TODO:
-Improve model URL validation to not include final number in URl string.
-:param model_url: The URl of the the model in question
-:param list_of_urls: The list of URLS for the model in question</p>
+Improve model URL validation to not include final number in URl string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_url</strong> – The URl of the the model in question</p></li>
+<li><p><strong>list_of_urls</strong> – The list of URLS for the model in question</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -859,6 +955,11 @@ The Universal Sentence Encoder Multilingual module is an extension of the Univer
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.is_url_working">
+<em class="property">static </em><code class="sig-name descname">is_url_working</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.is_url_working" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.read">
 <code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>An abstract method to specify the read method to read the data.</p>
@@ -870,14 +971,25 @@ The Universal Sentence Encoder Multilingual module is an extension of the Univer
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.urls">
+<em class="property">property </em><code class="sig-name descname">urls</code><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.urls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.validate_model_url">
 <em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tfhub.use_multi.USEMulti2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validate the model url belongs in the list of urls. This is to help
 users to avoid mis-spelling the name of the model.</p>
 <p># TODO:
-Improve model URL validation to not include final number in URl string.
-:param model_url: The URl of the the model in question
-:param list_of_urls: The list of URLS for the model in question</p>
+Improve model URL validation to not include final number in URl string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_url</strong> – The URl of the the model in question</p></li>
+<li><p><strong>list_of_urls</strong> – The list of URLS for the model in question</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -899,37 +1011,29 @@ Improve model URL validation to not include final number in URl string.
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="vectorhub.encoders.text.torch_transformers.html" class="btn btn-neutral float-right" title="vectorhub.encoders.text.torch_transformers package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="vectorhub.encoders.text.tf_transformers.html" class="btn btn-neutral float-left" title="vectorhub.encoders.text.tf_transformers package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="vectorhub.encoders.text.torch_transformers.html" class="btn btn-neutral float-right" title="vectorhub.encoders.text.torch_transformers package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="vectorhub.encoders.text.tf_transformers.html" class="btn btn-neutral float-left" title="vectorhub.encoders.text.tf_transformers package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Vector AI
+        &#169; Copyright 2020, Vector AI.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
