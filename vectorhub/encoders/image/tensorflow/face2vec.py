@@ -54,7 +54,7 @@ class Face2Vec(BaseImage2Vec):
         """
         A simple dictionary with urls and their vector lengths
         """
-        return {'https://drive.google.com/u/0/uc?id=1PZ_6Zsy1Vb0s0JmjEmVd8FS99zoMCiN1&export=download': {'vector_length': 512}}
+        return {'https://drive.google.com/u/0/uc?id=1PZ_6Zsy1Vb0s0JmjEmVd8FS99zoMCiN1&export=download': {'vector_length': 128}}
 
     def extract_face(self, image_input, reshape_size=None):
         if isinstance(image_input, str):
