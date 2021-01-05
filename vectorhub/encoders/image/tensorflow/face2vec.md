@@ -1,7 +1,7 @@
 ---
 model_id: "image/face2vec"
 model_name: "FaceNet"
-vector_length: "512 (default)"
+vector_length: "128 (default)"
 paper: "https://arxiv.org/pdf/1503.03832.pdf"
 repo: "N/A" 
 installation: "pip install vectorhub[encoders-image-tensorflow-face-detection]"
