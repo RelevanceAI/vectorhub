@@ -119,7 +119,7 @@ class Face2Vec(BaseImage2Vec):
     @catch_vector_errors
     def encode(self, image):
         if isinstance(image, (np.ndarray, str)):
-            image = self.standardise_image(self.extract_face(image))
+            image = self.standardise_image(self.extract_face(image, reshape_size=(160, 160)))
         return self.model.predict([image]).numpy().tolist()[0]
 
     @catch_vector_errors
