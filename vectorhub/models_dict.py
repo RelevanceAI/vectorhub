@@ -34,6 +34,7 @@ MODEL_REQUIREMENTS = {
     "encoders-image-tfhub-mobilenet": "encoders-image-tfhub",
     "encoders-image-fastai-resnet": "encoders-image-fastai",
     "encoders-image-vectorai": None,
+    "encoders-image-tensorflow-face-detection": "encoders-image-tensorflow-face-detection",
     
     "text-bi-encoder-tfhub-lareqa-qa": "encoders-text-tfhub",
     "text-bi-encoder-tfhub-use-qa": "encoders-text-tfhub",
