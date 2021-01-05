@@ -196,3 +196,4 @@ def assert_encoder_works(model, vector_length=None, data_type='image', model_typ
     model_check = AssertModelWorks(model=model, vector_length=vector_length, 
     data_type=data_type, model_type=model_type)
     model_check.assert_encoding_methods_work()
+    model_check.assert_insertion_into_vectorai_works()
