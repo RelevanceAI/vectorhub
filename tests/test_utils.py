@@ -83,7 +83,11 @@ class AssertModelWorks:
         if self.data_type == 'text':
             assert_vector_works(self.model.encode_answer(self.sentence), self.vector_length)
 
-def assert_encoder_works(model, vector_length=None, data_type='image', model_type='encoder'):
+def assert_encoder_works(model, vector_length=None, data_type='image', model_type='encoder',
+    image_url: str='https://getvectorai.com/assets/logo-square.png',
+    audio_url: str='https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav',
+    sample_sentence: str= "Cats enjoy purring in the nature.",
+    sample_question: str= "Where do cats enjoy purring?"):
     """
     Assert that an encoder works
     """
@@ -94,5 +98,6 @@ def assert_encoder_works(model, vector_length=None, data_type='image', model_typ
         except:
             pass
     model_check = AssertModelWorks(model=model, vector_length=vector_length, 
-    data_type=data_type, model_type=model_type)
+    data_type=data_type, model_type=model_type, image_url=image_url,audio_url=audio_url, 
+    sample_sentence=sample_sentence, sample_question=sample_question)
     model_check.assert_encoding_methods_work()
