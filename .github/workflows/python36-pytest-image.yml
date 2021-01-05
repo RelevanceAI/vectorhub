@@ -55,6 +55,7 @@ jobs:
       - name: Install and test for face2vec models
         run: |
           pip install -e .["encoders-image-tensorflow-face-detection"]
+          pytest tests/encoders/image/tensorflow
 
       - name: Test cases for Autoencoder
         run: |
