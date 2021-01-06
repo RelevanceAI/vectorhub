@@ -15,7 +15,9 @@ class TempClient:
             self.collection_name = collection_name
         elif isinstance(client, ViCollectionClient):
             self.collection_name = self.client.collection_name
-        
+        else:
+            self.collection_name = collection_name
+
     def teardown_collection(self):
         if self.collection_name in self.client.list_collections():
             time.sleep(2)
@@ -184,10 +186,11 @@ class AssertModelWorks:
     def assert_insert_vectorai_with_multiprocessing_with_bulk_encode(self):
         CN = 'test_vectorhub_' + self.random_string
         with TempClient(self.client, CN) as client:
-            response = client.insert_documents(CN,
-            self.sample_documents,
-            {self.field_to_encode_mapping: self.model},
-            use_bulk_encode=True, workers=4)
+            response = client.insert_documents(
+                CN,
+                self.sample_documents,
+                {self.field_to_encode_mapping: self.model},
+                use_bulk_encode=True, workers=4)
             assert len(response['failed_document_ids']) == 0
     
     def assert_insertion_into_vectorai_works(self):
