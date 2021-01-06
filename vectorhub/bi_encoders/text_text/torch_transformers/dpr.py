@@ -1,4 +1,5 @@
 from datetime import date
+from typing import List
 from ....doc_utils import ModelDefinition
 from ....import_utils import is_all_dependency_installed
 from ....base import catch_vector_errors
