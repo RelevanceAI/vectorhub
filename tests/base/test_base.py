@@ -12,7 +12,7 @@ from ..test_utils import is_dummy_vector
 def test_catch_vector_errors():
     """Test the catch vector errors.
     """
-    encoder = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY']))
+    encoder = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
     vectors = encoder.encode(np.nan)
     assert is_dummy_vector(vectors, 768)
 
