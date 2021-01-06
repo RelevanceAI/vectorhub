@@ -3,14 +3,16 @@
 """
 import pytest
 import numpy as np 
+import os
 from vectorhub.base import catch_vector_errors, Base2Vec
 from vectorhub.encoders.text.torch_transformers import Transformer2Vec
+from vectorai import ViClient
 from ..test_utils import is_dummy_vector
 
 def test_catch_vector_errors():
     """Test the catch vector errors.
     """
-    encoder = Transformer2Vec('bert-base-uncased')
+    encoder = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY']))
     vectors = encoder.encode(np.nan)
     assert is_dummy_vector(vectors, 768)
 
