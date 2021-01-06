@@ -10,6 +10,8 @@ class TempClient:
     """Client For a temporary collection
     """
     def __init__(self, client, collection_name: str=None):
+        if self.client is None: 
+            raise ValueError("Client cannot be None.")
         self.client = client
         if isinstance(client, ViClient):
             self.collection_name = collection_name
@@ -153,6 +155,7 @@ class AssertModelWorks:
             return ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
         elif 'VI_USERNAME' in os.environ.keys():
             return ViClient(os.environ['VI_USERNAME'], os.environ['VI_API_KEY'])
+        return ViClient()
 
     def assert_insert_vectorai_simple(self):
         CN = 'test_vectorhub_' + self.random_string
