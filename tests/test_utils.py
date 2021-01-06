@@ -10,7 +10,7 @@ class TempClient:
     """Client For a temporary collection
     """
     def __init__(self, client, collection_name: str=None):
-        if self.client is None: 
+        if client is None: 
             raise ValueError("Client cannot be None.")
         self.client = client
         if isinstance(client, ViClient):
