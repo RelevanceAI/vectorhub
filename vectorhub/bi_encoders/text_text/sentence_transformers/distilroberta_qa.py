@@ -19,6 +19,10 @@ class DistilRobertaQA2Vec(BaseTextText2Vec):
         self.model = SentenceTransformer('distilroberta-base-msmarco-v1')
         self.vector_length = 768
     
+    @property
+    def __name__(self):
+        return "distilrobertaqa"
+
     @catch_vector_errors
     def encode_question(self, question: str):
         return self.model.encode(["[QRY] "+ question])[0].tolist()

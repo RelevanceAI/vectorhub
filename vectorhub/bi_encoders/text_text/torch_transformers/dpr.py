@@ -92,3 +92,7 @@ class DPR2Vec(BaseTextText2Vec):
             >>> model.bulk_encode("Why?", string_type='answer')
         """
         return [self.encode(x, context_strings[i], string_type=string_type) for i, x in enumerate(strings)]
+
+    @property
+    def __name__(self):
+        return "dpr"

@@ -39,6 +39,10 @@ class LAReQA2Vec(BaseTextText2Vec):
         self.answer_encoder = self.model.signatures['response_encoder']
 
 
+    @propertyopertyde
+    def __name__(self):
+        return "lareqa"
+
     @catch_vector_errors
     def encode_question(self, question: str):
         """

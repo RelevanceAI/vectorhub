@@ -27,3 +27,7 @@ class USEMultiQA2Vec(USEQA2Vec):
         self.model_name = self.model_url.replace(
             'https://tfhub.dev/google/', '').replace('/', '_')
         self.vector_length = 512
+
+    @property
+    def __name__(self):
+        return "usemultiqa"
