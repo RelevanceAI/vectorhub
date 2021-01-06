@@ -35,6 +35,7 @@ jobs:
         run: |
           pip install -r requirements.txt
           pip install -e ".[test]"
+          pip install -e .[encoders-audio-tfhub]
       - name: Test Vectorai models
         env:
             VI_USERNAME: ${{ secrets.VI_USERNAME }}
