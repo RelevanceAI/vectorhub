@@ -160,11 +160,17 @@ class AssertModelWorks:
     def assert_insert_vectorai_bulk_encode(self):
         CN = 'test_vectorhub_' + self.random_string
         with TempClient(self.client, CN) as client:
-            response = client.insert_documents(CN,
-            self.sample_documents,
-            {self.field_to_encode_mapping: self.model},
-            use_bulk_encode=True)
-            assert len(response['failed_document_ids']) == 0
+            if self.model_type == 'encoder':
+                response = client.insert_documents(CN,
+                self.sample_documents,
+                {self.field_to_encode_mapping: self.model},
+                use_bulk_encode=True)
+                assert len(response['failed_document_ids']) == 0
+            elif self.model_type =='bi_encoder':
+                response = client.insert_documents(CN, 
+                self.sample_documents,
+                {self.field_to_encode_mapping: self.model.encode_answer},
+                use_bulk_encode=True)
 
     def assert_insert_vectorai_with_multiprocessing(self):
         CN = 'test_vectorhub_' + self.random_string
