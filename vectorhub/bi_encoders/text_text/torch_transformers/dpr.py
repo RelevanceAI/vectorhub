@@ -1,7 +1,8 @@
-from ..base import BaseTextText2Vec
-from ....doc_utils import ModelDefinition
-from ....import_utils import *
 from datetime import date
+from ....doc_utils import ModelDefinition
+from ....import_utils import is_all_dependency_installed
+from ....base import catch_vector_errors
+from ..base import BaseTextText2Vec
 if is_all_dependency_installed('encoders-text-torch-transformers'):
     from transformers import DPRContextEncoder, DPRContextEncoderTokenizer, DPRQuestionEncoder, DPRQuestionEncoderTokenizer, DPRReader, DPRReaderTokenizer
     import torch
