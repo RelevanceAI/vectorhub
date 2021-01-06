@@ -63,18 +63,22 @@ def assert_vector_works(vector, vector_length=None):
             assert len(vector) == vector_length, f"Does not match vector length of {vector_length}"
 
 class AssertModelWorks:
-    def __init__(self, model, vector_length, data_type='image', model_type='encoder'):
+    def __init__(self, model, vector_length, data_type='image', model_type='encoder', 
+    image_url: str='https://getvectorai.com/assets/logo-square.png',
+    audio_url: str='https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav',
+    sample_sentence: str= "Cats enjoy purring in the nature.",
+    sample_question: str= "Where do cats enjoy purring?"):
         assert data_type in ['image', 'audio', 'text'], "data_type needs to be image, audio or text"
         assert model_type in ['bi_encoder', 'encoder'], "model_type needs to be bi_encoder or encoder"
         self.model = model
         self.vector_length = vector_length
         self.model_type = model_type
         self.data_type = data_type
-        self.image_url = 'https://getvectorai.com/assets/logo-square.png'
-        self.audio_url = 'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav' 
+        self.image_url = image_url
+        self.audio_url = audio_url
         self.audio_sample_rate =  16000
-        self.sentence = "Cats enjoy purring in the nature."
-        self.question = "Where do cats enjoy purring?"
+        self.sentence = sample_sentence
+        self.question = sample_question
     
     def assert_encode_works(self):
         if self.data_type == 'image':
@@ -183,7 +187,11 @@ class AssertModelWorks:
         self.assert_insert_vectorai_with_multiprocessing_with_bulk_encode()
 
 
-def assert_encoder_works(model, vector_length=None, data_type='image', model_type='encoder'):
+def assert_encoder_works(model, vector_length=None, data_type='image', model_type='encoder',
+    image_url: str='https://getvectorai.com/assets/logo-square.png',
+    audio_url: str='https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav',
+    sample_sentence: str= "Cats enjoy purring in the nature.",
+    sample_question: str= "Where do cats enjoy purring?"):
     """
     Assert that an encoder works
     """
@@ -194,6 +202,7 @@ def assert_encoder_works(model, vector_length=None, data_type='image', model_typ
         except:
             pass
     model_check = AssertModelWorks(model=model, vector_length=vector_length, 
-    data_type=data_type, model_type=model_type)
+    data_type=data_type, model_type=model_type, image_url=image_url,audio_url=audio_url, 
+    sample_sentence=sample_sentence, sample_question=sample_question)
     model_check.assert_encoding_methods_work()
     model_check.assert_insertion_into_vectorai_works()

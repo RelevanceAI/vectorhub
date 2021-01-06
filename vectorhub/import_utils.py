@@ -21,7 +21,8 @@ def get_package_requirements(requirement_type: str):
         "scikit-image":  ["encoders-image", "encoders-image-tfhub"],
         "soundfile": ["encoders-audio-tfhub"],
         "librosa": ["audio-encoder", "encoders-audio-tfhub"],
-        "tensorflow": ["encoders-text-tfhub", "encoders-audio-tfhub", "encoders-image-tfhub", "encoders-text-tf-transformers", "encoders-text-tfhub-windows"],
+        "tensorflow": ["encoders-text-tfhub", "encoders-audio-tfhub", "encoders-image-tfhub", "encoders-text-tf-transformers", 
+            "encoders-text-tfhub-windows", "encoders-image-tensorflow-face-detection"],
         "tensorflow_hub": ["encoders-text-tfhub", "encoders-audio-tfhub", "encoders-image-tfhub", "encoders-text-tfhub-windows"],
         "tensorflow_text": ["encoders-text-tfhub"],
         "tf-models-official": ["encoders-text-tfhub", "encoders-text-tfhub-windows"],
@@ -31,8 +32,11 @@ def get_package_requirements(requirement_type: str):
         "fairseq": ["encoders-audio-pytorch"],
         "transformers": ["encoders-text-torch-transformers", "encoders-text-tf-transformers"],
         "moviepy": ["encoders-video"],
-        "opencv-python": ["encoders-video"],
-        "fastai==2.1.8": ["encoders-image-fastai"]
+        "opencv-python": ["encoders-video", "encoders-image-tensorflow-face-detection"],
+        "appdirs": ["encoders-image-tensorflow-face-detection"],
+        "fastai==2.1.8": ["encoders-image-fastai"],
+        "mtcnn": ["encoders-image-tensorflow-face-detection"],
+        "Pillow": ["encoders-image-tensorflow-face-detection"]
     }
     dependencies = []
     for k, v in requirements.items():
