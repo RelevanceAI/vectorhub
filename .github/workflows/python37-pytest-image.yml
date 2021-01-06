@@ -43,11 +43,17 @@ jobs:
           pytest tests/encoders/image/vectorai
 
       - name: Install and test for image-tfhub
+        env:
+            VI_USERNAME: ${{ secrets.VI_USERNAME }}
+            VI_API_KEY: ${{ secrets.VI_API_KEY }}
         run: |
           pip install -e ".[encoders-image-tfhub]"
           pytest tests/encoders/image/tfhub      
 
       - name: Install and test for face2vec models
+        env:
+            VI_USERNAME: ${{ secrets.VI_USERNAME }}
+            VI_API_KEY: ${{ secrets.VI_API_KEY }}
         run: |
           pip install -e .["encoders-image-tensorflow-face-detection"]
           pytest tests/encoders/image/tensorflow
