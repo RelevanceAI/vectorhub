@@ -152,7 +152,7 @@ class AssertModelWorks:
 
     def assert_insert_vectorai_simple(self):
         CN = 'test_vectorhub_' + self.random_string
-        with TempClient(self.vi_client, CN) as client:
+        with TempClient(self.client, CN) as client:
             response = client.insert_documents(CN, self.sample_documents,
             {self.field_to_encode_mapping: self.model})
             assert len(response['failed_document_ids']) == 0
