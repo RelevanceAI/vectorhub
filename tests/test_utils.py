@@ -127,7 +127,7 @@ class AssertModelWorks:
     
     @property
     def sample_documents(self):
-        return [self.sample_documents] * 30
+        return [self.sample_document] * 30
 
     @property
     def field_to_encode_mapping(self):
