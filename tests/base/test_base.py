@@ -6,16 +6,16 @@ import numpy as np
 import os
 from vectorhub.base import catch_vector_errors, Base2Vec
 from vectorhub.encoders.text.torch_transformers import Transformer2Vec
-from vectorai import ViClient
+from vectorai.models.deployed import ViText2Vec
 from ..test_utils import is_dummy_vector
 
 def test_catch_vector_errors():
     """Test the catch vector errors.
     """
     if 'VH_USERNAME' in os.environ.keys():
-        encoder = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
+        encoder = ViText2Vec(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
     elif 'VI_USERNAME' in os.environ.keys():
-        encoder = ViClient(os.environ['VI_USERNAME'], os.environ['VI_API_KEY'])
+        encoder = ViText2Vec(os.environ['VI_USERNAME'], os.environ['VI_API_KEY'])
     vectors = encoder.encode(np.nan)
     assert is_dummy_vector(vectors, 768)
 
