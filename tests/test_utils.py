@@ -143,18 +143,23 @@ class AssertModelWorks:
         letters = string.ascii_lowercase
         return ''.join(random.choice(letters) for i in range(length))
 
+    @property
+    def client(self):
+        if 'VH_USERNAME' in os.environ.keys():
+            return ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
+        elif 'VI_API_KEY' in os.environ.keys():
+            return ViClient(os.environ['VI_USERNAME'], os.environ['VI_API_KEY'])
+
     def assert_insert_vectorai_simple(self):
-        vi_client = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
         CN = 'test_vectorhub_' + self.random_string
-        with TempClient(vi_client, CN) as client:
+        with TempClient(self.vi_client, CN) as client:
             response = client.insert_documents(CN, self.sample_documents,
             {self.field_to_encode_mapping: self.model})
             assert len(response['failed_document_ids']) == 0
 
     def assert_insert_vectorai_bulk_encode(self):
-        ViClient = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
         CN = 'test_vectorhub_' + self.random_string
-        with TempClient(vi_client, CN) as client:
+        with TempClient(self.client, CN) as client:
             response = client.insert_documents(CN,
             self.sample_documents,
             {self.field_to_encode_mapping: self.model},
@@ -162,9 +167,8 @@ class AssertModelWorks:
             assert len(response['failed_document_ids']) == 0
 
     def assert_insert_vectorai_with_multiprocessing(self):
-        ViClient = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
         CN = 'test_vectorhub_' + self.random_string
-        with TempClient(vi_client, CN) as client:
+        with TempClient(self.client, CN) as client:
             response = client.insert_documents(CN,
             self.sample_documents,
             {self.field_to_encode_mapping: self.model},
@@ -172,9 +176,8 @@ class AssertModelWorks:
             assert len(response['failed_document_ids']) == 0
 
     def assert_insert_vectorai_with_multiprocessing_with_bulk_encode(self):
-        ViClient = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
         CN = 'test_vectorhub_' + self.random_string
-        with TempClient(vi_client, CN) as client:
+        with TempClient(self.client, CN) as client:
             response = client.insert_documents(CN,
             self.sample_documents,
             {self.field_to_encode_mapping: self.model},

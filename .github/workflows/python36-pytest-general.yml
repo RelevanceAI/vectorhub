@@ -26,6 +26,9 @@ jobs:
         with:
           python-version: "3.6"
       - name: Install base dependencies
+        env:
+            VH_USERNAME: ${{ secrets.VH_USERNAME }}
+            VH_API_KEY: ${{ secrets.VH_API_KEY }}
         run: |
           sudo apt-get install libsndfile1
           python -m pip install --upgrade pip

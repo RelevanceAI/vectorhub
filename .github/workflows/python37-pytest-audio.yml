@@ -26,12 +26,18 @@ jobs:
         with:
           python-version: "3.7"
       - name: Install base dependencies
+        env:
+            VH_USERNAME: ${{ secrets.VH_USERNAME }}
+            VH_API_KEY: ${{ secrets.VH_API_KEY }}
         run: |
           sudo apt-get install libsndfile1
           python -m pip install --upgrade pip
           pip install -e .
 
       - name: Install dependencies for tests
+        env:
+            VH_USERNAME: ${{ secrets.VH_USERNAME }}
+            VH_API_KEY: ${{ secrets.VH_API_KEY }}
         run: |
           pip install -r requirements.txt
           pip install -e ".[test]"
@@ -42,16 +48,25 @@ jobs:
         run: |
           pytest tests/encoders/audio/vectorai
       - name: Install dependencies and test for audio tfhub
+        env:
+            VH_USERNAME: ${{ secrets.VH_USERNAME }}
+            VH_API_KEY: ${{ secrets.VH_API_KEY }}
         run: |
           
           pip install -e ".[encoders-audio-tfhub]"
           pytest tests/encoders/audio/tfhub
 
       - name: Install and Test cases for encoders-audio-pytorch
+        env:
+            VH_USERNAME: ${{ secrets.VH_USERNAME }}
+            VH_API_KEY: ${{ secrets.VH_API_KEY }}
         run: |
           pip install -e ".[encoders-audio-pytorch]"
           pytest tests/encoders/audio/pytorch
 
       - name: Test cases for Autoencoder
+        env:
+            VH_USERNAME: ${{ secrets.VH_USERNAME }}
+            VH_API_KEY: ${{ secrets.VH_API_KEY }}
         run: |
           pytest -v -m audio

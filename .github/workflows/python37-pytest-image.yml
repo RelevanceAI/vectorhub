@@ -53,6 +53,9 @@ jobs:
           pytest tests/encoders/image/tensorflow
         
       - name: Test cases for Autoencoder
+        env:
+            VH_USERNAME: ${{ secrets.VH_USERNAME }}
+            VH_API_KEY: ${{ secrets.VH_API_KEY }}
         run: |
           pytest -v -m image
 
