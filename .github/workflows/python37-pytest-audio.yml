@@ -41,18 +41,19 @@ jobs:
         run: |
           pip install -r requirements.txt
           pip install -e ".[test]"
+
       - name: Test Vectorai models
         env:
             VI_USERNAME: ${{ secrets.VI_USERNAME }}
             VI_API_KEY: ${{ secrets.VI_API_KEY }}
         run: |
           pytest tests/encoders/audio/vectorai
+
       - name: Install dependencies and test for audio tfhub
         env:
             VH_USERNAME: ${{ secrets.VH_USERNAME }}
             VH_API_KEY: ${{ secrets.VH_API_KEY }}
         run: |
-          
           pip install -e ".[encoders-audio-tfhub]"
           pytest tests/encoders/audio/tfhub
 
