@@ -59,7 +59,7 @@ class DPR2Vec(BaseTextText2Vec):
         return self.context_model(input_ids).pooler_output.tolist()
 
     @catch_vector_errors
-    def encode(self, string: str, context_string: str, string_type: str='answer'):
+    def encode(self, string: str, string_type: str='answer'):
         """
             Encode question/answer using LAReQA model.
             Args:
@@ -73,12 +73,12 @@ class DPR2Vec(BaseTextText2Vec):
             >>> model.encode_answer("Why?")
         """
         if string_type.lower() == 'answer':
-            return self.encode_answer(string, context=context_string)
+            return self.encode_answer(string)
         elif string_type.lower() == 'question':
-            return self.encode_question(string, context=context_string)
+            return self.encode_question(string)
 
     @catch_vector_errors
-    def bulk_encode(self, strings: List[str], context_strings: List[str], string_type: str='answer'):
+    def bulk_encode(self, strings: List[str], string_type: str='answer'):
         """
             Bulk encode question/answer using LAReQA model.
             Args:
@@ -91,7 +91,7 @@ class DPR2Vec(BaseTextText2Vec):
             >>> model = LAReQA2Vec()
             >>> model.bulk_encode("Why?", string_type='answer')
         """
-        return [self.encode(x, context_strings[i], string_type=string_type) for i, x in enumerate(strings)]
+        return [self.encode(x, string_type=string_type) for i, x in enumerate(strings)]
 
     @property
     def __name__(self):
