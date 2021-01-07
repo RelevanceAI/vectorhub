@@ -32,7 +32,7 @@ def test_encoders_instantiation_image(name):
         encoder = AutoEncoder.from_model(name)
         assert_encoder_works(encoder, data_type='image')
         if 'fastai' not in name:
-            sample = encoder.to_grayscale(encoder.read('https://getvectorai.com/assets/logo-square.png'))
+            sample = encoder.to_grayscale(encoder.read('https://getvectorai.com/_nuxt/img/dog-1.3cc5fe1.png'))
             result = encoder.encode(sample)
             assert not is_dummy_vector(result)
     else:
