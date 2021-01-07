@@ -10,5 +10,5 @@ def test_tf_transformer_encode(model_name):
     """
         Test for encoding transformer models
     """
-    model = Transformer2Vec(model_name)
+    model = TFTransformer2Vec(model_name)
     assert_encoder_workers(model, data_type='text')
