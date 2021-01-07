@@ -71,7 +71,7 @@ def assert_vector_works(vector, vector_length=None):
 
 class AssertModelWorks:
     def __init__(self, model, vector_length, data_type='image', model_type='encoder', 
-    image_url: str='https://getvectorai.com/assets/logo-square.png',
+    image_url: str='https://getvectorai.com/_nuxt/img/dog-1.3cc5fe1.png',
     audio_url: str='https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav',
     sample_sentence: str= "Cats enjoy purring in the nature.",
     sample_question: str= "Where do cats enjoy purring?"):
@@ -125,7 +125,7 @@ class AssertModelWorks:
         """Sample documents.
         """
         return {
-            'image_url': 'https://getvectorai.com/assets/logo-square.png',
+            'image_url': 'https://getvectorai.com/_nuxt/img/dog-1.3cc5fe1.png',
             'audio_url': 'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav',
             'text': "Cats love purring on the beach.",
             'question': "Where do cats love purring?"
@@ -207,7 +207,7 @@ class AssertModelWorks:
 
 
 def assert_encoder_works(model, vector_length=None, data_type='image', model_type='encoder',
-    image_url: str='https://getvectorai.com/assets/logo-square.png',
+    image_url: str='https://getvectorai.com/_nuxt/img/dog-1.3cc5fe1.png',
     audio_url: str='https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav',
     sample_sentence: str= "Cats enjoy purring in the nature.",
     sample_question: str= "Where do cats enjoy purring?"):
