@@ -16,7 +16,7 @@ VECTOR_OUTPUT = {
     "allenai/longformer-large-4096": 1024,
 }
 
-
+@pytest.mark.skip(reason="Model too big.")
 @pytest.mark.parametrize("model_name", MODEL_LIST)
 def test_torch_transformer_encode(model_name):
     model = Longformer2Vec(model_name)
