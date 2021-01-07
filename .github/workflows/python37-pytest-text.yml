@@ -66,7 +66,9 @@ jobs:
             VH_API_KEY: ${{ secrets.VH_API_KEY }}
         run: |
           pip install -e ".[encoders-text-tfhub]"
-          pytest tests/encoders/text/tfhub
+          pytest tests/encoders/text/tfhub/test_albert.py
+          pytest tests/encoders/text/tfhub/test_bert.py
+          pytest tests/encoders/text/tfhub/test_labse.py
 
       - name: Install & Test for text sentence transformers
         env:
@@ -90,3 +92,12 @@ jobs:
             VH_API_KEY: ${{ secrets.VH_API_KEY }}
         run: |
           pytest -v -m text
+
+      - name: Install & Test for text tfhub
+        env:
+            VH_USERNAME: ${{ secrets.VH_USERNAME }}
+            VH_API_KEY: ${{ secrets.VH_API_KEY }}
+        run: |
+          pip install -e ".[encoders-text-tfhub]"
+          pytest tests/encoders/text/tfhub/test_use.py
+          pytest tests/encoders/text/tfhub/test_elmo.py
