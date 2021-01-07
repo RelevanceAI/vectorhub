@@ -176,7 +176,7 @@ class AssertModelWorks:
             elif self.model_type =='bi_encoder':
                 response = client.insert_documents(CN, 
                 self.sample_documents,
-                {self.field_to_encode_mapping: self.model.encode_answer},
+                {self.field_to_encode_mapping: self.model},
                 use_bulk_encode=True)
 
     def assert_insert_vectorai_with_multiprocessing(self):
