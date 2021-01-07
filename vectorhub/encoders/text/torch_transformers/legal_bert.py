@@ -28,6 +28,7 @@ class LegalBert2Vec(BaseText2Vec):
             "nlpaueb/legal-bert-base-uncased": "Trained on all the above", 
             "nlpaueb/legal-bert-small-uncased": "Trained on all the above"
         }
+
     @property
     def urls(self):
         return {
@@ -59,5 +60,4 @@ class LegalBert2Vec(BaseText2Vec):
                 texts: List[str]
         """
         # We use pad_to_multiple_of as other arguments usually do not work.
-        return torch.mean(self.model(**self.tokenizer(texts, return_tensors='pt', pad_to_multiple_of=self.tokenizer.model_max_length, 
-        truncation=True, padding=True))[0], axis=1).detach().tolist()
+        return [self.encode(x) for x in texts]
