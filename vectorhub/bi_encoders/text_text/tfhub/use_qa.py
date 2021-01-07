@@ -53,8 +53,6 @@ class USEQA2Vec(BaseTextText2Vec):
             input=tf.constant(answers),
             context=tf.constant(contexts))['outputs'].numpy().tolist()
 
-
-
     @catch_vector_errors
     def encode(self, string: str, context_string: str=None, string_type: str='answer'):
         """
@@ -66,13 +64,13 @@ class USEQA2Vec(BaseTextText2Vec):
 
             Example:
             >>> from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
-            >>> model = LAReQA2Vec()
+            >>> model = USEQA2Vec()
             >>> model.encode_answer("Why?")
         """
         if string_type.lower() == 'answer':
             return self.encode_answer(string, context=context_string)
         elif string_type.lower() == 'question':
-            return self.encode_question(string, context=context_string)
+            return self.encode_question(string)
 
     @catch_vector_errors
     def bulk_encode(self, strings: List[str], context_strings: List[str]=None, string_type: str='answer'):
@@ -85,7 +83,7 @@ class USEQA2Vec(BaseTextText2Vec):
 
             Example:
             >>> from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
-            >>> model = LAReQA2Vec()
+            >>> model = USEQA2Vec()
             >>> model.bulk_encode("Why?", string_type='answer')
         """
         if context_strings is not None:
