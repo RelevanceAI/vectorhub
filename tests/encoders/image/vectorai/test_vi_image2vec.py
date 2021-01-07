@@ -1,4 +1,5 @@
 import os
+import pytest
 from vectorhub.encoders.image.vectorai import ViImage2Vec
 from ....test_utils import assert_encoder_works
 
