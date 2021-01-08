@@ -8,7 +8,7 @@ from ....doc_utils import ModelDefinition
 from ....import_utils import *
 from ..base import BaseImage2Vec
 
-if is_all_dependency_installed("encoders-image-tensorflow-face-detection"):
+if is_all_dependency_installed("encoders-image-tf-face-detection"):
     import tensorflow as tf
     if hasattr(tf, 'executing_eagerly'):
         if not tf.executing_eagerly():
