@@ -25,9 +25,10 @@
 
 <div align="center">
 
-[![Downloads](https://pepy.tech/badge/vectorhub-nightly)](https://pepy.tech/project/vectorhub-nightly)
-[![Downloads](https://pepy.tech/badge/vectorhub-nightly/week)](https://pepy.tech/project/vectorhub-nightly)
-[![Downloads](https://pepy.tech/badge/vectorhub-nightly/month)](https://pepy.tech/project/vectorhub-nightly)
+[![Downloads](https://static.pepy.tech/personalized-badge/vectorhub-nightly?period=total&units=international_system&left_color=black&right_color=purple&left_text=Downloads)
+[![Downloads](https://static.pepy.tech/personalized-badge/vectorhub-nightly?period=week&units=international_system&left_color=black&right_color=purple&left_text=Downloads)
+[![Downloads](https://static.pepy.tech/personalized-badge/vectorhub-nightly?period=month&units=international_system&left_color=black&right_color=purple&left_text=Downloads)
+
 </div>
 
 <h3 align="center">
