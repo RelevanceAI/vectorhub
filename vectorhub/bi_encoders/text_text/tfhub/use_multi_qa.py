@@ -30,4 +30,4 @@ class USEMultiQA2Vec(USEQA2Vec):
 
     @property
     def __name__(self):
-        return "usemultiqa_qa"
+        return "usemulti_qa"
