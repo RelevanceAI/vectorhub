@@ -23,6 +23,13 @@
     </a>
 </p>
 
+<div align="center">
+
+[![Downloads](https://pepy.tech/badge/vectorhub-nightly)](https://pepy.tech/project/vectorhub-nightly)
+[![Downloads](https://pepy.tech/badge/vectorhub-nightly/week)](https://pepy.tech/project/vectorhub-nightly)
+[![Downloads](https://pepy.tech/badge/vectorhub-nightly/month)](https://pepy.tech/project/vectorhub-nightly)
+</div>
+
 <h3 align="center">
 Vector Hub is a library for publication, discovery, and consumption of State-of-the-art models to turn data into vectors. (text2vec, image2vec, video2vec, graph2vec, bert, inception, etc)
 </h3>
@@ -45,6 +52,7 @@ Vector Hub provides:
 [Google Colab Quickstart](https://go.vctr.ai/vectorhub-colab)
 
 [Documentation](https://go.vctr.ai/vectorhub-docs)
+
 
 ## Why Vector Hub?
 
