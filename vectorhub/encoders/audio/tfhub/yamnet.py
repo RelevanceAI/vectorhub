@@ -41,5 +41,4 @@ class Yamnet2Vec(BaseAudio2Vec):
     
     @catch_vector_errors
     def bulk_encode(self, audios, vector_operation='mean', layer='embeddings'):
-        audios = [self.read(audio) if isinstance(audio, str) else audio for audio in audios]
         return [self.encode(audio, vector_operation=vector_operation, layer=layer) for audio in audios]
