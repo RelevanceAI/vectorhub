@@ -41,7 +41,7 @@ class LAReQA2Vec(BaseTextText2Vec):
 
     @property
     def __name__(self):
-        return "lareqa"
+        return "lareqa_qa"
 
     @catch_vector_errors
     def encode_question(self, question: str):

@@ -92,4 +92,4 @@ class USEQA2Vec(BaseTextText2Vec):
     
     @property
     def __name__(self):
-        return "useqa"
+        return "use_qa"

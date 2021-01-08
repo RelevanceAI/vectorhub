@@ -21,7 +21,7 @@ class DistilRobertaQA2Vec(BaseTextText2Vec):
     
     @property
     def __name__(self):
-        return "distilrobertaqa"
+        return "distilroberta_qa"
 
     @catch_vector_errors
     def encode_question(self, question: str):
