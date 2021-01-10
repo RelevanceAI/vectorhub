@@ -40,5 +40,4 @@ class TrillDistilled2Vec(BaseAudio2Vec):
     
     @catch_vector_errors
     def bulk_encode(self, audios, vector_operation='mean'):
-        audios = [self.read(audio) if isinstance(audio, str) else audio for audio in audios]
         return [self.encode(audio, vector_operation=vector_operation) for audio in audios]

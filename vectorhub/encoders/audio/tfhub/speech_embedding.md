@@ -37,7 +37,5 @@ os.environ["TFHUB_MODEL_LOAD_FORMAT"] = "COMPRESSED"
 #pip install vectorhub[encoders-audio-tfhub]
 from vectorhub.encoders.audio.tfhub import SpeechEmbedding2Vec
 model = SpeechEmbedding2Vec()
-sample = model.read('https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav')
-model.encode(sample)
-
+vector = model.encode('https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav')
 ```

@@ -1,7 +1,9 @@
-from ..base import BaseTextText2Vec
-from ....doc_utils import ModelDefinition
-from ....import_utils import *
 from datetime import date
+from typing import List
+from ....doc_utils import ModelDefinition
+from ....import_utils import is_all_dependency_installed
+from ....base import catch_vector_errors
+from ..base import BaseTextText2Vec
 if is_all_dependency_installed('encoders-text-torch-transformers'):
     from transformers import DPRContextEncoder, DPRContextEncoderTokenizer, DPRQuestionEncoder, DPRQuestionEncoderTokenizer, DPRReader, DPRReaderTokenizer
     import torch
@@ -55,3 +57,42 @@ class DPR2Vec(BaseTextText2Vec):
         input_ids = self.context_tokenizer(answers, return_tensors='pt', truncation=True, padding=True,
         max_length=512)["input_ids"]
         return self.context_model(input_ids).pooler_output.tolist()
+
+    @catch_vector_errors
+    def encode(self, string: str, string_type: str='answer'):
+        """
+            Encode question/answer using LAReQA model.
+            Args:
+                String: Any string 
+                Context_string: The context of the string.
+                string_type: question/answer. 
+
+            Example:
+            >>> from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+            >>> model = LAReQA2Vec()
+            >>> model.encode_answer("Why?")
+        """
+        if string_type.lower() == 'answer':
+            return self.encode_answer(string)
+        elif string_type.lower() == 'question':
+            return self.encode_question(string)
+
+    @catch_vector_errors
+    def bulk_encode(self, strings: List[str], string_type: str='answer'):
+        """
+            Bulk encode question/answer using LAReQA model.
+            Args:
+                String: List of strings.
+                Context_string: List of context of the strings.
+                string_type: question/answer.
+
+            Example:
+            >>> from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+            >>> model = LAReQA2Vec()
+            >>> model.bulk_encode("Why?", string_type='answer')
+        """
+        return [self.encode(x, string_type=string_type) for i, x in enumerate(strings)]
+
+    @property
+    def __name__(self):
+        return "dpr"

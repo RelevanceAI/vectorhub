@@ -46,5 +46,8 @@ class SpeechEmbedding2Vec(BaseAudio2Vec):
 
     @catch_vector_errors
     def bulk_encode(self, audios, vector_operation='mean'):
-        audios = [self.read(audio) if isinstance(audio, str) else audio for audio in audios]
-        return self._vector_operation(self.model(tf.constant(audios))[self.signature][0], vector_operation=vector_operation)
+        # TODO: Change list comprehension to tensor.
+        # audios = [self.read(audio) if isinstance(audio, str) else audio for audio in audios]	        
+        # return self._vector_operation(self.model(tf.constant(audios))[self.signature][0], vector_operation=vector_operation)
+        # TODO: Change list comprehension to tensor.
+        return [self.encode(x, vector_operation=vector_operation) for x in audios]

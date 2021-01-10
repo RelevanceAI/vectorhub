@@ -7,5 +7,5 @@ from vectorhub.encoders.text.torch_transformers import LegalBert2Vec
 from ....test_utils import assert_encoder_works 
 
 def test_torch_transformer_encode():
-    model = Longformer2Vec()
+    model = LegalBert2Vec()
     assert_encoder_works(model, data_type='text')

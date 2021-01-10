@@ -6,9 +6,9 @@ from vectorhub.encoders.text.torch_transformers import Transformer2Vec
 from ....test_utils import assert_encoder_works 
 
 MODEL_LIST = [
-    "bert-base-uncased", 
+    # "bert-base-uncased", 
     "distilbert-base-uncased", 
-    "facebook/bart-base"
+    # "facebook/bart-base"
 ]
 
 # TODO: Add vector output into the model name and type

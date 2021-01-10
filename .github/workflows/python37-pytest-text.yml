@@ -27,60 +27,45 @@ jobs:
           python-version: "3.7"
 
       - name: Install base dependencies
+        env:
+            VH_USERNAME: ${{ secrets.VH_USERNAME }}
+            VH_API_KEY: ${{ secrets.VH_API_KEY }}
         run: |
           sudo apt-get install libsndfile1
           python -m pip install --upgrade pip
           pip install -e .
+
       - name: Install dependencies for tests
+        env:
+            VH_USERNAME: ${{ secrets.VH_USERNAME }}
+            VH_API_KEY: ${{ secrets.VH_API_KEY }}
         run: |
           pip install -r requirements.txt
           pip install -e ".[test]"
+
       - name: Test Vectorai models
         env:
             VI_USERNAME: ${{ secrets.VI_USERNAME }}
             VI_API_KEY: ${{ secrets.VI_API_KEY }}
         run: |
           pytest tests/encoders/text/vectorai
-          pytest tests/encoders/audio/vectorai
-          pytest tests/encoders/image/vectorai
-      - name: Install & Test for text tfhub
-        run: |
-          pip install -e ".[encoders-text-tfhub]"
-          pytest tests/encoders/text/tfhub/test_bert.py
-          pytest tests/encoders/text/tfhub/test_elmo.py
-          pytest tests/encoders/text/tfhub/test_labse.py
 
       - name: Test cases text transformers
+        env:
+            VH_USERNAME: ${{ secrets.VH_USERNAME }}
+            VH_API_KEY: ${{ secrets.VH_API_KEY }}
         run: |
           pip install -e ".[encoders-text-tf-transformers]"
           pip install -e ".[encoders-text-torch-transformers]"
+          pytest tests/encoders/text/tf_transformers
+          pytest tests/encoders/text/torch_transformers
 
-      - name: Install dependencies and test for audio tfhub
-        run: |
-          
-          pip install -e ".[encoders-audio-tfhub]"
-          pytest tests/encoders/audio/tfhub
-
-      - name: Install and test for image-tfhub
-        run: |
-          pip install -e ".[encoders-image-tfhub]"
-          pytest tests/encoders/image/tfhub
-
-      - name: Install and test for image-fastai
-        run: |
-          pip install -e ".[encoders-image-fastai]"
-          pytest tests/encoders/image/fastai
-
-      - name: Install and Test cases for encoders-audio-pytorch
-        run: |
-          pip install -e ".[encoders-audio-pytorch]"
-          pytest tests/encoders/audio/pytorch
-
-      - name: Install dependencies and test bi-encoders tf-text-hub
+      - name: Install & Test for text tfhub
+        env:
+            VH_USERNAME: ${{ secrets.VH_USERNAME }}
+            VH_API_KEY: ${{ secrets.VH_API_KEY }}
         run: |
           pip install -e ".[encoders-text-tfhub]"
-          pytest tests/bi_encoders/text_text/tfhub
-      
-      - name: Test cases for Autoencoder
-        run: |
-          pytest -v -m text
+          pytest tests/encoders/text/tfhub/test_albert.py
+          pytest tests/encoders/text/tfhub/test_bert.py
+          pytest tests/encoders/text/tfhub/test_labse.py
