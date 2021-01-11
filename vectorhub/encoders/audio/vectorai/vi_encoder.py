@@ -20,16 +20,19 @@ from ..base import BaseAudio2Vec
 from ....base import catch_vector_errors
 
 class ViAudio2Vec:
-    def __init__(self, username, api_key, url=None, collection_name="base"):
+    def __init__(self, username, api_key, url: str="https://api.vctr.ai", collection_name="base"):
         """
             Request for a username and API key from gh.vctr.ai
+            Args:
+                Username and api_key: You can request a username and api key from vector AI Github package 
+                using request_api_key method.
+                url: Url for Vector AI website. 
+                collection_name: Not necessary for users.
+
         """
         self.username = username
         self.api_key = api_key
-        if url:
-            self.url = url
-        else:
-            self.url = "https://api.vctr.ai"
+        self.url = url
         self.collection_name = collection_name
         self._name = "default"
 
