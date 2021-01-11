@@ -252,13 +252,12 @@ reach the same accuracy.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a>`
-#pip install vectorhub[encoders-audio-tfhub]
-from vectorhub.encoders.audio.tfhub import SpeechEmbedding2Vec
-model = SpeechEmbedding2Vec()
-sample = model.read(‘<a class="reference external" href="https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav">https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav</a>’)
-model.encode(sample)</p>
-<p><a href="#id3"><span class="problematic" id="id4">``</span></a><a href="#id5"><span class="problematic" id="id6">`</span></a></p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-audio-tfhub]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.audio.tfhub</span> <span class="pre">import</span> <span class="pre">SpeechEmbedding2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">SpeechEmbedding2Vec()</span>
+<span class="pre">vector</span> <span class="pre">=</span> <span class="pre">model.encode('https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav')</span>
+<span class="pre">`</span></code></p>
 <dl class="py class">
 <dt id="vectorhub.encoders.audio.tfhub.speech_embedding.SpeechEmbedding2Vec">
 <em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.audio.tfhub.speech_embedding.</code><code class="sig-name descname">SpeechEmbedding2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://tfhub.dev/google/speech_embedding/1'</span></em>, <em class="sig-param"><span class="n">signature</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'default'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.tfhub.speech_embedding.SpeechEmbedding2Vec" title="Permalink to this definition">¶</a></dt>

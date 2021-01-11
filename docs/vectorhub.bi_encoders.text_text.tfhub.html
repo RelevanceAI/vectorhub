@@ -257,6 +257,19 @@ We present LAReQA, a challenging new benchmark for language-agnostic answer retr
 <em class="property">class </em><code class="sig-prename descclassname">vectorhub.bi_encoders.text_text.tfhub.lareqa_qa.</code><code class="sig-name descname">LAReQA2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="o">=</span><span class="default_value">'https://tfhub.dev/google/LAReQA/mBERT_En_En/1'</span></em>, <em class="sig-param"><span class="n">vector_length</span><span class="o">=</span><span class="default_value">512</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.lareqa_qa.LAReQA2Vec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="vectorhub.bi_encoders.text_text.html#vectorhub.bi_encoders.text_text.base.BaseTextText2Vec" title="vectorhub.bi_encoders.text_text.base.BaseTextText2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.bi_encoders.text_text.base.BaseTextText2Vec</span></code></a></p>
 <dl class="py method">
+<dt id="vectorhub.bi_encoders.text_text.tfhub.lareqa_qa.LAReQA2Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">strings</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">context_strings</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">string_type</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'answer'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.lareqa_qa.LAReQA2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bulk encode question/answer using LAReQA model.
+:param String: List of strings.
+:param Context_string: List of context of the strings.
+:param string_type: question/answer.</p>
+<p>Example:
+&gt;&gt;&gt; from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+&gt;&gt;&gt; model = LAReQA2Vec()
+&gt;&gt;&gt; model.bulk_encode(“Why?”, string_type=’answer’)</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="vectorhub.bi_encoders.text_text.tfhub.lareqa_qa.LAReQA2Vec.bulk_encode_answers">
 <code class="sig-name descname">bulk_encode_answers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">answers</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">contexts</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.lareqa_qa.LAReQA2Vec.bulk_encode_answers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -293,8 +306,16 @@ Example:</p>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.text_text.tfhub.lareqa_qa.LAReQA2Vec.encode">
-<code class="sig-name descname">encode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.lareqa_qa.LAReQA2Vec.encode" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">context_string</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">string_type</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'answer'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.lareqa_qa.LAReQA2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode question/answer using LAReQA model.
+:param String: Any string
+:param Context_string: The context of the string.
+:param string_type: question/answer.</p>
+<p>Example:
+&gt;&gt;&gt; from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+&gt;&gt;&gt; model = LAReQA2Vec()
+&gt;&gt;&gt; model.encode_answer(“Why?”)</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.text_text.tfhub.lareqa_qa.LAReQA2Vec.encode_answer">
@@ -369,6 +390,19 @@ Improve model URL validation to not include final number in URl string.</p>
 <em class="property">class </em><code class="sig-prename descclassname">vectorhub.bi_encoders.text_text.tfhub.use_multi_qa.</code><code class="sig-name descname">USEMultiQA2Vec</code><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.use_multi_qa.USEMultiQA2Vec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#vectorhub.bi_encoders.text_text.tfhub.use_qa.USEQA2Vec" title="vectorhub.bi_encoders.text_text.tfhub.use_qa.USEQA2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.bi_encoders.text_text.tfhub.use_qa.USEQA2Vec</span></code></a></p>
 <dl class="py method">
+<dt id="vectorhub.bi_encoders.text_text.tfhub.use_multi_qa.USEMultiQA2Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">strings</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">context_strings</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">string_type</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'answer'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.use_multi_qa.USEMultiQA2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bulk encode question/answer using LAReQA model.
+:param String: List of strings.
+:param Context_string: List of context of the strings.
+:param string_type: question/answer.</p>
+<p>Example:
+&gt;&gt;&gt; from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+&gt;&gt;&gt; model = USEQA2Vec()
+&gt;&gt;&gt; model.bulk_encode(“Why?”, string_type=’answer’)</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="vectorhub.bi_encoders.text_text.tfhub.use_multi_qa.USEMultiQA2Vec.bulk_encode_answers">
 <code class="sig-name descname">bulk_encode_answers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">answers</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">contexts</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.use_multi_qa.USEMultiQA2Vec.bulk_encode_answers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -398,8 +432,16 @@ Improve model URL validation to not include final number in URl string.</p>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.text_text.tfhub.use_multi_qa.USEMultiQA2Vec.encode">
-<code class="sig-name descname">encode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.use_multi_qa.USEMultiQA2Vec.encode" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">context_string</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">string_type</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'answer'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.use_multi_qa.USEMultiQA2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode question/answer using LAReQA model.
+:param String: Any string
+:param Context_string: The context of the string.
+:param string_type: question/answer.</p>
+<p>Example:
+&gt;&gt;&gt; from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+&gt;&gt;&gt; model = USEQA2Vec()
+&gt;&gt;&gt; model.encode_answer(“Why?”)</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.text_text.tfhub.use_multi_qa.USEMultiQA2Vec.encode_answer">
@@ -487,6 +529,19 @@ are useful out-of-the-box to retrieve an answer given a question, as well as que
 <em class="property">class </em><code class="sig-prename descclassname">vectorhub.bi_encoders.text_text.tfhub.use_qa.</code><code class="sig-name descname">USEQA2Vec</code><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.use_qa.USEQA2Vec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="vectorhub.bi_encoders.text_text.html#vectorhub.bi_encoders.text_text.base.BaseTextText2Vec" title="vectorhub.bi_encoders.text_text.base.BaseTextText2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.bi_encoders.text_text.base.BaseTextText2Vec</span></code></a></p>
 <dl class="py method">
+<dt id="vectorhub.bi_encoders.text_text.tfhub.use_qa.USEQA2Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">strings</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">context_strings</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">string_type</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'answer'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.use_qa.USEQA2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bulk encode question/answer using LAReQA model.
+:param String: List of strings.
+:param Context_string: List of context of the strings.
+:param string_type: question/answer.</p>
+<p>Example:
+&gt;&gt;&gt; from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+&gt;&gt;&gt; model = USEQA2Vec()
+&gt;&gt;&gt; model.bulk_encode(“Why?”, string_type=’answer’)</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="vectorhub.bi_encoders.text_text.tfhub.use_qa.USEQA2Vec.bulk_encode_answers">
 <code class="sig-name descname">bulk_encode_answers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">answers</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">contexts</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.use_qa.USEQA2Vec.bulk_encode_answers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -516,8 +571,16 @@ are useful out-of-the-box to retrieve an answer given a question, as well as que
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.text_text.tfhub.use_qa.USEQA2Vec.encode">
-<code class="sig-name descname">encode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.use_qa.USEQA2Vec.encode" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">context_string</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">string_type</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'answer'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.tfhub.use_qa.USEQA2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode question/answer using LAReQA model.
+:param String: Any string
+:param Context_string: The context of the string.
+:param string_type: question/answer.</p>
+<p>Example:
+&gt;&gt;&gt; from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+&gt;&gt;&gt; model = USEQA2Vec()
+&gt;&gt;&gt; model.encode_answer(“Why?”)</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.text_text.tfhub.use_qa.USEQA2Vec.encode_answer">

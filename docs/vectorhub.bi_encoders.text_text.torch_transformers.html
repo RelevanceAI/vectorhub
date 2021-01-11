@@ -257,6 +257,19 @@ Open-domain question answering relies on efficient passage retrieval to select c
 <em class="property">class </em><code class="sig-prename descclassname">vectorhub.bi_encoders.text_text.torch_transformers.dpr.</code><code class="sig-name descname">DPR2Vec</code><a class="headerlink" href="#vectorhub.bi_encoders.text_text.torch_transformers.dpr.DPR2Vec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="vectorhub.bi_encoders.text_text.html#vectorhub.bi_encoders.text_text.base.BaseTextText2Vec" title="vectorhub.bi_encoders.text_text.base.BaseTextText2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.bi_encoders.text_text.base.BaseTextText2Vec</span></code></a></p>
 <dl class="py method">
+<dt id="vectorhub.bi_encoders.text_text.torch_transformers.dpr.DPR2Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">strings</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">string_type</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'answer'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.torch_transformers.dpr.DPR2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bulk encode question/answer using LAReQA model.
+:param String: List of strings.
+:param Context_string: List of context of the strings.
+:param string_type: question/answer.</p>
+<p>Example:
+&gt;&gt;&gt; from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+&gt;&gt;&gt; model = LAReQA2Vec()
+&gt;&gt;&gt; model.bulk_encode(“Why?”, string_type=’answer’)</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="vectorhub.bi_encoders.text_text.torch_transformers.dpr.DPR2Vec.bulk_encode_answers">
 <code class="sig-name descname">bulk_encode_answers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">answers</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.torch_transformers.dpr.DPR2Vec.bulk_encode_answers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bulk encode the answers with DPR.</p>
@@ -288,8 +301,16 @@ Open-domain question answering relies on efficient passage retrieval to select c
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.text_text.torch_transformers.dpr.DPR2Vec.encode">
-<code class="sig-name descname">encode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.torch_transformers.dpr.DPR2Vec.encode" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">string_type</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'answer'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.text_text.torch_transformers.dpr.DPR2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode question/answer using LAReQA model.
+:param String: Any string
+:param Context_string: The context of the string.
+:param string_type: question/answer.</p>
+<p>Example:
+&gt;&gt;&gt; from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+&gt;&gt;&gt; model = LAReQA2Vec()
+&gt;&gt;&gt; model.encode_answer(“Why?”)</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.text_text.torch_transformers.dpr.DPR2Vec.encode_answer">
