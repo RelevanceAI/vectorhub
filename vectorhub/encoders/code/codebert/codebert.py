@@ -8,8 +8,8 @@ from ....import_utils import is_all_dependency_installed
 from ...text.base import BaseText2vec
 
 if is_all_dependency_installed('encoders-code-transformers'):
-        import torch
-        from transformers import RobertaTokenizer, RobertaConfig, RobertaModel
+    import torch
+    from transformers import RobertaTokenizer, RobertaConfig, RobertaModel
 
 CodeBertModelDefinition = ModelDefinition(markdown_filepath="encoders/code/transformeres/code2vec")
 __doc__ = CodeBertModelDefinition.create_docs()
