@@ -4,7 +4,7 @@ model_name: "FaceNet"
 vector_length: "512 (default)"
 paper: "https://arxiv.org/pdf/1503.03832.pdf"
 repo: "N/A" 
-installation: "pip install vectorhub[encoders-image-tensorflow-face-detection]"
+installation: "pip install vectorhub[encoders-image-tf-face-detection]"
 release_date: "2015-03-12"
 category: image
 ---
@@ -19,8 +19,8 @@ We also introduce the concept of harmonic embeddings, and a harmonic triplet los
 ## Example
 
 ```python
-#pip install vectorhub[encoders-image-tfhub]
-from vectorhub.encoders.image.tfhub import Face2Vec
+#pip install vectorhub[encoders-image-tf-face-detection]
+from vectorhub.encoders.face.tf import Face2Vec
 model = Face2Vec()
 sample = model.read('https://getvectorai.com/assets/hub-logo-with-text.png')
 model.encode(sample)
