@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>ViAudio2Vec &mdash; VectorHub 0.1 documentation</title>
+  <title>vectorhub.encoders.code package &mdash; VectorHub 0.1 documentation</title>
   
 
   
@@ -37,9 +37,7 @@
 
     
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="USEQA2Vec" href="bi_encoders.text_text.use_qa2vec.html" />
-    <link rel="prev" title="Wav2Vec" href="encoders.audio.wav2vec.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -112,16 +110,13 @@
 <li class="toctree-l1"><a class="reference internal" href="encoders.image.vectorai2vec.html">ViImage2Vec</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Audio Encoders</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="encoders.audio.speech_embedding2vec.html">SpeechEmbedding2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoders.audio.trill2vec.html">Trill2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoders.audio.vggish2vec.html">Vggish2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoders.audio.yamnet2vec.html">Yamnet2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encoders.audio.wav2vec.html">Wav2Vec</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">ViAudio2Vec</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#vector-ai">Vector AI</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.vectorai2vec.html">ViAudio2Vec</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Text Bi-Encoders</span></p>
 <ul>
@@ -180,13 +175,13 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>ViAudio2Vec</li>
+      <li>vectorhub.encoders.code package</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/encoders.audio.vectorai2vec.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/vectorhub.encoders.code.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -199,43 +194,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="viaudio2vec">
-<h1>ViAudio2Vec<a class="headerlink" href="#viaudio2vec" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="vector-ai">
-<h2>Vector AI<a class="headerlink" href="#vector-ai" title="Permalink to this headline">¶</a></h2>
-<p>For Vector AI users to access to our deployed vector models and evaluate embeddings.</p>
-<span class="target" id="module-vectorhub.encoders.audio.vectorai.vi_encoder"></span><p>Vector AI’s deployed model. The purpose of this model is to
-allow developers to easily build encodings and see for themselves
-how the embedding works. These models are selected to work out-of-the-box
-after testing for their success on our end.</p>
-<p>To get access to Vector AI, we need to use</p>
-<p class="rubric">Example</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">vectorhub.text.encoder.vectorai</span> <span class="kn">import</span> <span class="n">ViText2Vec</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">ViText2Vec</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">api_key</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;audio_file.wav&quot;</span><span class="p">)</span>
-</pre></div>
+  <div class="section" id="vectorhub-encoders-code-package">
+<h1>vectorhub.encoders.code package<a class="headerlink" href="#vectorhub-encoders-code-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vectorhub.encoders.code.transformers.html">vectorhub.encoders.code.transformers package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vectorhub.encoders.code.transformers.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vectorhub.encoders.code.transformers.html#module-vectorhub.encoders.code.transformers.codebert">vectorhub.encoders.code.transformers.codebert module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vectorhub.encoders.code.transformers.html#module-vectorhub.encoders.code.transformers">Module contents</a></li>
+</ul>
+</li>
+</ul>
 </div>
-<dl class="py class">
-<dt id="vectorhub.encoders.audio.vectorai.vi_encoder.ViAudio2Vec">
-<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.audio.vectorai.vi_encoder.</code><code class="sig-name descname">ViAudio2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span></em>, <em class="sig-param"><span class="n">api_key</span></em>, <em class="sig-param"><span class="n">url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://api.vctr.ai'</span></em>, <em class="sig-param"><span class="n">collection_name</span><span class="o">=</span><span class="default_value">'base'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.vectorai.vi_encoder.ViAudio2Vec" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Request for a username and API key from gh.vctr.ai
-:param Username and api_key: You can request a username and api key from vector AI Github package
-:param using request_api_key method.:
-:param url: Url for Vector AI website.
-:param collection_name: Not necessary for users.</p>
-<dl class="py method">
-<dt id="vectorhub.encoders.audio.vectorai.vi_encoder.ViAudio2Vec.encode">
-<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">audio</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.audio.vectorai.vi_encoder.ViAudio2Vec.encode" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="vectorhub.encoders.audio.vectorai.vi_encoder.ViAudio2Vec.vector_length">
-<em class="property">property </em><code class="sig-name descname">vector_length</code><a class="headerlink" href="#vectorhub.encoders.audio.vectorai.vi_encoder.ViAudio2Vec.vector_length" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+</div>
+<div class="section" id="module-vectorhub.encoders.code">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-vectorhub.encoders.code" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -244,10 +219,6 @@ after testing for their success on our end.</p>
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="bi_encoders.text_text.use_qa2vec.html" class="btn btn-neutral float-right" title="USEQA2Vec" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="encoders.audio.wav2vec.html" class="btn btn-neutral float-left" title="Wav2Vec" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 
