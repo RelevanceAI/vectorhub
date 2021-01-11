@@ -20,6 +20,7 @@ with warnings.catch_warnings():
     from .encoders.image.tensorflow import *
     from .encoders.image.vectorai import *
     from .encoders.image.fastai import *
+    from .encoders.face.tf import *
     from .bi_encoders.text_text.tfhub import *
     from .bi_encoders.text_text.torch_transformers import *
     from .bi_encoders.text_text.sentence_transformers import *
