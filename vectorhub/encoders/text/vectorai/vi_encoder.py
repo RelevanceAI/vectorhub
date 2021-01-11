@@ -77,3 +77,7 @@ class ViText2Vec(BaseText2Vec):
     @__name__.setter
     def __name__(self, value):
         self._name = value
+
+    @property
+    def vector_length(self):
+        return 512

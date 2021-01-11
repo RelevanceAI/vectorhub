@@ -40,4 +40,6 @@ MODEL_REQUIREMENTS = {
     "text-bi-encoder-tfhub-use-qa": "encoders-text-tfhub",
     "text-bi-encoder-torch-dpr": "encoders-text-torch-transformers",
     
+    "encoders-code-transformers": "encoders-text-transformers",
+
 }

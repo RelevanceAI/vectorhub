@@ -20,12 +20,14 @@ with warnings.catch_warnings():
     from .encoders.image.vectorai import *
     from .encoders.image.fastai import *
     from .encoders.face.tf import *
+    from .encoders.code.transformers import *
     from .bi_encoders.text_text.tfhub import *
     from .bi_encoders.text_text.torch_transformers import *
     from .bi_encoders.text_text.sentence_transformers import *
 
 # Include the class and then the requirements key from models_dict.py
 ENCODER_MAPPINGS = defaultdict(tuple, {
+    # Text models
     Albert2Vec.definition.model_id : (Albert2Vec, "encoders-text-tfhub-albert"),
     Bert2Vec.definition.model_id : (Bert2Vec, "encoders-text-tfhub-bert"),
     Elmo2Vec.definition.model_id: (Elmo2Vec, "encoders-text-tfhub-elmo"),
@@ -40,6 +42,7 @@ ENCODER_MAPPINGS = defaultdict(tuple, {
     # "text/tf-transformers" : (TFTransformer2Vec, "encoders-text-tf-transformers"),
     # "text/torch-transformers" : (Transformer2Vec, "encoders-text-torch-transformers"),
 
+    # Audio models
     Wav2Vec.definition.model_id : (Wav2Vec, "encoders-audio-pytorch-fairseq"),
     SpeechEmbedding2Vec.definition.model_id : (SpeechEmbedding2Vec, "encoders-audio-tfhub-speech_embedding"),
     Trill2Vec.definition.model_id : (Trill2Vec, 'encoders-audio-tfhub-trill'),
@@ -47,6 +50,7 @@ ENCODER_MAPPINGS = defaultdict(tuple, {
     Vggish2Vec.definition.model_id : (Vggish2Vec, 'encoders-audio-tfhub-vggish'),
     Yamnet2Vec.definition.model_id : (Yamnet2Vec, "encoders-audio-tfhub-vggish"),
 
+    # Image models
     BitSmall2Vec.definition.model_id : (BitSmall2Vec, "encoders-image-tfhub-bit"),
     BitMedium2Vec.definition.model_id : (BitMedium2Vec, "encoders-image-tfhub-bit"),
     InceptionV12Vec.definition.model_id : (InceptionV12Vec, "encoders-image-tfhub-inception"),
@@ -58,7 +62,12 @@ ENCODER_MAPPINGS = defaultdict(tuple, {
     ResnetV12Vec.definition.model_id : (ResnetV12Vec, "encoders-image-tfhub-resnet"),
     ResnetV22Vec.definition.model_id : (ResnetV22Vec, "encoders-image-tfhub-resnet"),
     FastAIResnet2Vec.definition.model_id: (FastAIResnet2Vec, "encoders-image-fastai-resnet"),
+
+    # Face Model
     Face2Vec.definition.model_id: (Face2Vec, "encoders-image-tf-face-detection"),
+
+    # Code model 
+    Code2Vec.definition.model_id: (Code2Vec, "encoders-text-tranfsormers"),
 })
 
 class AutoEncoder:
