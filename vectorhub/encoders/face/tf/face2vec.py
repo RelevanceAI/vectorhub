@@ -6,7 +6,7 @@ from datetime import date
 from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
 from ....import_utils import *
-from ..base import BaseImage2Vec
+from ...image.base import BaseImage2Vec
 
 if is_all_dependency_installed("encoders-image-tf-face-detection"):
     import tensorflow as tf
