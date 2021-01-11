@@ -11,7 +11,7 @@ if is_all_dependency_installed('encoders-code-transformers'):
     import torch
     from transformers import RobertaTokenizer, RobertaConfig, RobertaModel
 
-CodeBertModelDefinition = ModelDefinition(markdown_filepath="encoders/code/transformeres/code2vec")
+CodeBertModelDefinition = ModelDefinition(markdown_filepath="encoders/code/transformers/codebert")
 __doc__ = CodeBertModelDefinition.create_docs()
 
 class Code2Vec(BaseText2Vec):

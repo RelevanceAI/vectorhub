@@ -28,16 +28,19 @@ def get_package_requirements(requirement_type: str):
         "tf-models-official": ["encoders-text-tfhub", "encoders-text-tfhub-windows"],
         "bert-for-tf2": ["encoders-text-tfhub", "encoders-text-tfhub-windows"],
         "sentence-transformers": ["encoders-text-sentence-transformers"],
-        "torch>=1.6.0": ["encoders-audio-pytorch", "encoders-text-torch-transformers", "encoders-text-sentence-transformers", "encoders-image-fastai"],
+        "torch>=1.6.0": ["encoders-audio-pytorch", "encoders-text-torch-transformers", "encoders-text-sentence-transformers", 
+            "encoders-image-fastai", "encoders-code-transformers"],
         "fairseq": ["encoders-audio-pytorch"],
-        "transformers": ["encoders-text-torch-transformers", "encoders-text-tf-transformers"],
+        "transformers": ["encoders-text-torch-transformers", "encoders-text-tf-transformers", "encoders-code-transformers"],
         "moviepy": ["encoders-video"],
+        "vectorai": ["test"],
         "opencv-python": ["encoders-video", "encoders-image-tf-face-detection"],
         "appdirs": ["encoders-image-tf-face-detection"],
         "fastai==2.1.8": ["encoders-image-fastai"],
         "mtcnn": ["encoders-image-tf-face-detection"],
         "Pillow": ["encoders-image-tf-face-detection"]
     }
+
     dependencies = []
     for k, v in requirements.items():
         if requirement_type in v:
