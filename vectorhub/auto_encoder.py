@@ -17,7 +17,6 @@ with warnings.catch_warnings():
     from .encoders.audio.tfhub import *
     from .encoders.audio.pytorch import *
     from .encoders.image.tfhub import *
-    from .encoders.image.tensorflow import *
     from .encoders.image.vectorai import *
     from .encoders.image.fastai import *
     from .encoders.face.tf import *
