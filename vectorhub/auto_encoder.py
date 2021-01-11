@@ -17,9 +17,9 @@ with warnings.catch_warnings():
     from .encoders.audio.tfhub import *
     from .encoders.audio.pytorch import *
     from .encoders.image.tfhub import *
-    from .encoders.image.tensorflow import *
     from .encoders.image.vectorai import *
     from .encoders.image.fastai import *
+    from .encoders.face.tf import *
     from .bi_encoders.text_text.tfhub import *
     from .bi_encoders.text_text.torch_transformers import *
     from .bi_encoders.text_text.sentence_transformers import *
@@ -58,7 +58,7 @@ ENCODER_MAPPINGS = defaultdict(tuple, {
     ResnetV12Vec.definition.model_id : (ResnetV12Vec, "encoders-image-tfhub-resnet"),
     ResnetV22Vec.definition.model_id : (ResnetV22Vec, "encoders-image-tfhub-resnet"),
     FastAIResnet2Vec.definition.model_id: (FastAIResnet2Vec, "encoders-image-fastai-resnet"),
-    Face2Vec.definition.model_id: (Face2Vec, "encoders-image-tensorflow-face-detection"),
+    Face2Vec.definition.model_id: (Face2Vec, "encoders-image-tf-face-detection"),
 })
 
 class AutoEncoder:
