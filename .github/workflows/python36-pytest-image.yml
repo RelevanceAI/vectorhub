@@ -69,8 +69,8 @@ jobs:
             VH_USERNAME: ${{ secrets.VH_USERNAME }}
             VH_API_KEY: ${{ secrets.VH_API_KEY }}
         run: |
-          pip install -e .["encoders-image-tensorflow-face-detection"]
-          pytest tests/encoders/image/tensorflow
+          pip install -e .["encoders-image-tf-face-detection"]
+          pytest tests/encoders/face
 
       - name: Test cases for Autoencoder
         env:
