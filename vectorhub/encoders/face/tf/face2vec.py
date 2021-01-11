@@ -23,7 +23,7 @@ if is_all_dependency_installed("encoders-image-tf-face-detection"):
     from PIL import Image
     from keras.models import load_model
 
-FaceNetModelDefinition = ModelDefinition(markdown_filepath="encoders/image/tensorflow/face2vec")
+FaceNetModelDefinition = ModelDefinition(markdown_filepath="encoders/face/tf/face2vec")
 __doc__ = FaceNetModelDefinition.create_docs()
 
 class Face2Vec(BaseImage2Vec):
