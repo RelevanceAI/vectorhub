@@ -32,7 +32,11 @@ class ViAudio2Vec:
             self.url = "https://api.vctr.ai"
         self.collection_name = collection_name
         self._name = "default"
-    
+
+    @property
+    def vector_length(self):
+        return 512
+
     @catch_vector_errors
     def encode(self, audio):
         return requests.get(
