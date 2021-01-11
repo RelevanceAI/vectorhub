@@ -2,7 +2,7 @@
 Face 2 Vec
 """
 import numpy as np
-from vectorhub.encoders.image.tensorflow import Face2Vec
+from vectorhub.encoders.face.tf import Face2Vec
 from ....test_utils import assert_encoder_works
 
 def test_face_2_vec_works():
