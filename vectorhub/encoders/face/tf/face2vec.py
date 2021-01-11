@@ -1,6 +1,7 @@
 """
     Face2Vec Embedding.
 """
+import os
 from typing import Union
 from datetime import date
 from ....base import catch_vector_errors
@@ -17,7 +18,6 @@ if is_all_dependency_installed("encoders-image-tf-face-detection"):
     import cv2
     import numpy as np
     import requests
-    import os
     from mtcnn.mtcnn import MTCNN
     from numpy import asarray
     from PIL import Image
@@ -33,7 +33,7 @@ class Face2Vec(BaseImage2Vec):
             self._download_model(model_url)
         self.vector_length = self.urls[model_url]["vector_length"]
         self.model = load_model(self.model_path)
-    
+
     def _download_model(self, model_url):
         response = requests.get(model_url)
         if response.status_code != 200:
@@ -82,7 +82,7 @@ class Face2Vec(BaseImage2Vec):
             image = image.resize(reshape_size)
         face_array = asarray(image)
         return face_array
-    
+
     def show_face_landmarks(self, image_filename: str):
         """
         Show face landmarks
