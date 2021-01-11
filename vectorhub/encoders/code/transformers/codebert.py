@@ -1,6 +1,7 @@
 """
 FastAI Resnet model
 """
+from typing import List
 from datetime import date
 from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
