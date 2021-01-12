@@ -36,6 +36,8 @@ Vector Hub is a library for publication, discovery, and consumption of State-of-
 </h3>
 
 
+---
+
 There are many ways to extract vectors from data. This library aims to bring in all the state of the art models in a simple manner to vectorise your data easily.
 
 Vector Hub provides:
@@ -44,15 +46,21 @@ Vector Hub provides:
 - Retrieve and find information about a model
 - An easy way to handle dependencies easily for different models
 
+---
+
 ## Quickstart:
 
 [Intro to Vectors](https://github.com/vector-ai/vectorhub#what-are-vectors) | [Model Hub](https://hub.getvectorai.com/) | [Google Colab Quickstart](https://go.vctr.ai/vectorhub-colab) | [Python Documentation](https://go.vctr.ai/vectorhub-docs)
+
+---
 
 ## Why Vector Hub?
 
 There are thousands of _____2Vec models across different use cases/domains. We wanted to create a hub that allowed people to aggregate their work and share it with the community. 
 
 Think transformers for NLP, Sci-kit Learn for data scientists.
+
+---
 
 ## Installation:
 To get started quickly install vectorhub:
@@ -90,7 +98,7 @@ python3 -m pip install --upgrade pip
 python3 -m pip install vectorhub[all]
 ```
 
-### Leverage [Google Tensorflow Hub's](https://tfhub.dev) powerful models to create vectors
+### Leverage [Tensorflow Hub's](https://tfhub.dev) powerful models to create vectors
 Vectorise your image in 3 lines of code using [Google's Big Image Transfer model](https://blog.tensorflow.org/2020/05/bigtransfer-bit-state-of-art-transfer-learning-computer-vision.html):
 
 ```
@@ -135,6 +143,7 @@ text_encoder.encode_answer('Sparta!')
 [0.47, 0.83, 0.148, ...]
 ```
 
+---
 
 ### Index and search your vectors easily on the cloud using 1 line of code! 
 
@@ -231,6 +240,8 @@ If you are interested in these applications, take a look at [Vector AI](https://
 The goal of VectorHub is to provide a flexible yet comprehensive framework that allows people to easily be able to turn their data into vectors in whatever form the data can be in. While our focus is largely on simplicity, customisation should always be an option and the level of abstraction is always up model-uploader as long as the reason is justified. For example - with text, we chose to keep the encoding at the text level as opposed to the token level because selection of text should not be applied at the token level so practitioners are aware of what texts go into the actual vectors (i.e. instead of ignoring a '[next][SEP][wo][##rd]', we are choosing to ignore 'next word' explicitly. We think this will allow practitioners to focus better on what should matter when it comes to encoding. 
 
 Similarly, when we are turning data into vectors, we convert to native Python objects. The decision for this is to attempt to remove as many dependencies as possible once the vectors are created - specifically those of deep learning frameworks such as Tensorflow/PyTorch. This is to allow other frameworks to be built on top of it.
+
+## Team
 
 ### Credit:
 
