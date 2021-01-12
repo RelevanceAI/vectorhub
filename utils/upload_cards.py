@@ -74,7 +74,7 @@ if __name__=="__main__":
             time.sleep(5)
     text_encoder = ViText2Vec(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
 
-    response = vi_client.insert_documents(args.collection_name, docs, models={'description': text_encoder})
+    response = vi_client.insert_documents(args.collection_name, docs, models={'description': text_encoder}, overwrite=True)
 
     LOGGER.debug(response)
     print(response)
