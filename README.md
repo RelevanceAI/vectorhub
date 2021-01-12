@@ -75,7 +75,7 @@ To install different types of models:
 pip install vectorhub[text-encoder-transformers]
 ```
 
-To install all models at once:
+To install all models at once (note: this can take a while! We recommend searching for an interesting model on the website such as USE2Vec or BitMedium2Vec and following the installation line or see examples below.)
 ```
 pip install vectorhub[all]
 ```
@@ -90,20 +90,6 @@ python3 -m pip install --upgrade pip
 python3 -m pip install vectorhub[all]
 ```
 
-
-### Instantiate our auto_encoder class as such and use any of the models! 
-
-```
-from vectorhub.auto_encoder import AutoEncoder
-encoder = AutoEncoder.from_model('text/bert')
-encoder.encode("Hello vectorhub!")
-[0.47, 0.83, 0.148, ...]
-```
-
-You can choose from our list of models: 
-```
-['text/albert', 'text/bert', 'text/labse', 'text/use', 'text/use-multi', 'text/use-lite', 'text/legal-bert', 'audio/fairseq', 'audio/speech-embedding', 'audio/trill', 'audio/trill-distilled', 'audio/vggish', 'audio/yamnet', 'audio/wav2vec', 'image/bit', 'image/bit-medium', 'image/inception', 'image/inception-v2', 'image/inception-v3', 'image/inception-resnet', 'image/mobilenet', 'image/mobilenet-v2', 'image/resnet', 'image/resnet-v2', 'text_text/use-multi-qa', 'text_text/use-qa', 'text_text/dpr', 'text_text/lareqa-qa']
-```
 ### Leverage [Google Tensorflow Hub's](https://tfhub.dev) powerful models to create vectors
 Vectorise your image in 3 lines of code using [Google's Big Image Transfer model](https://blog.tensorflow.org/2020/05/bigtransfer-bit-state-of-art-transfer-learning-computer-vision.html):
 
@@ -149,15 +135,6 @@ text_encoder.encode_answer('Sparta!')
 [0.47, 0.83, 0.148, ...]
 ```
 
-### Easily access information with your model!
-
-```
-# If you want to additional information about the model, you can access the information below:
-text_encoder.definition.repo
-text_encoder.definition.description
-# If you want all the information in a dictionary, you can call:
-text_encoder.definition.create_dict() # returns a dictionary with model id, description, paper, etc.
-```
 
 ### Index and search your vectors easily to the cloud using 1 line of code! 
 
@@ -172,11 +149,12 @@ encoder.request_api_key(username, email)
 # Index in 1 line of code
 encoder.add_documents(user, api_key, items)
 
-# Search in 1 line of code
-encoder.search(new_items)
+# Search in 1 line of code and get the most similar results.
+encoder.search('basin')
+
 ```
 
-Add metadata to your search!
+Add metadata to your search (information about your vectors)
 
 ```
 metadata = list(range(3))
@@ -198,6 +176,29 @@ vi_client.insert_documents('collection_name_here', docs, models={'color': encode
 vi_client.search('collection_name_here', field='color_vector_', vector=encoder.encode('purple'))
 ```
 
+### Easily access information with your model!
+
+```
+# If you want to additional information about the model, you can access the information below:
+text_encoder.definition.repo
+text_encoder.definition.description
+# If you want all the information in a dictionary, you can call:
+text_encoder.definition.create_dict() # returns a dictionary with model id, description, paper, etc.
+```
+
+### Instantiate our auto_encoder class as such and use any of the models! 
+
+```
+from vectorhub.auto_encoder import AutoEncoder
+encoder = AutoEncoder.from_model('text/bert')
+encoder.encode("Hello vectorhub!")
+[0.47, 0.83, 0.148, ...]
+```
+
+You can choose from our list of models: 
+```
+['text/albert', 'text/bert', 'text/labse', 'text/use', 'text/use-multi', 'text/use-lite', 'text/legal-bert', 'audio/fairseq', 'audio/speech-embedding', 'audio/trill', 'audio/trill-distilled', 'audio/vggish', 'audio/yamnet', 'audio/wav2vec', 'image/bit', 'image/bit-medium', 'image/inception', 'image/inception-v2', 'image/inception-v3', 'image/inception-resnet', 'image/mobilenet', 'image/mobilenet-v2', 'image/resnet', 'image/resnet-v2', 'text_text/use-multi-qa', 'text_text/use-qa', 'text_text/dpr', 'text_text/lareqa-qa']
+```
 ## What are Vectors?
 Common Terminologys when operating with Vectors:
 - Vectors (aka. Embeddings, Encodings, Neural Representation) ~ It is a list of numbers to represent a piece of data. 
