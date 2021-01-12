@@ -32,7 +32,7 @@
 </div>
 
 <h3 align="center">
-Vector Hub is a library for publication, discovery, and consumption of State-of-the-art models to turn data into vectors. (text2vec, image2vec, video2vec, graph2vec, bert, inception, etc)
+Vector Hub is a library for publication, discovery, and consumption of State-of-the-art models to turn data into vectors. (Text2Vec, Image2Vec, Video2Vec, Face2Vec, Bert2Vec, Inception2Vec, Code2Vec, LegalBert2Vec, etc)
 </h3>
 
 
