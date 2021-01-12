@@ -170,7 +170,7 @@ metadata = list(range(3))
 encoder.add_documents(user, api_key, items=items, metadata=metadata)
 ```
 
-#### Upload vectors easily with documents alongside Vector AI
+#### Using a document-orientated-approach instead:
 
 ```
 from vectorhub.encoders.text import Transformer2Vec
@@ -185,6 +185,8 @@ vi_client.insert_documents('collection_name_here', docs, models={'color': encode
 vi_client.search('collection_name_here', field='color_vector_', vector=encoder.encode('purple'))
 ```
 
+---
+
 ### Easily access information with your model!
 
 ```
@@ -194,6 +196,8 @@ text_encoder.definition.description
 # If you want all the information in a dictionary, you can call:
 text_encoder.definition.create_dict() # returns a dictionary with model id, description, paper, etc.
 ```
+
+---
 
 ### Instantiate our auto_encoder class as such and use any of the models! 
 
@@ -242,6 +246,8 @@ The goal of VectorHub is to provide a flexible yet comprehensive framework that 
 Similarly, when we are turning data into vectors, we convert to native Python objects. The decision for this is to attempt to remove as many dependencies as possible once the vectors are created - specifically those of deep learning frameworks such as Tensorflow/PyTorch. This is to allow other frameworks to be built on top of it.
 
 ## Team
+
+This library is maintained by the Vector AI - your go-to solution for Production-Ready AI development. If you are interested in using our API for vector search, visit https://vctr.ai or if you are interested in using Vector AI API, check out https://api.vctr.ai or our Github package https://gh.vctr.ai
 
 ### Credit:
 
