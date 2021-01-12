@@ -5,7 +5,7 @@ vector_length: "768 (default)"
 paper: "https://arxiv.org/abs/2002.08155"
 installation: "pip install vectorhub[encoders-code-transformers]"
 release_date: "2020-02-19"
-category: "image"
+category: "text"
 repo: https://github.com/microsoft/CodeBERT
 
 ---
