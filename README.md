@@ -148,7 +148,7 @@ text_encoder.encode_answer('Sparta!')
 ### Index and search your vectors easily on the cloud using 1 line of code! 
 
 ```
-from vectorhub.encoders.text import USE2VEc
+from vectorhub.encoders.text.tfhub import USE2VEc
 encoder = USE2Vec()
 
 # You can request an api_key using: 
