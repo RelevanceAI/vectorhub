@@ -166,6 +166,30 @@ text_encoder.definition.description
 text_encoder.definition.create_dict() # returns a dictionary with model id, description, paper, etc.
 ```
 
+### Index and search your vectors easily to the cloud using 1 line of code! 
+
+```
+from vectorhub.encoders.text import USE2VEc
+encoder = USE2Vec()
+items = ['chicken', 'toilet', 'paper', 'enjoy walking']
+
+# You can request an api_key using: 
+encoder.request_api_key(username, email)
+
+# Index in 1 line of code
+encoder.add_documents(user, api_key, items)
+
+# Search in 1 line of code
+encoder.search(new_items)
+```
+
+Add metadata to your search!
+
+```
+metadata = list(range(3))
+encoder.add_documents(user, api_key, items=items, metadata=metadata)
+```
+
 #### Upload vectors easily with documents alongside Vector AI
 
 ```
