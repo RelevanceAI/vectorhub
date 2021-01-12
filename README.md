@@ -133,7 +133,7 @@ text_encoder = Transformer2Vec('albert-base-v2')
 text_encoder.encode('This is sparta!')
 [0.47, 0.83, 0.148, ...]
 ```
-### Leverage Facebook's [Dense Passage Retrieval](https://github.com/facebookresearch/DPR)
+### Leverage [Facebook Dense Passage Retrieval](https://github.com/facebookresearch/DPR)
 ```
 from vectorhub.bi_encoders.text_text.torch_transformers import DPR2Vec
 text_encoder = DPR2Vec()
