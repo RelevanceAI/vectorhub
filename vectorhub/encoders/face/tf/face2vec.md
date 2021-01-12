@@ -1,6 +1,6 @@
 ---
 model_id: "image/face2vec"
-model_name: "FaceNet"
+model_name: "Face2Vec (FaceNet)"
 vector_length: "512 (default)"
 paper: "https://arxiv.org/pdf/1503.03832.pdf"
 repo: "N/A" 
