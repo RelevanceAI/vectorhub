@@ -152,7 +152,7 @@ from vectorhub.encoders.text import USE2VEc
 encoder = USE2Vec()
 
 # You can request an api_key using: 
-encoder.request_api_key(username, email)
+api_key = encoder.request_api_key(username, email)
 
 # Index in 1 line of code
 items = ['chicken', 'toilet', 'paper', 'enjoy walking']
