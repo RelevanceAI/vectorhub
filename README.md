@@ -166,7 +166,8 @@ encoder.search('basin')
 Add metadata to your search (information about your vectors)
 
 ```
-metadata = list(range(3))
+# Add the number of letters of each word
+metadata = [7, 6, 5, 12]
 encoder.add_documents(user, api_key, items=items, metadata=metadata)
 ```
 
