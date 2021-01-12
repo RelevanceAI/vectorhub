@@ -46,7 +46,7 @@ Vector Hub provides:
 
 ## Quickstart:
 
-[Intro to Vectors](https://github.com/vector-ai/vectorhub#what-are-vectors) | [Full list of models](https://hub.getvectorai.com/) | [Google Colab Quickstart](https://go.vctr.ai/vectorhub-colab) | [Documentation](https://go.vctr.ai/vectorhub-docs)
+[Intro to Vectors](https://github.com/vector-ai/vectorhub#what-are-vectors) | [Model Hub](https://hub.getvectorai.com/) | [Google Colab Quickstart](https://go.vctr.ai/vectorhub-colab) | [Python Documentation](https://go.vctr.ai/vectorhub-docs)
 
 ## Why Vector Hub?
 
