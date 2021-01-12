@@ -10,7 +10,7 @@ class ViIndexer:
         """
         Requesting an API key.
         """
-        print("API key is being requested here.")
+        print("API key is being requested. Be sure to save it somewhere!")
         return request_api_key(username=username, email=email,
                         reason='vectorhub', referral=referral)
 
