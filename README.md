@@ -136,17 +136,17 @@ text_encoder.encode_answer('Sparta!')
 ```
 
 
-### Index and search your vectors easily to the cloud using 1 line of code! 
+### Index and search your vectors easily on the cloud using 1 line of code! 
 
 ```
 from vectorhub.encoders.text import USE2VEc
 encoder = USE2Vec()
-items = ['chicken', 'toilet', 'paper', 'enjoy walking']
 
 # You can request an api_key using: 
 encoder.request_api_key(username, email)
 
 # Index in 1 line of code
+items = ['chicken', 'toilet', 'paper', 'enjoy walking']
 encoder.add_documents(user, api_key, items)
 
 # Search in 1 line of code and get the most similar results.
