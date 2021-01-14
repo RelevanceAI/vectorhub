@@ -201,7 +201,7 @@
 </div>
 <div class="section" id="module-vectorhub.encoders.face.tf.face2vec">
 <span id="vectorhub-encoders-face-tf-face2vec-module"></span><h2>vectorhub.encoders.face.tf.face2vec module<a class="headerlink" href="#module-vectorhub.encoders.face.tf.face2vec" title="Permalink to this headline">¶</a></h2>
-<p><strong>Model Name</strong>: FaceNet</p>
+<p><strong>Model Name</strong>: Face2Vec (FaceNet)</p>
 <p><strong>Vector Length</strong>: 512 (default)</p>
 <p><strong>Description</strong>:
 Despite significant recent advances in the field of face recognition, implementing face verification and recognition efficiently at scale presents serious challenges to current approaches. In this paper we present a system, called FaceNet, that directly learns a mapping from face images to a compact Euclidean space where distances directly correspond to a measure of face similarity. Once this space has been produced, tasks such as face recognition, verification and clustering can be easily implemented using standard techniques with FaceNet embeddings as feature vectors.
@@ -230,6 +230,27 @@ We also introduce the concept of harmonic embeddings, and a harmonic triplet los
 <dt id="vectorhub.encoders.face.tf.face2vec.Face2Vec">
 <em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.face.tf.face2vec.</code><code class="sig-name descname">Face2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'https://drive.google.com/u/0/uc?id=1PZ_6Zsy1Vb0s0JmjEmVd8FS99zoMCiN1&amp;export=download'</span></em>, <em class="sig-param"><span class="n">redownload</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.face.tf.face2vec.Face2Vec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.image.html#vectorhub.encoders.image.base.BaseImage2Vec" title="vectorhub.encoders.image.base.BaseImage2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.image.base.BaseImage2Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.encoders.face.tf.face2vec.Face2Vec.add_documents">
+<code class="sig-name descname">add_documents</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">api_key</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">items</span><span class="p">:</span> <span class="n">List<span class="p">[</span>Any<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">metadata</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>List<span class="p">[</span>Any<span class="p">]</span><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">collection_name</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.face.tf.face2vec.Face2Vec.add_documents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add documents to the Vector AI cloud.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.face.tf.face2vec.Face2Vec.add_to_annoy">
+<code class="sig-name descname">add_to_annoy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.face.tf.face2vec.Face2Vec.add_to_annoy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.face.tf.face2vec.Face2Vec.add_to_hnsw">
+<code class="sig-name descname">add_to_hnsw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.face.tf.face2vec.Face2Vec.add_to_hnsw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.face.tf.face2vec.Face2Vec.add_to_vectorai">
+<code class="sig-name descname">add_to_vectorai</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">words</span></em>, <em class="sig-param"><span class="n">metadata</span></em>, <em class="sig-param"><span class="n">username</span></em>, <em class="sig-param"><span class="n">api_key</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.face.tf.face2vec.Face2Vec.add_to_vectorai" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt id="vectorhub.encoders.face.tf.face2vec.Face2Vec.bulk_encode">
 <code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">images</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.face.tf.face2vec.Face2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
@@ -293,9 +314,33 @@ We also introduce the concept of harmonic embeddings, and a harmonic triplet los
 </dd></dl>
 
 <dl class="py method">
+<dt id="vectorhub.encoders.face.tf.face2vec.Face2Vec.request_api_key">
+<code class="sig-name descname">request_api_key</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">email</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">referral</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.face.tf.face2vec.Face2Vec.request_api_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requesting an API key.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.face.tf.face2vec.Face2Vec.retrieve_all_documents">
+<code class="sig-name descname">retrieve_all_documents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.face.tf.face2vec.Face2Vec.retrieve_all_documents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve all documents.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.face.tf.face2vec.Face2Vec.retrieve_documents">
+<code class="sig-name descname">retrieve_documents</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_of_documents</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.face.tf.face2vec.Face2Vec.retrieve_documents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all the documents in our package.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="vectorhub.encoders.face.tf.face2vec.Face2Vec.rgb_weights">
 <em class="property">property </em><code class="sig-name descname">rgb_weights</code><a class="headerlink" href="#vectorhub.encoders.face.tf.face2vec.Face2Vec.rgb_weights" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get RGB weights for grayscaling.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.face.tf.face2vec.Face2Vec.search">
+<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">item</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">num_results</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.face.tf.face2vec.Face2Vec.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple search with Vector AI</p>
 </dd></dl>
 
 <dl class="py method">

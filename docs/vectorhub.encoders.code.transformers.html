@@ -227,8 +227,29 @@ We present CodeBERT, a bimodal pre-trained model for programming language (PL) a
 <em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.code.transformers.codebert.</code><code class="sig-name descname">Code2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_name</span><span class="o">=</span><span class="default_value">'microsoft/codebert-base'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.code.transformers.codebert.Code2Vec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.text.html#vectorhub.encoders.text.base.BaseText2Vec" title="vectorhub.encoders.text.base.BaseText2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.text.base.BaseText2Vec</span></code></a></p>
 <dl class="py method">
+<dt id="vectorhub.encoders.code.transformers.codebert.Code2Vec.add_documents">
+<code class="sig-name descname">add_documents</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">api_key</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">items</span><span class="p">:</span> <span class="n">List<span class="p">[</span>Any<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">metadata</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>List<span class="p">[</span>Any<span class="p">]</span><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">collection_name</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.code.transformers.codebert.Code2Vec.add_documents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add documents to the Vector AI cloud.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.code.transformers.codebert.Code2Vec.add_to_annoy">
+<code class="sig-name descname">add_to_annoy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.code.transformers.codebert.Code2Vec.add_to_annoy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.code.transformers.codebert.Code2Vec.add_to_hnsw">
+<code class="sig-name descname">add_to_hnsw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.code.transformers.codebert.Code2Vec.add_to_hnsw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.code.transformers.codebert.Code2Vec.add_to_vectorai">
+<code class="sig-name descname">add_to_vectorai</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">words</span></em>, <em class="sig-param"><span class="n">metadata</span></em>, <em class="sig-param"><span class="n">username</span></em>, <em class="sig-param"><span class="n">api_key</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.code.transformers.codebert.Code2Vec.add_to_vectorai" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt id="vectorhub.encoders.code.transformers.codebert.Code2Vec.bulk_encode">
-<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">pooling_method</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'mean'</span></em>, <em class="sig-param"><span class="n">truncation</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.code.transformers.codebert.Code2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">descriptions</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">codes</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pooling_method</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'mean'</span></em>, <em class="sig-param"><span class="n">truncation</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.code.transformers.codebert.Code2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pooling method is either pooler_output or mean.
 Notes: if it is mean, we can take the last hidden state and add it to the
 model.
@@ -256,10 +277,12 @@ model.
 
 <dl class="py method">
 <dt id="vectorhub.encoders.code.transformers.codebert.Code2Vec.encode">
-<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em>, <em class="sig-param"><span class="n">pooling_method</span><span class="o">=</span><span class="default_value">'mean'</span></em>, <em class="sig-param"><span class="n">truncation</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.code.transformers.codebert.Code2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">description</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">code</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pooling_method</span><span class="o">=</span><span class="default_value">'mean'</span></em>, <em class="sig-param"><span class="n">truncation</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.code.transformers.codebert.Code2Vec.encode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pooling method is either pooler_output or mean.
 Notes: if it is mean, we can take the last hidden state and add it to the
 model.
+:param Description: The description of what the code is doing
+:param Code: What the code is doing.
 :param Pooling_method: Pooling method can be either mean or pooled output.
 :param Truncation: Whether the the sentence should be truncated.</p>
 </dd></dl>
@@ -273,6 +296,30 @@ model.
 <dt id="vectorhub.encoders.code.transformers.codebert.Code2Vec.read">
 <code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.code.transformers.codebert.Code2Vec.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>An abstract method to specify the read method to read the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.code.transformers.codebert.Code2Vec.request_api_key">
+<code class="sig-name descname">request_api_key</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">email</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">referral</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.code.transformers.codebert.Code2Vec.request_api_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requesting an API key.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.code.transformers.codebert.Code2Vec.retrieve_all_documents">
+<code class="sig-name descname">retrieve_all_documents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.code.transformers.codebert.Code2Vec.retrieve_all_documents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve all documents.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.code.transformers.codebert.Code2Vec.retrieve_documents">
+<code class="sig-name descname">retrieve_documents</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_of_documents</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.code.transformers.codebert.Code2Vec.retrieve_documents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all the documents in our package.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.code.transformers.codebert.Code2Vec.search">
+<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">item</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">num_results</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.code.transformers.codebert.Code2Vec.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple search with Vector AI</p>
 </dd></dl>
 
 <dl class="py method">
