@@ -1,5 +1,5 @@
 """
-FastAI Resnet model
+CodeBert model
 """
 from typing import List
 from datetime import date
@@ -30,26 +30,28 @@ class Code2Vec(BaseText2Vec):
         }
 
     @catch_vector_errors
-    def encode(self, text, pooling_method='mean', truncation=True):
+    def encode(self, description: str, code: str=None, pooling_method='mean', truncation=True):
         """
         Pooling method is either pooler_output or mean.
         Notes: if it is mean, we can take the last hidden state and add it to the
         model.
         Args:
+            Description: The description of what the code is doing 
+            Code: What the code is doing.
             Pooling_method: Pooling method can be either mean or pooled output.
             Truncation: Whether the the sentence should be truncated.
         """
         if pooling_method == 'pooler_output':
             return self.model.forward(**self.tokenizer.encode_plus(
-                text, return_tensors='pt', truncation=truncation
+                description, code, return_tensors='pt', truncation=truncation
             ))[pooling_method].detach().numpy().tolist()[0]
         elif pooling_method == 'mean':
             return self._vector_operation(self.model.forward(**self.tokenizer.encode_plus(
-                text, return_tensors='pt', truncation=truncation
+                description, code, return_tensors='pt', truncation=truncation
             ))['last_hidden_state'].detach().numpy().tolist(), 'mean', axis=1)[0]
 
     @catch_vector_errors
-    def bulk_encode(self, texts: List[str], pooling_method: str='mean', truncation=True):
+    def bulk_encode(self, descriptions: List[str], codes: List[str]=None, pooling_method: str='mean', truncation=True):
         """
         Pooling method is either pooler_output or mean.
         Notes: if it is mean, we can take the last hidden state and add it to the
@@ -60,11 +62,11 @@ class Code2Vec(BaseText2Vec):
         """
         if pooling_method == 'pooler_output':
             return self.model.forward(**self.tokenizer.encode_plus(
-                text, return_tensors='pt', truncation=truncation
+                descriptions, codes, return_tensors='pt', truncation=truncation
             ))[pooling_method].detach().numpy().tolist()
         elif pooling_method == 'mean':
             return self._vector_operation(self.model.forward(**self.tokenizer.encode_plus(
-                text, return_tensors='pt', truncation=truncation
+                descriptions, codes, return_tensors='pt', truncation=truncation
             ))['last_hidden_state'].detach().numpy().tolist(), 'mean', axis=1)
 
     @property
