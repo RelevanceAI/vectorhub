@@ -94,9 +94,10 @@ class MobileNetV12Vec(BaseImage2Vec):
     @catch_vector_errors
     def encode(self, image):
         if isinstance(image, str):
-            image = self.image_resize(self.read(image), self.image_dimensions, self.image_dimensions,
+            image = self.read(image)
+        resized_image = self.image_resize(image, self.image_dimensions, self.image_dimensions,
             resize_mode=self.resize_mode)[np.newaxis, ...]
-        return self.model(image).numpy().tolist()[0]
+        return self.model(resized_image).numpy().tolist()[0]
 
     @catch_vector_errors
     def bulk_encode(self, images):
