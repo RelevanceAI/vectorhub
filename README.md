@@ -32,9 +32,11 @@
 </div>
 
 <h3 align="center">
-Vector Hub is a library for publication, discovery, and consumption of State-of-the-art models to turn data into vectors. (text2vec, image2vec, video2vec, graph2vec, bert, inception, etc)
+Vector Hub is a library for publication, discovery, and consumption of State-of-the-art models to turn data into vectors. (Text2Vec, Image2Vec, Video2Vec, Face2Vec, Bert2Vec, Inception2Vec, Code2Vec, LegalBert2Vec, etc)
 </h3>
 
+
+---
 
 There are many ways to extract vectors from data. This library aims to bring in all the state of the art models in a simple manner to vectorise your data easily.
 
@@ -44,22 +46,21 @@ Vector Hub provides:
 - Retrieve and find information about a model
 - An easy way to handle dependencies easily for different models
 
+---
+
 ## Quickstart:
 
-[New to Vectors](https://github.com/vector-ai/vectorhub#what-are-vectors)
+[Intro to Vectors](https://github.com/vector-ai/vectorhub#what-are-vectors) | [Model Hub](https://hub.getvectorai.com/) | [Google Colab Quickstart](https://go.vctr.ai/vectorhub-colab) | [Python Documentation](https://go.vctr.ai/vectorhub-docs)
 
-[Full list of models](https://hub.getvectorai.com/)
-
-[Google Colab Quickstart](https://go.vctr.ai/vectorhub-colab)
-
-[Documentation](https://go.vctr.ai/vectorhub-docs)
-
+---
 
 ## Why Vector Hub?
 
 There are thousands of _____2Vec models across different use cases/domains. We wanted to create a hub that allowed people to aggregate their work and share it with the community. 
 
 Think transformers for NLP, Sci-kit Learn for data scientists.
+
+---
 
 ## Installation:
 To get started quickly install vectorhub:
@@ -82,7 +83,7 @@ To install different types of models:
 pip install vectorhub[text-encoder-transformers]
 ```
 
-To install all models at once:
+To install all models at once (note: this can take a while! We recommend searching for an interesting model on the website such as USE2Vec or BitMedium2Vec and following the installation line or see examples below.)
 ```
 pip install vectorhub[all]
 ```
@@ -97,21 +98,7 @@ python3 -m pip install --upgrade pip
 python3 -m pip install vectorhub[all]
 ```
 
-
-### Instantiate our auto_encoder class as such and use any of the models! 
-
-```
-from vectorhub.auto_encoder import AutoEncoder
-encoder = AutoEncoder.from_model('text/bert')
-encoder.encode("Hello vectorhub!")
-[0.47, 0.83, 0.148, ...]
-```
-
-You can choose from our list of models: 
-```
-['text/albert', 'text/bert', 'text/labse', 'text/use', 'text/use-multi', 'text/use-lite', 'text/legal-bert', 'audio/fairseq', 'audio/speech-embedding', 'audio/trill', 'audio/trill-distilled', 'audio/vggish', 'audio/yamnet', 'audio/wav2vec', 'image/bit', 'image/bit-medium', 'image/inception', 'image/inception-v2', 'image/inception-v3', 'image/inception-resnet', 'image/mobilenet', 'image/mobilenet-v2', 'image/resnet', 'image/resnet-v2', 'text_text/use-multi-qa', 'text_text/use-qa', 'text_text/dpr', 'text_text/lareqa-qa']
-```
-### Leverage [Google Tensorflow Hub's](https://tfhub.dev) powerful models to create vectors
+### Leverage [Tensorflow Hub's](https://tfhub.dev) powerful models to create vectors
 Vectorise your image in 3 lines of code using [Google's Big Image Transfer model](https://blog.tensorflow.org/2020/05/bigtransfer-bit-state-of-art-transfer-learning-computer-vision.html):
 
 ```
@@ -146,7 +133,7 @@ text_encoder = Transformer2Vec('albert-base-v2')
 text_encoder.encode('This is sparta!')
 [0.47, 0.83, 0.148, ...]
 ```
-### Leverage Facebook's [Dense Passage Retrieval](https://github.com/facebookresearch/DPR)
+### Leverage [Facebook Dense Passage Retrieval](https://github.com/facebookresearch/DPR)
 ```
 from vectorhub.bi_encoders.text_text.torch_transformers import DPR2Vec
 text_encoder = DPR2Vec()
@@ -156,17 +143,35 @@ text_encoder.encode_answer('Sparta!')
 [0.47, 0.83, 0.148, ...]
 ```
 
-### Easily access information with your model!
+---
+
+### Index and search your vectors easily on the cloud using 1 line of code! 
 
 ```
-# If you want to additional information about the model, you can access the information below:
-text_encoder.definition.repo
-text_encoder.definition.description
-# If you want all the information in a dictionary, you can call:
-text_encoder.definition.create_dict() # returns a dictionary with model id, description, paper, etc.
+from vectorhub.encoders.text.tfhub import USE2VEc
+encoder = USE2Vec()
+
+# You can request an api_key using: 
+api_key = encoder.request_api_key(username, email)
+
+# Index in 1 line of code
+items = ['chicken', 'toilet', 'paper', 'enjoy walking']
+encoder.add_documents(user, api_key, items)
+
+# Search in 1 line of code and get the most similar results.
+encoder.search('basin')
+
 ```
 
-#### Upload vectors easily with documents alongside Vector AI
+Add metadata to your search (information about your vectors)
+
+```
+# Add the number of letters of each word
+metadata = [7, 6, 5, 12]
+encoder.add_documents(user, api_key, items=items, metadata=metadata)
+```
+
+#### Using a document-orientated-approach instead:
 
 ```
 from vectorhub.encoders.text import Transformer2Vec
@@ -181,6 +186,33 @@ vi_client.insert_documents('collection_name_here', docs, models={'color': encode
 vi_client.search('collection_name_here', field='color_vector_', vector=encoder.encode('purple'))
 ```
 
+---
+
+### Easily access information with your model!
+
+```
+# If you want to additional information about the model, you can access the information below:
+text_encoder.definition.repo
+text_encoder.definition.description
+# If you want all the information in a dictionary, you can call:
+text_encoder.definition.create_dict() # returns a dictionary with model id, description, paper, etc.
+```
+
+---
+
+### Instantiate our auto_encoder class as such and use any of the models! 
+
+```
+from vectorhub.auto_encoder import AutoEncoder
+encoder = AutoEncoder.from_model('text/bert')
+encoder.encode("Hello vectorhub!")
+[0.47, 0.83, 0.148, ...]
+```
+
+You can choose from our list of models: 
+```
+['text/albert', 'text/bert', 'text/labse', 'text/use', 'text/use-multi', 'text/use-lite', 'text/legal-bert', 'audio/fairseq', 'audio/speech-embedding', 'audio/trill', 'audio/trill-distilled', 'audio/vggish', 'audio/yamnet', 'audio/wav2vec', 'image/bit', 'image/bit-medium', 'image/inception', 'image/inception-v2', 'image/inception-v3', 'image/inception-resnet', 'image/mobilenet', 'image/mobilenet-v2', 'image/resnet', 'image/resnet-v2', 'text_text/use-multi-qa', 'text_text/use-qa', 'text_text/dpr', 'text_text/lareqa-qa']
+```
 ## What are Vectors?
 Common Terminologys when operating with Vectors:
 - Vectors (aka. Embeddings, Encodings, Neural Representation) ~ It is a list of numbers to represent a piece of data. 
@@ -213,6 +245,10 @@ If you are interested in these applications, take a look at [Vector AI](https://
 The goal of VectorHub is to provide a flexible yet comprehensive framework that allows people to easily be able to turn their data into vectors in whatever form the data can be in. While our focus is largely on simplicity, customisation should always be an option and the level of abstraction is always up model-uploader as long as the reason is justified. For example - with text, we chose to keep the encoding at the text level as opposed to the token level because selection of text should not be applied at the token level so practitioners are aware of what texts go into the actual vectors (i.e. instead of ignoring a '[next][SEP][wo][##rd]', we are choosing to ignore 'next word' explicitly. We think this will allow practitioners to focus better on what should matter when it comes to encoding. 
 
 Similarly, when we are turning data into vectors, we convert to native Python objects. The decision for this is to attempt to remove as many dependencies as possible once the vectors are created - specifically those of deep learning frameworks such as Tensorflow/PyTorch. This is to allow other frameworks to be built on top of it.
+
+## Team
+
+This library is maintained by the Vector AI - your go-to solution for Production-Ready AI development. If you are interested in using our API for vector search, visit https://vctr.ai or if you are interested in using Vector AI API, check out https://api.vctr.ai or our Github package https://gh.vctr.ai
 
 ### Credit:
 

@@ -3,6 +3,7 @@ import warnings
 import traceback
 import numpy as np
 import requests
+from .indexer import ViIndexer
 from .errors import ModelError
 from typing import Any, List
 from abc import ABC, abstractmethod
@@ -48,7 +49,7 @@ def catch_vector_errors(func):
                 return [1e-7] * vector_length
     return catch_vector
 
-class Base2Vec:
+class Base2Vec(ViIndexer):
     """
         Base class for vector
     """
@@ -58,7 +59,7 @@ class Base2Vec:
     @classmethod
     def validate_model_url(cls, model_url: str, list_of_urls: List[str]):
         """
-            Validate the model url belongs in the list of urls. This is to help 
+            Validate the model url belongs in the list of urls. This is to help
             users to avoid mis-spelling the name of the model.
 
             # TODO:
@@ -67,7 +68,7 @@ class Base2Vec:
             Args:
                 model_url: The URl of the the model in question
                 list_of_urls: The list of URLS for the model in question
-        
+
         """
         if model_url in list_of_urls:
             return True
@@ -81,7 +82,7 @@ class Base2Vec:
         warnings.warn("We have not tested this url. Please use URL at your own risk." + \
             "Please use the is_url_working method to test if this is a working url if " + \
             "this is not a local directory.", UserWarning)
-    
+
     @staticmethod
     def is_url_working(url):
         response = requests.head(url)
@@ -108,7 +109,7 @@ class Base2Vec:
     def _vector_operation(self, vectors, vector_operation: str = "mean", axis=0):
         """
             Args:
-                Vectors: the list of vectors to include 
+                Vectors: the list of vectors to include
                 vector_operation: One of ['mean', 'minus', 'sum', 'min', 'max']
                 axis: The axis to which to perform the operation
         """
@@ -138,10 +139,22 @@ class Base2Vec:
                 return self.definition.model_id.split('/')[1]
             return self.definition.model_id
         return ''
-    
-    @__name__.setter        
+
+    @__name__.setter
     def __name__(self, value):
         """
             Set the name.
         """
         setattr(self, '_name', value)
+
+    def add_to_vectorai(self, words, metadata, username, api_key):
+        """
+        """
+        self.insert_documents()
+
+    def add_to_annoy(self):
+        raise NotImplementedError
+
+    def add_to_hnsw(self):
+        raise NotImplementedError
+
