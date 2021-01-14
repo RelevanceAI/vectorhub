@@ -107,7 +107,7 @@ image_encoder = BitSmall2Vec()
 image_encoder.encode('https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png')
 [0.47, 0.83, 0.148, ...]
 ```
-Vectorise your text in 3 lines of code using Google's BERT model:
+Vectorise your text in 3 lines of code using [Google's BERT model](https://blog.google/products/search/search-language-understanding-bert/):
 ```
 from vectorhub.encoders.text.tfhub import Bert2Vec
 text_encoder = Bert2Vec()
@@ -115,7 +115,7 @@ text_encoder.encode('This is sparta!')
 [0.47, 0.83, 0.148, ...]
 ```
 
-Vectorise your question and answer in 3 lines of code using Google's USE QA model:
+Vectorise your question and answer in 3 lines of code using [Google's USE QA model](https://tfhub.dev/google/universal-sentence-encoder-qa/3):
 ```
 from vectorhub.bi_encoders.text.tfhub import UseQA2Vec
 text_encoder = UseQA2Vec()
