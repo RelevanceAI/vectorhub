@@ -152,7 +152,7 @@ class Base2Vec(ViIndexer):
         """
         self.insert_documents()
 
-    def add_to_faiss(self):
+    def add_to_annoy(self):
         raise NotImplementedError
 
     def add_to_hnsw(self):
