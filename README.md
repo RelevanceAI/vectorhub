@@ -45,20 +45,18 @@ Vector Hub provides:
 - Vectorise rich and complex data types like: text, image, audio, etc in 3 lines of code
 - Retrieve and find information about a model
 - An easy way to handle dependencies easily for different models
+- Universal format of installation and encoding (using a simple `encode` method).
+
+In order to provide an easy way for practitioners to quickly experiment, research and build new models and feature vectors, we provide a streamlined way to obtain vectors through our `encode` method.
+There are thousands of _____2Vec models across different use cases/domains. Vectorhub allows people to aggregate their work and share it with the community. 
+
+Think transformers for NLP, Sci-kit Learn for data scientists.
 
 ---
 
 ## Quickstart:
 
 [Intro to Vectors](https://github.com/vector-ai/vectorhub#what-are-vectors) | [Model Hub](https://hub.getvectorai.com/) | [Google Colab Quickstart](https://go.vctr.ai/vectorhub-colab) | [Python Documentation](https://go.vctr.ai/vectorhub-docs)
-
----
-
-## Why Vector Hub?
-
-There are thousands of _____2Vec models across different use cases/domains. We wanted to create a hub that allowed people to aggregate their work and share it with the community. 
-
-Think transformers for NLP, Sci-kit Learn for data scientists.
 
 ---
 
