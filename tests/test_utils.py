@@ -198,8 +198,22 @@ class AssertModelWorks:
                 {self.field_to_encode_mapping: self.model},
                 use_bulk_encode=True, workers=4)
             assert len(response['failed_document_ids']) == 0
-    
+
+    def assert_simple_insertion_works(self):
+        # Ensure that inserting in a collection works normally
+        cn = 'test_vectorhub_' + self.random_string 
+        items = self.vi_client.get_field_across_documents(
+            self.field_to_encode_mapping, self.sample_documents
+        )
+        self.model.add_documents(self.vi_client.username, self.vi_client.api_key, items, collection_name=cn)
+        time.sleep(2)
+        response = self.model.search(self.sample_document[self.field_to_encode_mapping])
+        self.vi_client.delete_collection(cn)
+        assert len(response['results']) > 0
+
+
     def assert_insertion_into_vectorai_works(self):
+        self.assert_simple_insertion_works()
         self.assert_insert_vectorai_simple()
         self.assert_insert_vectorai_bulk_encode()
         # Remove tests for now due to local object pickling
