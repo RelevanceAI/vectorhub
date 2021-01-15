@@ -386,13 +386,13 @@ The benchmark, models, and evaluation code are publicly released.”””</p>
 <p><strong>Tasks</strong>: Not stated.</p>
 <p><strong>Release Date</strong>: 2020-02-25</p>
 <p><strong>Limitations</strong>: Not stated.</p>
-<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub['encoders-audio-tfhub-trill']</span></code></p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub['encoders-audio-tfhub']</span></code></p>
 <p><strong>Example</strong>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">`python</span>
-<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[{}]</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-audio-tfhub]</span>
 <span class="pre">from</span> <span class="pre">vectorhub.encoders.audio.tfhub</span> <span class="pre">import</span> <span class="pre">Trill2Vec</span>
 <span class="pre">model</span> <span class="pre">=</span> <span class="pre">Trill2Vec()</span>
 <span class="pre">sample</span> <span class="pre">=</span> <span class="pre">model.read('https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav')</span>
@@ -664,7 +664,7 @@ amount of fine-tuning and calibration to make VGGish usable in any system that y
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
 <span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-audio-tfhub]</span>
 <span class="pre">from</span> <span class="pre">vectorhub.encoders.audio.tfhub</span> <span class="pre">import</span> <span class="pre">Vggish2Vec</span>
 <span class="pre">model</span> <span class="pre">=</span> <span class="pre">Vggish2Vec()</span>
