@@ -27,7 +27,7 @@ os.environ["TFHUB_MODEL_LOAD_FORMAT"] = "COMPRESSED"
 
 ## Example
 
-```
+```python
 #pip install vectorhub[encoders-audio-tfhub]
 from vectorhub.encoders.audio.tfhub import Vggish2Vec
 model = Vggish2Vec()

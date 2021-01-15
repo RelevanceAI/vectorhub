@@ -5,7 +5,7 @@ vector_length: "512 (default)"
 paper: "https://arxiv.org/abs/2002.12764"
 release_date: "2020-02-25"
 repo: "https://tfhub.dev/google/nonsemantic-speech-benchmark/trill/3"
-installation: pip install vectorhub['encoders-audio-tfhub-trill']
+installation: pip install vectorhub['encoders-audio-tfhub']
 category: audio
 ---
 
@@ -33,7 +33,7 @@ os.environ["TFHUB_MODEL_LOAD_FORMAT"] = "COMPRESSED"
 ## Example
 
 ```python
-#pip install vectorhub[{}]
+#pip install vectorhub[encoders-audio-tfhub]
 from vectorhub.encoders.audio.tfhub import Trill2Vec
 model = Trill2Vec()
 sample = model.read('https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav')
