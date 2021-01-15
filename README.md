@@ -25,9 +25,9 @@
 
 <div align="center">
 
-![TotalDownloads](https://static.pepy.tech/personalized-badge/vectorhub-nightly?period=total&units=international_system&left_color=black&right_color=red&left_text=Total%20Downloads)
-![WeeklyDownloads](https://static.pepy.tech/personalized-badge/vectorhub-nightly?period=week&units=international_system&left_color=black&right_color=red&left_text=Weekly%20Downloads)
-![MonthlyDownloads](https://static.pepy.tech/personalized-badge/vectorhub-nightly?period=month&units=international_system&left_color=black&right_color=red&left_text=Monthly%20Downloads)
+![TotalDownloads](https://static.pepy.tech/personalized-badge/vectorhub-nightly?period=total&units=none&left_color=black&right_color=red&left_text=Total%20Downloads)
+![WeeklyDownloads](https://static.pepy.tech/personalized-badge/vectorhub-nightly?period=week&units=none&left_color=black&right_color=red&left_text=Weekly%20Downloads)
+![MonthlyDownloads](https://static.pepy.tech/personalized-badge/vectorhub-nightly?period=month&units=none&left_color=black&right_color=red&left_text=Monthly%20Downloads)
 
 </div>
 
