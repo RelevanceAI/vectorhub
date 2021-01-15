@@ -202,9 +202,12 @@ class AssertModelWorks:
     def assert_simple_insertion_works(self):
         # Ensure that inserting in a collection works normally
         cn = 'test_vectorhub_' + self.random_string 
-        items = self.vi_client.get_field_across_documents(self.field_to_encode_mapping, self.sample_documents)
+        items = self.vi_client.get_field_across_documents(
+            self.field_to_encode_mapping, self.sample_documents
+        )
         self.model.add_documents(self.vi_client.username, self.vi_client.api_key, items, collection_name=cn)
-        response = self.model.search(self.question)
+        time.sleep(2)
+        response = self.model.search(self.self.sample_documents[field_to_encode_mapping])
         self.vi_client.delete_collection(cn)
         assert len(response['results']) > 0
 
