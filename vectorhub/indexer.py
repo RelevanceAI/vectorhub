@@ -32,7 +32,7 @@ class ViIndexer:
             docs = [self._create_document(i, item) for i, item in enumerate(items)]
 
         self.client = ViClient(username, api_key)
-        return self.client.insert_documents(collection_name, docs, {'item': self})
+        return self.client.insert_documents(self.collection_name, docs, {'item': self})
 
     def _create_document(self, _id: str, item: List[str], metadata=None):
         return {
