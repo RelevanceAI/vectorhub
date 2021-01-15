@@ -146,15 +146,3 @@ class Base2Vec(ViIndexer):
             Set the name.
         """
         setattr(self, '_name', value)
-
-    def add_to_vectorai(self, words, metadata, username, api_key):
-        """
-        """
-        self.insert_documents()
-
-    def add_to_annoy(self):
-        raise NotImplementedError
-
-    def add_to_hnsw(self):
-        raise NotImplementedError
-
