@@ -12,7 +12,7 @@ class ViIndexer:
         """
         print("API key is being requested. Be sure to save it somewhere!")
         return request_api_key(username=username, email=email,
-                        reason='vectorhub', referral=referral)
+                        description='vectorhub', referral=referral)
 
     def add_documents(self, username: str, api_key: str,
             items: List[Any], metadata: Optional[List[Any]]=None,
