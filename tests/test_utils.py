@@ -211,7 +211,7 @@ class AssertModelWorks:
 
 
     def assert_insertion_into_vectorai_works(self):
-        self.,assert_simple_insertion_works()
+        self.assert_simple_insertion_works()
         self.assert_insert_vectorai_simple()
         self.assert_insert_vectorai_bulk_encode()
         # Remove tests for now due to local object pickling
