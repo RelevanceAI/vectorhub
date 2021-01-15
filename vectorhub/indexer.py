@@ -40,6 +40,11 @@ class ViIndexer:
             'item': item,
             'metadata': metadata
         }
+    
+    def delete_collection(self, collection_name=None):
+        if collection_name is None:
+            collection_name = self.collection_name
+        return self.delete_collection(collection_name)
 
     def search(self, item: Any, num_results: int=10):
         """
@@ -59,5 +64,3 @@ class ViIndexer:
         Retrieve all documents.
         """
         return self.retrieve_all_documents(self.collection_name)
-
-

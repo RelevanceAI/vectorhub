@@ -133,10 +133,10 @@ class Base2Vec(ViIndexer):
             model_id.
         """
         if hasattr(self, '_name'):
-            return self._name
+            return self._name.replace('-', '_')
         elif hasattr(self, 'definition'):
             if '/' in self.definition.model_id:
-                return self.definition.model_id.split('/')[1]
+                return self.definition.model_id.split('/')[1].replace('-', '_')
             return self.definition.model_id
         return ''
 
