@@ -207,7 +207,7 @@ class AssertModelWorks:
         )
         self.model.add_documents(self.vi_client.username, self.vi_client.api_key, items, collection_name=cn)
         time.sleep(2)
-        response = self.model.search(self.sample_documents[self.field_to_encode_mapping])
+        response = self.model.search(self.sample_document[self.field_to_encode_mapping])
         self.vi_client.delete_collection(cn)
         assert len(response['results']) > 0
 
