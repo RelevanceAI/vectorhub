@@ -202,7 +202,6 @@ class AssertModelWorks:
     def assert_simple_insertion_works(self):
         # Ensure that inserting in a collection works normally
         cn = 'test_vectorhub_' + self.random_string 
-        self.vi_client.get_field_across_documents(self.sample_documents)
         items = self.vi_client.get_field_across_documents('question', documents)
         self.model.add_documents(self.vi_client.username, self.vi_client.api_key, items, collection_name=cn)
         response = self.model.search(self.question)
