@@ -46,7 +46,7 @@ class ViIndexer:
         Simple search with Vector AI
         """
         warnings.warn("If you are looking for more advanced functionality, we recommend using the official Vector AI Github package")
-        return self.client.search(collection_name, self.encode(item), field='item_' + self.__name__ + '_vector_', page_size=num_results)
+        return self.client.search(self.collection_name, self.encode(item), field='item_' + self.__name__ + '_vector_', page_size=num_results)
 
     def retrieve_documents(self, num_of_documents: int):
         """
