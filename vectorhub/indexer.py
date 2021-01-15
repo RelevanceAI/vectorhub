@@ -29,7 +29,7 @@ class ViIndexer:
         if metadata is not None:
             docs = [self._create_document(i, item, metadata) for i, (item, metadata) in enumerate(list(zip(items, metadata)))]
         else:
-            docs = [self._create_document(i, item) for i, (item, metadata) in enumerate(items)]
+            docs = [self._create_document(i, item) for i, item in enumerate(items)]
 
         self.client = ViClient(username, api_key)
         return self.client.insert_documents(collection_name, docs, {'item': self})
