@@ -36,6 +36,13 @@ class TempClient:
     def __exit__(self, *exc):
         self.teardown_collection()
 
+def test_temp_client(dummy_client):
+    cn = 'test_client_collection'
+    with TempClient(dummy_client, cn) as client:
+        client.insert_documents(cn, client.create_sample_documents(100))
+
+    assert cn not in client.list_collections(), "TempClient failing"
+
 
 def test_list_models():
     assert len(list_models()) > 0
