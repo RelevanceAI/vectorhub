@@ -15,7 +15,6 @@ def test_temp_client(dummy_client):
 
     assert cn not in client.list_collections(), "TempClient failing"
 
-
 def test_list_models():
     assert len(list_models()) > 0
 
