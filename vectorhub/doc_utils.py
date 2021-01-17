@@ -205,7 +205,7 @@ class ModelDefinition:
                 'hat': 'yes'
             },
             {
-                'animal': 'dog':
+                'animal': 'dog',
                 'hat': 'yes'
             }
         ]
