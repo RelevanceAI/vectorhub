@@ -160,8 +160,8 @@ class ModelDefinition:
         ]
 
     @property
-    def audio_metadata(self):
-        ['male', 'male', 'male', 'male']
+    def audio_metadata_examples(self):
+        ['male', 'male', 'female', 'male']
 
     @property
     def text_items_examples(self):
@@ -234,9 +234,9 @@ class ModelDefinition:
     def DATA_TYPE_TO_EXAMPLE(self):
         # Example items, example metadata, example search
         return {
-            'text': (self.text_items_examples, self.text_items_metadata, self.text_search_example),
+            'text': (self.text_items_examples, self.text_metadata_examples, self.text_search_example),
             'image': (self.image_items_examples, self.image_metadata_examples, self.image_search_example),
-            'audio': (self.audio_items_examples, self.audio_items_examples, self.audio_search_example)
+            'audio': (self.audio_items_examples, self.audio_metadata_examples, self.audio_search_example)
         }
 
     @property
