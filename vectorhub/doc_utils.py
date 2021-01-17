@@ -43,7 +43,18 @@ class ModelDefinition:
             setattr(self, k, v)
         if markdown_filepath != '':
             self.from_markdown(markdown_filepath)
-
+    
+    @property
+    def data_type(self):
+        """
+        Returns text/audio/image.
+        """
+        if 'text' in self.model_id:
+            return 'text'
+        elif 'audio' in self.model_id:
+            return 'audio'
+        elif 'image' in self.model_id:
+            return 'image'
 
     def create_docs(self):
         """
