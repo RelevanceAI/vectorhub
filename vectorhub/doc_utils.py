@@ -94,7 +94,8 @@ class ModelDefinition:
                 "limitations": self.limitations,
                 "installation" : self.installation,
                 "example" : self.example,
-                "release_date": self.release_date
+                "release_date": self.release_date,
+                "vectorai_integration": self.vectorai_integration
             }
         else:
             model_dict = {}
