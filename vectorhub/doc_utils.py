@@ -149,6 +149,123 @@ class ModelDefinition:
             self.markdown_description = text
         self._split_markdown_description(text, splitter=splitter)
 
+    @property
+    def audio_items_examples(self):
+        return [
+            'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_69.wav',
+            'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_99.wav',
+            'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_10.wav',
+            'https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_5.wav'
+        ]
+
+    @property
+    def audio_metadata(self):
+        ['male', 'male', 'male', 'male']
+
+    @property
+    def text_items_examples(self):
+        return [
+            "chicken",
+            "toilet",
+            "paper",
+            "enjoy walking"
+        ]
+
+    @property
+    def text_metadata_examples(self):
+        return [
+            {'num_of_letters': 7,
+            'type': 'animal'},
+            {'num_of_letters': 6,
+            'type': 'household_items'},
+            {'num_of_letters': 5,
+            'type': 'household_items'},
+            {'num_of_letters': 12,
+            'type': 'emotion'}
+        ]
+    
+    @property
+    def image_items_examples(self):
+        return [
+            'https://getvectorai.com/_nuxt/img/rabbit.4a65d99.png'
+            'https://getvectorai.com/_nuxt/img/dog-2.b8b4cef.png',
+            'https://getvectorai.com/_nuxt/img/dog-1.3cc5fe1.png',
+        ]
+
+    @property
+    def image_metadata_examples(self):
+        return [
+            {
+                'animal': 'rabbit',
+                'hat': 'no'
+            },
+            {
+                'animal': 'dog',
+                'hat': 'yes'
+            },
+            {
+                'animal': 'dog':
+                'hat': 'yes'
+            }
+        ]
+
+    @property
+    def search_example(self):
+        return DATA_TYPE_TO_EXAMPLE[self.data_type][2]
+
+    @property
+    def text_search_example(self):
+        return 'basin'
+    
+    @property
+    def image_search_example(self):
+        return self.image_items_examples[2]
+    
+    @property
+    def audio_search_example(self):
+        return self.audio_items_examples[2]
+
+    @property
+    def item_examples(self):
+        return self.DATA_TYPE_TO_EXAMPLE[self.data_type][0]
+
+    @property
+    def DATA_TYPE_TO_EXAMPLE(self):
+        # Example items, example metadata, example search
+        return {
+            'text': (self.text_items_examples, self.text_items_metadata, self.text_search_example),
+            'image': (self.image_items_examples, self.image_metadata_examples, self.image_search_example),
+            'audio': (self.audio_items_examples, self.audio_items_examples, self.audio_search_example)
+        }
+
+    @property
+    def metadata_examples(self):
+        return self.DATA_TYPE_TO_EXAMPLE[self.data_type][1]
+
+    @property
+    def vectorai_integration(self):
+        return f"""
+        Index and search your vectors easily on the cloud using 1 line of code!
+        If you require metadata to not be stored on the cloud, simply attach with an ID for 
+        personal referral.
+
+        ```
+        # You can request an api_key using - type in your username and email.
+        api_key = model.request_api_key(username, email)
+
+        # Index in 1 line of code
+        items = {self.item_examples}
+        model.add_documents(user, api_key, items)
+
+        # Search in 1 line of code and get the most similar results.
+        model.search({self.search_example})
+        ```
+
+        # Add metadata to your search
+        metadata = {self.metadata_examples}
+        model.add_documents(user, api_key, items, metadata=metadata)
+        """
+
     def _split_markdown_description(self, description: str, splitter: str=r"(\#\#+\ +)|(\n)"):
         """
             Breaks markdown into heading and values.
