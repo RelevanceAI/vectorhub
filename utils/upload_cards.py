@@ -6,11 +6,8 @@ import argparse
 import time
 import re
 import logging
-from vectorai import ViClient
-from vectorai.models.deployed.text import ViText2Vec
 from typing import List
 # Wildcard import to get all classes
-from vectorhub.auto_encoder import *
 
 FORMAT = '%(asctime)-15s %(clientip)s %(user)-8s %(message)s'
 LOGGER = logging.getLogger(__name__)
@@ -21,6 +18,14 @@ c_format = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
 c_handler.setFormatter(c_format)
 LOGGER.addHandler(c_handler)
 
+def remove_example_from_description(text):
+    # Remove the Example if it is in the middle of the document
+    text = re.sub(r'## Example(.*?)##', '##', text, flags=re.DOTALL)
+    if '## Example' in text:
+        # text = re.sub(r'## Example(.*)', '', text)
+        text = re.sub(r"## Example(.*)\`\`\`.*?\`\`\`", '', text, flags=re.DOTALL, count=1)
+    return text
+
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--collection_name', default='vh_markdown')
@@ -29,19 +34,16 @@ if __name__=="__main__":
     parser.add_argument('--evaluate_results', action='store_true')
     args = parser.parse_args()
     
+    from vectorhub.auto_encoder import *
+    from vectorai import ViClient
+    from vectorai.models.deployed.text import ViText2Vec
+
     docs =  get_model_definitions(None)
     LOGGER.debug("Number of documents are: ")
     LOGGER.debug(len(docs))
     # Get _id across all documents
 
     LOGGER.debug("Marksdowns without example:")
-    def remove_example_from_description(text):
-        # Remove the Example if it is in the middle of the document
-        text = re.sub(r'## Example(.*?)##', '##', text, flags=re.DOTALL)
-        if '## Example' in text:
-            text = re.sub(r'## Example(.*)', '', text)
-            text = re.sub(r"\`\`\`.*?\`\`\`", '', text, flags=re.DOTALL)
-        return text
 
     for i, doc in enumerate(docs):
         markdown_without_example = remove_example_from_description(doc['markdown_description'])
