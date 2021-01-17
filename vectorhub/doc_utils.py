@@ -196,18 +196,9 @@ class ModelDefinition:
     @property
     def image_metadata_examples(self):
         return [
-            {
-                'animal': 'rabbit',
-                'hat': 'no'
-            },
-            {
-                'animal': 'dog',
-                'hat': 'yes'
-            },
-            {
-                'animal': 'dog',
-                'hat': 'yes'
-            }
+            {'animal': 'rabbit', 'hat': 'no'},
+            {'animal': 'dog', 'hat': 'yes'},
+            {'animal': 'dog', 'hat': 'yes'}
         ]
 
     @property
@@ -220,11 +211,11 @@ class ModelDefinition:
     
     @property
     def image_search_example(self):
-        return self.image_items_examples[2]
+        return self.image_items_examples[0]
     
     @property
     def audio_search_example(self):
-        return self.audio_items_examples[2]
+        return self.audio_items_examples[0]
 
     @property
     def item_examples(self):
