@@ -12,7 +12,7 @@ def get_package_requirements(requirement_type: str):
     """
         Load in extra_requirements.json from the package
     """
-    requirements = json.load(open(os.path.join('..', 'extra_requirements.json')))
+    requirements = json.load(open('extra_requirements.json'))
     dependencies = []
     for k, v in requirements.items():
         if requirement_type in v:
