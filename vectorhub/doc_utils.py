@@ -199,7 +199,7 @@ class ModelDefinition:
     @property
     def image_items_examples(self):
         return [
-            'https://getvectorai.com/_nuxt/img/rabbit.4a65d99.png'
+            'https://getvectorai.com/_nuxt/img/rabbit.4a65d99.png',
             'https://getvectorai.com/_nuxt/img/dog-2.b8b4cef.png',
             'https://getvectorai.com/_nuxt/img/dog-1.3cc5fe1.png',
         ]
@@ -222,7 +222,7 @@ class ModelDefinition:
     
     @property
     def image_search_example(self):
-        return self.image_items_examples[0]
+        return self.image_items_examples[2]
     
     @property
     def audio_search_example(self):
