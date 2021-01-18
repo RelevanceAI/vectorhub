@@ -1,5 +1,5 @@
 ---
-model_id: 'text_text/distilled-roberta-qa'
+model_id: 'qa/distilled-roberta-qa'
 model_name: "Distilled Roberta QA"
 vector_length: "768 (default)"
 paper: "https://arxiv.org/abs/1908.10084"
@@ -18,7 +18,7 @@ These are Distilled Roberta QA trained on MSMACRO dataset from sbert.net by UKPL
 
 ```
 #pip install vectorhub[encoders-text-sentence-transformers]
-from vectorhub.encoders.text_text.sentence_transformers import DistilRobertaQA2Vec
+from vectorhub.encoders.qa.sentence_transformers import DistilRobertaQA2Vec
 model = DistilRobertaQA2Vec('bert-base-uncased')
 model.encode("I enjoy taking long walks along the beach with my dog.")
 ```

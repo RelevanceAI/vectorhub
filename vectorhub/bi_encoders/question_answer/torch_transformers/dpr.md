@@ -1,5 +1,5 @@
 ---
-model_id: "text_text/dpr"
+model_id: "qa/dpr"
 model_name: "Dense Passage Retrieval"
 vector_length: "768 (default)"
 release_date: "2020-10-04"
@@ -16,7 +16,7 @@ Open-domain question answering relies on efficient passage retrieval to select c
 
 ```
 #pip install vectorhub[encoders-text-torch-transformers]
-from vectorhub.bi_encoders.text_text.torch_transformers import DPR2Vec
+from vectorhub.bi_encoders.qa.torch_transformers import DPR2Vec
 model = DPR2Vec()
 model.encode_question('How is the weather today?')
 model.encode_answer('The weather is great today.')
