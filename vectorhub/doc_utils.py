@@ -259,7 +259,7 @@ items = {self.item_examples}
 model.add_documents(user, api_key, items)
 
 # Search in 1 line of code and get the most similar results.
-model.search({self.search_example})
+model.search('{self.search_example}')
 
 # Add metadata to your search
 metadata = {self.metadata_examples}
