@@ -247,8 +247,7 @@ class ModelDefinition:
 
     @property
     def vectorai_integration(self):
-        return f"""
-        Index and search your vectors easily on the cloud using 1 line of code!
+        return f"""Index and search your vectors easily on the cloud using 1 line of code!
         If you require metadata to not be stored on the cloud, simply attach with an ID for 
         personal referral.
 
