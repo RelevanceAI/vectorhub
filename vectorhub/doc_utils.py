@@ -248,24 +248,23 @@ class ModelDefinition:
     @property
     def vectorai_integration(self):
         return f"""Index and search your vectors easily on the cloud using 1 line of code!
-        If you require metadata to not be stored on the cloud, simply attach with an ID for 
-        personal referral.
+If you require metadata to not be stored on the cloud, simply attach with an ID for personal referral.
 
-        ```
-        # You can request an api_key using - type in your username and email.
-        api_key = model.request_api_key(username, email)
+```
+# You can request an api_key using - type in your username and email.
+api_key = model.request_api_key(username, email)
 
-        # Index in 1 line of code
-        items = {self.item_examples}
-        model.add_documents(user, api_key, items)
+# Index in 1 line of code
+items = {self.item_examples}
+model.add_documents(user, api_key, items)
 
-        # Search in 1 line of code and get the most similar results.
-        model.search({self.search_example})
-        ```
+# Search in 1 line of code and get the most similar results.
+model.search({self.search_example})
 
-        # Add metadata to your search
-        metadata = {self.metadata_examples}
-        model.add_documents(user, api_key, items, metadata=metadata)
+# Add metadata to your search
+metadata = {self.metadata_examples}
+model.add_documents(user, api_key, items, metadata=metadata)
+```
         """
 
     def _split_markdown_description(self, description: str, splitter: str=r"(\#\#+\ +)|(\n)"):
