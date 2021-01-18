@@ -146,19 +146,21 @@ text_encoder.encode_answer('Sparta!')
 ### Index and search your vectors easily on the cloud using 1 line of code! 
 
 ```
+#pip install vectorhub[encoders-text-tfhub]
 from vectorhub.encoders.text.tfhub import USE2VEc
 encoder = USE2Vec()
 
-# You can request an api_key using - type in your username and email.
+# You can request an api_key simply by using your username and email.
+username = '<your username>'
+email = '<your email>'
 api_key = encoder.request_api_key(username, email)
 
 # Index in 1 line of code
-items = ['chicken', 'toilet', 'paper', 'enjoy walking']
+items = ['dogs', 'toilet', 'paper', 'enjoy walking']
 encoder.add_documents(user, api_key, items)
 
 # Search in 1 line of code and get the most similar results.
 encoder.search('basin')
-
 ```
 
 Add metadata to your search (information about your vectors)
