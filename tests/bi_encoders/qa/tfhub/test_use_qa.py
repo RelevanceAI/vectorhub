@@ -1,5 +1,5 @@
 import numpy as np
-from vectorhub.bi_encoders.text_text.tfhub import USEMultiQA2Vec, USEQA2Vec
+from vectorhub.bi_encoders.qa.tfhub import USEMultiQA2Vec, USEQA2Vec
 from ....test_utils import assert_encoder_works
 
 def test_use_multi_qa_initialize():
