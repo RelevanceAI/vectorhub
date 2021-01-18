@@ -214,7 +214,7 @@ class ModelDefinition:
 
     @property
     def search_example(self):
-        return DATA_TYPE_TO_EXAMPLE[self.data_type][2]
+        return self.DATA_TYPE_TO_EXAMPLE[self.data_type][2]
 
     @property
     def text_search_example(self):
