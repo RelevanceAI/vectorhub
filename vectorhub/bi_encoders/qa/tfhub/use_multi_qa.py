@@ -4,7 +4,7 @@ from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
 from ....import_utils import *
 from ....models_dict import MODEL_REQUIREMENTS
-from ..base import BaseTextText2Vec
+from ..base import BaseQA2Vec
 from .use_qa import USEQA2Vec
 if is_all_dependency_installed(MODEL_REQUIREMENTS['text-bi-encoder-tfhub-use-qa']):
     import bert

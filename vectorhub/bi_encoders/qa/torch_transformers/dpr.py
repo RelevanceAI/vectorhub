@@ -3,7 +3,7 @@ from typing import List
 from ....doc_utils import ModelDefinition
 from ....import_utils import is_all_dependency_installed
 from ....base import catch_vector_errors
-from ..base import BaseTextText2Vec
+from ..base import BaseQA2Vec
 if is_all_dependency_installed('encoders-text-torch-transformers'):
     from transformers import DPRContextEncoder, DPRContextEncoderTokenizer, DPRQuestionEncoder, DPRQuestionEncoderTokenizer, DPRReader, DPRReaderTokenizer
     import torch
@@ -12,7 +12,7 @@ if is_all_dependency_installed('encoders-text-torch-transformers'):
 DPRModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/qa/torch_transformers/dpr')
 __doc__ = DPRModelDefinition.create_docs()
 
-class DPR2Vec(BaseTextText2Vec):
+class DPR2Vec(BaseQA2Vec):
     definition = DPRModelDefinition
     def __init__(self):
         self.context_tokenizer = DPRContextEncoderTokenizer.from_pretrained('facebook/dpr-ctx_encoder-single-nq-base')

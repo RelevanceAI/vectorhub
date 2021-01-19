@@ -1,5 +1,5 @@
 from typing import List
-from ..base import BaseTextText2Vec
+from ..base import BaseQA2Vec
 from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
 from ....import_utils import *
@@ -13,7 +13,7 @@ DistilRobertaQAModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/
 __doc__ = DistilRobertaQAModelDefinition.create_docs()
 
 
-class DistilRobertaQA2Vec(BaseTextText2Vec):
+class DistilRobertaQA2Vec(BaseQA2Vec):
     definition = DistilRobertaQAModelDefinition
     def __init__(self):
         self.model = SentenceTransformer('distilroberta-base-msmarco-v1')

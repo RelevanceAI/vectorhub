@@ -1,7 +1,7 @@
 from ...encoders.text.base import BaseText2Vec
 from abc import ABC, abstractmethod
 
-class BaseTextText2Vec(BaseText2Vec, ABC):
+class BaseQA2Vec(BaseText2Vec, ABC):
     def encode(self):
         pass
 
