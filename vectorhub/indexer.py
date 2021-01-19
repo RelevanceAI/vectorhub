@@ -6,6 +6,18 @@ from vectorai import ViClient, request_api_key
 from typing import List, Any, Optional
 
 class ViIndexer:
+    @property
+    def encoder_type(self):
+        """The encoder type ensures it uses either the 'encode' or 'encode_question'/'encode_answer'
+        Currently supported encoder types: 
+            Question-Answer
+            Encoder
+        """
+        if self.model_id.startswith('qa'):
+            return 'qa'
+        else:
+            return 'encoder'
+
     def request_api_key(self, username: str, email: str, referral=None):
         """
         Requesting an API key.
@@ -32,7 +44,10 @@ class ViIndexer:
             docs = [self._create_document(i, item) for i, item in enumerate(items)]
 
         self.client = ViClient(username, api_key)
-        return self.client.insert_documents(self.collection_name, docs, {'item': self})
+        if self.encoder_type == 'encoder':
+            return self.client.insert_documents(self.collection_name, docs, {'item': self})
+        elif self.encoder_type == 'qa':
+            return self.client.insert_documents(self.collection_name, docs, {'item': self.encode_question})
 
     def _create_document(self, _id: str, item: List[str], metadata=None):
         return {
@@ -51,7 +66,12 @@ class ViIndexer:
         Simple search with Vector AI
         """
         warnings.warn("If you are looking for more advanced functionality, we recommend using the official Vector AI Github package")
-        return self.client.search(self.collection_name, self.encode(item), field='item_' + self.__name__ + '_vector_', page_size=num_results)
+        if self.encoder_type == 'encoder':
+            return self.client.search(self.collection_name, self.encode(item), 
+            field='item_' + self.__name__ + '_vector_', page_size=num_results)
+        elif self.encoder_type == 'qa':
+            return self.client.search(self.collection_name, self.encode_question(item), 
+            field='item_' + self.__name__ + '_vector_', page_size=num_results)
 
     def retrieve_documents(self, num_of_documents: int):
         """
