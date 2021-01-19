@@ -228,8 +228,8 @@
 <li class="toctree-l3"><a class="reference internal" href="vectorhub.bi_encoders.text_text.html">vectorhub.bi_encoders.text_text package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="vectorhub.bi_encoders.text_text.html#subpackages">Subpackages</a></li>
 <li class="toctree-l4"><a class="reference internal" href="vectorhub.bi_encoders.text_text.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="vectorhub.bi_encoders.text_text.html#module-vectorhub.bi_encoders.text_text.base">vectorhub.bi_encoders.text_text.base module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="vectorhub.bi_encoders.text_text.html#module-vectorhub.bi_encoders.text_text">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vectorhub.bi_encoders.text_text.html#vectorhub-bi-encoders-text-text-base-module">vectorhub.bi_encoders.text_text.base module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vectorhub.bi_encoders.text_text.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -366,6 +366,17 @@
 <dd></dd></dl>
 
 <dl class="py method">
+<dt id="vectorhub.base.Base2Vec.encoder_type">
+<em class="property">property </em><code class="sig-name descname">encoder_type</code><a class="headerlink" href="#vectorhub.base.Base2Vec.encoder_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The encoder type ensures it uses either the ‘encode’ or ‘encode_question’/’encode_answer’
+Currently supported encoder types:</p>
+<blockquote>
+<div><p>Question-Answer
+Encoder</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
 <dt id="vectorhub.base.Base2Vec.is_url_working">
 <em class="property">static </em><code class="sig-name descname">is_url_working</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.base.Base2Vec.is_url_working" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -476,7 +487,7 @@ def encode(self):</p>
 <dl class="py method">
 <dt id="vectorhub.doc_utils.ModelDefinition.data_type">
 <em class="property">property </em><code class="sig-name descname">data_type</code><a class="headerlink" href="#vectorhub.doc_utils.ModelDefinition.data_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns text/audio/image.</p>
+<dd><p>Returns text/audio/image/qa</p>
 </dd></dl>
 
 <dl class="py method">
@@ -510,6 +521,21 @@ def encode(self):</p>
 <dl class="py method">
 <dt id="vectorhub.doc_utils.ModelDefinition.metadata_examples">
 <em class="property">property </em><code class="sig-name descname">metadata_examples</code><a class="headerlink" href="#vectorhub.doc_utils.ModelDefinition.metadata_examples" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.doc_utils.ModelDefinition.qa_items_examples">
+<em class="property">property </em><code class="sig-name descname">qa_items_examples</code><a class="headerlink" href="#vectorhub.doc_utils.ModelDefinition.qa_items_examples" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.doc_utils.ModelDefinition.qa_metadata_examples">
+<em class="property">property </em><code class="sig-name descname">qa_metadata_examples</code><a class="headerlink" href="#vectorhub.doc_utils.ModelDefinition.qa_metadata_examples" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.doc_utils.ModelDefinition.qa_search_example">
+<em class="property">property </em><code class="sig-name descname">qa_search_example</code><a class="headerlink" href="#vectorhub.doc_utils.ModelDefinition.qa_search_example" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">

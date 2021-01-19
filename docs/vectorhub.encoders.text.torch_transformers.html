@@ -299,6 +299,17 @@ BERT has achieved impressive performance in several NLP tasks. However, there ha
 </dd></dl>
 
 <dl class="py method">
+<dt id="vectorhub.encoders.text.torch_transformers.legal_bert.LegalBert2Vec.encoder_type">
+<em class="property">property </em><code class="sig-name descname">encoder_type</code><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.legal_bert.LegalBert2Vec.encoder_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The encoder type ensures it uses either the ‘encode’ or ‘encode_question’/’encode_answer’
+Currently supported encoder types:</p>
+<blockquote>
+<div><p>Question-Answer
+Encoder</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
 <dt id="vectorhub.encoders.text.torch_transformers.legal_bert.LegalBert2Vec.is_url_working">
 <em class="property">static </em><code class="sig-name descname">is_url_working</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.legal_bert.LegalBert2Vec.is_url_working" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -442,6 +453,17 @@ These are Tensorflow Automodels from HuggingFace.</p>
 <code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>str<span class="p">, </span>List<span class="p">[</span>str<span class="p">]</span><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>float<span class="p">]</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.encode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encode words using transformers.
 :param word: str</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.encoder_type">
+<em class="property">property </em><code class="sig-name descname">encoder_type</code><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.encoder_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The encoder type ensures it uses either the ‘encode’ or ‘encode_question’/’encode_answer’
+Currently supported encoder types:</p>
+<blockquote>
+<div><p>Question-Answer
+Encoder</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
@@ -597,6 +619,17 @@ From the abstract of the paper:</p>
 <code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>str<span class="p">, </span>List<span class="p">[</span>str<span class="p">]</span><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>float<span class="p">]</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_longformers.Longformer2Vec.encode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encode words using transformers.
 :param text: str</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.encoders.text.torch_transformers.torch_longformers.Longformer2Vec.encoder_type">
+<em class="property">property </em><code class="sig-name descname">encoder_type</code><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_longformers.Longformer2Vec.encoder_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The encoder type ensures it uses either the ‘encode’ or ‘encode_question’/’encode_answer’
+Currently supported encoder types:</p>
+<blockquote>
+<div><p>Question-Answer
+Encoder</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">

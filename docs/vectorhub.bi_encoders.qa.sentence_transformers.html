@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>vectorhub.bi_encoders.qa.sentence_transformers package &mdash; VectorHub 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> VectorHub
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">What is Vector Hub?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_add_a_model.html">How To Add Your Model To Vector Hub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_encoder.html">Guide to using Auto-Encoder</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Text Encoders</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.bert2vec.html">Bert2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.albert2vec.html">AlBert2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.labse2vec.html">LaBSE2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.use2vec.html">USE2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.use_multi2vec.html">USEMulti2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.legalbert2vec.html">LegalBert2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.transformer2vec.html">Transformer2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.sentencetransformer2vec.html">SentenceTransformer2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.text.vectorai2vec.html">ViText2Vec</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Image Encoders</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.bit2vec.html">Bit2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.inception2vec.html">Inception2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.resnet2vec.html">ResNet2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.inception_resnet2vec.html">InceptionResnet2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.mobilenet2vec.html">MobileNet2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.image.vectorai2vec.html">ViImage2Vec</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Audio Encoders</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.speech_embedding2vec.html">SpeechEmbedding2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.trill2vec.html">Trill2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.vggish2vec.html">Vggish2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.yamnet2vec.html">Yamnet2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.wav2vec.html">Wav2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="encoders.audio.vectorai2vec.html">ViAudio2Vec</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Text Bi-Encoders</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bi_encoders.text_text.use_qa2vec.html">USEQA2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bi_encoders.text_text.lareqa_qa2vec.html">LAReQA2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bi_encoders.text_text.dpr2vec.html">DPR2Vec</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">vectorhub</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VectorHub</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>vectorhub.bi_encoders.qa.sentence_transformers package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/vectorhub.bi_encoders.qa.sentence_transformers.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vectorhub-bi-encoders-qa-sentence-transformers-package">
+<h1>vectorhub.bi_encoders.qa.sentence_transformers package<a class="headerlink" href="#vectorhub-bi-encoders-qa-sentence-transformers-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa">
+<span id="vectorhub-bi-encoders-qa-sentence-transformers-distilroberta-qa-module"></span><h2>vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa module<a class="headerlink" href="#module-vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa" title="Permalink to this headline">¶</a></h2>
+<p><strong>Model Name</strong>: Distilled Roberta QA</p>
+<p><strong>Vector Length</strong>: 768 (default)</p>
+<p><strong>Description</strong>:
+These are Distilled Roberta QA trained on MSMACRO dataset from sbert.net by UKPLab.</p>
+<p><strong>Paper</strong>: <a class="reference external" href="https://arxiv.org/abs/1908.10084">https://arxiv.org/abs/1908.10084</a></p>
+<p><strong>Repository</strong>: <a class="reference external" href="https://github.com/UKPLab/sentence-transformers">https://github.com/UKPLab/sentence-transformers</a></p>
+<p><strong>Architecture</strong>: Not stated.</p>
+<p><strong>Tasks</strong>: Not stated.</p>
+<p><strong>Release Date</strong>: 2019-08-27</p>
+<p><strong>Limitations</strong>: Not stated.</p>
+<p><strong>Installation</strong>: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-sentence-transformers]</span></code></p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">#pip</span> <span class="pre">install</span> <span class="pre">vectorhub[encoders-text-sentence-transformers]</span>
+<span class="pre">from</span> <span class="pre">vectorhub.encoders.qa.sentence_transformers</span> <span class="pre">import</span> <span class="pre">DistilRobertaQA2Vec</span>
+<span class="pre">model</span> <span class="pre">=</span> <span class="pre">DistilRobertaQA2Vec('bert-base-uncased')</span>
+<span class="pre">model.encode(&quot;I</span> <span class="pre">enjoy</span> <span class="pre">taking</span> <span class="pre">long</span> <span class="pre">walks</span> <span class="pre">along</span> <span class="pre">the</span> <span class="pre">beach</span> <span class="pre">with</span> <span class="pre">my</span> <span class="pre">dog.&quot;)</span>
+<span class="pre">`</span></code></p>
+<dl class="py class">
+<dt id="vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec">
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.</code><code class="sig-name descname">DistilRobertaQA2Vec</code><a class="headerlink" href="#vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="vectorhub.bi_encoders.qa.html#vectorhub.bi_encoders.qa.base.BaseQA2Vec" title="vectorhub.bi_encoders.qa.base.BaseQA2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.bi_encoders.qa.base.BaseQA2Vec</span></code></a></p>
+<dl class="py method">
+<dt id="vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.add_documents">
+<code class="sig-name descname">add_documents</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">api_key</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">items</span><span class="p">:</span> <span class="n">List<span class="p">[</span>Any<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">metadata</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>List<span class="p">[</span>Any<span class="p">]</span><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">collection_name</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.add_documents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add documents to the Vector AI cloud.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.bulk_encode">
+<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">strings</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">context_strings</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">string_type</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'answer'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bulk encode question/answer using LAReQA model.
+:param String: List of strings.
+:param Context_string: List of context of the strings.
+:param string_type: question/answer.</p>
+<p>Example:
+&gt;&gt;&gt; from vectorhub.bi_encoders.qa.tfhub.lareqa_qa import *
+&gt;&gt;&gt; model = LAReQA2Vec()
+&gt;&gt;&gt; model.bulk_encode(“Why?”, string_type=’answer’)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.bulk_encode_answers">
+<code class="sig-name descname">bulk_encode_answers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">answers</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.bulk_encode_answers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.bulk_encode_question">
+<code class="sig-name descname">bulk_encode_question</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">questions</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.bulk_encode_question" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.chunk">
+<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
+:param lst: Python List
+:param chunk_size: The chunk size of an object.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">documents</span> <span class="o">=</span> <span class="p">[{</span><span class="o">...</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ViClient</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.definition">
+<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.delete_collection">
+<code class="sig-name descname">delete_collection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">collection_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.delete_collection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.encode">
+<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">context_string</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">string_type</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'answer'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode question/answer using LAReQA model.
+:param String: Any string
+:param Context_string: The context of the string.
+:param string_type: question/answer.</p>
+<p>Example:
+&gt;&gt;&gt; from vectorhub.bi_encoders.qa.tfhub.lareqa_qa import *
+&gt;&gt;&gt; model = LAReQA2Vec()
+&gt;&gt;&gt; model.encode_answer(“Why?”)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.encode_answer">
+<code class="sig-name descname">encode_answer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">answer</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">context</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.encode_answer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.encode_question">
+<code class="sig-name descname">encode_question</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">question</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.encode_question" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.encoder_type">
+<em class="property">property </em><code class="sig-name descname">encoder_type</code><a class="headerlink" href="#vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.encoder_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>The encoder type ensures it uses either the ‘encode’ or ‘encode_question’/’encode_answer’
+Currently supported encoder types:</p>
+<blockquote>
+<div><p>Question-Answer
+Encoder</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.is_url_working">
+<em class="property">static </em><code class="sig-name descname">is_url_working</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.is_url_working" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>An abstract method to specify the read method to read the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.request_api_key">
+<code class="sig-name descname">request_api_key</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">email</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">referral</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.request_api_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requesting an API key.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.retrieve_all_documents">
+<code class="sig-name descname">retrieve_all_documents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.retrieve_all_documents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve all documents.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.retrieve_documents">
+<code class="sig-name descname">retrieve_documents</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_of_documents</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.retrieve_documents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all the documents in our package.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.search">
+<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">item</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">num_results</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple search with Vector AI</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.test_word">
+<em class="property">property </em><code class="sig-name descname">test_word</code><a class="headerlink" href="#vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.test_word" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.validate_model_url">
+<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate the model url belongs in the list of urls. This is to help
+users to avoid mis-spelling the name of the model.</p>
+<p># TODO:
+Improve model URL validation to not include final number in URl string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_url</strong> – The URl of the the model in question</p></li>
+<li><p><strong>list_of_urls</strong> – The list of URLS for the model in question</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.vector_length">
+<em class="property">property </em><code class="sig-name descname">vector_length</code><a class="headerlink" href="#vectorhub.bi_encoders.qa.sentence_transformers.distilroberta_qa.DistilRobertaQA2Vec.vector_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the vector length of the model.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-vectorhub.bi_encoders.qa.sentence_transformers">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-vectorhub.bi_encoders.qa.sentence_transformers" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Vector AI.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
