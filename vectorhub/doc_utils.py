@@ -251,6 +251,8 @@ class ModelDefinition:
 If you require metadata to not be stored on the cloud, simply attach with an ID for personal referral.
 
 ```
+username = '<your username>'
+email = '<your email>'
 # You can request an api_key using - type in your username and email.
 api_key = model.request_api_key(username, email)
 
