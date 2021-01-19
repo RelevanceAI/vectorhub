@@ -47,9 +47,9 @@ class ModelDefinition:
     @property
     def data_type(self):
         """
-        Returns text/audio/image.
+        Returns text/audio/image/qa
         """
-        return self.definition.model_id.split('/')[0]
+        return self.model_id.split('/')[0]
 
     def create_docs(self):
         """
