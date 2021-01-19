@@ -13,7 +13,7 @@ class ViIndexer:
             Question-Answer
             Encoder
         """
-        if self.model_id.startswith('qa'):
+        if self.definition.model_id.startswith('qa'):
             return 'qa'
         else:
             return 'encoder'

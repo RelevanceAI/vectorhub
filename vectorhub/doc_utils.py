@@ -49,7 +49,7 @@ class ModelDefinition:
         """
         Returns text/audio/image.
         """
-        return self.model_id.split('/')[0]
+        return self.definition.model_id.split('/')[0]
 
     def create_docs(self):
         """
