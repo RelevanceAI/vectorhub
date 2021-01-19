@@ -47,14 +47,9 @@ class ModelDefinition:
     @property
     def data_type(self):
         """
-        Returns text/audio/image.
+        Returns text/audio/image/qa
         """
-        if 'text' in self.model_id:
-            return 'text'
-        elif 'audio' in self.model_id:
-            return 'audio'
-        elif 'image' in self.model_id:
-            return 'image'
+        return self.model_id.split('/')[0]
 
     def create_docs(self):
         """
@@ -182,6 +177,22 @@ class ModelDefinition:
             "paper",
             "enjoy walking"
         ]
+    
+    @property
+    def qa_items_examples(self):
+        return [
+            "A blue whale in North Atlantic can grow up to 90 feet.",
+            "A blue whale in Antarctica can grow up to 110 feet.",
+            "A gorilla can lift 4000pounds (1810kg) on a bench press.",
+            "A well-trained man can lift up to 401.5kg."
+        ]
+    @property
+    def qa_search_example(self):
+        return "How long can a blue whale grow in Antarctica?"
+    
+    @property
+    def qa_metadata_examples(self):
+        return ["whale", "whale", "gorilla", "human"]
 
     @property
     def text_metadata_examples(self):
@@ -238,7 +249,8 @@ class ModelDefinition:
         return {
             'text': (self.text_items_examples, self.text_metadata_examples, self.text_search_example),
             'image': (self.image_items_examples, self.image_metadata_examples, self.image_search_example),
-            'audio': (self.audio_items_examples, self.audio_metadata_examples, self.audio_search_example)
+            'audio': (self.audio_items_examples, self.audio_metadata_examples, self.audio_search_example),
+            'qa': (self.qa_items_examples, self.qa_metadata_examples, self.qa_search_example)
         }
 
     @property
@@ -248,7 +260,6 @@ class ModelDefinition:
     @property
     def vectorai_integration(self):
         return f"""Index and search your vectors easily on the cloud using 1 line of code!
-If you require metadata to not be stored on the cloud, simply attach with an ID for personal referral.
 
 ```
 username = '<your username>'

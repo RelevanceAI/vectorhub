@@ -20,7 +20,7 @@
     "fairseq": ["encoders-audio-pytorch"],
     "transformers": ["encoders-text-torch-transformers", "encoders-text-tf-transformers", "encoders-code-transformers"],
     "moviepy": ["encoders-video"],
-    "vectorai": ["test"],
+    "vectorai": ["core"],
     "opencv-python": ["encoders-video", "encoders-image-tf-face-detection"],
     "appdirs": ["encoders-image-tf-face-detection"],
     "fastai==2.1.8": ["encoders-image-fastai"],

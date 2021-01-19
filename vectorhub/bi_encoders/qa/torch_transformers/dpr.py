@@ -3,16 +3,16 @@ from typing import List
 from ....doc_utils import ModelDefinition
 from ....import_utils import is_all_dependency_installed
 from ....base import catch_vector_errors
-from ..base import BaseTextText2Vec
+from ..base import BaseQA2Vec
 if is_all_dependency_installed('encoders-text-torch-transformers'):
     from transformers import DPRContextEncoder, DPRContextEncoderTokenizer, DPRQuestionEncoder, DPRQuestionEncoderTokenizer, DPRReader, DPRReaderTokenizer
     import torch
     import numpy as np
 
-DPRModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/text_text/torch_transformers/dpr')
+DPRModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/qa/torch_transformers/dpr')
 __doc__ = DPRModelDefinition.create_docs()
 
-class DPR2Vec(BaseTextText2Vec):
+class DPR2Vec(BaseQA2Vec):
     definition = DPRModelDefinition
     def __init__(self):
         self.context_tokenizer = DPRContextEncoderTokenizer.from_pretrained('facebook/dpr-ctx_encoder-single-nq-base')
@@ -68,7 +68,7 @@ class DPR2Vec(BaseTextText2Vec):
                 string_type: question/answer. 
 
             Example:
-            >>> from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+            >>> from vectorhub.bi_encoders.qa.tfhub.lareqa_qa import *
             >>> model = LAReQA2Vec()
             >>> model.encode_answer("Why?")
         """
@@ -87,7 +87,7 @@ class DPR2Vec(BaseTextText2Vec):
                 string_type: question/answer.
 
             Example:
-            >>> from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+            >>> from vectorhub.bi_encoders.qa.tfhub.lareqa_qa import *
             >>> model = LAReQA2Vec()
             >>> model.bulk_encode("Why?", string_type='answer')
         """

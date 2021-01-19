@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+from __future__ import unicode_literals
 import os
 import codecs
 import sys
@@ -50,16 +50,17 @@ version = '1.1.0'
 if 'IS_VECTORHUB_NIGHTLY' in os.environ.keys():
     from datetime import datetime
     name = 'vectorhub-nightly'
-    version = version + '.' + datetime.today().date().__str__().replace('-', '.') 
+    version = version + '.' + datetime.today().date().__str__().replace('-', '.')
 else:
     name = 'vectorhub'
 
+print(package_data)
 setup(
     name=name,
     version=version,
     author="OnSearch Pty Ltd",
     author_email="dev@vctr.ai",
-    package_data={'vectorhub': package_data},
+    package_data={'vectorhub': package_data, '': ['extra_requirements.json']},
     include_package_data=True,
     # data_files=[('vectorhub', package_data)], # puts the markdown files in a new directory - not what we want
     description="One liner to encode data into vectors with state-of-the-art models using tensorflow, pytorch and other open source libraries. Word2Vec, Image2Vec, BERT, etc",
@@ -68,7 +69,7 @@ setup(
     keywords="vector, embeddings, machinelearning, ai, artificialintelligence, nlp, tensorflow, pytorch, nearestneighbors, search, analytics, clustering, dimensionalityreduction",
     url="https://github.com/vector-ai/vectorhub",
     license="Apache",
-    packages=find_packages(exclude=["tests*"]),
+    packages=find_packages(exclude=["tests*"]) + ['.'],
     python_requires=">=3",
     install_requires=list(all_deps['core'].union(all_deps['perf'])),
     extras_require=all_deps,

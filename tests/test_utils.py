@@ -95,6 +95,9 @@ class AssertModelWorks:
             assert_vector_works(self.model.encode(self.audio_url), self.vector_length)
         elif self.data_type == 'text':
             assert_vector_works(self.model.encode(self.sentence), self.vector_length)
+        elif self.data_type == 'qa':
+            assert_vector_works(self.model.encode_question(self.question), self.vector_length)
+            assert_vector_works(self.model.encode_answer(self.sentence), self.vector_length)
 
     def assert_bulk_encode_works(self):
         if self.data_type == 'image':
@@ -103,6 +106,8 @@ class AssertModelWorks:
             assert_vector_works(self.model.bulk_encode([self.audio_url, self.audio_url, self.audio_url]), self.vector_length)
         elif self.data_type == 'text':
             assert_vector_works(self.model.bulk_encode([self.sentence, self.sentence, self.sentence]), self.vector_length)
+        elif self.data_type == 'qa':
+            assert_vector_works(self.model.encode_answer(self.sentence), self.vector_length)
 
     def assert_encoding_methods_work(self):
         if self.model_type == 'encoder':
@@ -113,7 +118,7 @@ class AssertModelWorks:
             self.assert_bulk_biencode_works()
     
     def assert_biencode_works(self):
-        if self.data_type == 'text':
+        if self.data_type == 'qa':
             assert_vector_works(self.model.encode_question(self.question), self.vector_length)
             assert_vector_works(self.model.encode_answer(self.sentence), self.vector_length)
 
@@ -144,6 +149,8 @@ class AssertModelWorks:
             return 'image_url'
         if self.data_type == 'audio':
             return 'audio_url'
+        if self.data_type == 'qa':
+            return 'question'
 
     @property
     def random_string(self, length=8):

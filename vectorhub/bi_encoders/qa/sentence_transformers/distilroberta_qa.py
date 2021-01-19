@@ -1,5 +1,5 @@
 from typing import List
-from ..base import BaseTextText2Vec
+from ..base import BaseQA2Vec
 from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
 from ....import_utils import *
@@ -8,12 +8,12 @@ from datetime import date
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-sentence-transformers']):
     from sentence_transformers import SentenceTransformer
 
-DistilRobertaQAModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/text_text/sentence_transformers/distilroberta_qa.md')
+DistilRobertaQAModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/qa/sentence_transformers/distilroberta_qa.md')
 
 __doc__ = DistilRobertaQAModelDefinition.create_docs()
 
 
-class DistilRobertaQA2Vec(BaseTextText2Vec):
+class DistilRobertaQA2Vec(BaseQA2Vec):
     definition = DistilRobertaQAModelDefinition
     def __init__(self):
         self.model = SentenceTransformer('distilroberta-base-msmarco-v1')
@@ -49,7 +49,7 @@ class DistilRobertaQA2Vec(BaseTextText2Vec):
                 string_type: question/answer. 
 
             Example:
-            >>> from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+            >>> from vectorhub.bi_encoders.qa.tfhub.lareqa_qa import *
             >>> model = LAReQA2Vec()
             >>> model.encode_answer("Why?")
         """
@@ -68,7 +68,7 @@ class DistilRobertaQA2Vec(BaseTextText2Vec):
                 string_type: question/answer.
 
             Example:
-            >>> from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+            >>> from vectorhub.bi_encoders.qa.tfhub.lareqa_qa import *
             >>> model = LAReQA2Vec()
             >>> model.bulk_encode("Why?", string_type='answer')
         """

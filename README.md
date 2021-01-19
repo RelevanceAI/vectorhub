@@ -133,7 +133,7 @@ text_encoder.encode('This is sparta!')
 ```
 ### Leverage [Facebook Dense Passage Retrieval](https://github.com/facebookresearch/DPR)
 ```
-from vectorhub.bi_encoders.text_text.torch_transformers import DPR2Vec
+from vectorhub.bi_encoders.qa.torch_transformers import DPR2Vec
 text_encoder = DPR2Vec()
 text_encoder.encode_question('Who is sparta!')
 [0.47, 0.83, 0.148, ...]
@@ -211,7 +211,7 @@ encoder.encode("Hello vectorhub!")
 
 You can choose from our list of models: 
 ```
-['text/albert', 'text/bert', 'text/labse', 'text/use', 'text/use-multi', 'text/use-lite', 'text/legal-bert', 'audio/fairseq', 'audio/speech-embedding', 'audio/trill', 'audio/trill-distilled', 'audio/vggish', 'audio/yamnet', 'audio/wav2vec', 'image/bit', 'image/bit-medium', 'image/inception', 'image/inception-v2', 'image/inception-v3', 'image/inception-resnet', 'image/mobilenet', 'image/mobilenet-v2', 'image/resnet', 'image/resnet-v2', 'text_text/use-multi-qa', 'text_text/use-qa', 'text_text/dpr', 'text_text/lareqa-qa']
+['text/albert', 'text/bert', 'text/labse', 'text/use', 'text/use-multi', 'text/use-lite', 'text/legal-bert', 'audio/fairseq', 'audio/speech-embedding', 'audio/trill', 'audio/trill-distilled', 'audio/vggish', 'audio/yamnet', 'audio/wav2vec', 'image/bit', 'image/bit-medium', 'image/inception', 'image/inception-v2', 'image/inception-v3', 'image/inception-resnet', 'image/mobilenet', 'image/mobilenet-v2', 'image/resnet', 'image/resnet-v2', 'qa/use-multi-qa', 'qa/use-qa', 'qa/dpr', 'qa/lareqa-qa']
 ```
 ## What are Vectors?
 Common Terminologys when operating with Vectors:

@@ -4,7 +4,7 @@ from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
 from ....import_utils import *
 from ....models_dict import MODEL_REQUIREMENTS
-from ..base import BaseTextText2Vec
+from ..base import BaseQA2Vec
 from .use_qa import USEQA2Vec
 if is_all_dependency_installed(MODEL_REQUIREMENTS['text-bi-encoder-tfhub-use-qa']):
     import bert
@@ -17,7 +17,7 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['text-bi-encoder-tfhub-use-qa'
     except NotFoundError:
         print('The installed Tensorflow Text version is not aligned with tensorflow, make sure that tensorflow-text version is same version as tensorflow')
 
-USEMultiQAModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/text_text/tfhub/use_multi_qa')
+USEMultiQAModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/qa/tfhub/use_multi_qa')
 
 class USEMultiQA2Vec(USEQA2Vec):
     definition = USEMultiQAModelDefinition

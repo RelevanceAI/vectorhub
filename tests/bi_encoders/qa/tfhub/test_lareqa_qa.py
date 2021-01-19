@@ -1,4 +1,4 @@
-from vectorhub.bi_encoders.text_text.tfhub import LAReQA2Vec
+from vectorhub.bi_encoders.qa.tfhub import LAReQA2Vec
 from ....test_utils import assert_encoder_works
 
 def test_lare_qa_works():

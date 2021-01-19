@@ -28,7 +28,7 @@ We have written a simple 7-step guide to help you add your models here if you ha
 |________ image
 |________ text
 |____ bi_encoders
-|________ text_text
+|________ qa
 If you believe your model falls under a new category than we recommend making a new directory!
 
 6. Once you identify the requirements, find the associated module or create a new one if required.

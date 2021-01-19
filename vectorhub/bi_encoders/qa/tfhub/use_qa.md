@@ -1,25 +1,22 @@
 ---
-model_id: 'text_text/use-multi-qa'
-model_name: "Universal Sentence Encoder Multilingual Question Answering"
+model_id: 'qa/use-qa'
+model_name: "Universal Sentence Encoder Question Answering"
 vector_length: "512 (default)"
-repo: "https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3"
-installation: "pip install vectorhub[encoders-text-tfhub]"
-release_date: "2019-07-01"
+release_date: "2020-03-11"
+repo: 'https://tfhub.dev/google/universal-sentence-encoder-qa/3'
+installation: "pip install vectorhub[encoders-text-tfhub-tftext]"
 category: text-text
-short_description: Greater-than-word length multi-lingual text encoder for question answer retrieval.
+short_description: Greater-than-word length text encoder for question answer retrieval.
 ---
 
 ## Description
 
 - Developed by researchers at Google, 2019, v2 [1].
-- Covers 16 languages, strong performance on cross-lingual question answer retrieval.
-- It is trained on a variety of data sources and tasks, with the goal of learning text representations that are useful out-of-the-box to retrieve an answer given a question, as well as question and answers across different languages.
+- It is trained on a variety of data sources and tasks, with the goal of learning text representations that 
+are useful out-of-the-box to retrieve an answer given a question, as well as question and answers across different languages.
 - It can also be used in other applications, including any type of text classification, clustering, etc.
-
-
-## Supported Languages
-
-Arabic, Chinese-simplified, Chinese-traditional, English, French, German, Italian, Japanese, Korean, Dutch, Polish, Portuguese, Spanish, Thai, Turkish, Russian
+- Multi-task training setup is based on the paper [Learning Cross-lingual Sentence Representations via a Multi-task Dual Encoder](https://arxiv.org/pdf/1810.12836.pdf)
+- Achieved 56.1 on dev set in Squad Retrieval and 46.2 on train.
 
 ## Training Corpora
 
@@ -40,10 +37,10 @@ All models are trained with a batch size of 100 using SGD with a learning rate o
 
 ## Example
 
-```python
+```
 #pip install vectorhub[encoders-text-tfhub]
-from vectorhub.bi_encoders.text_text.tfhub import USEMultiQA2Vec
-model = USEMultiQA2Vec()
+from vectorhub.bi_encoders.qa.tfhub import USEQA2Vec
+model = USEQA2Vec()
 model.encode_question('How is the weather today?')
 model.encode_answer('The weather is great today.')
 ```

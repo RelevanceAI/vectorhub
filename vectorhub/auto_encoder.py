@@ -21,9 +21,9 @@ with warnings.catch_warnings():
     from .encoders.image.fastai import *
     from .encoders.face.tf import *
     from .encoders.code.transformers import *
-    from .bi_encoders.text_text.tfhub import *
-    from .bi_encoders.text_text.torch_transformers import *
-    from .bi_encoders.text_text.sentence_transformers import *
+    from .bi_encoders.qa.tfhub import *
+    from .bi_encoders.qa.torch_transformers import *
+    from .bi_encoders.qa.sentence_transformers import *
 
 # Include the class and then the requirements key from models_dict.py
 ENCODER_MAPPINGS = defaultdict(tuple, {
