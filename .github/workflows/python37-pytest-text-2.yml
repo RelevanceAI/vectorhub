@@ -57,7 +57,7 @@ jobs:
             VH_API_KEY: ${{ secrets.VH_API_KEY }}
         run: |
           pip install -e ".[encoders-text-tfhub]"
-          pytest tests/bi_encoders/text_text/tfhub
+          pytest tests/bi_encoders/qa/tfhub
       
       - name: Install & Test for text tfhub
         env:
