@@ -17,7 +17,7 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['text-bi-encoder-tfhub-use-qa'
     except NotFoundError:
         print('The installed Tensorflow Text version is not aligned with tensorflow, make sure that tensorflow-text version is same version as tensorflow')
 
-USEMultiQAModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/text_text/tfhub/use_multi_qa')
+USEMultiQAModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/qa/tfhub/use_multi_qa')
 
 class USEMultiQA2Vec(USEQA2Vec):
     definition = USEMultiQAModelDefinition

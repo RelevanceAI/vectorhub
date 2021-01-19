@@ -17,7 +17,7 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['text-bi-encoder-tfhub-use-qa'
     except NotFoundError:
         print('The installed Tensorflow Text version is not aligned with tensorflow, make sure that tensorflow-text version is same version as tensorflow')
 
-USEQAModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/text_text/tfhub/use_qa')
+USEQAModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/qa/tfhub/use_qa')
 __doc__ = USEQAModelDefinition.create_docs()
 
 class USEQA2Vec(BaseTextText2Vec):
@@ -63,7 +63,7 @@ class USEQA2Vec(BaseTextText2Vec):
                 string_type: question/answer. 
 
             Example:
-            >>> from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+            >>> from vectorhub.bi_encoders.qa.tfhub.lareqa_qa import *
             >>> model = USEQA2Vec()
             >>> model.encode_answer("Why?")
         """
@@ -82,7 +82,7 @@ class USEQA2Vec(BaseTextText2Vec):
                 string_type: question/answer.
 
             Example:
-            >>> from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+            >>> from vectorhub.bi_encoders.qa.tfhub.lareqa_qa import *
             >>> model = USEQA2Vec()
             >>> model.bulk_encode("Why?", string_type='answer')
         """

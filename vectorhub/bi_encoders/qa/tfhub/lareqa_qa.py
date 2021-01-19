@@ -16,7 +16,7 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['text-bi-encoder-tfhub-lareqa-
     except NotFoundError:
         print('The installed Tensorflow Text version is not aligned with tensorflow, make sure that tensorflow-text version is same version as tensorflow')
 
-LAReQAModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/text_text/tfhub/lareqa_qa')
+LAReQAModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/qa/tfhub/lareqa_qa')
 __doc__ = LAReQAModelDefinition.create_docs()
 
 class LAReQA2Vec(BaseTextText2Vec):
@@ -49,7 +49,7 @@ class LAReQA2Vec(BaseTextText2Vec):
             Encode the question using LAReQA model.
             Example:
             
-            >>> from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+            >>> from vectorhub.bi_encoders.qa.tfhub.lareqa_qa import *
             >>> model = LAReQA2Vec()
             >>> model.encode_question("Why?")
         """
@@ -61,7 +61,7 @@ class LAReQA2Vec(BaseTextText2Vec):
             Encode questions using LAReQA model.
             Example:
             
-            >>> from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+            >>> from vectorhub.bi_encoders.qa.tfhub.lareqa_qa import *
             >>> model = LAReQA2Vec()
             >>> model.encode_question(["Why?", "Who?"])
         """
@@ -73,7 +73,7 @@ class LAReQA2Vec(BaseTextText2Vec):
             Encode answer using LAReQA model.
             Example:
             
-            >>> from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+            >>> from vectorhub.bi_encoders.qa.tfhub.lareqa_qa import *
             >>> model = LAReQA2Vec()
             >>> model.encode_answer("Why?")
         """
@@ -101,7 +101,7 @@ class LAReQA2Vec(BaseTextText2Vec):
                 string_type: question/answer. 
 
             Example:
-            >>> from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+            >>> from vectorhub.bi_encoders.qa.tfhub.lareqa_qa import *
             >>> model = LAReQA2Vec()
             >>> model.encode_answer("Why?")
         """
@@ -120,7 +120,7 @@ class LAReQA2Vec(BaseTextText2Vec):
                 string_type: question/answer.
 
             Example:
-            >>> from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+            >>> from vectorhub.bi_encoders.qa.tfhub.lareqa_qa import *
             >>> model = LAReQA2Vec()
             >>> model.bulk_encode("Why?", string_type='answer')
         """

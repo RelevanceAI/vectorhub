@@ -35,6 +35,6 @@ def list_models(return_names_only=False):
     all_models = [str(x).replace('.py', '') for x in list(Path(resource_filename('vectorhub', 'encoders/text')).rglob(f'[!_]*.py'))] + \
         [str(x).replace('.py', '') for x in list(Path(resource_filename('vectorhub', 'encoders/image')).rglob(f'[!_]*.py'))] + \
         [str(x).replace('.py', '') for x in list(Path(resource_filename('vectorhub', 'encoders/audio')).rglob(f'[!_]*.py'))] + \
-        [str(x).replace('.py', '') for x in list(Path(resource_filename('vectorhub', 'bi_encoders/text_text')).rglob(f'[!_]*.py'))]
+        [str(x).replace('.py', '') for x in list(Path(resource_filename('vectorhub', 'bi_encoders/qa')).rglob(f'[!_]*.py'))]
     return [x.split('vectorhub/')[-1] for x in all_models if '/base' not in x]
 

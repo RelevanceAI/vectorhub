@@ -42,7 +42,7 @@ def test_encoders_instantiation_image(name):
 @pytest.mark.text
 @pytest.mark.parametrize('name', list(BIENCODER_MAPPINGS.keys())[0:3])
 def test_auto_biencoders(name):
-    if 'text_text' in name:
+    if 'qa' in name:
         bi_encoder = AutoBiEncoder.from_model(name)
         assert_encoder_works(bi_encoder, data_type='text', model_type='bi_encoder')
 

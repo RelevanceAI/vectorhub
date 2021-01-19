@@ -9,7 +9,7 @@ if is_all_dependency_installed('encoders-text-torch-transformers'):
     import torch
     import numpy as np
 
-DPRModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/text_text/torch_transformers/dpr')
+DPRModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/qa/torch_transformers/dpr')
 __doc__ = DPRModelDefinition.create_docs()
 
 class DPR2Vec(BaseTextText2Vec):
@@ -68,7 +68,7 @@ class DPR2Vec(BaseTextText2Vec):
                 string_type: question/answer. 
 
             Example:
-            >>> from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+            >>> from vectorhub.bi_encoders.qa.tfhub.lareqa_qa import *
             >>> model = LAReQA2Vec()
             >>> model.encode_answer("Why?")
         """
@@ -87,7 +87,7 @@ class DPR2Vec(BaseTextText2Vec):
                 string_type: question/answer.
 
             Example:
-            >>> from vectorhub.bi_encoders.text_text.tfhub.lareqa_qa import *
+            >>> from vectorhub.bi_encoders.qa.tfhub.lareqa_qa import *
             >>> model = LAReQA2Vec()
             >>> model.bulk_encode("Why?", string_type='answer')
         """
