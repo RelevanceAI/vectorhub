@@ -12,11 +12,12 @@ def get_package_requirements(requirement_type: str):
     """
         Load in extra_requirements.json from the package
     """
-    requirements = json.load(open('extra_requirements.json'))
+    os.path.dirname(os.path.realpath(__file__))
+    requirements = json.load(open(os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', 'extra_requirements.json')))
     dependencies = []
     for k, v in requirements.items():
         if requirement_type in v:
-            dependencies.append(k) 
+            dependencies.append(k)
     return dependencies
 
 def is_dependency_installed(dependency: str):
