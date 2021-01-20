@@ -7,7 +7,7 @@ installation: "pip install vectorhub[encoders-code-transformers]"
 release_date: "2020-02-19"
 category: "text"
 repo: https://github.com/microsoft/CodeBERT
-
+short_description: CodeBERT learns general-purpose representations that support downstream NL-PL applications such as natural language codesearch, code documentation generation, etc.
 ---
 
 ## Description

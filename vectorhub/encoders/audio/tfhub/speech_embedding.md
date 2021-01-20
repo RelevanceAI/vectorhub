@@ -7,18 +7,12 @@ paper: "https://arxiv.org/abs/2002.01322"
 repo: "https://tfhub.dev/google/speech_embedding/1"
 installation: "pip install vectorhub[encoders-audio-tfhub]"
 category: audio
+short_description: We show that using synthesized speech data in training small spoken term detection models can be more effective than using real data.
 ---
 
 ## Description
 
-With the rise of low power speech-enabled devices, there is a growing demand to quickly produce models for recognizing arbitrary 
-sets of keywords. As with many machine learning tasks, one of the most challenging parts in the model creation process is obtaining
-a sufficient amount of training data. In this paper, we explore the effectiveness of synthesized speech data in training small, 
-spoken term detection models of around 400k parameters. Instead of training such models directly on the audio or low level features
-such as MFCCs, we use a pre-trained speech embedding model trained to extract useful features for keyword spotting models. Using this 
-speech embedding, we show that a model which detects 10 keywords when trained on only synthetic speech is equivalent to a model trained 
-on over 500 real examples. We also show that a model without our speech embeddings would need to be trained on over 4000 real examples to 
-reach the same accuracy.
+With the rise of low power speech-enabled devices, there is a growing demand to quickly produce models for recognizing arbitrary  sets of keywords. As with many machine learning tasks, one of the most challenging parts in the model creation process is obtaining a sufficient amount of training data. In this paper, we explore the effectiveness of synthesized speech data in training small spoken term detection models of around 400k parameters. Instead of training such models directly on the audio or low level features such as MFCCs, we use a pre-trained speech embedding model trained to extract useful features for keyword spotting models. Using this speech embedding, we show that a model which detects 10 keywords when trained on only synthetic speech is equivalent to a model trained on over 500 real examples. We also show that a model without our speech embeddings would need to be trained on over 4000 real examples to reach the same accuracy.
 
 
 ## Working in Colab

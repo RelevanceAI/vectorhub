@@ -7,6 +7,7 @@ repo: "https://huggingface.co/transformers/pretrained_models.html"
 installation: "pip install vectorhub[encoders-text-tf-transformers]"
 release_date: null
 category: text
+short_description: These are Tensorflow Automodels from HuggingFace.
 ---
 
 ## Description

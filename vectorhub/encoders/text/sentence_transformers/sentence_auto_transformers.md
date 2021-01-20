@@ -7,6 +7,7 @@ repo: https://github.com/UKPLab/sentence-transformers
 release_date: "2019-08-27"
 installation: pip install vectorhub[encoders-text-sentence-transformers]
 category: text
+short_description: These are Sentence Transformer models from sbert.net by UKPLab.
 ---
 
 ## Description

@@ -7,6 +7,7 @@ repo: "https://github.com/google-research/big_transfer"
 installation: "pip install vectorhub[encoders-image-tfhub]"
 release_date: "2019-12-24"
 category: image
+short_description: BiT achieves strong transfer performance across a wide range of datasets, and does so by applying a simple recipe in a manner that allows for efficient scaling up to very large datasets.
 ---
 
 ## Description

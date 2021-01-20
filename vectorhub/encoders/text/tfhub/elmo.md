@@ -7,6 +7,7 @@ repo: "https://tfhub.dev/google/elmo/3"
 installation: "pip install vectorhub[encoders-text-tfhub]"
 release_date: "2020-07-03"
 category: text
+short_description: ELMo is a deep, character-based, bidirectional language model that learns to embed words in a way that captures their context.
 ---
 
 ## Description
