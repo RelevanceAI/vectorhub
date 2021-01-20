@@ -7,6 +7,7 @@ repo: "N/A"
 installation: "pip install vectorhub[encoders-image-tf-face-detection]"
 release_date: "2015-03-12"
 category: image
+short_description: Deep convolutional neural networks are used to learn a mapping from face images to a compact Euclidean space where distances directly correspond to a measure of face similarity. This space can then be used for a wide range of face processing tasks such as recognition, verification and clustering.
 ---
 
 ## Description

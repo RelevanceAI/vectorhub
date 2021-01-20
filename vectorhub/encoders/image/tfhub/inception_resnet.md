@@ -7,6 +7,7 @@ repo: "https://tfhub.dev/google/imagenet/inception_resnet_v2/feature_vector/4"
 installation: "pip install vectorhub[encoders-image-tfhub]"
 release_date: "2016-02-23"
 category: image
+short_description: Residual connections improve the performance of deep convolutional neural networks, especially for large networks, and they improve the performance of Inception networks more than other deep network architectures.
 ---
 
 ## Description

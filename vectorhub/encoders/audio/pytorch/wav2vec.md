@@ -7,6 +7,7 @@ repo: "https://github.com/pytorch/fairseq"
 installation: "pip install vectorhub[encoders-audio-pytorch]"
 release_date: "2020-06-20"
 category: audio
+short_description: We show for the first time that learning powerful representations from speech audio alone followed by fine-tuning on transcribed speech can outperform the best semi-supervised methods while being conceptually simpler.
 ---
 
 ## Description

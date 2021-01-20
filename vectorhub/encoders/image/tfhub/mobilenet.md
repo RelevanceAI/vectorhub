@@ -7,6 +7,7 @@ repo: https://tfhub.dev/google/imagenet/mobilenet_v1_100_224/feature_vector/4
 release_date: "2017-04-17"
 installation: "pip install vectorhub[encoders-image-tfhub]"
 category: image
+short_description: MobileNets are a class of neural networks optimized for mobile and embedded hardware that provides a trade-off between accuracy and latency.
 ---
 
 ## Description

@@ -7,6 +7,7 @@ repo: "https://huggingface.co/nlpaueb/legal-bert-base-uncased"
 release_date: "2020-10-06"
 installation: "pip install vectorhub[encoders-text-torch-transformers]"
 category: text
+short_description: We propose a systematic investigation of the available strategies when applying BERT in Legal domains.
 ---
 
 ## Description

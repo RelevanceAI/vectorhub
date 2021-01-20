@@ -6,6 +6,7 @@ repo: 'https://tfhub.dev/google/imagenet/inception_v1/feature_vector/4'
 installation: "pip install vectorhub[encoders-image-tfhub]"
 release_date: "2015-12-11"
 category: image
+short_description: A deeper and wider neural network architecture, codenamed Inception, which is responsible for setting the state of the art for classification and detection in the ImageNet Large-Scale Visual Recognition Challenge 2014.
 ---
 
 ## Description

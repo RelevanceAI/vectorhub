@@ -6,6 +6,7 @@ paper: "https://arxiv.org/abs/1512.03385"
 installation: "pip install vectorhub[encoders-image-tfhub]"
 release_date: "2015-12-10"
 category: image
+short_dsecription: Residual networks are 8x deeper than VGG nets but achieves lower complexity.  Then, the residual network was able to achieve 3.57% error on the ImageNet dataset.
 ---
 
 ## Description

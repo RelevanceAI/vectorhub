@@ -6,6 +6,7 @@ release_date: "2020-03-11"
 repo: "https://tfhub.dev/google/yamnet/1"
 installation: "pip install vectorhub[encoders-audio-tfhub]"
 category: audio
+short_description: YAMNet is a fast and accurate audio event classifier that can be used for a variety of audio tasks.
 ---
 
 ## Description

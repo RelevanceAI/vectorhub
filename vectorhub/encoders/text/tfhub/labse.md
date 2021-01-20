@@ -7,11 +7,13 @@ repo: "https://tfhub.dev/google/LaBSE/1"
 installation: "pip install vectorhub[encoders-text-tfhub]"
 release_date: "2020-07-03"
 category: text
+short_description: We present a multilingual BERT embedding model, called LaBSE, that produces language-agnostic cross-lingual sentence embeddings for 109 languages.
 ---
 
 ## Description
 
 The language-agnostic BERT sentence embedding encodes text into high dimensional vectors. The model is trained and optimized to produce similar representations exclusively for bilingual sentence pairs that are translations of each other. So it can be used for mining for translations of a sentence in a larger corpus.
+In “Language-agnostic BERT Sentence Embedding”, we present a multilingual BERT embedding model, called LaBSE, that produces language-agnostic cross-lingual sentence embeddings for 109 languages. The model is trained on 17 billion monolingual sentences and 6 billion bilingual sentence pairs using MLM and TLM pre-training, resulting in a model that is effective even on low-resource languages for which there is no data available during training. Further, the model establishes a new state of the art on multiple parallel text (a.k.a. bitext) retrieval tasks. We have released the pre-trained model to the community through tfhub, which includes modules that can be used as-is or can be fine-tuned using domain-specific data.
 
 ## Working in Colab
 

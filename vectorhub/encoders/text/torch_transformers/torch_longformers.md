@@ -7,6 +7,7 @@ repo: "https://huggingface.co/allenai/longformer-base-4096"
 release_date: "2020-04-10"
 installation: "pip install vectorhub[encoders-text-torch-transformers]"
 category: text
+short_description: We propose a new attention-based model for long-sequence processing that is able to learn long-term dependencies and process documents of thousands of tokens or longer.
 ---
 
 ## Description

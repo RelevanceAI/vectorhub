@@ -6,6 +6,7 @@ release_date: "2020-03-11"
 repo: "https://tfhub.dev/google/vggish/1"
 installation: "pip install vectorhub[encoders-audio-tfhub]"
 category: audio
+short_description: VGGish is a model for audio event embedding which uses the VGG-16 network and is trained on the YouTube-8M dataset.
 ---
 
 ## Description

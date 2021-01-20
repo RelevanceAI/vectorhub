@@ -8,6 +8,7 @@ repo: 'https://tfhub.dev/tensorflow/albert_en_base/1'
 installation: "pip install vectorhub[encoders-text-tfhub]"
 release_date: "2019-09-26"
 category: text
+short_description: We propose a novel method to reduce the memory consumption of BERT, and show that it improves the scalability of BERT models.
 ---
 
 ## Description

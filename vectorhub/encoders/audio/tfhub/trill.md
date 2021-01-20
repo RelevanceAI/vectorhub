@@ -7,17 +7,12 @@ release_date: "2020-02-25"
 repo: "https://tfhub.dev/google/nonsemantic-speech-benchmark/trill/3"
 installation: pip install vectorhub['encoders-audio-tfhub']
 category: audio
+short_description: Introduces a benchmark for comparing speech representations on non-semantic tasks, and proposes a representation based on an unsupervised triplet-loss objective.
 ---
 
 ## Description
 
-The ultimate goal of transfer learning is to reduce labeled data requirements by exploiting a pre-existing embedding model trained for 
-different datasets or tasks. The visual and language communities have established benchmarks to compare embeddings, but the speech 
-community has yet to do so. This paper proposes a benchmark for comparing speech representations on non-semantic tasks, and proposes a 
-representation based on an unsupervised triplet-loss objective. The proposed representation outperforms other representations on the 
-benchmark, and even exceeds state-of-the-art performance on a number of transfer learning tasks. The embedding is trained on a publicly 
-available dataset, and it is tested on a variety of low-resource downstream tasks, including personalization tasks and medical domain. 
-The benchmark, models, and evaluation code are publicly released."""
+The ultimate goal of transfer learning is to reduce labeled data requirements by exploiting a pre-existing embedding model trained for different datasets or tasks. The visual and language communities have established benchmarks to compare embeddings, but the speech community has yet to do so. This paper proposes a benchmark for comparing speech representations on non-semantic tasks, and proposes a representation based on an unsupervised triplet-loss objective. The proposed representation outperforms other representations on the benchmark, and even exceeds state-of-the-art performance on a number of transfer learning tasks. The embedding is trained on a publicly available dataset, and it is tested on a variety of low-resource downstream tasks, including personalization tasks and medical domain. The benchmark, models, and evaluation code are publicly released.
 
 ## Working in Colab
 
