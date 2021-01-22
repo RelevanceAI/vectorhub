@@ -16,7 +16,7 @@ jobs:
     - name: Download badges
       run: |
         python -m pip install requests
-        python scripts/download_badges.py
+        python utils/download_badges.py
         echo ${{ github.ref }}
         git add .
         git config --local user.email "action@github.com"
