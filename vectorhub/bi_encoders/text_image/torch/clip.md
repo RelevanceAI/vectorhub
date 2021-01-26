@@ -15,8 +15,8 @@ short_description: CLIP aims to test the ability of models to generalize arbitra
 #pip install vectorhub[clip]
 from vectorhub.bi_encoders.text_image.torch import Clip2Vec
 model = Clip2Vec()
-model.encode_image(image_url)
-model.encode_text(text)
+model.encode_image("A purple V")
+model.encode_text('https://getvectorai.com/assets/hub-logo-with-text.png')
 ```
 
 Inspired by [Model Cards for Model Reporting (Mitchell et al.)](https://arxiv.org/abs/1810.03993) and [Lessons from Archives (Jo & Gebru)](https://arxiv.org/pdf/1912.10389.pdf), we’re providing some accompanying information about the multimodal model.
