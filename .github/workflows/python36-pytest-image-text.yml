@@ -1,23 +1,18 @@
-name: Run Pytest 3.6 General
+name: Run Pytest 3.6 Image Text
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'tests/test_import_utils.py'
-      - 'tests/test_model_to_dict.py'
-      - 'tests/test_utils.py'
-      - 'tests/base/test_base.py'
-
+      - 'vectorhub/bi_encoders/text_image/**'
+      - 'tests/bi_encoders/text_image/**'
   pull_request:
     branches:
       - main
     paths:
-      - 'tests/test_import_utils.py'
-      - 'tests/test_model_to_dict.py'
-      - 'tests/test_utils.py'
-      - 'tests/base/test_base.py'
+      - 'vectorhub/bi_encoders/text_image/**'
+      - 'tests/bi_encoders/text_image/**'
 
 jobs:
   run_test:
@@ -36,17 +31,19 @@ jobs:
           sudo apt-get install libsndfile1
           python -m pip install --upgrade pip
           pip install -e .
+
       - name: Install dependencies for tests
+        env:
+            VH_USERNAME: ${{ secrets.VH_USERNAME }}
+            VH_API_KEY: ${{ secrets.VH_API_KEY }}
         run: |
           pip install -r requirements.txt
           pip install -e ".[test]"
-          pip install -e .[encoders-audio-tfhub]
-      - name: Test Vectorai models
+
+      - name: Install and test for image-text-torch
         env:
-            VI_USERNAME: ${{ secrets.VI_USERNAME }}
-            VI_API_KEY: ${{ secrets.VI_API_KEY }}
+            VH_USERNAME: ${{ secrets.VH_USERNAME }}
+            VH_API_KEY: ${{ secrets.VH_API_KEY }}
         run: |
-          pytest tests/test_import_utils.py
-          pytest tests/test_model_to_dict.py
-          pytest tests/test_utils.py
-          pytest tests/base/test_base.py
+          pip install -e ".[clip]"
+          pytest tests/bi_encoders/text_image/torch

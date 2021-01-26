@@ -191,6 +191,10 @@ class ModelDefinition:
         return "How long can a blue whale grow in Antarctica?"
     
     @property
+    def text_image_search_example(self):
+        return "Dog wearing a hat"
+    
+    @property
     def qa_metadata_examples(self):
         return ["whale", "whale", "gorilla", "human"]
 
@@ -250,7 +254,8 @@ class ModelDefinition:
             'text': (self.text_items_examples, self.text_metadata_examples, self.text_search_example),
             'image': (self.image_items_examples, self.image_metadata_examples, self.image_search_example),
             'audio': (self.audio_items_examples, self.audio_metadata_examples, self.audio_search_example),
-            'qa': (self.qa_items_examples, self.qa_metadata_examples, self.qa_search_example)
+            'qa': (self.qa_items_examples, self.qa_metadata_examples, self.qa_search_example),
+            'text_image': (self.image_items_examples, self.image_metadata_examples, self.text_image_search_example),
         }
 
     @property

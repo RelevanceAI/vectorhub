@@ -11,10 +11,13 @@ class ViIndexer:
         """The encoder type ensures it uses either the 'encode' or 'encode_question'/'encode_answer'
         Currently supported encoder types: 
             Question-Answer
+            Text-Image
             Encoder
         """
         if self.definition.model_id.startswith('qa'):
             return 'qa'
+        elif self.definitionl.model_id.startswith('text_image'):
+            return 'text_image'
         else:
             return 'encoder'
 
@@ -48,6 +51,8 @@ class ViIndexer:
             return self.client.insert_documents(self.collection_name, docs, {'item': self})
         elif self.encoder_type == 'qa':
             return self.client.insert_documents(self.collection_name, docs, {'item': self.encode_question})
+        elif self.encoder_type == 'text_image':
+            return self.client.insert_documents(self.collection_name, docs, {'item': self.encode_image})
 
     def _create_document(self, _id: str, item: List[str], metadata=None):
         return {

@@ -1,20 +1,20 @@
-name: Run Pytest 3.6
+name: Run Pytest 3.6 Audio
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'vectorhub/**'
-      - 'tests/**'
-      - 'setup.py'
+      - 'vectorhub/encoders/audio/**'
+      - 'tests/encoders/audio/**'
+      - 'tests/test_utils.py'
   pull_request:
     branches:
       - main
-    # paths:
-    #   - 'vectorhub/**'
-    #   - 'tests/**'
-    #   - 'setup.py'
+    paths:
+      - 'vectorhub/encoders/audio/**'
+      - 'tests/encoders/audio/**'
+      - 'tests/test_utils.py'
 
 jobs:
   run_test:

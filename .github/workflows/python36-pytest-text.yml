@@ -1,20 +1,18 @@
-name: Run Pytest 3.6
+name: Run Pytest 3.6 Text
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'vectorhub/**'
-      - 'tests/**'
-      - 'setup.py'
+      - 'vectorhub/encoders/text/**'
+      - 'tests/encoders/text/**'
   pull_request:
     branches:
       - main
-    # paths:
-    #   - 'vectorhub/**'
-    #   - 'tests/**'
-    #   - 'setup.py'
+    paths:
+      - 'vectorhub/encoders/text/**'
+      - 'tests/encoders/text/**'
 
 jobs:
   run_test:

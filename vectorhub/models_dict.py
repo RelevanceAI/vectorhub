@@ -42,4 +42,5 @@ MODEL_REQUIREMENTS = {
     
     "encoders-code-transformers": "encoders-text-transformers",
 
+    "text-image-bi-encoder-clip": "clip"
 }

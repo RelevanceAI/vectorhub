@@ -4,8 +4,8 @@
     "PyYAML": ["core"],
     "pytest": ["test"],
     "sphinx-rtd-theme>=0.5.0": ["test"],
-    "imageio": ["encoders-image", "encoders-image-tfhub"],
-    "scikit-image":  ["encoders-image", "encoders-image-tfhub"],
+    "imageio": ["encoders-image", "encoders-image-tfhub", "clip"],
+    "scikit-image":  ["encoders-image", "encoders-image-tfhub", "clip"],
     "soundfile": ["encoders-audio-tfhub"],
     "librosa": ["audio-encoder", "encoders-audio-tfhub"],
     "tensorflow": ["encoders-text-tfhub", "encoders-audio-tfhub", "encoders-image-tfhub", "encoders-text-tf-transformers", 
@@ -25,5 +25,6 @@
     "appdirs": ["encoders-image-tf-face-detection"],
     "fastai==2.1.8": ["encoders-image-fastai"],
     "mtcnn": ["encoders-image-tf-face-detection"],
-    "Pillow": ["encoders-image-tf-face-detection"]
+    "Pillow": ["encoders-image-tf-face-detection", "clip"],
+    "clip-by-openai": ["clip"]
 }
