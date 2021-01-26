@@ -16,7 +16,7 @@ class ViIndexer:
         """
         if self.definition.model_id.startswith('qa'):
             return 'qa'
-        elif self.definitionl.model_id.startswith('text_image'):
+        elif self.definition.model_id.startswith('text_image'):
             return 'text_image'
         else:
             return 'encoder'
