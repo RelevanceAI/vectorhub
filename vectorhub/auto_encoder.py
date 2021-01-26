@@ -107,7 +107,7 @@ BIENCODER_MAPPINGS = {
     USEMultiQA2Vec.definition.model_id : (USEMultiQA2Vec, "text-bi-encoder-tfhub-use-qa"),
     USEQA2Vec.definition.model_id : (USEQA2Vec, "text-bi-encoder-tfhub-use-qa"),
     LAReQA2Vec.definition.model_id: (LAReQA2Vec, "text-bi-encoder-tfhub-lareqa-qa"),
-    DPR2Vec.definition.model_id : (DPR2Vec, "text-bi-encoder-torch-dpr")
+    DPR2Vec.definition.model_id : (DPR2Vec, "text-bi-encoder-torch-dpr"),
     Clip2Vec.definition.model_id: (Clip2Vec, "text-image-clip")
 }
 
