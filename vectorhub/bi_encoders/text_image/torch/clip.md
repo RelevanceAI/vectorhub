@@ -6,6 +6,7 @@ release_date: "2021-01-01"
 paper: "https://cdn.openai.com/papers/Learning_Transferable_Visual_Models_From_Natural_Language_Supervision.pdf)"
 installation: "pip install vectorhub[clip]"
 category: text-image
+short_description: CLIP aims to test the ability of models to generalize arbitrary image classification tasks in a zero-shot manner.
 ---
 
 ## Example
@@ -14,13 +15,13 @@ category: text-image
 #pip install vectorhub[clip]
 from vectorhub.bi_encoders.text_image.torch import Clip2Vec
 model = Clip2Vec()
-model.encode_image(image_url)
-model.encode_text(text)
+model.encode_image("A purple V")
+model.encode_text('https://getvectorai.com/assets/hub-logo-with-text.png')
 ```
 
 Inspired by [Model Cards for Model Reporting (Mitchell et al.)](https://arxiv.org/abs/1810.03993) and [Lessons from Archives (Jo & Gebru)](https://arxiv.org/pdf/1912.10389.pdf), we’re providing some accompanying information about the multimodal model.
 
-## Model Details
+## Description
 
 The CLIP model was developed by researchers at OpenAI to learn about what contributes to robustness in computer vision tasks. The model was also developed to test the ability of models to generalize to arbitrary image classification tasks in a zero-shot manner. It was not developed for general model deployment - to deploy models like CLIP, researchers will first need to carefully study their capabilities in relation to the specific context they’re being deployed within.
 
