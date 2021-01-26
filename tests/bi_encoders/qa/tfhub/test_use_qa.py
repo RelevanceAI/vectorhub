@@ -33,4 +33,4 @@ def test_use_qa_initialize():
     Testing for USE-QA.
     """
     encoder = USEQA2Vec()
-    assert_encoder_works(encoder, data_type='text', model_type='bi_encoder')
+    assert_encoder_works(encoder, vector_length=512, data_type='text', model_type='bi_encoder')

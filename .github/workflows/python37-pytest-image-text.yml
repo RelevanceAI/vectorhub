@@ -48,4 +48,4 @@ jobs:
             VH_API_KEY: ${{ secrets.VH_API_KEY }}
         run: |
           pip install -e ".[clip]"
-          pytest tests/biencoders/text_image/torch
+          pytest tests/bi_encoders/text_image/torch
