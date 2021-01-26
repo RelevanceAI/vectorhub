@@ -50,7 +50,7 @@ class ViIndexer:
         if self.encoder_type == 'encoder':
             return self.client.insert_documents(self.collection_name, docs, {'item': self})
         elif self.encoder_type == 'qa':
-            return self.client.insert_documents(self.collection_name, docs, {'item': self.encode_question})
+            return self.client.insert_documents(self.collection_name, docs, {'item': self})
         elif self.encoder_type == 'text_image':
             return self.client.insert_documents(self.collection_name, docs, {'item': self})
 
@@ -67,10 +67,10 @@ class ViIndexer:
         return self.delete_collection(collection_name)
 
     def get_vector_field_name(self):
-        if self.encoder_type in ('qa'):
-            return 'item_vector_'
-        elif self.encoder_type in ('encoder', 'text_image'):
-            return f'item_{self.__name__}_vector_'
+        # if self.encoder_type in ('qa'):
+        #     return 'item_vector_'
+        # elif self.encoder_type in ('encoder', 'text_image'):
+        return f'item_{self.__name__}_vector_'
 
     def search(self, item: Any, num_results: int=10):
         """
