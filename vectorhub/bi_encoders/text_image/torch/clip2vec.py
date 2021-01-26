@@ -11,24 +11,22 @@ from ....encoders.text import BaseText2Vec
 if is_all_dependency_installed('encoders-text-torch-transformers'):
     import clip
     import torch
-    import torch
-    from PIL import Image
     import numpy as np
 
-CLIPModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/qa/torch_transformers/dpr')
+CLIPModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/text_image/torch/clip')
 __doc__ = CLIPModelDefinition.create_docs()
 
-
 class Clip2Vec(BaseImage2Vec, BaseText2Vec):
-    def __init__(self):
-        self.device = 'cpu'
+    def __init__(self, url='ViT-B/32'):
+        self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
         # Note that the preprocess is a callable
-        self.model, self.preprocess = clip.load("ViT-B/32", device=self.device)
+        self.model, self.preprocess = clip.load(url, device=self.device)
 
     @property
     def urls(self):
         return {
-            "ViT-B/32": {'vector_length': 512}
+            "ViT-B/32": {'vector_length': 512},
+            "RN50": {'vector_length': {}
         }
 
     def encode_text(self, text: str):
