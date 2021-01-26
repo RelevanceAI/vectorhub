@@ -160,7 +160,7 @@ class AssertModelWorks:
         if self.data_type == 'qa':
             return 'question'
         if self.data_type == 'text_image':
-            return 'image'
+            return 'image_url'
 
     @property
     def random_string(self, length=8):
