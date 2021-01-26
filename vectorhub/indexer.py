@@ -52,7 +52,7 @@ class ViIndexer:
         elif self.encoder_type == 'qa':
             return self.client.insert_documents(self.collection_name, docs, {'item': self.encode_question})
         elif self.encoder_type == 'text_image':
-            return self.client.insert_documents(self.collection_name, docs, {'item': self.encode_image})
+            return self.client.insert_documents(self.collection_name, docs, {'item': self})
 
     def _create_document(self, _id: str, item: List[str], metadata=None):
         return {
