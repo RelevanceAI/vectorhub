@@ -66,6 +66,12 @@ class ViIndexer:
             collection_name = self.collection_name
         return self.delete_collection(collection_name)
 
+    def get_vector_field_name(self):
+        if self.encoder_type in ('qa'):
+            return 'item_vector_'
+        elif self.encoder_type in ('encoder', 'text_image'):
+            return f'item_{self.__name__}_vector_'
+
     def search(self, item: Any, num_results: int=10):
         """
         Simple search with Vector AI
@@ -73,13 +79,13 @@ class ViIndexer:
         warnings.warn("If you are looking for more advanced functionality, we recommend using the official Vector AI Github package")
         if self.encoder_type == 'encoder':
             return self.client.search(self.collection_name, self.encode(item), 
-            field='item_' + self.__name__ + '_vector_', page_size=num_results)
+            field=self.get_vector_field_name(), page_size=num_results)
         elif self.encoder_type == 'qa':
             return self.client.search(self.collection_name, self.encode_question(item), 
-            field='item_vector_', page_size=num_results)
+            field=self.get_vector_field_name(), page_size=num_results)
         elif self.encoder_type == 'text_image':
             return self.client.search(self.collection_name, self.encode_text(item), 
-            field='item_vector_', page_size=num_results)
+            field=self.get_vector_field_name(), page_size=num_results)
 
     def retrieve_documents(self, num_of_documents: int):
         """
