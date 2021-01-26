@@ -5,16 +5,16 @@ on:
     branches:
       - main
     paths:
-      - 'vectorhub/**'
-      - 'tests/**'
-      - 'setup.py'
+      - 'vectorhub/encoders/audio/**'
+      - 'tests/encoders/audio/**'
+      - 'tests/test_utils.py'
   pull_request:
     branches:
       - main
-    # paths:
-    #   - 'vectorhub/**'
-    #   - 'tests/**'
-    #   - 'setup.py'
+    paths:
+      - 'vectorhub/encoders/audio/**'
+      - 'tests/encoders/audio/**'
+      - 'tests/test_utils.py'
 
 jobs:
   run_test:

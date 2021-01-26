@@ -5,12 +5,14 @@ on:
     branches:
       - main
     paths:
-      - 'vectorhub/**'
-      - 'tests/**'
-      - 'setup.py'
+      - 'vectorhub/bi_encoders/text_image/**'
+      - 'tests/bi_encoders/text_image/**'
   pull_request:
     branches:
       - main
+    paths:
+      - 'vectorhub/bi_encoders/text_image/**'
+      - 'tests/bi_encoders/text_image/**'
 
 jobs:
   run_test:

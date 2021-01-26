@@ -5,16 +5,18 @@ on:
     branches:
       - main
     paths:
-      - 'vectorhub/**'
-      - 'tests/**'
-      - 'setup.py'
+      - 'tests/test_import_utils.py'
+      - 'tests/test_model_to_dict.py'
+      - 'tests/test_utils.py'
+      - 'tests/base/test_base.py'
   pull_request:
     branches:
       - main
-    # paths:
-    #   - 'vectorhub/**'
-    #   - 'tests/**'
-    #   - 'setup.py'
+    paths:
+      - 'tests/test_import_utils.py'
+      - 'tests/test_model_to_dict.py'
+      - 'tests/test_utils.py'
+      - 'tests/base/test_base.py'
 
 jobs:
   run_test:
