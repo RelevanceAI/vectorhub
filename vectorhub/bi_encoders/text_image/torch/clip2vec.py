@@ -39,6 +39,8 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
             "RN50": {'vector_length': {512}}
         }
 
+    
+    @catch_vector_errors
     def encode_text(self, text: str):
         if self.device == 'cuda':
             text = clip.tokenize(text).to(self.device)
@@ -55,6 +57,7 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
             tokenized_text = clip.tokenize(texts).to(self.device)
             return self.model.encode_text(tokenized_text).detach().numpy().tolist()
 
+    @catch_vector_errors
     def encode_image(self, image_url: str):
         if self.device == 'cpu':
             image = self.preprocess(self.read(image_url)).unsqueeze(0).to(self.device)
