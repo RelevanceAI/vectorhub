@@ -8,7 +8,7 @@ from ....import_utils import is_all_dependency_installed
 from ....base import catch_vector_errors
 from ....encoders.image import BaseImage2Vec
 from ....encoders.text import BaseText2Vec
-if is_all_dependency_installed('encoders-text-torch-transformers'):
+if is_all_dependency_installed('clip'):
     import clip
     import torch
     import numpy as np

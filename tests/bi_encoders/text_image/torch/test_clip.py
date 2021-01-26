@@ -5,5 +5,5 @@ def test_lare_qa_works():
     """
     Testing for LAReQA works
     """
-    encoder = LAReQA2Vec()
+    encoder = Clip2Vec()
     assert_encoder_works(encoder, data_type='text_image', model_type='bi_encoder')
