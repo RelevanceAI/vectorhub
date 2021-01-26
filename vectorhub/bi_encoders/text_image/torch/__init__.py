@@ -1,1 +1,1 @@
-from .clip2vec import *
+from .clip import *
