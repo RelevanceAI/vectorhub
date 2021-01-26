@@ -1,6 +1,5 @@
-"""Add Clip2Vec
+"""Clip2Vec by OpenAI
 """
-
 from datetime import date
 from typing import List
 from ....doc_utils import ModelDefinition
@@ -34,14 +33,28 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
     def encode_text(self, text: str):
         text = clip.tokenize(text).to(device)
         return self.model.encode_text(text).detach().numpy().tolist()[0]
+    
+    def bulk_encode(self, texts: List[str]):
+        tokenized_text = clip.tokenize(texts).to(device)
+        return self.model.encode_text(tokenized_text).detach().numpy().tolist()
 
     def encode_image(self, image_url: str):
         image = self.preprocess(self.read(image_url)).unsqueeze(0).to(device)
         return self.model.encode_image(image).detach().numpy().tolist()[0]
+    
+    def bulk_encode_image(self, images: str):
+        return [self.encode_image(x) for x in images]
     
     def encode(self, data: str, data_type='image'):
         if data_type == 'image':
             return self.encode_image(data)
         elif data_type == 'text':
             return self.encode_text(data)
+        raise ValueError("data_type must be either `image` or `text`")
+
+    def bulk_encode(self, data: str, data_type='image'):
+        if data_type == 'image':
+            return self.bulk_encode_image(data)
+        elif data_type == 'text':
+            return self.bulk_encode_text(data)
         raise ValueError("data_type must be either `image` or `text`")
