@@ -21,13 +21,13 @@ class ViIndexer:
         else:
             return 'encoder'
 
-    def request_api_key(self, username: str, email: str, referral=None):
+    def request_api_key(self, username: str, email: str, referral_code=None):
         """
         Requesting an API key.
         """
         print("API key is being requested. Be sure to save it somewhere!")
         return request_api_key(username=username, email=email,
-                        description='vectorhub', referral=referral)
+                        description='vectorhub', referral_code=referral_code)
 
     def add_documents(self, username: str, api_key: str,
             items: List[Any], metadata: Optional[List[Any]]=None,
