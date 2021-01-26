@@ -25,6 +25,6 @@
     "appdirs": ["encoders-image-tf-face-detection"],
     "fastai==2.1.8": ["encoders-image-fastai"],
     "mtcnn": ["encoders-image-tf-face-detection"],
-    "Pillow": ["encoders-image-tf-face-detection"],
+    "Pillow": ["encoders-image-tf-face-detection", "clip"],
     "clip-by-openai": ["clip"]
 }

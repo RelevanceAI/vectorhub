@@ -11,6 +11,9 @@ if is_all_dependency_installed('clip'):
     import clip
     import torch
     import numpy as np
+    import requests
+    from PIL import Image
+    from requests.exceptions import MissingSchema
 
 CLIPModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/text_image/torch/clip')
 __doc__ = CLIPModelDefinition.create_docs()
@@ -22,6 +25,12 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
         # Note that the preprocess is a callable
         self.model, self.preprocess = clip.load(url, device=self.device)
         self.vector_length = self.urls[url]
+
+    def read(self, image_url):
+        try:
+            return Image.open(requests.get(image_url, stream=True).raw)
+        except MissingSchema:
+            return Image.open(image_url)
 
     @property
     def urls(self):
