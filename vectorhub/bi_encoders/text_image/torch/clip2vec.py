@@ -38,7 +38,7 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
             text = clip.tokenize(text).to(self.device)
             return self.model.encode_text(text).detach().numpy().tolist()[0]
     
-    def bulk_encode(self, texts: List[str]):
+    def bulk_encode_text(self, texts: List[str]):
         if self.device == 'cuda':
             tokenized_text = clip.tokenize(texts).to(self.device)
             return self.model.encode_text(tokenized_text).cpu().detach().numpy().tolist()
@@ -47,8 +47,12 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
             return self.model.encode_text(tokenized_text).detach().numpy().tolist()
 
     def encode_image(self, image_url: str):
-        image = self.preprocess(self.read(image_url)).unsqueeze(0).to(self.device)
-        return self.model.encode_image(image).detach().numpy().tolist()[0]
+        if self.device == 'cpu':
+            image = self.preprocess(self.read(image_url)).unsqueeze(0).to(self.device)
+            return self.model.encode_image(image).detach().numpy().tolist()[0]
+        elif self.device == 'cuda':
+            image = self.preprocess(self.read(image_url)).unsqueeze(0).to(self.device)
+            return self.model.encode_image(image).cpu().detach().numpy().tolist()[0]
     
     def bulk_encode_image(self, images: str):
         return [self.encode_image(x) for x in images]
