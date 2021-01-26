@@ -163,6 +163,19 @@ class AssertModelWorks:
             return 'image_url'
 
     @property
+    def field_to_search_mapping(self):
+        if self.data_type == 'text':
+            return 'text'
+        if self.data_type == 'image':
+            return 'image_url'
+        if self.data_type == 'audio':
+            return 'audio_url'
+        if self.data_type == 'qa':
+            return 'question'
+        if self.data_type == 'text_image':
+            return 'question'
+
+    @property
     def random_string(self, length=8):
         letters = string.ascii_lowercase
         return ''.join(random.choice(letters) for i in range(length))
@@ -224,7 +237,7 @@ class AssertModelWorks:
         )
         self.model.add_documents(self.vi_client.username, self.vi_client.api_key, items, collection_name=cn)
         time.sleep(2)
-        response = self.model.search(self.sample_document[self.field_to_encode_mapping])
+        response = self.model.search(self.sample_document[self.field_to_search_mapping])
         self.vi_client.delete_collection(cn)
         assert len(response['results']) > 0
 
