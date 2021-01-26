@@ -16,8 +16,8 @@ short_description: CLIP aims to test the ability of models to generalize arbitra
 #pip install vectorhub[clip]
 from vectorhub.bi_encoders.text_image.torch import Clip2Vec
 model = Clip2Vec()
-model.encode_image("A purple V")
-model.encode_text('https://getvectorai.com/assets/hub-logo-with-text.png')
+model.encode_image('https://getvectorai.com/assets/hub-logo-with-text.png')
+model.encode_text("A purple V")
 ```
 
 ## Description
