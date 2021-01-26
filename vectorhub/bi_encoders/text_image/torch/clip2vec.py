@@ -27,7 +27,7 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
     def urls(self):
         return {
             "ViT-B/32": {'vector_length': 512},
-            "RN50": {'vector_length': {}}
+            "RN50": {'vector_length': {512}}
         }
 
     def encode_text(self, text: str):
