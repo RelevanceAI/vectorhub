@@ -17,10 +17,12 @@ CLIPModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/text_image/
 __doc__ = CLIPModelDefinition.create_docs()
 
 class Clip2Vec(BaseImage2Vec, BaseText2Vec):
+    definition = CLIPModelDefinition
     def __init__(self, url='ViT-B/32'):
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
         # Note that the preprocess is a callable
         self.model, self.preprocess = clip.load(url, device=self.device)
+        self.vector_length = self.urls[url]
 
     @property
     def urls(self):
