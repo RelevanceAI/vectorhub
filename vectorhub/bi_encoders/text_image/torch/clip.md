@@ -6,6 +6,7 @@ release_date: "2021-01-01"
 paper: "https://cdn.openai.com/papers/Learning_Transferable_Visual_Models_From_Natural_Language_Supervision.pdf)"
 installation: "pip install vectorhub[clip]"
 category: text-image
+short_description: CLIP aims to test the ability of models to generalize arbitrary image classification tasks in a zero-shot manner.
 ---
 
 ## Example
