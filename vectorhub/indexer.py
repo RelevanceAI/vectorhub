@@ -77,6 +77,9 @@ class ViIndexer:
         elif self.encoder_type == 'qa':
             return self.client.search(self.collection_name, self.encode_question(item), 
             field='item_vector_', page_size=num_results)
+        elif self.encoder_type == 'text_image':
+            return self.client.search(self.collection_name, self.encode_text(item), 
+            field='item_vector_', page_size=num_results)
 
     def retrieve_documents(self, num_of_documents: int):
         """
