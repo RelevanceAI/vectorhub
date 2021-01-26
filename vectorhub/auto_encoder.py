@@ -24,6 +24,7 @@ with warnings.catch_warnings():
     from .bi_encoders.qa.tfhub import *
     from .bi_encoders.qa.torch_transformers import *
     from .bi_encoders.qa.sentence_transformers import *
+    from .bi_encoders.text_image.torch import *
 
 # Include the class and then the requirements key from models_dict.py
 ENCODER_MAPPINGS = defaultdict(tuple, {
@@ -107,6 +108,7 @@ BIENCODER_MAPPINGS = {
     USEQA2Vec.definition.model_id : (USEQA2Vec, "text-bi-encoder-tfhub-use-qa"),
     LAReQA2Vec.definition.model_id: (LAReQA2Vec, "text-bi-encoder-tfhub-lareqa-qa"),
     DPR2Vec.definition.model_id : (DPR2Vec, "text-bi-encoder-torch-dpr")
+    Clip2Vec.definition.model_id: (Clip2Vec, "text-image-clip")
 }
 
 class AutoBiEncoder:
