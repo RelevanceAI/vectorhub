@@ -21,7 +21,7 @@ class ViIndexer:
         else:
             return 'encoder'
 
-    def request_api_key(self, username: str, email: str, referral_code=None):
+    def request_api_key(self, username: str, email: str, referral_code="github_referred"):
         """
         Requesting an API key.
         """
