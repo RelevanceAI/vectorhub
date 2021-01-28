@@ -183,10 +183,13 @@ class AssertModelWorks:
     @property
     def vi_client(self):
         if 'VH_USERNAME' in os.environ.keys():
-            return ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
+            vi_client = ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
+            return vi_client
         elif 'VI_USERNAME' in os.environ.keys():
-            return ViClient(os.environ['VI_USERNAME'], os.environ['VI_API_KEY'])
-        return ViClient()
+            vi_client = ViClient(os.environ['VI_USERNAME'], os.environ['VI_API_KEY'])
+            return vi_client
+        vi_client = ViClient()
+        return vi_client
 
     def assert_insert_vectorai_simple(self):
         CN = 'test_vectorhub_' + self.random_string

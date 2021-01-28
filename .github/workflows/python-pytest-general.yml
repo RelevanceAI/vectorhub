@@ -24,7 +24,7 @@ jobs:
   run_test:
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: 3
+      max-parallel: 8
       matrix:
         python-version: [3.6, 3.7]
         test-path: 
