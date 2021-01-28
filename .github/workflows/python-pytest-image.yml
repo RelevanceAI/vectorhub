@@ -25,10 +25,13 @@ jobs:
         python-version: [3.6, 3.7]
         test-path: 
           - tests/encoders/image/vectorai
-          - tests/encoders/image/tfhub
+          - tests/encoders/image/tfhub/test_bit.py
+          - tests/encoders/image/tfhub/test_inception_resnet.py
+          - tests/encoders/image/tfhub/test_inception.py
+          - tests/encoders/image/tfhub/test_mobilenet.py
+          - tests/encoders/image/tfhub/test_resnet.py
           - tests/encoders/image/fastai
           - tests/encoders/face
-          # - -v image
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}

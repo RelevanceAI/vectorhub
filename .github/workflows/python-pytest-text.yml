@@ -31,9 +31,10 @@ jobs:
           - tests/encoders/text/tfhub/test_bert.py
           - tests/encoders/text/tfhub/test_labse.py
           - tests/encoders/text/sentence_transformers
-          - tests/bi_encoders/qa/tfhub
           - tests/encoders/text/tfhub/test_use.py
           - tests/encoders/text/tfhub/test_elmo.py
+          - tests/bi_encoders/qa/tfhub/test_lareqa_qa.py
+          - tests/bi_encoders/qa/tfhub/test_use_qa.py
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}

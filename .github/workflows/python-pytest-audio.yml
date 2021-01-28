@@ -27,9 +27,11 @@ jobs:
         python-version: [3.6, 3.7]
         test-path: 
           - tests/encoders/audio/vectorai
-          - tests/encoders/audio/tfhub
-          - tests/encoders/audio/pytorch
-          # - -v audio
+          - tests/encoders/audio/tfhub/test_speech_embedding.py
+          - tests/encoders/audio/tfhub/test_trill.py
+          - tests/encoders/audio/tfhub/test_vggish.py
+          - tests/encoders/audio/tfhub/test_yamnet.py
+          - tests/encoders/audio/pytorch/test_fairseq.py
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
