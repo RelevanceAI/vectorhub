@@ -1,0 +1,64 @@
+name: Run Parallelized Pytest Image
+
+on:
+  push:
+    branches: 
+      - main
+    paths:
+      - 'vectorhub/encoders/image/**'
+      - 'tests/encoders/image/**'
+      - '.github/workflows/python-pytest-image.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'vectorhub/encoders/image/**'
+      - 'tests/encoders/image/**'
+      - '.github/workflows/python-pytest-image.yml'
+
+jobs:
+  run_test:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 8
+      matrix:
+        python-version: [3.6, 3.7]
+        test-path: 
+          - tests/encoders/image/vectorai
+          - tests/encoders/image/tfhub
+          - tests/encoders/image/fastai
+          - tests/encoders/face
+          - -v image
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Cache pip
+      uses: actions/cache@v2
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+          ${{ runner.os }}-
+    - name: Install base dependencies
+      run: |
+        sudo apt-get install libsndfile1
+        python -m pip install --upgrade pip
+        pip install -e .
+    - name: Install dependencies for tests
+      run: |
+        pip install -r requirements.txt
+        pip install -e ".[test]"
+        pip install -e ".[encoders-image-tfhub]"
+        pip install -e ".[encoders-image-fastai]"
+        pip install -e ".[encoders-image-tf-face-detection]"
+    - name: Run Tests
+      env:
+          VI_USERNAME: ${{ secrets.VI_USERNAME }}
+          VI_API_KEY: ${{ secrets.VI_API_KEY }}
+          VH_USERNAME: ${{ secrets.VH_USERNAME }}
+          VH_API_KEY: ${{ secrets.VH_API_KEY }}
+      run: python -m pytest ${{ matrix.test-path }}
