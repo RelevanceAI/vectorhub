@@ -40,23 +40,23 @@ class ViIndexer:
         if collection_name is not None:
             self.collection_name = collection_name
         else:
-            self.collection_name = 'vectorhub_collection_with_' + self.__name__
+            self.collection_name = 'vectorhub_collection_with_' + self.__name__.lower()
         if metadata is not None:
-            docs = [self._create_document(i, item, metadata) for i, (item, metadata) in enumerate(list(zip(items, metadata)))]
+            docs = [self._create_document(item, metadata) for i, (item, metadata) in enumerate(list(zip(items, metadata)))]
         else:
-            docs = [self._create_document(i, item) for i, item in enumerate(items)]
+            docs = [self._create_document(item) for i, item in enumerate(items)]
 
         self.client = ViClient(username, api_key)
         if self.encoder_type == 'encoder':
-            return self.client.insert_documents(self.collection_name, docs, {'item': self})
+            return self.client.insert_documents(self.collection_name, docs, {'item': self}, overwrite=True)
         elif self.encoder_type == 'qa':
-            return self.client.insert_documents(self.collection_name, docs, {'item': self})
+            return self.client.insert_documents(self.collection_name, docs, {'item': self}, overwrite=True)
         elif self.encoder_type == 'text_image':
-            return self.client.insert_documents(self.collection_name, docs, {'item': self})
+            return self.client.insert_documents(self.collection_name, docs, {'item': self}, overwrite=True)
 
-    def _create_document(self, _id: str, item: List[str], metadata=None):
+    def _create_document(self, item: List[str], metadata=None):
         return {
-            '_id': str(_id),
+            # '_id': str(_id),
             'item': item,
             'metadata': metadata
         }
