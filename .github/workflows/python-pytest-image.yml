@@ -28,7 +28,7 @@ jobs:
           - tests/encoders/image/tfhub
           - tests/encoders/image/fastai
           - tests/encoders/face
-          - -v image
+          # - -v image
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
