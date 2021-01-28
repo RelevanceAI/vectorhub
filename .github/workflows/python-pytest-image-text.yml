@@ -54,6 +54,8 @@ jobs:
         pip install -e ".[clip]"
     - name: Run Tests
       env:
+          VI_USERNAME: ${{ secrets.VI_USERNAME }}
+          VI_API_KEY: ${{ secrets.VI_API_KEY }}
           VH_USERNAME: ${{ secrets.VH_USERNAME }}
           VH_API_KEY: ${{ secrets.VH_API_KEY }}
       run: python -m pytest ${{ matrix.test-path }}

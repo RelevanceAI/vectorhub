@@ -49,9 +49,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -e .
     - name: Install dependencies for tests
-      env:
-          VH_USERNAME: ${{ secrets.VH_USERNAME }}
-          VH_API_KEY: ${{ secrets.VH_API_KEY }}
       run: |
         pip install -r requirements.txt
         pip install -e ".[test]"
@@ -60,6 +57,8 @@ jobs:
         pip install -e ".[encoders-image-tf-face-detection]"
     - name: Run Tests
       env:
+          VI_USERNAME: ${{ secrets.VI_USERNAME }}
+          VI_API_KEY: ${{ secrets.VI_API_KEY }}
           VH_USERNAME: ${{ secrets.VH_USERNAME }}
           VH_API_KEY: ${{ secrets.VH_API_KEY }}
       run: python -m pytest ${{ matrix.test-path }}
