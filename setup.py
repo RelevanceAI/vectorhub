@@ -50,7 +50,7 @@ version = '1.1.3'
 if 'IS_VECTORHUB_NIGHTLY' in os.environ.keys():
     from datetime import datetime
     name = 'vectorhub-nightly'
-    version = version + '.' + datetime.today().date().__str__().replace('-', '.')
+    version = version + '.' + datetime.today().__str__().replace('-', '.').replace(":", '.').replace(' ', '.')
 else:
     name = 'vectorhub'
 

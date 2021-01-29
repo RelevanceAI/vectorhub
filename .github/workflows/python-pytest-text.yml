@@ -1,0 +1,74 @@
+name: Run Parallelized Pytest Text
+
+on:
+  push:
+    branches: 
+      - main
+    paths:
+      - 'vectorhub/encoders/text/**'
+      - 'tests/encoders/text/**'
+      - '.github/workflows/python-pytest-text.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'vectorhub/encoders/text/**'
+      - 'tests/encoders/text/**'
+      - '.github/workflows/python-pytest-text.yml'
+
+jobs:
+  run_test:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 30
+      matrix:
+        python-version: [3.6, 3.7]
+        test-path: 
+          - tests/encoders/text/vectorai
+          - tests/encoders/text/tf_transformers
+          - tests/encoders/text/torch_transformers
+          - tests/encoders/text/tfhub/test_albert.py
+          - tests/encoders/text/tfhub/test_bert.py
+          - tests/encoders/text/tfhub/test_labse.py
+          - tests/encoders/text/sentence_transformers
+          - tests/encoders/text/tfhub/test_use.py
+          - tests/encoders/text/tfhub/test_elmo.py
+          - tests/bi_encoders/qa/tfhub/test_lareqa_qa.py
+          - tests/bi_encoders/qa/tfhub/test_use_qa.py
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Cache pip
+      uses: actions/cache@v2
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+          ${{ runner.os }}-
+    - name: Install base dependencies
+      run: |
+        sudo apt-get install libsndfile1
+        python -m pip install --upgrade pip
+        pip install -e .
+    - name: Install dependencies for tests
+      env:
+          VH_USERNAME: ${{ secrets.VH_USERNAME }}
+          VH_API_KEY: ${{ secrets.VH_API_KEY }}
+      run: |
+        pip install -r requirements.txt
+        pip install -e ".[test]"
+        pip install -e ".[encoders-text-tf-transformers]"
+        pip install -e ".[encoders-text-torch-transformers]"
+        pip install -e ".[encoders-text-sentence-transformers]"
+        pip install -e ".[encoders-text-tfhub]"
+    - name: Run Tests
+      env:
+          VI_USERNAME: ${{ secrets.VI_USERNAME }}
+          VI_API_KEY: ${{ secrets.VI_API_KEY }}
+          VH_USERNAME: ${{ secrets.VH_USERNAME }}
+          VH_API_KEY: ${{ secrets.VH_API_KEY }}
+      run: python -m pytest ${{ matrix.test-path }}
