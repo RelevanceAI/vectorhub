@@ -1,3 +1,4 @@
+import requests
 from typing import Union
 from ...base import Base2Vec
 from ...import_utils import is_all_dependency_installed
@@ -21,8 +22,12 @@ class BaseImage2Vec(Base2Vec):
         """
         if type(image) == str:
             if 'http' in image:
-                b = io.BytesIO(urlopen(Request(
-                    quote(image, safe=':/?*=\''), headers={'User-Agent': "Mozilla/5.0"})).read())
+                try:
+                    b = io.BytesIO(urlopen(Request(
+                        quote(image, safe=':/?*=\''), headers={'User-Agent': "Mozilla/5.0"})).read())
+                except:
+                    import tensorflow as tf
+                    return tf.image.decode_jpeg(requests.get(image).content, channels=3, name="jpeg_reader").numpy()
             else:
                 b = image
         elif type(image) == bytes:
