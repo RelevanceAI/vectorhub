@@ -5,7 +5,7 @@ vector_length: "512 (default)"
 repo: "https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3"
 installation: "pip install vectorhub[encoders-text-tfhub]"
 release_date: "2019-07-01"
-category: text-text
+category: question-answer
 short_description: Greater-than-word length multi-lingual text encoder for question answer retrieval.
 ---
 
