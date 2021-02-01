@@ -8,7 +8,7 @@ from ....models_dict import MODEL_REQUIREMENTS
 from ..base import BaseText2Vec
 from .use import USE2Vec
 
-if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub']):
+if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-use-transformer']):
     import tensorflow as tf
     import tensorflow_hub as hub
 

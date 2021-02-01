@@ -19,13 +19,13 @@ MODEL_REQUIREMENTS = {
     "encoders-text-tfhub-labse": "encoders-text-tfhub-windows",
     "encoders-text-tfhub-use": "encoders-text-tfhub-windows", 
     "encoders-text-tfhub-use-multi": "encoders-text-tfhub", 
+    "encoders-text-tfhub-use-transformer": "encoders-text-tfhub",
     "encoders-text-torch-transformers-legalbert": "encoders-text-torch-transformers",
     "encoders-text-tf-transformers-auto": "encoders-text-tf-transformers",
     "encoders-text-torch-transformers-auto": "encoders-text-torch-transformers",
     "encoders-text-torch-transformers-longformer": "encoders-text-torch-transformers",
     "encoders-text-sentence-transformers": "encoders-text-sentence-transformers",
     "encoders-text-vectorai": None,
-    
     
     "encoders-image-tfhub-bit": "encoders-image-tfhub",
     "encoders-image-tfhub-resnet": "encoders-image-tfhub",
