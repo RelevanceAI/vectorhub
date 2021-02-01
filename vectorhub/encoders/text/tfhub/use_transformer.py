@@ -53,4 +53,4 @@ class USETransformer2Vec(USE2Vec):
         Bulk encode the texts.
         Pooling strategy can be one of 'pooled_output' or 'default'.
         """ 
-        return encoder(preprocessor(tf.constant(texts)))['default'].numpy().tolist()
+        return self.encoder(self.preprocessor(tf.constant(texts)))['default'].numpy().tolist()
