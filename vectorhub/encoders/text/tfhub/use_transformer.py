@@ -34,6 +34,12 @@ class USETransformer2Vec(USE2Vec):
             "https://tfhub.dev/google/universal-sentence-encoder-cmlm/en-large/1": {'vector_length': 1024}
         }
 
+    @property
+    def preprocessor_urls(self):
+        return [
+            "https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3"
+        ]
+
     @catch_vector_errors
     def encode(self, text, pooling_strategy='defualt'):
         """
