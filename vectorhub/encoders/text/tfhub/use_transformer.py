@@ -25,7 +25,7 @@ class USETransformer2Vec(USE2Vec):
         self.vector_length = 1024
         self.model_url = model_url
         self.preprocess_url = preprocessor_url
-        self.preprocessor = hub.KerasLayer(preprocess_url)
+        self.preprocessor = hub.KerasLayer(preprocessor_url)
         self.encoder = hub.KerasLayer(model_url)
 
     @property
