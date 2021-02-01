@@ -45,7 +45,7 @@ class USETransformer2Vec(USE2Vec):
         """
         Pooling strategy can be one of 'pooled_output' or 'default'.
         """
-        return encoder(preprocessor(tf.constant([text])))['default'].numpy().tolist()[0]
+        return self.encoder(self.preprocessor(tf.constant([text])))['default'].numpy().tolist()[0]
 
     @catch_vector_errors
     def bulk_encode(self, texts, pooling_strategy='default'):
