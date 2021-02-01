@@ -1,3 +1,4 @@
+import requests
 from typing import Union
 from ...base import Base2Vec
 from ...import_utils import is_all_dependency_installed
