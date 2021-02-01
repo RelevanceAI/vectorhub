@@ -33,6 +33,7 @@ jobs:
           - tests/encoders/text/sentence_transformers
           - tests/encoders/text/tfhub/test_use.py
           - tests/encoders/text/tfhub/test_elmo.py
+          - tests/encoders/text/tfhub/test_use_transformer.py
           - tests/bi_encoders/qa/tfhub/test_lareqa_qa.py
           - tests/bi_encoders/qa/tfhub/test_use_qa.py
     steps:
