@@ -9,7 +9,6 @@ if is_all_dependency_installed('encoders-image'):
     import numpy as np
     import matplotlib.pyplot as plt
     from urllib.request import urlopen, Request
-    from urllib.parse import quote
     from skimage import transform
 
 class BaseImage2Vec(Base2Vec):
@@ -24,7 +23,7 @@ class BaseImage2Vec(Base2Vec):
             if 'http' in image:
                 try:
                     b = io.BytesIO(urlopen(Request(
-                        quote(image, safe=':/?*=\''), headers={'User-Agent': "Mozilla/5.0"})).read())
+                        image, headers={'User-Agent': "Mozilla/5.0"})).read())
                 except:
                     import tensorflow as tf
                     return tf.image.decode_jpeg(requests.get(image).content, channels=3, name="jpeg_reader").numpy()
