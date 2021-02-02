@@ -16,6 +16,9 @@ __doc__ = ElmoModelDefinition.create_docs()
 
 class Elmo2Vec(BaseText2Vec):
     definition = ElmoModelDefinition
+    urls ={
+        "https://tfhub.dev/google/elmo/3": {'vector_length': 1024}
+    }
     def __init__(self, model_url: str="https://tfhub.dev/google/elmo/3", trainable_model=True):
         warnings.warn("We are disabling TF2 eager execution to run this. This may conflict with other models. If you need + \
             other models., try to use a fresh environment or a new virtual machine.")
@@ -23,12 +26,6 @@ class Elmo2Vec(BaseText2Vec):
         self.model = hub.Module(model_url, trainable=trainable_model)
         self.vector_length = 1024
     
-    @property
-    def urls(self):
-        return {
-           "https://tfhub.dev/google/elmo/3": {'vector_length': 1024}
-        }
-
     @catch_vector_errors
     def encode(self, text, output_layer: str="elmo"):
         """

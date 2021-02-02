@@ -20,18 +20,15 @@ __doc__ = LABSEModelDefinition.create_docs()
 
 class LaBSE2Vec(BaseText2Vec):
     definition = LABSEModelDefinition
+    urls = {
+        'https://tfhub.dev/google/LaBSE/1': {'vector_length': 768}
+    }
     def __init__(self, model_url: str = 'https://tfhub.dev/google/LaBSE/1', max_seq_length: int = 128, normalize: bool = True):
         self.max_seq_length = max_seq_length
         self.normalize = normalize
         self.model = self.init(model_url)
         self.tokenizer = self.init_tokenizer()
         self.vector_length = 768
-
-    @property
-    def urls(self):
-        return {
-            'https://tfhub.dev/google/LaBSE/1': {'vector_length': 768}
-        }
 
     def init(self, model_url: str):
         self.model_layer = hub.KerasLayer(model_url)

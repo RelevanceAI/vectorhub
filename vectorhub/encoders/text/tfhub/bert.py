@@ -19,37 +19,7 @@ __doc__ = BertModelDefinition.create_docs()
 
 class Bert2Vec(BaseText2Vec):
     definition = BertModelDefinition
-    def __init__(self, model_url: str = 'https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/3', 
-    max_seq_length: int = 64, normalize: bool = True):
-        list_of_urls = [
-            'https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/2',
-            'https://tfhub.dev/tensorflow/bert_en_wwm_cased_L-24_H-1024_A-16/2',
-            'https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/2',
-            'https://tfhub.dev/tensorflow/bert_en_wwm_uncased_L-24_H-1024_A-16/2',
-            'https://tfhub.dev/tensorflow/bert_en_cased_L-24_H-1024_A-16/2',
-            'https://tfhub.dev/tensorflow/bert_en_cased_L-12_H-768_A-12/2',
-            'https://tfhub.dev/tensorflow/bert_zh_L-12_H-768_A-12/2',
-            'https://tfhub.dev/tensorflow/bert_multi_cased_L-12_H-768_A-12/2',
-
-            'https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/3',
-            'https://tfhub.dev/tensorflow/bert_en_wwm_cased_L-24_H-1024_A-16/3',
-            'https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/3',
-            'https://tfhub.dev/tensorflow/bert_en_wwm_uncased_L-24_H-1024_A-16/3',
-            'https://tfhub.dev/tensorflow/bert_en_cased_L-24_H-1024_A-16/3',
-            'https://tfhub.dev/tensorflow/bert_en_cased_L-12_H-768_A-12/3',
-            'https://tfhub.dev/tensorflow/bert_zh_L-12_H-768_A-12/3',
-            'https://tfhub.dev/tensorflow/bert_multi_cased_L-12_H-768_A-12/3',
-        ]
-        self.validate_model_url(model_url, list_of_urls)
-        self.max_seq_length = max_seq_length
-        self.normalize = normalize
-        self.model_input_type = "dict"
-        self.init(model_url)
-        self.tokenizer = self.init_tokenizer()
-
-    @property
-    def urls(self):
-        {
+    urls = {
             'https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/2': {'vector_length': 1024},
             'https://tfhub.dev/tensorflow/bert_en_wwm_cased_L-24_H-1024_A-16/2': {'vector_length': 1024},
             'https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/2': {'vector_length': 768},
@@ -68,6 +38,14 @@ class Bert2Vec(BaseText2Vec):
             'https://tfhub.dev/tensorflow/bert_zh_L-12_H-768_A-12/3': {'vector_length': 768},
             'https://tfhub.dev/tensorflow/bert_multi_cased_L-12_H-768_A-12/3': {'vector_length': 768},
         }
+    def __init__(self, model_url: str = 'https://tfhub.dev/tensorflow/bert_en_uncased_L-24_H-1024_A-16/3', 
+    max_seq_length: int = 64, normalize: bool = True):
+        self.validate_model_url(model_url, list(self.urls.keys()))
+        self.max_seq_length = max_seq_length
+        self.normalize = normalize
+        self.model_input_type = "dict"
+        self.init(model_url)
+        self.tokenizer = self.init_tokenizer()
 
     def init(self, model_url: str):
         self.model = hub.KerasLayer(model_url)
