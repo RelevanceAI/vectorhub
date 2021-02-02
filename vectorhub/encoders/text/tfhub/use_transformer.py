@@ -18,6 +18,10 @@ __doc__ = USETransformerModelDefinition.create_docs()
 
 class USETransformer2Vec(USE2Vec):
     definition = USETransformerModelDefinition
+    urls = {
+        "https://tfhub.dev/google/universal-sentence-encoder-cmlm/en-large/1": {'vector_length': 1024}
+        "https://tfhub.dev/google/universal-sentence-encoder-cmlm/en-base/1": {'vector_length': 512}
+    }
     def __init__(self, model_url: str="https://tfhub.dev/google/universal-sentence-encoder-cmlm/en-large/1", 
     preprocessor_url="https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3"):
         self.validate_model_url(model_url, list(self.urls.keys()))
@@ -27,13 +31,6 @@ class USETransformer2Vec(USE2Vec):
         self.preprocess_url = preprocessor_url
         self.preprocessor = hub.KerasLayer(preprocessor_url)
         self.encoder = hub.KerasLayer(model_url)
-
-    @property
-    def urls(self):
-        return {
-            "https://tfhub.dev/google/universal-sentence-encoder-cmlm/en-large/1": {'vector_length': 1024}
-            "https://tfhub.dev/google/universal-sentence-encoder-cmlm/en-base/1": {'vector_length': 512}
-        }
 
     @property
     def preprocessor_urls(self):
