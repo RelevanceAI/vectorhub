@@ -20,6 +20,10 @@ __doc__ = CLIPModelDefinition.create_docs()
 
 class Clip2Vec(BaseImage2Vec, BaseText2Vec):
     definition = CLIPModelDefinition
+    urls = {
+        "ViT-B/32": {'vector_length': 512},
+        "RN50": {'vector_length': {512}}
+    }
     def __init__(self, url='ViT-B/32'):
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
         # Note that the preprocess is a callable
@@ -31,14 +35,6 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
             return Image.open(requests.get(image_url, stream=True).raw)
         except MissingSchema:
             return Image.open(image_url)
-
-    @property
-    def urls(self):
-        return {
-            "ViT-B/32": {'vector_length': 512},
-            "RN50": {'vector_length': {512}}
-        }
-
     
     @catch_vector_errors
     def encode_text(self, text: str):

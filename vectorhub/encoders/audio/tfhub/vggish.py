@@ -16,6 +16,9 @@ __doc__ = VggishModelDefinition.create_docs()
 
 class Vggish2Vec(BaseAudio2Vec):
     definition = VggishModelDefinition
+    urls = {
+            'https://tfhub.dev/google/vggish/1': {'vector_length': 128}
+        }
     def __init__(self, model_url: str = 'https://tfhub.dev/google/vggish/1'):
         self.model_url = model_url
         self.model_name = self.model_url.replace(
@@ -23,12 +26,6 @@ class Vggish2Vec(BaseAudio2Vec):
         self.model = hub.load(self.model_url)
         self.vector_length = 128
     
-    @property
-    def urls(self):
-        return {
-            'https://tfhub.dev/google/vggish/1': {'vector_length': 128}
-        }
-
     @catch_vector_errors
     def encode(self, audio, vector_operation='mean'):
         if isinstance(audio, str):

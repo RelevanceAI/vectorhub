@@ -22,8 +22,11 @@ __doc__ = USEQAModelDefinition.create_docs()
 
 class USEQA2Vec(BaseQA2Vec):
     definition = USEQAModelDefinition
-    def __init__(self):
-        self.model_url = "https://tfhub.dev/google/universal-sentence-encoder-qa/3"
+    urls = {
+        "https://tfhub.dev/google/universal-sentence-encoder-qa/3": {"vector_length": 512}
+    }
+    def __init__(self, model_url="https://tfhub.dev/google/universal-sentence-encoder-qa/3"):
+        self.model_url = model_url
         self.model = hub.load(self.model_url)
         self.model_name = self.model_url.replace(
             'https://tfhub.dev/google/', '').replace('/', '_')

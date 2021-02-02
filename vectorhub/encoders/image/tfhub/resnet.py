@@ -16,24 +16,7 @@ __doc__ = ResNetModelDefinition.create_docs()
 
 class ResnetV12Vec(BaseImage2Vec):
     definition = ResNetModelDefinition
-    def __init__(self, model_url: str = 'https://tfhub.dev/google/imagenet/resnet_v1_50/feature_vector/4'):
-        list_of_urls = [
-            # 50 layers
-            'https://tfhub.dev/google/imagenet/resnet_v1_50/feature_vector/4',
-
-            # 101 layers
-            'https://tfhub.dev/google/imagenet/resnet_v1_101/feature_vector/4',
-
-            # 152 layers
-            'https://tfhub.dev/google/imagenet/resnet_v1_152/feature_vector/4',
-        ]
-        self.validate_model_url(model_url, list_of_urls)
-        self.init(model_url)
-        self.vector_length = 2048
-
-    @property
-    def urls(self):
-        return {
+    urls = {
             # 50 layers
             'https://tfhub.dev/google/imagenet/resnet_v1_50/feature_vector/4':{'vector_length': 2048},
 
@@ -43,7 +26,10 @@ class ResnetV12Vec(BaseImage2Vec):
             # 152 layers
             'https://tfhub.dev/google/imagenet/resnet_v1_152/feature_vector/4':{'vector_length': 2048},
         }
-
+    def __init__(self, model_url: str = 'https://tfhub.dev/google/imagenet/resnet_v1_50/feature_vector/4'):
+        self.validate_model_url(model_url, self.urls)
+        self.init(model_url)
+        self.vector_length = self.urls[model_url['vector_length']]
 
     def init(self, model_url: str):
         self.model_url = model_url

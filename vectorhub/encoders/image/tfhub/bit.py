@@ -14,33 +14,18 @@ __doc__ = BITModelDefinition.create_docs()
 
 class BitSmall2Vec(BaseImage2Vec):
     definition = BITModelDefinition
+    urls = {
+        'https://tfhub.dev/google/bit/s-r50x1/1': {"vector_length":2048}, # 2048 output shape
+        'https://tfhub.dev/google/bit/s-r50x3/1': {"vector_length":6144},   # 6144 output shape
+        'https://tfhub.dev/google/bit/s-r101x1/1': {"vector_length":2048},  # 2048 output shape
+        'https://tfhub.dev/google/bit/s-r101x3/1': {"vector_length":6144},  # 6144 output shape
+        'https://tfhub.dev/google/bit/s-r152x4/1': {"vector_length":8192},   # 8192 output shape
+    }
+
     def __init__(self, model_url: str = "https://tfhub.dev/google/bit/s-r50x1/1"):
-        self.validate_model_url(model_url, self.list_of_urls)
+        self.validate_model_url(model_url, list(self.urls.keys()))
         self.init(model_url)
-        self.vector_length = self.list_of_urls[model_url]["vector_length"]
-
-    @property
-    def list_of_urls(self):
-        return {
-            'https://tfhub.dev/google/bit/s-r50x1/1': {"vector_length":2048}, # 2048 output shape
-            'https://tfhub.dev/google/bit/s-r50x3/1': {"vector_length":6144},   # 6144 output shape
-            'https://tfhub.dev/google/bit/s-r101x1/1': {"vector_length":2048},  # 2048 output shape
-            'https://tfhub.dev/google/bit/s-r101x3/1': {"vector_length":6144},  # 6144 output shape
-            'https://tfhub.dev/google/bit/s-r152x4/1': {"vector_length":8192},   # 8192 output shape
-        }
-
-    @property
-    def urls(self):
-        """
-        Get the urls and their vector length.
-        """
-        return {
-            'https://tfhub.dev/google/bit/s-r50x1/1': {"vector_length":2048}, # 2048 output shape
-            'https://tfhub.dev/google/bit/s-r50x3/1': {"vector_length":6144},   # 6144 output shape
-            'https://tfhub.dev/google/bit/s-r101x1/1': {"vector_length":2048},  # 2048 output shape
-            'https://tfhub.dev/google/bit/s-r101x3/1': {"vector_length":6144},  # 6144 output shape
-            'https://tfhub.dev/google/bit/s-r152x4/1': {"vector_length":8192},   # 8192 output shape
-        }
+        self.vector_length = self.urls[model_url]["vector_length"]
 
     def init(self, model_url: str):
         self.model_url = model_url

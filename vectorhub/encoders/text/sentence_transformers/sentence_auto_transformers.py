@@ -44,7 +44,7 @@ class SentenceTransformer2Vec(BaseText2Vec):
     definition = SentenceTransformerModelDefinition
     urls = LIST_OF_URLS
     def __init__(self, model_name: str):
-        self.list_of_urls = LIST_OF_URLS
+        self.urls = LIST_OF_URLS
         self.validate_model_url(model_name, LIST_OF_URLS)
         self.vector_length = LIST_OF_URLS[model_name]["vector_length"]
         self.model = SentenceTransformer(model_name)
@@ -53,7 +53,7 @@ class SentenceTransformer2Vec(BaseText2Vec):
         """
             Return list of URLS.
         """
-        return self.list_of_urls
+        return self.urls
 
     @catch_vector_errors
     def encode(self, text: str) -> List[float]:
