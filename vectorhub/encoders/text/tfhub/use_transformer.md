@@ -9,6 +9,8 @@ release_date: "2021-01-31"
 category: text
 ---
 
+*WARNING* This model currently has memory leaks that have yet to be patched. 
+
 ## Description
 
 The universal sentence encoder family of models map text into high dimensional vectors that capture sentence-level semantics. Our English-large (en-large) model is trained using a conditional masked language model described in [1]. The model is intended to be used for text classification, text clustering, semantic textural similarity, etc. It can also be use used as modularized input for multimodal tasks with text as a feature. The model can be fine-tuned for all of these tasks. The large model employs a 24 layer BERT transformer architecture.

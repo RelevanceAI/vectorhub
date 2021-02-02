@@ -32,6 +32,7 @@ class USETransformer2Vec(USE2Vec):
     def urls(self):
         return {
             "https://tfhub.dev/google/universal-sentence-encoder-cmlm/en-large/1": {'vector_length': 1024}
+            "https://tfhub.dev/google/universal-sentence-encoder-cmlm/en-base/1": {'vector_length': 512}
         }
 
     @property
