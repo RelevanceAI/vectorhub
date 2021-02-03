@@ -27,7 +27,7 @@ class USEMultiTransformer2Vec(USE2Vec):
     preprocessor_url="https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3"):
         self.validate_model_url(model_url, list(self.urls.keys()))
         self.init(model_url)
-        self.vector_length = 1024
+        self.vector_length = 512
         self.model_url = model_url
         self.preprocess_url = preprocessor_url
         self.preprocessor = hub.KerasLayer(preprocessor_url)
