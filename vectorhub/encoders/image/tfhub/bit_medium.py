@@ -25,5 +25,5 @@ class BitMedium2Vec(BitSmall2Vec):
     def __init__(self, model_url: str = 'https://tfhub.dev/google/bit/m-r50x1/1'):
         self.validate_model_url(model_url, list(self.urls.keys()))
         self.init(model_url)
-        self.vector_length = list_of_urls[model_url]["vector_length"]
-    
+        self.vector_length = self.urls[model_url]["vector_length"]
+

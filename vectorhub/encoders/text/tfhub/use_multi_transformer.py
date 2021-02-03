@@ -20,7 +20,7 @@ __doc__ = USETransformerModelDefinition.create_docs()
 class USEMultiTransformer2Vec(USE2Vec):
     definition = USEMultiTransformerModelDefinition
     urls = {
-        "https://tfhub.dev/google/universal-sentence-encoder-cmlm/multilingual-base/1": {"vector_length": 512}
+        "https://tfhub.dev/google/universal-sentence-encoder-cmlm/multilingual-base/1": {"vector_length": 512},
         "https://tfhub.dev/google/universal-sentence-encoder-cmlm/multilingual-base-br/1": {"vector_length": 512}
     }
     def __init__(self, model_url: str="https://tfhub.dev/google/universal-sentence-encoder-cmlm/en-large/1",
