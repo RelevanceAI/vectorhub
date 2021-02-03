@@ -35,10 +35,10 @@ class USEQA2Vec(BaseQA2Vec):
     @catch_vector_errors
     def encode_question(self, question: str):
         return self.model.signatures['question_encoder'](tf.constant([question]))['outputs'].numpy().tolist()[0]
-    
+
     @catch_vector_errors
     def bulk_encode_questions(self, questions: List[str]):
-        return self.model.signatures['question_encoder'](tf.constant([question]))['outputs'].numpy().tolist()
+        return self.model.signatures['question_encoder'](tf.constant([questions]))['outputs'].numpy().tolist()
 
     @catch_vector_errors
     def encode_answer(self, answer: str, context: str=None):
@@ -61,9 +61,9 @@ class USEQA2Vec(BaseQA2Vec):
         """
             Encode question/answer using LAReQA model.
             Args:
-                String: Any string 
+                String: Any string
                 Context_string: The context of the string.
-                string_type: question/answer. 
+                string_type: question/answer.
 
             Example:
             >>> from vectorhub.bi_encoders.qa.tfhub.lareqa_qa import *
@@ -92,7 +92,7 @@ class USEQA2Vec(BaseQA2Vec):
         if context_strings is not None:
             return [self.encode(x, context_strings[i], string_type=string_type) for i, x in enumerate(strings)]
         return [self.encode(x, string_type=string_type) for i, x in enumerate(strings)]
-    
+
     @property
     def __name__(self):
         return "use_qa"
