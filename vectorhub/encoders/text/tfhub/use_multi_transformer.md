@@ -1,5 +1,5 @@
 ---
-model_id: "text/use-mlm"
+model_id: "text/use-multi-mlm"
 model_name: "USE with conditional MLM Multilingual"
 vector_length: "1024 (Base model)"
 paper: "https://arxiv.org/abs/1803.11175" 
