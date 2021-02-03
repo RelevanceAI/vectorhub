@@ -29,7 +29,7 @@ class ResnetV12Vec(BaseImage2Vec):
     def __init__(self, model_url: str = 'https://tfhub.dev/google/imagenet/resnet_v1_50/feature_vector/4'):
         self.validate_model_url(model_url, self.urls)
         self.init(model_url)
-        self.vector_length = self.urls[model_url['vector_length']]
+        self.vector_length = self.urls[model_url]['vector_length']
 
     def init(self, model_url: str):
         self.model_url = model_url
