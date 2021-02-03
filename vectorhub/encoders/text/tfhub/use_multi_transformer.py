@@ -15,7 +15,7 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-use-trans
 
 USEMultiTransformerModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/use_multi_transformer')
 
-__doc__ = USETransformerModelDefinition.create_docs()
+__doc__ = USEMultiTransformerModelDefinition.create_docs()
 
 class USEMultiTransformer2Vec(USE2Vec):
     definition = USEMultiTransformerModelDefinition
