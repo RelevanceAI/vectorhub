@@ -11,16 +11,17 @@ from .use import USE2Vec
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-use-transformer']):
     import tensorflow as tf
     import tensorflow_hub as hub
+    import tensorflow_text as text
 
-USETransformerModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/use_transformer')
+USEMultiTransformerModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/use_multi_transformer')
 
 __doc__ = USETransformerModelDefinition.create_docs()
 
-class USETransformer2Vec(USE2Vec):
-    definition = USETransformerModelDefinition
+class USEMultiTransformer2Vec(USE2Vec):
+    definition = USEMultiTransformerModelDefinition
     urls = {
-        "https://tfhub.dev/google/universal-sentence-encoder-cmlm/en-large/1": {'vector_length': 1024},
-        "https://tfhub.dev/google/universal-sentence-encoder-cmlm/en-base/1": {'vector_length': 512},
+        "https://tfhub.dev/google/universal-sentence-encoder-cmlm/multilingual-base/1": {"vector_length": 512}
+        "https://tfhub.dev/google/universal-sentence-encoder-cmlm/multilingual-base-br/1": {"vector_length": 512}
     }
     def __init__(self, model_url: str="https://tfhub.dev/google/universal-sentence-encoder-cmlm/en-large/1",
     preprocessor_url="https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3"):
@@ -35,7 +36,7 @@ class USETransformer2Vec(USE2Vec):
     @property
     def preprocessor_urls(self):
         return [
-            "https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3"
+            "https://tfhub.dev/google/universal-sentence-encoder-cmlm/multilingual-preprocess/2"
         ]
 
     @catch_vector_errors
@@ -52,3 +53,4 @@ class USETransformer2Vec(USE2Vec):
         Pooling strategy can be one of 'pooled_output' or 'default'.
         """
         return self.encoder(self.preprocessor(tf.constant(texts)))['default'].numpy().tolist()
+
