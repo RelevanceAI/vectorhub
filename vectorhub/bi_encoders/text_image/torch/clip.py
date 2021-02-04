@@ -22,7 +22,7 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
     definition = CLIPModelDefinition
     urls = {
         "ViT-B/32": {'vector_length': 512},
-        "RN50": {'vector_length': {512}}
+        "RN50": {'vector_length': 512}
     }
     def __init__(self, url='ViT-B/32'):
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -35,7 +35,7 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
             return Image.open(requests.get(image_url, stream=True).raw)
         except MissingSchema:
             return Image.open(image_url)
-    
+
     @catch_vector_errors
     def encode_text(self, text: str):
         if self.device == 'cuda':
@@ -44,7 +44,7 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
         elif self.device == 'cpu':
             text = clip.tokenize(text).to(self.device)
             return self.model.encode_text(text).detach().numpy().tolist()[0]
-    
+
     def bulk_encode_text(self, texts: List[str]):
         if self.device == 'cuda':
             tokenized_text = clip.tokenize(texts).to(self.device)
@@ -61,10 +61,10 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
         elif self.device == 'cuda':
             image = self.preprocess(self.read(image_url)).unsqueeze(0).to(self.device)
             return self.model.encode_image(image).cpu().detach().numpy().tolist()[0]
-    
+
     def bulk_encode_image(self, images: str):
         return [self.encode_image(x) for x in images]
-    
+
     def encode(self, data: str, data_type='image'):
         if data_type == 'image':
             return self.encode_image(data)
