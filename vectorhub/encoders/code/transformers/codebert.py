@@ -17,17 +17,14 @@ __doc__ = CodeBertModelDefinition.create_docs()
 
 class Code2Vec(BaseText2Vec):
     definition = CodeBertModelDefinition
+    urls = {
+        'microsoft/codebert-base': {'vector_length': 768}
+    }
     def __init__(self, model_name='microsoft/codebert-base'):
         # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.tokenizer = RobertaTokenizer.from_pretrained(model_name)
         self.model = RobertaModel.from_pretrained(model_name)
         self.vector_length = self.urls[model_name]
-
-    @property
-    def urls(self):
-        return {
-            'microsoft/codebert-base': {'vector_length': 768}
-        }
 
     @catch_vector_errors
     def encode(self, description: str, code: str=None, pooling_method='mean', truncation=True):

@@ -21,12 +21,15 @@ USEMultiQAModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/qa/tf
 
 class USEMultiQA2Vec(USEQA2Vec):
     definition = USEMultiQAModelDefinition
-    def __init__(self):
-        self.model_url = "https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3"
+    urls = {
+        "https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3": {"vector_length": 512}
+    }
+    def __init__(self, model_url="https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3"):
+        self.model_url = model_url
         self.model = hub.load(self.model_url)
         self.model_name = self.model_url.replace(
             'https://tfhub.dev/google/', '').replace('/', '_')
-        self.vector_length = 512
+        self.vector_length = self.urls[model_url]
 
     @property
     def __name__(self):

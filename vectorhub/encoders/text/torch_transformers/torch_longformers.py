@@ -14,24 +14,13 @@ __doc__ = LongformerModelDefinition.create_docs()
 
 class Longformer2Vec(BaseText2Vec):
     definition = LongformerModelDefinition
-
+    urls = {
+        'allenai/longformer-base-4096': {'vector_length': 4096},
+        'allenai/longformer-large-4096': {'vector_length': 4096}
+    }
     def __init__(self, model_name: str = "allenai/longformer-base-4096"):
         self.model = LongformerModel.from_pretrained(model_name)
         self.tokenizer = LongformerTokenizer.from_pretrained(model_name)
-
-    @staticmethod
-    def list_possible_models():
-        return {
-            'allenai/longformer-base-4096': 'Starting from RoBERTa-base checkpoint, trained on documents of max length 4,096',
-            'allenai/longformer-large-4096': 'Starting from RoBERTa-large checkpoint, trained on documents of max length 4,096'
-        }
-
-    @property
-    def urls(self):
-        return {
-            'allenai/longformer-base-4096': {'vector_length': 4096},
-            'allenai/longformer-large-4096': {'vector_length': 4096}
-        }
 
     @catch_vector_errors
     def encode(self, text: Union[str, List[str]]) -> List[float]:

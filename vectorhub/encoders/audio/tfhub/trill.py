@@ -14,6 +14,9 @@ __doc__ = TrillModelDefinition.create_docs()
 
 class Trill2Vec(BaseAudio2Vec):
     definition = TrillModelDefinition
+    urls = {
+            'https://tfhub.dev/google/nonsemantic-speech-benchmark/trill/3': {'vector_length': 512}
+        }
     def __init__(self, model_url: str = 'https://tfhub.dev/google/nonsemantic-speech-benchmark/trill/3', 
     layer: str = 'embedding'):
         self.model_url = model_url
@@ -23,12 +26,6 @@ class Trill2Vec(BaseAudio2Vec):
             'https://tfhub.dev/google/', '').replace('/', '_')
         self.vector_length = 512
 
-    @property
-    def urls(self):
-        return {
-            'https://tfhub.dev/google/nonsemantic-speech-benchmark/trill/3': {'vector_length': 512}
-        }
-    
     @catch_vector_errors
     def encode(self, audio, vector_operation='mean'):
         """

@@ -14,6 +14,9 @@ __doc__ = YamnetModelDefinition.create_docs()
 
 class Yamnet2Vec(BaseAudio2Vec):
     definition = YamnetModelDefinition
+    urls = {
+        'https://tfhub.dev/google/yamnet/1': {'vector_length': 1024}
+    }
     def __init__(self, model_url: str = 'https://tfhub.dev/google/yamnet/1'):
         self.model_url = model_url
         self.model = hub.load(self.model_url)
@@ -21,12 +24,6 @@ class Yamnet2Vec(BaseAudio2Vec):
             'https://tfhub.dev/google/', '').replace('/', '_')
         self.vector_length = 1024
     
-    @property
-    def urls(self):
-        return {
-            'https://tfhub.dev/google/yamnet/1': {'vector_length': 1024}
-        }
-
     @catch_vector_errors
     def encode(self, audio, vector_operation='mean', layer='embeddings'):
         if isinstance(audio, str):

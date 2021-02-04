@@ -21,15 +21,15 @@ __doc__ = LAReQAModelDefinition.create_docs()
 
 class LAReQA2Vec(BaseQA2Vec):
     definition = LAReQAModelDefinition
+    urls = {
+        "https://tfhub.dev/google/LAReQA/mBERT_En_En/1": {},
+        "https://tfhub.dev/google/LAReQA/mBERT_X_X/1": {},
+        "https://tfhub.dev/google/LAReQA/mBERT_X_Y/1": {},
+        "https://tfhub.dev/google/LAReQA/mBERT_X_X_mono/1": {},
+    }
     def __init__(self, model_url='https://tfhub.dev/google/LAReQA/mBERT_En_En/1', 
     vector_length=512):
-        list_of_urls = [
-            "https://tfhub.dev/google/LAReQA/mBERT_En_En/1",
-            "https://tfhub.dev/google/LAReQA/mBERT_X_X/1",
-            "https://tfhub.dev/google/LAReQA/mBERT_X_Y/1",
-            "https://tfhub.dev/google/LAReQA/mBERT_X_X_mono/1",
-        ]
-        self.validate_model_url(model_url, list_of_urls)
+        self.validate_model_url(model_url, self.urls)
         self.model_url = model_url
         self.model = hub.load(self.model_url)
         self.model_name = model_url.replace(
@@ -37,7 +37,6 @@ class LAReQA2Vec(BaseQA2Vec):
         self.vector_length = vector_length
         self.question_encoder = self.model.signatures["query_encoder"]
         self.answer_encoder = self.model.signatures['response_encoder']
-
 
     @property
     def __name__(self):

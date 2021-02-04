@@ -20,6 +20,10 @@ USELiteModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/
 
 class USELite2Vec(BaseText2Vec):
     definition = USELiteModelDefinition
+
+    urls = {
+        "https://tfhub.dev/google/universal-sentence-encoder-lite/2": {'vector_length': 512}
+    }
     def __init__(self, model_url: str = 'https://tfhub.dev/google/universal-sentence-encoder-lite/2'):
         list_of_urls = [
             "https://tfhub.dev/google/universal-sentence-encoder-lite/2",

@@ -6,3 +6,5 @@ from .use import *
 from .use_multi import *
 from .use_lite import *
 from .use import *
+from .use_transformer import *
+from .use_multi_transformer import *

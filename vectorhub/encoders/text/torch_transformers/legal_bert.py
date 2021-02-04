@@ -15,29 +15,16 @@ __doc__ = LegalBertModelDefinition.create_docs()
 
 class LegalBert2Vec(BaseText2Vec):
     definition = LegalBertModelDefinition
+    urls = {
+            "nlpaueb/bert-base-uncased-contracts": {"data": "Trained on US contracts"},
+            "nlpaueb/bert-base-uncased-eurlex": {"data": "Trained on EU legislation"}, 
+            "nlpaueb/bert-base-uncased-echr	": {"data": "Trained on ECHR cases"},
+            "nlpaueb/legal-bert-base-uncased": {"data": "Trained on all the above"},
+            "nlpaueb/legal-bert-small-uncased": {"data": "Trained on all the above"}
+    }
     def __init__(self, model_name: str="nlpaueb/legal-bert-base-uncased"):
         self.model = AutoModel.from_pretrained(model_name)
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-
-    @staticmethod
-    def list_possible_models():
-        return {
-            "nlpaueb/bert-base-uncased-contracts": "Trained on US contracts",
-            "nlpaueb/bert-base-uncased-eurlex": "Trained on EU legislation", 
-            "nlpaueb/bert-base-uncased-echr	": "Trained on ECHR cases",
-            "nlpaueb/legal-bert-base-uncased": "Trained on all the above", 
-            "nlpaueb/legal-bert-small-uncased": "Trained on all the above"
-        }
-
-    @property
-    def urls(self):
-        return {
-            "nlpaueb/bert-base-uncased-contracts": {},
-            "nlpaueb/bert-base-uncased-eurlex": {},
-            "nlpaueb/bert-base-uncased-echr	": {},
-            "nlpaueb/legal-bert-base-uncased": {},
-            "nlpaueb/legal-bert-small-uncased": {},
-        }
 
     @catch_vector_errors
     def encode(self, text: Union[str, List[str]]) -> List[float]:

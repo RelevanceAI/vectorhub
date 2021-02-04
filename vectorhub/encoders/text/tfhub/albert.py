@@ -18,17 +18,7 @@ __doc__ = AlbertModelDefinition.create_docs()
 
 class Albert2Vec(BaseText2Vec):
     definition = AlbertModelDefinition
-    def __init__(self, model_url: str = 'https://tfhub.dev/tensorflow/albert_en_base/2', max_seq_length: int = 228, normalize: bool = True, 
-        preprocessor_url:str ='http://tfhub.dev/tensorflow/albert_en_preprocess/1'):
-        self.validate_model_url(model_url, list(self.urls.keys()))
-        self.max_seq_length = max_seq_length
-        self.normalize = normalize
-        self.init(model_url)
-        self.init_tokenizer(preprocessor_url)
-    
-    @property
-    def urls(self):
-        return {
+    urls = {
             'https://tfhub.dev/tensorflow/albert_en_base/1': {'vector_length': 768},
             'https://tfhub.dev/tensorflow/albert_en_xxlarge/1': {'vector_length': 4096},
             'https://tfhub.dev/tensorflow/albert_en_large/1': {'vector_length': 1024},
@@ -37,7 +27,14 @@ class Albert2Vec(BaseText2Vec):
             'https://tfhub.dev/tensorflow/albert_en_xxlarge/2': {'vector_length': 4096},
             'https://tfhub.dev/tensorflow/albert_en_large/2': {'vector_length': 1024},
             'https://tfhub.dev/tensorflow/albert_en_xlarge/2': {'vector_length': 2048},
-        }
+    }
+    def __init__(self, model_url: str = 'https://tfhub.dev/tensorflow/albert_en_base/2', max_seq_length: int = 228, normalize: bool = True, 
+        preprocessor_url:str ='http://tfhub.dev/tensorflow/albert_en_preprocess/1'):
+        self.validate_model_url(model_url, list(self.urls.keys()))
+        self.max_seq_length = max_seq_length
+        self.normalize = normalize
+        self.init(model_url)
+        self.init_tokenizer(preprocessor_url)
 
     def init_tokenizer(self, preprocessor_url):
         self.preprocessor = hub.KerasLayer(preprocessor_url)

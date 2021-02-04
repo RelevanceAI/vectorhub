@@ -25,6 +25,12 @@ def list_tested_transformer_models():
 
 class Transformer2Vec(BaseText2Vec):
     definition = TransformerModelDefinition
+    urls =  {
+            "bert-base-uncased": {'vector_length': 768},
+            "distilbert-base-uncased": {'vector_length': 768},
+            "facebook/bart-base": {'vector_length': 768}
+        }
+
     def __init__(self, model_name: str):
         self.model = AutoModel.from_pretrained(model_name)
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -32,14 +38,6 @@ class Transformer2Vec(BaseText2Vec):
         print("Therefore, not all models will worked but most do. " + \
             "Call the list of tested transformer models using list_tested_models.")
     
-    @property
-    def urls(self):
-        return {
-            "bert-base-uncased": {'vector_length': 768},
-            "distilbert-base-uncased": {'vector_length': 768},
-            "facebook/bart-base": {'vector_length': 768}
-        }
-
     @catch_vector_errors
     def encode(self, text: Union[str, List[str]]) -> List[float]:
         """

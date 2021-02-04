@@ -23,16 +23,10 @@ __doc__ = InceptionV3ModelDefinition.create_docs()
 
 class InceptionV32Vec(InceptionV12Vec):
     definition = InceptionV3ModelDefinition
+    urls = {
+            "https://tfhub.dev/google/inaturalist/inception_v3/feature_vector/4": {'vector_length': 2048}
+        }
     def __init__(self, model_url: str = 'https://tfhub.dev/google/imagenet/inception_v3/feature_vector/4'):
-        list_of_urls = [
-            # iNaturalist
-            "https://tfhub.dev/google/inaturalist/inception_v3/feature_vector/4"
-        ]
         self.init(model_url)
         self.vector_length = 2048
     
-    @property
-    def urls(self):
-        return {
-            "https://tfhub.dev/google/inaturalist/inception_v3/feature_vector/4": {'vector_length': 2048}
-        }

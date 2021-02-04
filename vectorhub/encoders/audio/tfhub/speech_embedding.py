@@ -16,6 +16,9 @@ __doc__ = SpeechEmbeddingModelDefinition.create_docs()
 
 class SpeechEmbedding2Vec(BaseAudio2Vec):
     definition = SpeechEmbeddingModelDefinition
+    urls = {
+        'https://tfhub.dev/google/speech_embedding/1': {'vector_length': 96}
+    }
     def __init__(self, model_url: str = 'https://tfhub.dev/google/speech_embedding/1', signature: str = 'default'):
         self.model_url = model_url
         self.signature = signature
@@ -23,12 +26,6 @@ class SpeechEmbedding2Vec(BaseAudio2Vec):
         self.model_name = self.model_url.replace(
             'https://tfhub.dev/google/', '').replace('/', '_')
         self.vector_length = 96
-
-    @property
-    def urls(self):
-        return {
-            'https://tfhub.dev/google/speech_embedding/1': {'vector_length': 96}
-        }
 
     @catch_vector_errors
     def encode(self, audio, vector_operation='mean'):
