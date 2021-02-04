@@ -2,7 +2,7 @@ name: Update Badges
 
 on:
   schedule:
-    - cron: "3 * * * *"
+    - cron: "0 0 * * *"
 
 jobs:
   run_test:
