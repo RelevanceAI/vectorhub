@@ -380,6 +380,11 @@ Encoder</p>
 <em class="property">property </em><code class="sig-name descname">test_word</code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.test_word" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.urls">
+<code class="sig-name descname">urls</code><em class="property"> = {'https://tfhub.dev/google/LAReQA/mBERT_En_En/1': {}, 'https://tfhub.dev/google/LAReQA/mBERT_X_X/1': {}, 'https://tfhub.dev/google/LAReQA/mBERT_X_X_mono/1': {}, 'https://tfhub.dev/google/LAReQA/mBERT_X_Y/1': {}}</em><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.urls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.validate_model_url">
 <em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
@@ -410,7 +415,7 @@ Improve model URL validation to not include final number in URl string.</p>
 <span id="vectorhub-bi-encoders-qa-tfhub-use-multi-qa-module"></span><h2>vectorhub.bi_encoders.qa.tfhub.use_multi_qa module<a class="headerlink" href="#module-vectorhub.bi_encoders.qa.tfhub.use_multi_qa" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec">
-<em class="property">class </em><code class="sig-prename descclassname">vectorhub.bi_encoders.qa.tfhub.use_multi_qa.</code><code class="sig-name descname">USEMultiQA2Vec</code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.bi_encoders.qa.tfhub.use_multi_qa.</code><code class="sig-name descname">USEMultiQA2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="o">=</span><span class="default_value">'https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec" title="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec</span></code></a></p>
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.add_documents">
@@ -544,6 +549,11 @@ Encoder</p>
 <em class="property">property </em><code class="sig-name descname">test_word</code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.test_word" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.urls">
+<code class="sig-name descname">urls</code><em class="property"> = {'https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3': {'vector_length': 512}}</em><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.urls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.validate_model_url">
 <em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
@@ -601,7 +611,7 @@ are useful out-of-the-box to retrieve an answer given a question, as well as que
 <span class="pre">`</span></code></p>
 <dl class="py class">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec">
-<em class="property">class </em><code class="sig-prename descclassname">vectorhub.bi_encoders.qa.tfhub.use_qa.</code><code class="sig-name descname">USEQA2Vec</code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">vectorhub.bi_encoders.qa.tfhub.use_qa.</code><code class="sig-name descname">USEQA2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="o">=</span><span class="default_value">'https://tfhub.dev/google/universal-sentence-encoder-qa/3'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="vectorhub.bi_encoders.qa.html#vectorhub.bi_encoders.qa.base.BaseQA2Vec" title="vectorhub.bi_encoders.qa.base.BaseQA2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.bi_encoders.qa.base.BaseQA2Vec</span></code></a></p>
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.add_documents">
@@ -733,6 +743,11 @@ Encoder</p>
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.test_word">
 <em class="property">property </em><code class="sig-name descname">test_word</code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.test_word" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.urls">
+<code class="sig-name descname">urls</code><em class="property"> = {'https://tfhub.dev/google/universal-sentence-encoder-qa/3': {'vector_length': 512}}</em><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.urls" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
