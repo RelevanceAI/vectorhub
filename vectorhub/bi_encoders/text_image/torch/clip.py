@@ -28,7 +28,7 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
         # Note that the preprocess is a callable
         self.model, self.preprocess = clip.load(url, device=self.device)
-        self.vector_length = self.urls[url]
+        self.vector_length = self.urls[url]["vector_length"]
 
     def read(self, image_url):
         try:
