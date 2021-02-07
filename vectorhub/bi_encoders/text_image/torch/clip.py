@@ -37,20 +37,20 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
             return Image.open(image_url)
 
     @catch_vector_errors
-    def encode_text(self, text: str):
+    def encode_text(self, text: str, context_length:int=77):
         if self.device == 'cuda':
-            text = clip.tokenize(text).to(self.device)
+            text = clip.tokenize(text, context_length=context_length).to(self.device)
             return self.model.encode_text(text).cpu().detach().numpy().tolist()[0]
         elif self.device == 'cpu':
-            text = clip.tokenize(text).to(self.device)
+            text = clip.tokenize(text, context_length=context_length).to(self.device)
             return self.model.encode_text(text).detach().numpy().tolist()[0]
 
-    def bulk_encode_text(self, texts: List[str]):
+    def bulk_encode_text(self, texts: List[str], context_length:int=77):
         if self.device == 'cuda':
-            tokenized_text = clip.tokenize(texts).to(self.device)
+            tokenized_text = clip.tokenize(texts, context_length=context_length).to(self.device)
             return self.model.encode_text(tokenized_text).cpu().detach().numpy().tolist()
         elif self.device == 'cpu':
-            tokenized_text = clip.tokenize(texts).to(self.device)
+            tokenized_text = clip.tokenize(texts, context_length=context_length).to(self.device)
             return self.model.encode_text(tokenized_text).detach().numpy().tolist()
 
     @catch_vector_errors
