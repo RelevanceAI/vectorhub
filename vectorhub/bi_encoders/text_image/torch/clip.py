@@ -24,7 +24,8 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
         "ViT-B/32": {'vector_length': 512},
         "RN50": {'vector_length': 512}
     }
-    def __init__(self, url='ViT-B/32'):
+    def __init__(self, url='ViT-B/32', context_length:int=77):
+        self.context_length = context_length
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
         # Note that the preprocess is a callable
         self.model, self.preprocess = clip.load(url, device=self.device)
@@ -37,20 +38,20 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
             return Image.open(image_url)
 
     @catch_vector_errors
-    def encode_text(self, text: str, context_length:int=77):
+    def encode_text(self, text: str):
         if self.device == 'cuda':
-            text = clip.tokenize(text, context_length=context_length).to(self.device)
+            text = clip.tokenize(text, context_length=self.context_length).to(self.device)
             return self.model.encode_text(text).cpu().detach().numpy().tolist()[0]
         elif self.device == 'cpu':
-            text = clip.tokenize(text, context_length=context_length).to(self.device)
+            text = clip.tokenize(text, context_length=self.context_length).to(self.device)
             return self.model.encode_text(text).detach().numpy().tolist()[0]
 
-    def bulk_encode_text(self, texts: List[str], context_length:int=77):
+    def bulk_encode_text(self, texts: List[str]):
         if self.device == 'cuda':
-            tokenized_text = clip.tokenize(texts, context_length=context_length).to(self.device)
+            tokenized_text = clip.tokenize(texts, context_length=self.context_length).to(self.device)
             return self.model.encode_text(tokenized_text).cpu().detach().numpy().tolist()
         elif self.device == 'cpu':
-            tokenized_text = clip.tokenize(texts, context_length=context_length).to(self.device)
+            tokenized_text = clip.tokenize(texts, context_length=self.context_length).to(self.device)
             return self.model.encode_text(tokenized_text).detach().numpy().tolist()
 
     @catch_vector_errors
