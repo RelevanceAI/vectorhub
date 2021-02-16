@@ -270,5 +270,4 @@ def assert_encoder_works(model, vector_length=None, data_type='image', model_typ
     sample_sentence=sample_sentence, sample_question=sample_question)
     model_check.assert_encoding_methods_work()
     model_check.assert_insertion_into_vectorai_works()
-    del model_check
     gc.collect()
