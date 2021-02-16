@@ -134,7 +134,7 @@ def get_model_definitions(json_fn='models.json'):
     """
         Get a list of dictionaries with the definitions of the models.
     """
-    all_models = list()
+    all_models = []
     global_vars = globals().items()
     for k, v in global_vars:
         if hasattr(v, 'definition'):
