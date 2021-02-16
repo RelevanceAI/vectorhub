@@ -3,6 +3,7 @@
 """
 import json
 import os
+from vectorai import request_api_key
 from pathlib import Path
 from pkg_resources import resource_filename
 from collections import defaultdict

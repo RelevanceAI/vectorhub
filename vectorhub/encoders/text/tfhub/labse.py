@@ -80,12 +80,8 @@ class LaBSE2Vec(BaseText2Vec):
 
         return np.array(input_ids_all), np.array(input_mask_all), np.array(segment_ids_all)
 
-    @catch_vector_errors
-    def encode(self, text: str):
+    def forward(self, text: str):
+        if isinstance(text, str):
+            text = [text]
         input_ids, input_mask, segment_ids = self.process(text)
-        return self.model([input_ids, input_mask, segment_ids]).numpy().tolist()[0]
-
-    @catch_vector_errors
-    def bulk_encode(self, texts: list):
-        input_ids, input_mask, segment_ids = self.process(texts)
-        return self.model([input_ids, input_mask, segment_ids]).numpy().tolist()
+        return self.model([input_ids, input_mask, segment_ids])

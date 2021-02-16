@@ -2,15 +2,15 @@
     Base Text2Vec Model
 """
 import warnings
-from ...base import Base2Vec
 from abc import ABC, abstractmethod
 from typing import Union, List, Dict
+from ...base import Base2Vec
 
 class BaseText2Vec(Base2Vec, ABC):
     def read(self, text: str):
         """An abstract method to specify the read method to read the data.
         """
-        pass
+        return text
     
     @property
     def test_word(self):
@@ -32,7 +32,23 @@ class BaseText2Vec(Base2Vec, ABC):
     @vector_length.setter
     def vector_length(self, value):
         self._vector_length = value
+
+    def encode(self, model_input, pooling_strategy=None):
+        """
+        Note: pooling_strategy only works if the forward method is giving all the outputs, otherwise,
+        it only uses the forward method.
+        """
+        if pooling_strategy is None:
+            return self.convert_encode_output_to_list(self.forward(model_input))
+        else:
+            return self.convert_encode_output_to_list(self.forward(model_input)[pooling_strategy])
     
     @abstractmethod
-    def encode(self, words: Union[List[str]]):
+    def pooling_strategies(self):
         pass
+
+    def bulk_encode(self, model_input, pooling_strategy=None):
+        if pooling_strategy is None:
+            return self.convert_bulk_encode_output_to_list(self.forward(model_input))
+        else:
+            return self.convert_bulk_encode_output_to_list(self.forward(model_input)[pooling_strategy])

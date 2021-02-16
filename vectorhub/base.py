@@ -3,10 +3,14 @@ import warnings
 import traceback
 import numpy as np
 import requests
-from .indexer import ViIndexer
-from .errors import ModelError
 from typing import Any, List
 from abc import ABC, abstractmethod
+from functools import singledispatchmethod
+from .pooler import Pooler
+from .reader import Reader
+from .typesetter import TypeSetter
+from .indexer import ViIndexer
+from .errors import ModelError
 
 BASE_2VEC_DEFINITON = {
     "vector_length": None,
@@ -49,7 +53,7 @@ def catch_vector_errors(func):
                 return [1e-7] * vector_length
     return catch_vector
 
-class Base2Vec(ViIndexer):
+class Base2Vec(ViIndexer, Pooler, Reader, TypeSetter):
     """
         Base class for vector
     """
@@ -106,25 +110,27 @@ class Base2Vec(ViIndexer):
         for i in range(0, len(lst), chunk_size):
             yield lst[i: i + chunk_size]
 
-    def _vector_operation(self, vectors, vector_operation: str = "mean", axis=0):
+    @singledispatchmethod
+    def encode(self, arg):
+        raise NotImplementedError("Cannot negate a")
+
+    # @catch_vector_errors
+    def encode(self, model_input, pooling_strategy=None):
         """
-            Args:
-                Vectors: the list of vectors to include
-                vector_operation: One of ['mean', 'minus', 'sum', 'min', 'max']
-                axis: The axis to which to perform the operation
+        Note: pooling_strategy only works if the forward method is giving all the outputs, otherwise,
+        it only uses the forward method.
         """
-        if vector_operation == "mean":
-            return np.mean(vectors, axis=axis).tolist()
-        elif vector_operation == 'minus':
-            return np.subtract(vectors, axis=axis).tolist()
-        elif vector_operation == "sum":
-            return np.sum(vectors, axis=axis).tolist()
-        elif vector_operation == "min":
-            return np.min(vectors, axis=axis).tolist()
-        elif vector_operation == "max":
-            return np.max(vectors, axis=axis).tolist()
+        if pooling_strategy is None:
+            return self.convert_encode_output_to_list(self.forward(self.read(model_input)))
         else:
-            return np.mean(vectors, axis=axis).tolist()
+            return self.convert_encode_output_to_list(self.pool(self.forward(self.read(model_input))))
+    
+    @catch_vector_errors
+    def bulk_encode(self, model_inputs):
+        if pooling_strategy is None:
+            return self.convert_bulk_encode_output_to_list(self.forward(self.bulk_read(model_inputs)))
+        else:
+            return self.convert_encode_output_to_list(self.pool(self.forward(self.read(model_inputs))))
 
     @property
     def __name__(self):

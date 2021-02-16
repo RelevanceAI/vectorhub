@@ -90,35 +90,14 @@ class Bert2Vec(BaseText2Vec):
 
         return np.array(input_ids_all), np.array(input_mask_all),  np.array(input_type_ids_all)
 
-    @catch_vector_errors
-    def encode(self, text: str, pooling_strategy='pooled_output'):
+    @property
+    def pooling_strategies(self):
+        return ['default', 'pooled_output']
+
+    def forward(self, text: str, pooling_strategy='pooled_output'):
         input_ids, input_mask, input_type_ids = self.process(text)
-        if self.model_input_type == "list":
-            return self.model([
-                tf.convert_to_tensor(input_ids, tf.int32, name="input_word_ids"), 
-                tf.convert_to_tensor(input_mask, tf.int32, name="input_mask"), 
-                tf.convert_to_tensor(input_type_ids, tf.int32, name="input_type_ids")
-            ])[0].numpy().tolist()[0]
-        else:
-            return self.model({
-                "input_word_ids": tf.convert_to_tensor(input_ids, tf.int32, name="input_word_ids"), 
-                "input_mask": tf.convert_to_tensor(input_mask, tf.int32, name="input_mask"), 
-                "input_type_ids": tf.convert_to_tensor(input_type_ids, tf.int32, name="input_type_ids")
-            })[pooling_strategy].numpy().tolist()[0]
-
-
-    @catch_vector_errors
-    def bulk_encode(self, texts: list, pooling_strategy='pooled_output'):
-        input_ids, input_mask, input_type_ids = self.process(texts)
-        if self.model_input_type == "list":
-            return self.model([
-                tf.convert_to_tensor(input_ids, tf.int32, name="input_word_ids"), 
-                tf.convert_to_tensor(input_mask, tf.int32, name="input_mask"), 
-                tf.convert_to_tensor(input_type_ids, tf.int32, name="input_type_ids")
-            ])[0].numpy().tolist()
-        else:
-            return self.model({
-                "input_word_ids": tf.convert_to_tensor(input_ids, tf.int32, name="input_word_ids"), 
-                "input_mask": tf.convert_to_tensor(input_mask, tf.int32, name="input_mask"), 
-                "input_type_ids": tf.convert_to_tensor(input_type_ids, tf.int32, name="input_type_ids")
-            })[pooling_strategy].numpy().tolist()
+        return self.model({
+            "input_word_ids": tf.convert_to_tensor(input_ids, tf.int32, name="input_word_ids"), 
+            "input_mask": tf.convert_to_tensor(input_mask, tf.int32, name="input_mask"), 
+            "input_type_ids": tf.convert_to_tensor(input_type_ids, tf.int32, name="input_type_ids")
+        })[pooling_strategy]

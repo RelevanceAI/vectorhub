@@ -33,22 +33,14 @@ class USETransformer2Vec(USE2Vec):
         self.encoder = hub.KerasLayer(model_url)
 
     @property
+    def pooling_strategies(self):
+        return ['default', 'pooled_output']
+
+    @property
     def preprocessor_urls(self):
         return [
             "https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3"
         ]
 
-    @catch_vector_errors
-    def encode(self, text, pooling_strategy='defualt'):
-        """
-        Pooling strategy can be one of 'pooled_output' or 'default'.
-        """
-        return self.encoder(self.preprocessor(tf.constant([text])))['default'].numpy().tolist()[0]
-
-    @catch_vector_errors
-    def bulk_encode(self, texts, pooling_strategy='default'):
-        """
-        Bulk encode the texts.
-        Pooling strategy can be one of 'pooled_output' or 'default'.
-        """
-        return self.encoder(self.preprocessor(tf.constant(texts)))['default'].numpy().tolist()
+    def forward(self, text, pooling_strategy='default'):
+        return self.encoder(self.preprocessor(tf.constant([text])))[pooling_strategy]

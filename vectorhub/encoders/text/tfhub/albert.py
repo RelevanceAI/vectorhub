@@ -42,10 +42,5 @@ class Albert2Vec(BaseText2Vec):
     def init(self, model_url):
         self.model = hub.KerasLayer(model_url)
 
-    @catch_vector_errors
-    def encode(self, text: str, pooling_strategy='pooled_output'):
-        return self.model(self.preprocessor([text]))[pooling_strategy].numpy().tolist()[0]
-
-    @catch_vector_errors
-    def bulk_encode(self, texts: list, pooling_strategy='pooled_output'):
-        return self.model(self.preprocessor(texts))[pooling_strategy].numpy().tolist()
+    def forward(self, text):
+        return self.model(self.preprocessor([text]))[pooling_strategy]

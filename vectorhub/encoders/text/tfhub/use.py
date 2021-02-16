@@ -32,11 +32,11 @@ class USE2Vec(BaseText2Vec):
         self.model = hub.load(self.model_url)
         self.model_name = model_url.replace('https://tfhub.dev/google/', '').replace('/', '_')
 
-    @catch_vector_errors
-    def encode(self, text):
-        return self.model([text]).numpy().tolist()[0]
+    @property
+    def pooling_strategies(self):
+        return ['default']
 
-    # can consider compress in the future
-    @catch_vector_errors
-    def bulk_encode(self, texts, threads=10, chunks=100):
-        return [i for c in self.chunk(texts, chunks) for i in self.model(c).numpy().tolist()]
+    def forward(self, text):
+        if isinstance(text, str):
+            text = [text]
+        return self.model(text)

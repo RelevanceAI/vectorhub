@@ -39,18 +39,14 @@ class USEMultiTransformer2Vec(USE2Vec):
             "https://tfhub.dev/google/universal-sentence-encoder-cmlm/multilingual-preprocess/2"
         ]
 
-    @catch_vector_errors
-    def encode(self, text, pooling_strategy='defualt'):
+    @property
+    def pooling_strategies(self):
+        return ['default', 'pooled_output']
+
+    def forward(self, text, pooling_strategy='default'):
         """
         Pooling strategy can be one of 'pooled_output' or 'default'.
         """
-        return self.encoder(self.preprocessor(tf.constant([text])))['default'].numpy().tolist()[0]
-
-    @catch_vector_errors
-    def bulk_encode(self, texts, pooling_strategy='default'):
-        """
-        Bulk encode the texts.
-        Pooling strategy can be one of 'pooled_output' or 'default'.
-        """
-        return self.encoder(self.preprocessor(tf.constant(texts)))['default'].numpy().tolist()
-
+        if isinstance(text, str):
+            text = [text]
+        return self.preprocessor(tf.constant(text)))[pooling_strategy]
