@@ -11,7 +11,7 @@ class TempClient:
     """Client For a temporary collection
     """
     def __init__(self, client, collection_name: str=None):
-        if client is None: 
+        if client is None:
             raise ValueError("Client cannot be None.")
         self.client = client
         if isinstance(client, ViClient):
@@ -28,11 +28,11 @@ class TempClient:
                 self.client.delete_collection(self.collection_name)
             elif isinstance(self.client, ViCollectionClient):
                 self.client.delete_collection()
-    
+
     def __enter__(self):
         self.teardown_collection()
         return self.client
-    
+
     def __exit__(self, *exc):
         self.teardown_collection()
 
@@ -43,7 +43,7 @@ def test_list_models():
 def test_list_installed_models():
     # Vector AI deployed models should be immediately usable
     assert len(list_installed_models()) > 0
-    
+
 def is_dummy_vector(vector, vector_length=None):
     """
         Return True if the vector is the default vector, False if it is not.
@@ -71,7 +71,7 @@ def assert_vector_works(vector, vector_length=None):
             assert len(vector) == vector_length, f"Does not match vector length of {vector_length}"
 
 class AssertModelWorks:
-    def __init__(self, model, vector_length, data_type='image', model_type='encoder', 
+    def __init__(self, model, vector_length, data_type='image', model_type='encoder',
     image_url: str='https://getvectorai.com/_nuxt/img/dog-1.3cc5fe1.png',
     audio_url: str='https://vecsearch-bucket.s3.us-east-2.amazonaws.com/voices/common_voice_en_2.wav',
     sample_sentence: str= "Cats enjoy purring in the nature.",
@@ -87,7 +87,7 @@ class AssertModelWorks:
         self.audio_sample_rate =  16000
         self.sentence = sample_sentence
         self.question = sample_question
-    
+
     def assert_encode_works(self):
         if self.data_type == 'image':
             assert_vector_works(self.model.encode(self.image_url), self.vector_length)
@@ -121,7 +121,7 @@ class AssertModelWorks:
         elif self.model_type == 'bi_encoder':
             self.assert_biencode_works()
             self.assert_bulk_biencode_works()
-    
+
     def assert_biencode_works(self):
         if self.data_type == 'qa':
             assert_vector_works(self.model.encode_question(self.question), self.vector_length)
@@ -133,7 +133,7 @@ class AssertModelWorks:
     def assert_bulk_biencode_works(self):
         if self.data_type == 'text':
             assert_vector_works(self.model.encode_answer(self.sentence), self.vector_length)
-    
+
     @property
     def sample_document(self):
         """Sample documents.
@@ -144,7 +144,7 @@ class AssertModelWorks:
             'text': "Cats love purring on the beach.",
             'question': "Where do cats love purring?"
         }
-    
+
     @property
     def sample_documents(self):
         return [self.sample_document] * 30
@@ -205,7 +205,7 @@ class AssertModelWorks:
                 use_bulk_encode=True)
                 assert len(response['failed_document_ids']) == 0
             elif self.model_type =='bi_encoder':
-                response = client.insert_documents(CN, 
+                response = client.insert_documents(CN,
                 self.sample_documents,
                 {self.field_to_encode_mapping: self.model},
                 use_bulk_encode=True)
@@ -231,7 +231,7 @@ class AssertModelWorks:
 
     def assert_simple_insertion_works(self):
         # Ensure that inserting in a collection works normally
-        cn = 'test_vectorhub_' + self.random_string 
+        cn = 'test_vectorhub_' + self.random_string
         items = self.vi_client.get_field_across_documents(
             self.field_to_encode_mapping, self.sample_documents
         )
@@ -261,13 +261,14 @@ def assert_encoder_works(model, vector_length=None, data_type='image', model_typ
     """
     if vector_length is None:
         try:
-            # Use the embedded URL module for now. 
+            # Use the embedded URL module for now.
             vector_length = model.urls[model.model_url]['vector_length']
         except:
             pass
-    model_check = AssertModelWorks(model=model, vector_length=vector_length, 
-    data_type=data_type, model_type=model_type, image_url=image_url,audio_url=audio_url, 
+    model_check = AssertModelWorks(model=model, vector_length=vector_length,
+    data_type=data_type, model_type=model_type, image_url=image_url,audio_url=audio_url,
     sample_sentence=sample_sentence, sample_question=sample_question)
     model_check.assert_encoding_methods_work()
-    model_check.assert_insertion_into_vectorai_works()
-    gc.collect()
+    if os.getenv('VI_USERNAME') is not None:
+        model_check.assert_insertion_into_vectorai_works()
+
