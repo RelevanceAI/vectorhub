@@ -19,7 +19,7 @@ class BaseImage2Vec(Base2Vec):
                 image: An image link/bytes/io Bytesio data format.
                 as_gray: read in the image as black and white
         """
-        if type(image) == str:
+        if type(image) is str:
             if 'http' in image:
                 try:
                     b = io.BytesIO(urlopen(Request(
@@ -29,9 +29,9 @@ class BaseImage2Vec(Base2Vec):
                     return tf.image.decode_jpeg(requests.get(image).content, channels=3, name="jpeg_reader").numpy()
             else:
                 b = image
-        elif type(image) == bytes:
+        elif type(image) is bytes:
             b = io.BytesIO(image)
-        elif type(image) == io.BytesIO:
+        elif type(image) is io.BytesIO:
             b = image
         else:
             raise ValueError("Cannot process data type. Ensure it is is string/bytes or BytesIO.")

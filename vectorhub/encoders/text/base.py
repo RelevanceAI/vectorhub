@@ -22,7 +22,7 @@ class BaseText2Vec(Base2Vec, ABC):
             Set the vector length of the model.
         """
         if hasattr(self, "_vector_length"):
-            return getattr(self, "_vector_length") 
+            return self._vector_length 
         else:
             print(f"The vector length is not explicitly stated so we are inferring " + \
                 "from our test word - {self.test_word}.")

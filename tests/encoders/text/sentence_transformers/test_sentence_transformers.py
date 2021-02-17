@@ -11,4 +11,4 @@ def test_sentence_transformers(model_name):
     """
     enc = SentenceTransformer2Vec(model_name=model_name)
     assert_encoder_works(enc, data_type='text')
-    del enc; gc.collect();
+    gc.collect();

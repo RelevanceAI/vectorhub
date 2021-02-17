@@ -9,7 +9,6 @@ if is_all_dependency_installed('encoders-image-tfhub'):
     import tensorflow_hub as hub
     import io
     import imageio
-    import numpy as np
     import matplotlib.pyplot as plt
     from urllib.request import urlopen, Request
     from urllib.parse import quote

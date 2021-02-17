@@ -18,7 +18,7 @@ class BaseAudio2Vec(Base2Vec):
     def read(self, audio: str, new_sampling_rate: int = 16000):
         """An method to specify the read method to read the data.
         """
-        if type(audio) == str:
+        if type(audio) is str:
             if 'http' in audio:
                 fd, fp = tempfile.mkstemp()
                 os.write(fd, urlopen(Request(quote(audio, safe=':/?*=\''),
@@ -30,9 +30,9 @@ class BaseAudio2Vec(Base2Vec):
                 os.close(fd)
             else:
                 data, sampling_rate = sf.read(audio, dtype='float32')
-        elif type(audio) == bytes:
+        elif type(audio) is bytes:
             data, sampling_rate = sf.read(io.BytesIO(audio), dtype='float32')
-        elif type(audio) == io.BytesIO:
+        elif type(audio) is io.BytesIO:
             data, sampling_rate = sf.read(audio, dtype='float32')
         return np.array(librosa.resample(data.T, sampling_rate, new_sampling_rate))
     
