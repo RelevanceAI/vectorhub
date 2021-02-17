@@ -225,17 +225,17 @@ We present LAReQA, a challenging new benchmark for language-agnostic answer retr
 <span class="pre">`</span></code></p>
 <dl class="py class">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec">
-<em class="property">class </em><code class="sig-prename descclassname">vectorhub.bi_encoders.qa.tfhub.lareqa_qa.</code><code class="sig-name descname">LAReQA2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="o">=</span><span class="default_value">'https://tfhub.dev/google/LAReQA/mBERT_En_En/1'</span></em>, <em class="sig-param"><span class="n">vector_length</span><span class="o">=</span><span class="default_value">512</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">vectorhub.bi_encoders.qa.tfhub.lareqa_qa.</span></code><code class="sig-name descname"><span class="pre">LAReQA2Vec</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'https://tfhub.dev/google/LAReQA/mBERT_En_En/1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="vectorhub.bi_encoders.qa.html#vectorhub.bi_encoders.qa.base.BaseQA2Vec" title="vectorhub.bi_encoders.qa.base.BaseQA2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.bi_encoders.qa.base.BaseQA2Vec</span></code></a></p>
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.add_documents">
-<code class="sig-name descname">add_documents</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">api_key</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">items</span><span class="p">:</span> <span class="n">List<span class="p">[</span>Any<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">metadata</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>List<span class="p">[</span>Any<span class="p">]</span><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">collection_name</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.add_documents" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">add_documents</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collection_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.add_documents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add documents to the Vector AI cloud.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.bulk_encode">
-<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">strings</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">context_strings</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">string_type</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'answer'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">bulk_encode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strings</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context_strings</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">string_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'answer'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bulk encode question/answer using LAReQA model.
 :param String: List of strings.
 :param Context_string: List of context of the strings.
@@ -248,12 +248,12 @@ We present LAReQA, a challenging new benchmark for language-agnostic answer retr
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.bulk_encode_answers">
-<code class="sig-name descname">bulk_encode_answers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">answers</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">contexts</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.bulk_encode_answers" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">bulk_encode_answers</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">answers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contexts</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.bulk_encode_answers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.bulk_encode_question">
-<code class="sig-name descname">bulk_encode_question</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">questions</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.bulk_encode_question" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">bulk_encode_question</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">questions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.bulk_encode_question" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encode questions using LAReQA model.
 Example:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">vectorhub.bi_encoders.qa.tfhub.lareqa_qa</span> <span class="kn">import</span> <span class="o">*</span>
@@ -265,7 +265,7 @@ Example:</p>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.chunk">
-<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">chunk</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.chunk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
 :param lst: Python List
 :param chunk_size: The chunk size of an object.</p>
@@ -278,17 +278,17 @@ Example:</p>
 
 <dl class="py attribute">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.definition">
-<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">definition</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;vectorhub.doc_utils.ModelDefinition</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.definition" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.delete_collection">
-<code class="sig-name descname">delete_collection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">collection_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.delete_collection" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">delete_collection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collection_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.delete_collection" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.encode">
-<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">context_string</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">string_type</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'answer'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">encode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context_string</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">string_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'answer'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.encode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encode question/answer using LAReQA model.
 :param String: Any string
 :param Context_string: The context of the string.
@@ -301,7 +301,7 @@ Example:</p>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.encode_answer">
-<code class="sig-name descname">encode_answer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">answer</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">context</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.encode_answer" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">encode_answer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">answer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.encode_answer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encode answer using LAReQA model.
 Example:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">vectorhub.bi_encoders.qa.tfhub.lareqa_qa</span> <span class="kn">import</span> <span class="o">*</span>
@@ -313,7 +313,7 @@ Example:</p>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.encode_question">
-<code class="sig-name descname">encode_question</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">question</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.encode_question" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">encode_question</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">question</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.encode_question" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encode the question using LAReQA model.
 Example:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">vectorhub.bi_encoders.qa.tfhub.lareqa_qa</span> <span class="kn">import</span> <span class="o">*</span>
@@ -325,7 +325,7 @@ Example:</p>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.encoder_type">
-<em class="property">property </em><code class="sig-name descname">encoder_type</code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.encoder_type" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">encoder_type</span></code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.encoder_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>The encoder type ensures it uses either the ‘encode’ or ‘encode_question’/’encode_answer’
 Currently supported encoder types:</p>
 <blockquote>
@@ -337,57 +337,57 @@ Encoder</p>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.get_vector_field_name">
-<code class="sig-name descname">get_vector_field_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.get_vector_field_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_vector_field_name</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.get_vector_field_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.is_url_working">
-<em class="property">static </em><code class="sig-name descname">is_url_working</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.is_url_working" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">is_url_working</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.is_url_working" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.read">
-<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.read" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>An abstract method to specify the read method to read the data.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.request_api_key">
-<code class="sig-name descname">request_api_key</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">email</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">referral_code</span><span class="o">=</span><span class="default_value">'vectorhub_referred'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.request_api_key" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">request_api_key</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">referral_code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'vectorhub_referred'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.request_api_key" title="Permalink to this definition">¶</a></dt>
 <dd><p>Requesting an API key.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.retrieve_all_documents">
-<code class="sig-name descname">retrieve_all_documents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.retrieve_all_documents" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">retrieve_all_documents</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.retrieve_all_documents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve all documents.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.retrieve_documents">
-<code class="sig-name descname">retrieve_documents</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_of_documents</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.retrieve_documents" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">retrieve_documents</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_of_documents</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.retrieve_documents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all the documents in our package.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.search">
-<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">item</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">num_results</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.search" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">search</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_results</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simple search with Vector AI</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.test_word">
-<em class="property">property </em><code class="sig-name descname">test_word</code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.test_word" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">test_word</span></code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.test_word" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.urls">
-<code class="sig-name descname">urls</code><em class="property"> = {'https://tfhub.dev/google/LAReQA/mBERT_En_En/1': {}, 'https://tfhub.dev/google/LAReQA/mBERT_X_X/1': {}, 'https://tfhub.dev/google/LAReQA/mBERT_X_X_mono/1': {}, 'https://tfhub.dev/google/LAReQA/mBERT_X_Y/1': {}}</em><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.urls" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">urls</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{'https://tfhub.dev/google/LAReQA/mBERT_En_En/1':</span> <span class="pre">{},</span> <span class="pre">'https://tfhub.dev/google/LAReQA/mBERT_X_X/1':</span> <span class="pre">{},</span> <span class="pre">'https://tfhub.dev/google/LAReQA/mBERT_X_X_mono/1':</span> <span class="pre">{},</span> <span class="pre">'https://tfhub.dev/google/LAReQA/mBERT_X_Y/1':</span> <span class="pre">{}}</span></em><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.urls" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.validate_model_url">
-<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">validate_model_url</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_of_urls</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validate the model url belongs in the list of urls. This is to help
 users to avoid mis-spelling the name of the model.</p>
 <p># TODO:
@@ -404,7 +404,7 @@ Improve model URL validation to not include final number in URl string.</p>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.vector_length">
-<em class="property">property </em><code class="sig-name descname">vector_length</code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.vector_length" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vector_length</span></code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.lareqa_qa.LAReQA2Vec.vector_length" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the vector length of the model.</p>
 </dd></dl>
 
@@ -415,17 +415,17 @@ Improve model URL validation to not include final number in URl string.</p>
 <span id="vectorhub-bi-encoders-qa-tfhub-use-multi-qa-module"></span><h2>vectorhub.bi_encoders.qa.tfhub.use_multi_qa module<a class="headerlink" href="#module-vectorhub.bi_encoders.qa.tfhub.use_multi_qa" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec">
-<em class="property">class </em><code class="sig-prename descclassname">vectorhub.bi_encoders.qa.tfhub.use_multi_qa.</code><code class="sig-name descname">USEMultiQA2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="o">=</span><span class="default_value">'https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">vectorhub.bi_encoders.qa.tfhub.use_multi_qa.</span></code><code class="sig-name descname"><span class="pre">USEMultiQA2Vec</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec" title="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec</span></code></a></p>
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.add_documents">
-<code class="sig-name descname">add_documents</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">api_key</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">items</span><span class="p">:</span> <span class="n">List<span class="p">[</span>Any<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">metadata</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>List<span class="p">[</span>Any<span class="p">]</span><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">collection_name</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.add_documents" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">add_documents</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collection_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.add_documents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add documents to the Vector AI cloud.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.bulk_encode">
-<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">strings</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">context_strings</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">string_type</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'answer'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">bulk_encode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strings</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context_strings</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">string_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'answer'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bulk encode question/answer using LAReQA model.
 :param String: List of strings.
 :param Context_string: List of context of the strings.
@@ -438,17 +438,17 @@ Improve model URL validation to not include final number in URl string.</p>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.bulk_encode_answers">
-<code class="sig-name descname">bulk_encode_answers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">answers</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">contexts</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.bulk_encode_answers" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">bulk_encode_answers</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">answers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contexts</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.bulk_encode_answers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.bulk_encode_questions">
-<code class="sig-name descname">bulk_encode_questions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">questions</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.bulk_encode_questions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">bulk_encode_questions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">questions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.bulk_encode_questions" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.chunk">
-<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">chunk</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.chunk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
 :param lst: Python List
 :param chunk_size: The chunk size of an object.</p>
@@ -461,17 +461,17 @@ Improve model URL validation to not include final number in URl string.</p>
 
 <dl class="py attribute">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.definition">
-<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">definition</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;vectorhub.doc_utils.ModelDefinition</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.definition" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.delete_collection">
-<code class="sig-name descname">delete_collection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">collection_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.delete_collection" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">delete_collection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collection_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.delete_collection" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.encode">
-<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">context_string</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">string_type</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'answer'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">encode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context_string</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">string_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'answer'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.encode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encode question/answer using LAReQA model.
 :param String: Any string
 :param Context_string: The context of the string.
@@ -484,17 +484,17 @@ Improve model URL validation to not include final number in URl string.</p>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.encode_answer">
-<code class="sig-name descname">encode_answer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">answer</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">context</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.encode_answer" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">encode_answer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">answer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.encode_answer" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.encode_question">
-<code class="sig-name descname">encode_question</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">question</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.encode_question" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">encode_question</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">question</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.encode_question" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.encoder_type">
-<em class="property">property </em><code class="sig-name descname">encoder_type</code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.encoder_type" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">encoder_type</span></code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.encoder_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>The encoder type ensures it uses either the ‘encode’ or ‘encode_question’/’encode_answer’
 Currently supported encoder types:</p>
 <blockquote>
@@ -506,57 +506,57 @@ Encoder</p>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.get_vector_field_name">
-<code class="sig-name descname">get_vector_field_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.get_vector_field_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_vector_field_name</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.get_vector_field_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.is_url_working">
-<em class="property">static </em><code class="sig-name descname">is_url_working</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.is_url_working" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">is_url_working</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.is_url_working" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.read">
-<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.read" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>An abstract method to specify the read method to read the data.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.request_api_key">
-<code class="sig-name descname">request_api_key</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">email</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">referral_code</span><span class="o">=</span><span class="default_value">'vectorhub_referred'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.request_api_key" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">request_api_key</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">referral_code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'vectorhub_referred'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.request_api_key" title="Permalink to this definition">¶</a></dt>
 <dd><p>Requesting an API key.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.retrieve_all_documents">
-<code class="sig-name descname">retrieve_all_documents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.retrieve_all_documents" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">retrieve_all_documents</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.retrieve_all_documents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve all documents.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.retrieve_documents">
-<code class="sig-name descname">retrieve_documents</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_of_documents</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.retrieve_documents" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">retrieve_documents</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_of_documents</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.retrieve_documents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all the documents in our package.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.search">
-<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">item</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">num_results</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.search" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">search</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_results</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simple search with Vector AI</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.test_word">
-<em class="property">property </em><code class="sig-name descname">test_word</code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.test_word" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">test_word</span></code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.test_word" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.urls">
-<code class="sig-name descname">urls</code><em class="property"> = {'https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3': {'vector_length': 512}}</em><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.urls" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">urls</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{'https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3':</span> <span class="pre">{'vector_length':</span> <span class="pre">512}}</span></em><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.urls" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.validate_model_url">
-<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">validate_model_url</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_of_urls</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validate the model url belongs in the list of urls. This is to help
 users to avoid mis-spelling the name of the model.</p>
 <p># TODO:
@@ -573,7 +573,7 @@ Improve model URL validation to not include final number in URl string.</p>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.vector_length">
-<em class="property">property </em><code class="sig-name descname">vector_length</code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.vector_length" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vector_length</span></code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_multi_qa.USEMultiQA2Vec.vector_length" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the vector length of the model.</p>
 </dd></dl>
 
@@ -611,17 +611,17 @@ are useful out-of-the-box to retrieve an answer given a question, as well as que
 <span class="pre">`</span></code></p>
 <dl class="py class">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec">
-<em class="property">class </em><code class="sig-prename descclassname">vectorhub.bi_encoders.qa.tfhub.use_qa.</code><code class="sig-name descname">USEQA2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="o">=</span><span class="default_value">'https://tfhub.dev/google/universal-sentence-encoder-qa/3'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">vectorhub.bi_encoders.qa.tfhub.use_qa.</span></code><code class="sig-name descname"><span class="pre">USEQA2Vec</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'https://tfhub.dev/google/universal-sentence-encoder-qa/3'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="vectorhub.bi_encoders.qa.html#vectorhub.bi_encoders.qa.base.BaseQA2Vec" title="vectorhub.bi_encoders.qa.base.BaseQA2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.bi_encoders.qa.base.BaseQA2Vec</span></code></a></p>
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.add_documents">
-<code class="sig-name descname">add_documents</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">api_key</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">items</span><span class="p">:</span> <span class="n">List<span class="p">[</span>Any<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">metadata</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>List<span class="p">[</span>Any<span class="p">]</span><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">collection_name</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.add_documents" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">add_documents</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collection_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.add_documents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add documents to the Vector AI cloud.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.bulk_encode">
-<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">strings</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">context_strings</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">string_type</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'answer'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">bulk_encode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strings</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context_strings</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">string_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'answer'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bulk encode question/answer using LAReQA model.
 :param String: List of strings.
 :param Context_string: List of context of the strings.
@@ -634,17 +634,17 @@ are useful out-of-the-box to retrieve an answer given a question, as well as que
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.bulk_encode_answers">
-<code class="sig-name descname">bulk_encode_answers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">answers</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">contexts</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.bulk_encode_answers" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">bulk_encode_answers</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">answers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contexts</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.bulk_encode_answers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.bulk_encode_questions">
-<code class="sig-name descname">bulk_encode_questions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">questions</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.bulk_encode_questions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">bulk_encode_questions</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">questions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.bulk_encode_questions" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.chunk">
-<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">chunk</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.chunk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
 :param lst: Python List
 :param chunk_size: The chunk size of an object.</p>
@@ -657,17 +657,17 @@ are useful out-of-the-box to retrieve an answer given a question, as well as que
 
 <dl class="py attribute">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.definition">
-<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">definition</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;vectorhub.doc_utils.ModelDefinition</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.definition" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.delete_collection">
-<code class="sig-name descname">delete_collection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">collection_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.delete_collection" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">delete_collection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collection_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.delete_collection" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.encode">
-<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">context_string</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">string_type</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'answer'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">encode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context_string</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">string_type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'answer'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.encode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encode question/answer using LAReQA model.
 :param String: Any string
 :param Context_string: The context of the string.
@@ -680,17 +680,17 @@ are useful out-of-the-box to retrieve an answer given a question, as well as que
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.encode_answer">
-<code class="sig-name descname">encode_answer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">answer</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">context</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.encode_answer" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">encode_answer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">answer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.encode_answer" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.encode_question">
-<code class="sig-name descname">encode_question</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">question</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.encode_question" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">encode_question</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">question</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.encode_question" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.encoder_type">
-<em class="property">property </em><code class="sig-name descname">encoder_type</code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.encoder_type" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">encoder_type</span></code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.encoder_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>The encoder type ensures it uses either the ‘encode’ or ‘encode_question’/’encode_answer’
 Currently supported encoder types:</p>
 <blockquote>
@@ -702,57 +702,57 @@ Encoder</p>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.get_vector_field_name">
-<code class="sig-name descname">get_vector_field_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.get_vector_field_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_vector_field_name</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.get_vector_field_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.is_url_working">
-<em class="property">static </em><code class="sig-name descname">is_url_working</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.is_url_working" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">is_url_working</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.is_url_working" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.read">
-<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.read" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>An abstract method to specify the read method to read the data.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.request_api_key">
-<code class="sig-name descname">request_api_key</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">email</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">referral_code</span><span class="o">=</span><span class="default_value">'vectorhub_referred'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.request_api_key" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">request_api_key</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">referral_code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'vectorhub_referred'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.request_api_key" title="Permalink to this definition">¶</a></dt>
 <dd><p>Requesting an API key.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.retrieve_all_documents">
-<code class="sig-name descname">retrieve_all_documents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.retrieve_all_documents" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">retrieve_all_documents</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.retrieve_all_documents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve all documents.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.retrieve_documents">
-<code class="sig-name descname">retrieve_documents</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_of_documents</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.retrieve_documents" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">retrieve_documents</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_of_documents</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.retrieve_documents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all the documents in our package.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.search">
-<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">item</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">num_results</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.search" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">search</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_results</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simple search with Vector AI</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.test_word">
-<em class="property">property </em><code class="sig-name descname">test_word</code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.test_word" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">test_word</span></code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.test_word" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.urls">
-<code class="sig-name descname">urls</code><em class="property"> = {'https://tfhub.dev/google/universal-sentence-encoder-qa/3': {'vector_length': 512}}</em><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.urls" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">urls</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{'https://tfhub.dev/google/universal-sentence-encoder-qa/3':</span> <span class="pre">{'vector_length':</span> <span class="pre">512}}</span></em><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.urls" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.validate_model_url">
-<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">validate_model_url</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_of_urls</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validate the model url belongs in the list of urls. This is to help
 users to avoid mis-spelling the name of the model.</p>
 <p># TODO:
@@ -769,7 +769,7 @@ Improve model URL validation to not include final number in URl string.</p>
 
 <dl class="py method">
 <dt id="vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.vector_length">
-<em class="property">property </em><code class="sig-name descname">vector_length</code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.vector_length" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vector_length</span></code><a class="headerlink" href="#vectorhub.bi_encoders.qa.tfhub.use_qa.USEQA2Vec.vector_length" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the vector length of the model.</p>
 </dd></dl>
 

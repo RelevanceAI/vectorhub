@@ -227,24 +227,24 @@ These are Tensorflow Automodels from HuggingFace.</p>
 <span class="pre">`</span></code></p>
 <dl class="py class">
 <dt id="vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec">
-<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.text.torch_transformers.torch_auto_transformers.</code><code class="sig-name descname">Transformer2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_name</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">vectorhub.encoders.text.torch_transformers.torch_auto_transformers.</span></code><code class="sig-name descname"><span class="pre">Transformer2Vec</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.text.html#vectorhub.encoders.text.base.BaseText2Vec" title="vectorhub.encoders.text.base.BaseText2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.text.base.BaseText2Vec</span></code></a></p>
 <dl class="py method">
 <dt id="vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.add_documents">
-<code class="sig-name descname">add_documents</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">api_key</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">items</span><span class="p">:</span> <span class="n">List<span class="p">[</span>Any<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">metadata</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>List<span class="p">[</span>Any<span class="p">]</span><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">collection_name</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.add_documents" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">add_documents</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collection_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.add_documents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add documents to the Vector AI cloud.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.bulk_encode">
-<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>List<span class="p">[</span>float<span class="p">]</span><span class="p">]</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">bulk_encode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">texts</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encode multiple sentences using transformers.
 :param Sentences: List[str]</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.chunk">
-<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">chunk</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.chunk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
 :param lst: Python List
 :param chunk_size: The chunk size of an object.</p>
@@ -257,24 +257,24 @@ These are Tensorflow Automodels from HuggingFace.</p>
 
 <dl class="py attribute">
 <dt id="vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.definition">
-<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">definition</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;vectorhub.doc_utils.ModelDefinition</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.definition" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.delete_collection">
-<code class="sig-name descname">delete_collection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">collection_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.delete_collection" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">delete_collection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collection_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.delete_collection" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.encode">
-<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>str<span class="p">, </span>List<span class="p">[</span>str<span class="p">]</span><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>float<span class="p">]</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">encode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.encode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encode words using transformers.
 :param word: str</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.encoder_type">
-<em class="property">property </em><code class="sig-name descname">encoder_type</code><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.encoder_type" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">encoder_type</span></code><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.encoder_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>The encoder type ensures it uses either the ‘encode’ or ‘encode_question’/’encode_answer’
 Currently supported encoder types:</p>
 <blockquote>
@@ -286,57 +286,57 @@ Encoder</p>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.get_vector_field_name">
-<code class="sig-name descname">get_vector_field_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.get_vector_field_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_vector_field_name</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.get_vector_field_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.is_url_working">
-<em class="property">static </em><code class="sig-name descname">is_url_working</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.is_url_working" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">is_url_working</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.is_url_working" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.read">
-<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.read" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>An abstract method to specify the read method to read the data.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.request_api_key">
-<code class="sig-name descname">request_api_key</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">email</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">referral_code</span><span class="o">=</span><span class="default_value">'vectorhub_referred'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.request_api_key" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">request_api_key</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">referral_code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'vectorhub_referred'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.request_api_key" title="Permalink to this definition">¶</a></dt>
 <dd><p>Requesting an API key.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.retrieve_all_documents">
-<code class="sig-name descname">retrieve_all_documents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.retrieve_all_documents" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">retrieve_all_documents</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.retrieve_all_documents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve all documents.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.retrieve_documents">
-<code class="sig-name descname">retrieve_documents</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_of_documents</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.retrieve_documents" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">retrieve_documents</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_of_documents</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.retrieve_documents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all the documents in our package.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.search">
-<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">item</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">num_results</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.search" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">search</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_results</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simple search with Vector AI</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.test_word">
-<em class="property">property </em><code class="sig-name descname">test_word</code><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.test_word" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">test_word</span></code><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.test_word" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.urls">
-<code class="sig-name descname">urls</code><em class="property"> = {'bert-base-uncased': {'vector_length': 768}, 'distilbert-base-uncased': {'vector_length': 768}, 'facebook/bart-base': {'vector_length': 768}}</em><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.urls" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">urls</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{'bert-base-uncased':</span> <span class="pre">{'vector_length':</span> <span class="pre">768},</span> <span class="pre">'distilbert-base-uncased':</span> <span class="pre">{'vector_length':</span> <span class="pre">768},</span> <span class="pre">'facebook/bart-base':</span> <span class="pre">{'vector_length':</span> <span class="pre">768}}</span></em><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.urls" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.validate_model_url">
-<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">validate_model_url</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_of_urls</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validate the model url belongs in the list of urls. This is to help
 users to avoid mis-spelling the name of the model.</p>
 <p># TODO:
@@ -353,7 +353,7 @@ Improve model URL validation to not include final number in URl string.</p>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.vector_length">
-<em class="property">property </em><code class="sig-name descname">vector_length</code><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.vector_length" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vector_length</span></code><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.Transformer2Vec.vector_length" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the vector length of the model.</p>
 </dd></dl>
 
@@ -361,7 +361,7 @@ Improve model URL validation to not include final number in URl string.</p>
 
 <dl class="py function">
 <dt id="vectorhub.encoders.text.torch_transformers.torch_auto_transformers.list_tested_transformer_models">
-<code class="sig-prename descclassname">vectorhub.encoders.text.torch_transformers.torch_auto_transformers.</code><code class="sig-name descname">list_tested_transformer_models</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.list_tested_transformer_models" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">vectorhub.encoders.text.torch_transformers.torch_auto_transformers.</span></code><code class="sig-name descname"><span class="pre">list_tested_transformer_models</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.torch_transformers.torch_auto_transformers.list_tested_transformer_models" title="Permalink to this definition">¶</a></dt>
 <dd><p>List the transformed models.</p>
 </dd></dl>
 
@@ -391,23 +391,23 @@ These are Tensorflow Automodels from HuggingFace.</p>
 <span class="pre">`</span></code></p>
 <dl class="py class">
 <dt id="vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec">
-<em class="property">class </em><code class="sig-prename descclassname">vectorhub.encoders.text.tf_transformers.tf_auto_transformers.</code><code class="sig-name descname">TFTransformer2Vec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">config</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">vectorhub.encoders.text.tf_transformers.tf_auto_transformers.</span></code><code class="sig-name descname"><span class="pre">TFTransformer2Vec</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="vectorhub.encoders.text.html#vectorhub.encoders.text.base.BaseText2Vec" title="vectorhub.encoders.text.base.BaseText2Vec"><code class="xref py py-class docutils literal notranslate"><span class="pre">vectorhub.encoders.text.base.BaseText2Vec</span></code></a></p>
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.add_documents">
-<code class="sig-name descname">add_documents</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">api_key</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">items</span><span class="p">:</span> <span class="n">List<span class="p">[</span>Any<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">metadata</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>List<span class="p">[</span>Any<span class="p">]</span><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">collection_name</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.add_documents" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">add_documents</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collection_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.add_documents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add documents to the Vector AI cloud.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.bulk_encode">
-<code class="sig-name descname">bulk_encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texts</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>List<span class="p">[</span>float<span class="p">]</span><span class="p">]</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">bulk_encode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">texts</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.bulk_encode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bulk encode words from transformers.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.chunk">
-<em class="property">classmethod </em><code class="sig-name descname">chunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lst</span><span class="p">:</span> <span class="n">List</span></em>, <em class="sig-param"><span class="n">chunk_size</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.chunk" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">chunk</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lst</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.chunk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Chunk an iterable object in Python but not a pandas DataFrame.
 :param lst: Python List
 :param chunk_size: The chunk size of an object.</p>
@@ -420,17 +420,17 @@ These are Tensorflow Automodels from HuggingFace.</p>
 
 <dl class="py attribute">
 <dt id="vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.definition">
-<code class="sig-name descname">definition</code><em class="property"> = &lt;vectorhub.doc_utils.ModelDefinition object&gt;</em><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.definition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">definition</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;vectorhub.doc_utils.ModelDefinition</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.definition" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.delete_collection">
-<code class="sig-name descname">delete_collection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">collection_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.delete_collection" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">delete_collection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collection_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.delete_collection" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.encode">
-<code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>float<span class="p">]</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.encode" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">encode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.encode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encode word from transformers.
 This takes the beginning set of tokens and turns them into vectors
 and returns mean pooling of the tokens.
@@ -439,7 +439,7 @@ and returns mean pooling of the tokens.
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.encoder_type">
-<em class="property">property </em><code class="sig-name descname">encoder_type</code><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.encoder_type" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">encoder_type</span></code><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.encoder_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>The encoder type ensures it uses either the ‘encode’ or ‘encode_question’/’encode_answer’
 Currently supported encoder types:</p>
 <blockquote>
@@ -451,52 +451,52 @@ Encoder</p>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.get_vector_field_name">
-<code class="sig-name descname">get_vector_field_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.get_vector_field_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_vector_field_name</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.get_vector_field_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.is_url_working">
-<em class="property">static </em><code class="sig-name descname">is_url_working</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.is_url_working" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">is_url_working</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.is_url_working" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.read">
-<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.read" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">read</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>An abstract method to specify the read method to read the data.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.request_api_key">
-<code class="sig-name descname">request_api_key</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">email</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">referral_code</span><span class="o">=</span><span class="default_value">'vectorhub_referred'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.request_api_key" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">request_api_key</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">referral_code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'vectorhub_referred'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.request_api_key" title="Permalink to this definition">¶</a></dt>
 <dd><p>Requesting an API key.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.retrieve_all_documents">
-<code class="sig-name descname">retrieve_all_documents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.retrieve_all_documents" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">retrieve_all_documents</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.retrieve_all_documents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve all documents.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.retrieve_documents">
-<code class="sig-name descname">retrieve_documents</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_of_documents</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.retrieve_documents" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">retrieve_documents</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_of_documents</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.retrieve_documents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all the documents in our package.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.search">
-<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">item</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="n">num_results</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.search" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">search</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_results</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simple search with Vector AI</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.test_word">
-<em class="property">property </em><code class="sig-name descname">test_word</code><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.test_word" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">test_word</span></code><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.test_word" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.validate_model_url">
-<em class="property">classmethod </em><code class="sig-name descname">validate_model_url</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_url</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">list_of_urls</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">validate_model_url</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_of_urls</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.validate_model_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validate the model url belongs in the list of urls. This is to help
 users to avoid mis-spelling the name of the model.</p>
 <p># TODO:
@@ -513,7 +513,7 @@ Improve model URL validation to not include final number in URl string.</p>
 
 <dl class="py method">
 <dt id="vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.vector_length">
-<em class="property">property </em><code class="sig-name descname">vector_length</code><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.vector_length" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">vector_length</span></code><a class="headerlink" href="#vectorhub.encoders.text.tf_transformers.tf_auto_transformers.TFTransformer2Vec.vector_length" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the vector length of the model.</p>
 </dd></dl>
 
