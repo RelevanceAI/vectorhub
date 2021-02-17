@@ -14,23 +14,23 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-albert'])
     except NotFoundError:
         print('The installed Tensorflow Text version is not aligned with tensorflow, make sure that tensorflow-text version is same version as tensorflow')
 
-AlbertModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/albert')
-__doc__ = AlbertModelDefinition.create_docs()
+ExpertsBertModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/experts_bert')
+__doc__ = ExpertsBertModelDefinition.create_docs()
 
-class Albert2Vec(BaseText2Vec):
-    definition = AlbertModelDefinition
+class ExpertsBert2Vec(BaseText2Vec):
+    definition = ExpertsBertModelDefinition
     urls = {
-            'https://tfhub.dev/tensorflow/albert_en_base/1': {'vector_length': 768},
-            'https://tfhub.dev/tensorflow/albert_en_xxlarge/1': {'vector_length': 4096},
-            'https://tfhub.dev/tensorflow/albert_en_large/1': {'vector_length': 1024},
-            'https://tfhub.dev/tensorflow/albert_en_xlarge/1': {'vector_length': 2048},
-            'https://tfhub.dev/tensorflow/albert_en_base/2': {'vector_length': 768},
-            'https://tfhub.dev/tensorflow/albert_en_xxlarge/2': {'vector_length': 4096},
-            'https://tfhub.dev/tensorflow/albert_en_large/2': {'vector_length': 1024},
-            'https://tfhub.dev/tensorflow/albert_en_xlarge/2': {'vector_length': 2048},
+        "https://tfhub.dev/google/experts/bert/wiki_books/2": {"vector_length": 768},  
+        "https://tfhub.dev/google/experts/bert/wiki_books/mnli/2": {"vector_length": 768},  
+        "https://tfhub.dev/google/experts/bert/wiki_books/qnli/2": {"vector_length": 768},  
+        "https://tfhub.dev/google/experts/bert/wiki_books/qqp/2": {"vector_length": 768},  
+        "https://tfhub.dev/google/experts/bert/wiki_books/sst2/2": {"vector_length": 768},  
+        "https://tfhub.dev/google/experts/bert/wiki_books/squad2/2": {"vector_length": 768},  
+        "https://tfhub.dev/google/experts/bert/pubmed/2": {"vector_length": 768},  
+        "https://tfhub.dev/google/experts/bert/pubmed/squad2/2": {"vector_length": 768},  
     }
-    def __init__(self, model_url: str = 'https://tfhub.dev/tensorflow/albert_en_base/2', max_seq_length: int = 228, normalize: bool = True, 
-        preprocessor_url:str ='http://tfhub.dev/tensorflow/albert_en_preprocess/1'):
+    def __init__(self, model_url: str =  "https://tfhub.dev/google/experts/bert/wiki_books/2", max_seq_length: int = 228, normalize: bool = True, 
+        preprocessor_url:str ='https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3'):
         self.validate_model_url(model_url, list(self.urls.keys()))
         self.max_seq_length = max_seq_length
         self.normalize = normalize

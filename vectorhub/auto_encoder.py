@@ -30,6 +30,7 @@ with warnings.catch_warnings():
 ENCODER_MAPPINGS = defaultdict(tuple, {
     # Text models
     Albert2Vec.definition.model_id : (Albert2Vec, "encoders-text-tfhub-albert"),
+    ExpertsBert2Vec.definition.model_id : (ExpertsBert2Vec, "encoders-text-tfhub-experts-bert"),
     Bert2Vec.definition.model_id : (Bert2Vec, "encoders-text-tfhub-bert"),
     Elmo2Vec.definition.model_id: (Elmo2Vec, "encoders-text-tfhub-elmo"),
     LaBSE2Vec.definition.model_id : (LaBSE2Vec, "encoders-text-tfhub-labse"),
