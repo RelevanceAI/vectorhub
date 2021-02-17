@@ -15,6 +15,7 @@ MODEL_REQUIREMENTS = {
 
     "encoders-text-tfhub-albert": "encoders-text-tfhub",
     "encoders-text-tfhub-bert": "encoders-text-tfhub-windows",
+    "encoders-text-tfhub-expertsbert": "encoders-text-tfhub",
     "encoders-text-tfhub-elmo": "encoders-text-tfhub",
     "encoders-text-tfhub-labse": "encoders-text-tfhub-windows",
     "encoders-text-tfhub-use": "encoders-text-tfhub-windows", 
