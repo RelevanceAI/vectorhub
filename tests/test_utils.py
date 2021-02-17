@@ -269,6 +269,5 @@ def assert_encoder_works(model, vector_length=None, data_type='image', model_typ
     data_type=data_type, model_type=model_type, image_url=image_url,audio_url=audio_url,
     sample_sentence=sample_sentence, sample_question=sample_question)
     model_check.assert_encoding_methods_work()
-    # if os.getenv('VI_USERNAME') is not None:
-    #     model_check.assert_insertion_into_vectorai_works()
-
+    if os.getenv('GITHUB_ACTOR') == 'vector-ai':
+        model_check.assert_insertion_into_vectorai_works()
