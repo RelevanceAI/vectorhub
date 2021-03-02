@@ -17,22 +17,10 @@ class BaseText2Vec(Base2Vec, ABC):
         return "dummy word"
 
     @property
+    @abstractmethod
     def vector_length(self):
-        """
-            Set the vector length of the model.
-        """
-        if hasattr(self, "_vector_length"):
-            return self._vector_length 
-        else:
-            print(f"The vector length is not explicitly stated so we are inferring " + \
-                "from our test word - {self.test_word}.")
-            setattr(self, "_vector_length", len(self.encode(self.test_word)))
-            return self._vector_length
-    
-    @vector_length.setter
-    def vector_length(self, value):
-        self._vector_length = value
-    
+        pass
+
     @abstractmethod
     def encode(self, words: Union[List[str]]):
         pass
