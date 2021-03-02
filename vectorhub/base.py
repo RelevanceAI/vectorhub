@@ -3,6 +3,8 @@ import warnings
 import traceback
 import numpy as np
 import requests
+import os
+from .options import get_option, set_option
 from .indexer import ViIndexer
 from .errors import ModelError
 from typing import Any, List
@@ -33,20 +35,23 @@ def catch_vector_errors(func):
     """
     @functools.wraps(func)
     def catch_vector(*args, **kwargs):
-        try:
+        if get_option('catch_vector_errors') is False:
             return func(*args, **kwargs)
-        except:
-            warnings.warn("Unable to encode. Filling in with dummy vector.")
-            traceback.print_exc()
-            # get the vector length from the self body
-            vector_length = args[0].vector_length
-            if isinstance(args[1], str):
-                return [1e-7] * vector_length
-            elif isinstance(args[1], list):
-                # Return the list of vectors
-                return [[1e-7] * vector_length] * len(args[1])
-            else:
-                return [1e-7] * vector_length
+        else:
+            try:
+                return func(*args, **kwargs)
+            except:
+                warnings.warn("Unable to encode. Filling in with dummy vector.")
+                traceback.print_exc()
+                # get the vector length from the self body
+                vector_length = args[0].vector_length
+                if isinstance(args[1], str):
+                    return [1e-7] * vector_length
+                elif isinstance(args[1], list):
+                    # Return the list of vectors
+                    return [[1e-7] * vector_length] * len(args[1])
+                else:
+                    return [1e-7] * vector_length
     return catch_vector
 
 class Base2Vec(ViIndexer):
