@@ -200,6 +200,23 @@ text_encoder.definition.create_dict() # returns a dictionary with model id, desc
 
 ---
 
+### Turn Off Error-Catching
+
+By default, if encoding errors, it returns a vector filled with 1e-7 so that if you are encoding and then inserting then it errors out.
+However, if you want to turn off automatic error-catching in VectorHub, simply run: 
+
+```
+import vectorhub
+vectorhub.options.set_option('catch_vector_error', False)
+```
+
+If you want to turn it back on again, run: 
+```
+vectorhub.options.set_option('catch_vector_error', True)
+```
+
+---
+
 ### Instantiate our auto_encoder class as such and use any of the models! 
 
 ```
