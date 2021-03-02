@@ -4,6 +4,7 @@
 import pytest
 import numpy as np 
 import os
+import vectorhub
 from vectorhub.base import catch_vector_errors, Base2Vec
 from vectorhub.encoders.audio.tfhub import SpeechEmbedding2Vec
 from ..test_utils import is_dummy_vector
@@ -11,9 +12,17 @@ from ..test_utils import is_dummy_vector
 def test_catch_vector_errors():
     """Test the catch vector errors.
     """
-    encoder =SpeechEmbedding2Vec()
+    encoder = SpeechEmbedding2Vec()
     vectors = encoder.encode(np.nan)
     assert is_dummy_vector(vectors)
+
+def test_catch_vector_errors_false():
+    """Test catch the vector errors
+    """
+    with pytest.raises(Exception):
+        vectorhub.options.set_option('catch_vector_errors', False)
+        encoder = SpeechEmbedding2Vec()
+        vectors = encoder.encode(np.nan)
 
 def test_validate_urls_raises_warning():
     enc = Base2Vec()
