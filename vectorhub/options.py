@@ -1,11 +1,10 @@
 """
 Python Options
-To access Python options
-vectorhub.options['catch_vector_error'] = False
+To access Python options for VectorHub
 """
 
 OPTIONS = {
-    'catch_vector_error': True
+    'catch_vector_errors': True
 }
 
 def get_option(field):
