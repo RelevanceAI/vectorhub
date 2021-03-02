@@ -207,12 +207,12 @@ However, if you want to turn off automatic error-catching in VectorHub, simply r
 
 ```
 import vectorhub
-vectorhub.options.set_option('catch_vector_error', False)
+vectorhub.options.set_option('catch_vector_errors', False)
 ```
 
 If you want to turn it back on again, run: 
 ```
-vectorhub.options.set_option('catch_vector_error', True)
+vectorhub.options.set_option('catch_vector_errors', True)
 ```
 
 ---
