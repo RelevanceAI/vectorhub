@@ -20,7 +20,7 @@ def test_catch_vector_errors_false():
     """Test catch the vector errors
     """
     with pytest.raises(Exception):
-        vectorhub.options.set_option('catch_vector_errors', False)
+        vectorhub.options.set_option('catch_vector_error', False)
         encoder = SpeechEmbedding2Vec()
         vectors = encoder.encode(np.nan)
 
