@@ -37,6 +37,13 @@ Vector Hub is a library for publication, discovery, and consumption of State-of-
 
 
 ---
+<p align="center">
+    <a href="https://hub.getvectorai.com">
+        <img align="center" src="https://getvectorai.com/assets/vectorhub-goal.png" width="800"/>
+    </a>
+</p>
+<br>
+
 
 There are many ways to extract vectors from data. This library aims to bring in all the state of the art models in a simple manner to vectorise your data easily.
 
