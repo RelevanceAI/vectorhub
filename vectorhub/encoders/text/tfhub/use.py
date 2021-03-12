@@ -22,7 +22,7 @@ class USE2Vec(BaseText2Vec):
         "https://tfhub.dev/google/universal-sentence-encoder-large/5": {'vector_length': 512}
     }
     # or layer19
-    def __init__(self, model_url: str = 'https://tfhub.dev/google/universal-sentence-encoder/4'):
+    def __init__(self, model_url: str = "https://tfhub.dev/google/universal-sentence-encoder-large/5"):
         self.validate_model_url(model_url, list(self.urls.keys()))
         self.init(model_url)
         self.vector_length = 512
