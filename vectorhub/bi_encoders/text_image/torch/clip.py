@@ -12,6 +12,7 @@ if is_all_dependency_installed('clip'):
     import torch
     import numpy as np
     import requests
+    import cv2
     from PIL import Image
     from requests.exceptions import MissingSchema
 
@@ -45,6 +46,18 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
         elif self.device == 'cpu':
             text = clip.tokenize(text, context_length=self.context_length).to(self.device)
             return self.model.encode_text(text).detach().numpy().tolist()[0]
+
+    def encode_video(self, video_url: str):
+        """Encode a video by the first still frame
+        """
+        cap = cv2.VideoCapture(video_url)
+        while True:
+            ret, frame = cap.read()
+            if not ret:
+                break
+            pil_img = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+        image = self.preprocess(pil_img).unsqueeze(0).to(self.device)
+        return self.model.encode_image(image).cpu().detach().numpy().tolist()[0]
 
     def bulk_encode_text(self, texts: List[str]):
         if self.device == 'cuda':
