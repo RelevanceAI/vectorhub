@@ -108,12 +108,6 @@ class ClipText2Vec(BaseText2Vec):
         self.model, self.preprocess = clip.load(url, device=self.device)
         self.vector_length = self.urls[url]["vector_length"]
 
-    def read(self, image_url):
-        try:
-            return Image.open(requests.get(image_url, stream=True).raw)
-        except MissingSchema:
-            return Image.open(image_url)
-
     @catch_vector_errors
     def encode(self, text: str):
         if self.device == 'cuda':
@@ -151,15 +145,6 @@ class ClipImage2Vec(BaseImage2Vec):
         except MissingSchema:
             return Image.open(image_url)
 
-    @catch_vector_errors
-    def encode_text(self, text: str):
-        if self.device == 'cuda':
-            text = clip.tokenize(text, context_length=self.context_length).to(self.device)
-            return self.model.encode_text(text).cpu().detach().numpy().tolist()[0]
-        elif self.device == 'cpu':
-            text = clip.tokenize(text, context_length=self.context_length).to(self.device)
-            return self.model.encode_text(text).detach().numpy().tolist()[0]
-
     def encode_video(self, video_url: str):
         """Encode a video by the first still frame
         """
@@ -182,5 +167,21 @@ class ClipImage2Vec(BaseImage2Vec):
             return self.model.encode_image(image).cpu().detach().numpy().tolist()[0]
 
     def bulk_encode(self, images: str):
-        return [self.encode_image(x) for x in images]
+        return [self.encode(x) for x in images]
+
+class ClipVideo2Vec(ClipImage2Vec):
+    def encode(self, video_url: str):
+        """Encode a video by the first still frame
+        """
+        cap = cv2.VideoCapture(video_url)
+        while True:
+            ret, frame = cap.read()
+            if not ret:
+                break
+            pil_img = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+        image = self.preprocess(pil_img).unsqueeze(0).to(self.device)
+        return self.model.encode_image(image).cpu().detach().numpy().tolist()[0]
+
+    def bulk_encode(self, video_urls: List[str]):
+        return [self.encode(v) for v in video_urls)]
 
