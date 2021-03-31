@@ -21,7 +21,7 @@
     "transformers": ["encoders-text-torch-transformers", "encoders-text-tf-transformers", "encoders-code-transformers"],
     "moviepy": ["encoders-video"],
     "vectorai": ["core"],
-    "opencv-python": ["encoders-video", "encoders-image-tf-face-detection", "encoders-image-cv2"],
+    "opencv-python": ["encoders-video", "encoders-image-tf-face-detection", "encoders-image-cv2", "clip"],
     "appdirs": ["encoders-image-tf-face-detection"],
     "fastai==2.1.8": ["encoders-image-fastai"],
     "mtcnn": ["encoders-image-tf-face-detection"],
