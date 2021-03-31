@@ -183,5 +183,5 @@ class ClipVideo2Vec(ClipImage2Vec):
         return self.model.encode_image(image).cpu().detach().numpy().tolist()[0]
 
     def bulk_encode(self, video_urls: List[str]):
-        return [self.encode(v) for v in video_urls)]
+        return [self.encode(v) for v in video_urls]
 
