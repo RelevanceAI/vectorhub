@@ -92,3 +92,95 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
         elif data_type == 'text':
             return self.bulk_encode_text(data)
         raise ValueError("data_type must be either `image` or `text`")
+
+
+
+class ClipText2Vec(BaseText2Vec):
+    definition = CLIPModelDefinition
+    urls = {
+        "ViT-B/32": {'vector_length': 512},
+        "RN50": {'vector_length': 512}
+    }
+    def __init__(self, url='ViT-B/32', context_length:int=77):
+        self.context_length = context_length
+        self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
+        # Note that the preprocess is a callable
+        self.model, self.preprocess = clip.load(url, device=self.device)
+        self.vector_length = self.urls[url]["vector_length"]
+
+    def read(self, image_url):
+        try:
+            return Image.open(requests.get(image_url, stream=True).raw)
+        except MissingSchema:
+            return Image.open(image_url)
+
+    @catch_vector_errors
+    def encode(self, text: str):
+        if self.device == 'cuda':
+            text = clip.tokenize(text, context_length=self.context_length).to(self.device)
+            return self.model.encode_text(text).cpu().detach().numpy().tolist()[0]
+        elif self.device == 'cpu':
+            text = clip.tokenize(text, context_length=self.context_length).to(self.device)
+            return self.model.encode_text(text).detach().numpy().tolist()[0]
+
+    def bulk_encode(self, texts: List[str]):
+        if self.device == 'cuda':
+            tokenized_text = clip.tokenize(texts, context_length=self.context_length).to(self.device)
+            return self.model.encode_text(tokenized_text).cpu().detach().numpy().tolist()
+        elif self.device == 'cpu':
+            tokenized_text = clip.tokenize(texts, context_length=self.context_length).to(self.device)
+            return self.model.encode_text(tokenized_text).detach().numpy().tolist()
+
+
+class ClipImage2Vec(BaseImage2Vec):
+    definition = CLIPModelDefinition
+    urls = {
+        "ViT-B/32": {'vector_length': 512},
+        "RN50": {'vector_length': 512}
+    }
+    def __init__(self, url='ViT-B/32', context_length:int=77):
+        self.context_length = context_length
+        self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
+        # Note that the preprocess is a callable
+        self.model, self.preprocess = clip.load(url, device=self.device)
+        self.vector_length = self.urls[url]["vector_length"]
+
+    def read(self, image_url):
+        try:
+            return Image.open(requests.get(image_url, stream=True).raw)
+        except MissingSchema:
+            return Image.open(image_url)
+
+    @catch_vector_errors
+    def encode_text(self, text: str):
+        if self.device == 'cuda':
+            text = clip.tokenize(text, context_length=self.context_length).to(self.device)
+            return self.model.encode_text(text).cpu().detach().numpy().tolist()[0]
+        elif self.device == 'cpu':
+            text = clip.tokenize(text, context_length=self.context_length).to(self.device)
+            return self.model.encode_text(text).detach().numpy().tolist()[0]
+
+    def encode_video(self, video_url: str):
+        """Encode a video by the first still frame
+        """
+        cap = cv2.VideoCapture(video_url)
+        while True:
+            ret, frame = cap.read()
+            if not ret:
+                break
+            pil_img = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+        image = self.preprocess(pil_img).unsqueeze(0).to(self.device)
+        return self.model.encode_image(image).cpu().detach().numpy().tolist()[0]
+
+    @catch_vector_errors
+    def encode(self, image_url: str):
+        if self.device == 'cpu':
+            image = self.preprocess(self.read(image_url)).unsqueeze(0).to(self.device)
+            return self.model.encode_image(image).detach().numpy().tolist()[0]
+        elif self.device == 'cuda':
+            image = self.preprocess(self.read(image_url)).unsqueeze(0).to(self.device)
+            return self.model.encode_image(image).cpu().detach().numpy().tolist()[0]
+
+    def bulk_encode(self, images: str):
+        return [self.encode_image(x) for x in images]
+
