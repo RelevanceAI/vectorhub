@@ -1,4 +1,5 @@
 import requests
+from requests.exceptions import MissingSchema
 from typing import Union
 from ...base import Base2Vec
 from ...import_utils import is_all_dependency_installed
@@ -46,7 +47,7 @@ class BaseImage2Vec(Base2Vec):
         """Determine if an image is grayscale or not
         """
         try:
-            img = Image.open(requests.get(image_url, stream=True).raw)
+            img = Image.open(requests.get(img_path, stream=True).raw)
         except MissingSchema:
             img = Image.open(image_url)
         img = img.convert('RGB')
