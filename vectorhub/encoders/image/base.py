@@ -45,7 +45,11 @@ class BaseImage2Vec(Base2Vec):
     def is_greyscale(self, img_path: str):
         """Determine if an image is grayscale or not
         """
-        img = Image.open(img_path).convert('RGB')
+        try:
+            img = Image.open(requests.get(image_url, stream=True).raw)
+        except MissingSchema:
+            img = Image.open(image_url)
+        img = img.convert('RGB')
         w, h = img.size
         for i in range(w):
             for j in range(h):
