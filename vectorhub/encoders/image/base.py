@@ -38,11 +38,11 @@ class BaseImage2Vec(Base2Vec):
         else:
             raise ValueError("Cannot process data type. Ensure it is is string/bytes or BytesIO.")
         try:
-            return np.array(imageio.imread(b))
+            return np.array(imageio.imread(b, pilmode="RGB"))
         # TODO: Flesh out exceptions
         except:
             return np.array(imageio.imread(b)[:, :, :3])
-
+    
     def is_greyscale(self, img_path: str):
         """Determine if an image is grayscale or not
         """
