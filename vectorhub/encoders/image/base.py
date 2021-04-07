@@ -1,4 +1,5 @@
 import requests
+from requests.exceptions import MissingSchema
 from typing import Union
 from ...base import Base2Vec
 from ...import_utils import is_all_dependency_installed
@@ -10,6 +11,7 @@ if is_all_dependency_installed('encoders-image'):
     import matplotlib.pyplot as plt
     from urllib.request import urlopen, Request
     from skimage import transform
+    from PIL import Image
 
 class BaseImage2Vec(Base2Vec):
     def read(self, image: str):
@@ -41,6 +43,22 @@ class BaseImage2Vec(Base2Vec):
         except:
             return np.array(imageio.imread(b)[:, :, :3])
     
+    def is_greyscale(self, img_path: str):
+        """Determine if an image is grayscale or not
+        """
+        try:
+            img = Image.open(requests.get(img_path, stream=True).raw)
+        except MissingSchema:
+            img = Image.open(image_url)
+        img = img.convert('RGB')
+        w, h = img.size
+        for i in range(w):
+            for j in range(h):
+                r, g, b = img.getpixel((i,j))
+                if r != g != b: 
+                    return False
+        return True
+
     def to_grayscale(self, sample, rgb_weights: list=None):
         """
             Converting an image from RGB to Grayscale

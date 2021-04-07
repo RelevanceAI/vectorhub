@@ -37,6 +37,16 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
             return Image.open(requests.get(image_url, stream=True).raw)
         except MissingSchema:
             return Image.open(image_url)
+    
+    def preprocess_black_and_white_image(self, x):
+        """Pass in after the read function
+        """
+        x = self.preprocess.transforms[0](x)
+        x = self.preprocess.transforms[1](x)
+        x = self.preprocess.transforms[3](x)
+        x = torch.stack((x, x, x), dim=1)
+        x = self.preprocess.transforms[4](x)
+        return x
 
     @catch_vector_errors
     def encode_text(self, text: str):
@@ -67,13 +77,18 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
             tokenized_text = clip.tokenize(texts, context_length=self.context_length).to(self.device)
             return self.model.encode_text(tokenized_text).detach().numpy().tolist()
 
+    def preprocess_image(self, img: str):
+        if self.is_greyscale(img):
+            return self.preprocess_black_and_white_image(self.read(img))
+        return self.preprocess(self.read(img))
+
     @catch_vector_errors
     def encode_image(self, image_url: str):
         if self.device == 'cpu':
-            image = self.preprocess(self.read(image_url)).unsqueeze(0).to(self.device)
+            image = self.preprocess_image(image_url).unsqueeze(0).to(self.device)
             return self.model.encode_image(image).detach().numpy().tolist()[0]
         elif self.device == 'cuda':
-            image = self.preprocess(self.read(image_url)).unsqueeze(0).to(self.device)
+            image = self.preprocess_image(image_url).unsqueeze(0).to(self.device)
             return self.model.encode_image(image).cpu().detach().numpy().tolist()[0]
 
     def bulk_encode_image(self, images: str):
@@ -170,6 +185,8 @@ class ClipImage2Vec(BaseImage2Vec):
         return [self.encode(x) for x in images]
 
 class ClipVideo2Vec(ClipImage2Vec):
+    """Encode a video using an image with CLIP
+    """
     def encode(self, video_url: str):
         """Encode a video by the first still frame
         """
