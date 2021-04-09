@@ -101,6 +101,14 @@ class AssertModelWorks:
         elif self.data_type == 'text_image':
             assert_vector_works(self.model.encode_text(self.question), self.vector_length)
             assert_vector_works(self.model.encode_image(self.image_url), self.vector_length)
+    
+    def assert_black_and_white_images_have_different_vectors(self):
+        # Black and white images
+        image_1 = "https://cdn.mos.cms.futurecdn.net/5PMe5hr8tjSS9Nq5d6Cebe.jpg"
+        image_2 = "https://blinq.art/blog/wp-content/uploads/2018/04/blinq-art-black-white-default.jpg"
+        vec_1 = self.model.encode(image_1)
+        vec_2 = self.model.encode(image_2)
+        assert vec_1 != vec_2, "Black and white image encoding does not work."
 
     def assert_bulk_encode_works(self):
         if self.data_type == 'image':
@@ -182,11 +190,12 @@ class AssertModelWorks:
 
     @property
     def vi_client(self):
+        url = "https://vectorai-development-api-vectorai-test-api.azurewebsites.net/"
         if 'VH_USERNAME' in os.environ.keys():
-            return ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'])
+            return ViClient(os.environ['VH_USERNAME'], os.environ['VH_API_KEY'], url=url)
         elif 'VI_USERNAME' in os.environ.keys():
-            return ViClient(os.environ['VI_USERNAME'], os.environ['VI_API_KEY'])
-        return ViClient()
+            return ViClient(os.environ['VI_USERNAME'], os.environ['VI_API_KEY'], url=url)
+        return ViClient(url=url)
 
     def assert_insert_vectorai_simple(self):
         CN = 'test_vectorhub_' + self.random_string

@@ -16,7 +16,7 @@ if is_all_dependency_installed('encoders-image'):
 class BaseImage2Vec(Base2Vec):
     def read(self, image: str):
         """
-            An method to read images. 
+            An method to read images (converting them into NumPy arrays)
             Args:
                 image: An image link/bytes/io Bytesio data format.
                 as_gray: read in the image as black and white
@@ -39,10 +39,9 @@ class BaseImage2Vec(Base2Vec):
             raise ValueError("Cannot process data type. Ensure it is is string/bytes or BytesIO.")
         try:
             return np.array(imageio.imread(b, pilmode="RGB"))
-        # TODO: Flesh out exceptions
         except:
             return np.array(imageio.imread(b)[:, :, :3])
-    
+
     def is_greyscale(self, img_path: str):
         """Determine if an image is grayscale or not
         """
