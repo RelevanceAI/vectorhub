@@ -31,13 +31,14 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
         # Note that the preprocess is a callable
         self.model, self.preprocess = clip.load(url, device=self.device)
         self.vector_length = self.urls[url]["vector_length"]
+        self.url = url
 
     def read(self, image_url):
         try:
             return Image.open(requests.get(image_url, stream=True).raw)
         except MissingSchema:
             return Image.open(image_url)
-    
+
     def preprocess_black_and_white_image(self, x):
         """Pass in after the read function
         """
