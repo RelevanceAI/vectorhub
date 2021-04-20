@@ -1,3 +1,4 @@
+import warnings
 from typing import List
 from datetime import date
 from ....base import catch_vector_errors
@@ -46,7 +47,11 @@ class SentenceTransformer2Vec(BaseText2Vec):
     def __init__(self, model_name: str):
         self.urls = LIST_OF_URLS
         self.validate_model_url(model_name, LIST_OF_URLS)
-        self.vector_length = LIST_OF_URLS[model_name]["vector_length"]
+        if model_name in LIST_OF_URLS:
+            self.vector_length = LIST_OF_URLS[model_name]["vector_length"]
+        else:
+            self.vector_length = None
+            warnings.warn("Not included in the official model repository. Please specify set the vector length attribute.")
         self.model = SentenceTransformer(model_name)
 
     def get_list_of_urls(self):
