@@ -45,7 +45,7 @@ package_data = [str(x) for x in list(Path('vectorhub').rglob("*.md"))]
 # Also add the extra_requirements.json file
 package_data.append('extra_requirements.json')
 
-version = '1.2.0'
+version = '1.2.1'
 
 if 'IS_VECTORHUB_NIGHTLY' in os.environ.keys():
     from datetime import datetime
