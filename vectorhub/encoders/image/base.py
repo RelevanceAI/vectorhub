@@ -48,7 +48,7 @@ class BaseImage2Vec(Base2Vec):
         try:
             img = Image.open(requests.get(img_path, stream=True).raw)
         except MissingSchema:
-            img = Image.open(image_url)
+            img = Image.open(img_path)
         img = img.convert('RGB')
         w, h = img.size
         for i in range(w):
