@@ -2,7 +2,6 @@
 Indexer with the model.
 """
 import warnings
-from vectorai import ViClient, request_api_key
 from typing import List, Any, Optional
 
 class ViIndexer:
@@ -26,6 +25,8 @@ class ViIndexer:
         Requesting an API key.
         """
         print("API key is being requested. Be sure to save it somewhere!")
+
+        from vectorai import request_api_key
         return request_api_key(username=username, email=email,
                         description='vectorhub', referral_code=referral_code)
 
@@ -35,6 +36,7 @@ class ViIndexer:
         """
         Add documents to the Vector AI cloud.
         """
+        from vectorai import ViClient
         self.username = username
         self.api_key = api_key
         if collection_name is not None:
