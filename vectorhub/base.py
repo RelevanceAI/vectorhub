@@ -8,6 +8,7 @@ from .options import get_option, set_option
 from .indexer import ViIndexer
 from .errors import ModelError
 from typing import Any, List
+from doc_utils import DocUtils
 from abc import ABC, abstractmethod
 
 BASE_2VEC_DEFINITON = {
@@ -54,7 +55,7 @@ def catch_vector_errors(func):
                     return [1e-7] * vector_length
     return catch_vector
 
-class Base2Vec(ViIndexer):
+class Base2Vec(ViIndexer, DocUtils):
     """
         Base class for vector
     """
@@ -151,3 +152,24 @@ class Base2Vec(ViIndexer):
             Set the name.
         """
         setattr(self, '_name', value)
+    
+    def encode_documents(self, fields: list, documents: list):
+        """encode documents if a field is present."""
+        for f in fields:
+            [d.update({
+                f + self.__name__ + "_vector_": self.encode(self.get_field(f))
+            }) for d in documents if self.is_field(f, d)]
+        return documents
+    
+    def encode_chunk_documents(self, chunk_field: str, fields: list, 
+        documents: list):
+        """
+        Encode chunk documents.
+        Params:
+        - Fields
+        """
+        # Get the documents inside the chunk documents
+        for d in documents:
+            chunk_docs = self.get_field(chunk_field, d)
+            {self.encode_documents(f, chunk_docs) for f in fields}
+        return documents

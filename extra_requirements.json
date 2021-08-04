@@ -3,6 +3,7 @@
     "requests": ["core"],
     "PyYAML": ["core"],
     "pytest": ["test"],
+    "document-utils": ["core"],
     "sphinx-rtd-theme>=0.5.0": ["test"],
     "imageio": ["encoders-image", "encoders-image-tfhub", "clip"],
     "scikit-image":  ["encoders-image", "encoders-image-tfhub", "clip"],
