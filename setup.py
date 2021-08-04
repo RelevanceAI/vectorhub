@@ -45,7 +45,7 @@ package_data = [str(x) for x in list(Path('vectorhub').rglob("*.md"))]
 # Also add the extra_requirements.json file
 package_data.append('extra_requirements.json')
 
-version = '1.2.2'
+version = '1.2.3'
 
 if 'IS_VECTORHUB_NIGHTLY' in os.environ.keys():
     from datetime import datetime
@@ -54,10 +54,23 @@ if 'IS_VECTORHUB_NIGHTLY' in os.environ.keys():
 else:
     name = 'vectorhub'
 
-print(package_data)
+def read(rel_path):
+    """Read lines from given file"""
+    here = os.path.abspath(os.path.dirname(__file__))
+    with open(os.path.join(here, rel_path), "r") as fp:
+        return fp.read()
+
+def get_version(rel_path):
+    """Read __version__ from given file"""
+    for line in read(rel_path).splitlines():
+        if line.startswith("__version__"):
+            delim = '"' if '"' in line else "'"
+            return line.split(delim)[1]
+    raise RuntimeError(f"Unable to find a valid __version__ string in {rel_path}.")
+
 setup(
     name=name,
-    version=version,
+    version=get_version("vectorhub/_version.py"),
     author="OnSearch Pty Ltd",
     author_email="dev@vctr.ai",
     package_data={'vectorhub': package_data, '': ['extra_requirements.json']},
@@ -86,12 +99,9 @@ setup(
         "Operating System :: OS Independent",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.4",
-        "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: Implementation :: PyPy",
-        "Topic :: Database",
         "Topic :: Multimedia :: Sound/Audio :: Conversion",
         "Topic :: Multimedia :: Video :: Conversion",
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
