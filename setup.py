@@ -45,15 +45,6 @@ package_data = [str(x) for x in list(Path('vectorhub').rglob("*.md"))]
 # Also add the extra_requirements.json file
 package_data.append('extra_requirements.json')
 
-version = '1.2.3'
-
-if 'IS_VECTORHUB_NIGHTLY' in os.environ.keys():
-    from datetime import datetime
-    name = 'vectorhub-nightly'
-    version = version + '.' + datetime.today().__str__().replace('-', '.').replace(":", '.').replace(' ', '.')
-else:
-    name = 'vectorhub'
-
 def read(rel_path):
     """Read lines from given file"""
     here = os.path.abspath(os.path.dirname(__file__))
@@ -68,9 +59,18 @@ def get_version(rel_path):
             return line.split(delim)[1]
     raise RuntimeError(f"Unable to find a valid __version__ string in {rel_path}.")
 
+version=get_version("vectorhub/_version.py"),
+
+if 'IS_VECTORHUB_NIGHTLY' in os.environ.keys():
+    from datetime import datetime
+    name = 'vectorhub-nightly'
+    version = version + '.' + datetime.today().__str__().replace('-', '.').replace(":", '.').replace(' ', '.')
+else:
+    name = 'vectorhub'
+
 setup(
     name=name,
-    version=get_version("vectorhub/_version.py"),
+    version=version,
     author="OnSearch Pty Ltd",
     author_email="dev@vctr.ai",
     package_data={'vectorhub': package_data, '': ['extra_requirements.json']},

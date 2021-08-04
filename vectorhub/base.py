@@ -157,7 +157,7 @@ class Base2Vec(ViIndexer, DocUtils):
         """encode documents if a field is present."""
         for f in fields:
             [d.update({
-                f + self.__name__ + "_vector_": self.encode(self.get_field(f))
+                f + self.__name__ + "_vector_": self.encode(self.get_field(f, d))
             }) for d in documents if self.is_field(f, d)]
         return documents
     
