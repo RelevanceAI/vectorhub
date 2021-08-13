@@ -108,7 +108,10 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
         """
         # Parallel process the encoding
         future = self.parallel_preprocess_image(images)
-        return self.model.encode_image(torch.cat(list(future))).tolist()
+        results = self.model.encode_image(torch.cat(list(future))).tolist()
+        # Replace NANs with default vector value
+        results[results != results] = 1e-7
+        return results
 
     def encode(self, data: str, data_type='image'):
         if data_type == 'image':
