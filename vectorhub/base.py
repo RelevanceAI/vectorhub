@@ -164,7 +164,23 @@ class Base2Vec(ViIndexer, DocUtils):
         else:
             raise ValueError("Please set attribute vector_length")
 
-    def encode_documents(self, fields: list, documents: list, missing_treatment=None):
+    def is_empty_vector(self, vector):
+        return all([x == 1e-7 for x in vector])
+
+    def _encode_document(self, field, doc, vector_error_treatment='zero_vector'):
+        """Encode document"""
+        vector = self.encode(self.get_field(field, doc))
+        if vector_error_treatment == "zero_vector":
+            self.set_field(field  + "_" + self.__name__ + "_vector_", doc, vector)
+            return
+        elif vector_error_treatment == "do_not_include":
+            return
+        else:
+            if vector is None or self.is_empty_vector(vector):
+                vector = vector_error_treatment
+            self.set_field(field  + "_" + self.__name__ + "_vector_", doc, vector)
+
+    def encode_documents(self, fields: list, documents: list, vector_error_treatment='zero_vector'):
         """
         Encode documents and their specific fields. Note that this runs off the
         default `encode` method. If there is a specific function that you want run, ensure
@@ -172,7 +188,7 @@ class Base2Vec(ViIndexer, DocUtils):
 
         Parameters:
             missing_treatment:
-                Missing treatment can be one of [None, "zero_vector", value]
+                Missing treatment can be one of ["do_not_include", "zero_vector", value].
             documents:
                 The documents that are being used
             fields:
@@ -180,22 +196,12 @@ class Base2Vec(ViIndexer, DocUtils):
         """
         for f in fields:
             # Replace with case-switch in future
-            if missing_treatment is None:
-                [d.update({
-                    f + "_" + self.__name__ + "_vector_": self.encode(self.get_field(f, d))
-                }) for d in documents if self.is_field(f, d)]
-            elif missing_treatment == 'zero_vector':
-                [d.update({
-                    f + "_" + self.__name__ + "_vector_": self.encode(self.get_field(f, d))
-                }) if self.is_field(f, d) else self.zero_vector for d in documents]
-            else:
-                [d.update({
-                    f + "_" + self.__name__ + "_vector_": self.encode(self.get_field(f, d))
-                }) if self.is_field(f, d) else self.missing_treatment for d in documents]
+            [self._encode_document(f, d, vector_error_treatment=vector_error_treatment) \
+                for d in documents if self.is_field(f, d)]
         return documents
-    
+
     def encode_chunk_documents(self, chunk_field: str, fields: list, 
-        documents: list, missing_treatment=None):
+        documents: list, vector_error_treatment="do_not_include"):
         """
         Encode chunk documents.
         Params:
@@ -204,5 +210,6 @@ class Base2Vec(ViIndexer, DocUtils):
         # Get the documents inside the chunk documents
         for d in documents:
             chunk_docs = self.get_field(chunk_field, d)
-            {self.encode_documents(f, chunk_docs) for f in fields}
+            {self.encode_documents(f, chunk_docs, 
+                vector_error_treatment=vector_error_treatment) for f in fields}
         return documents
