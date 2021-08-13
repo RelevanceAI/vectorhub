@@ -1,5 +1,7 @@
 """Clip2Vec by OpenAI
 """
+import traceback
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date
 from typing import List
 from ....doc_utils import ModelDefinition
@@ -79,9 +81,18 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
             return self.model.encode_text(tokenized_text).detach().numpy().tolist()
 
     def preprocess_image(self, img: str):
-        if self.is_greyscale(img):
-            return self.preprocess_black_and_white_image(self.read(img))
-        return self.preprocess(self.read(img))
+        try:
+            if self.is_greyscale(img):
+                return self.preprocess_black_and_white_image(self.read(img)).unsqueeze(0).to(self.device)
+            return self.preprocess(self.read(img)).unsqueeze(0).to(self.device)
+        except:
+            traceback.print_exc()
+            return torch.empty((1, 3, 224, 224), dtype=torch.int32, device=self.device)
+    
+    def parallel_preprocess_image(self, images: str):
+        with ThreadPoolExecutor(max_workers=5) as executor:
+            future = executor.map(self.preprocess_image, images)
+        return list(future)
 
     @catch_vector_errors
     def encode_image(self, image_url: str):
@@ -93,7 +104,11 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
             return self.model.encode_image(image).cpu().detach().numpy().tolist()[0]
 
     def bulk_encode_image(self, images: str):
-        return [self.encode_image(x) for x in images]
+        """Batch Processing for CLIP image encoding
+        """
+        # Parallel process the encoding
+        future = self.parallel_preprocess_image(images)
+        return self.model.encode_image(torch.cat(list(future))).tolist()
 
     def encode(self, data: str, data_type='image'):
         if data_type == 'image':
