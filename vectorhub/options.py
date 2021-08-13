@@ -2,9 +2,14 @@
 Python Options
 To access Python options for VectorHub
 """
-
+from enum import Enum
+class IfErrorReturns(Enum):
+    RETURN_NONE: str="RETURN_NONE"
+    RETURN_EMPTY_VECTOR: str = "RETURN_EMPTY_VECTOR"
+    RAISE_ERROR: str = "RAISE_ERROR"
+    
 OPTIONS = {
-    'catch_vector_errors': True
+    'if_error': IfErrorReturns.RETURN_NONE
 }
 
 def get_option(field):

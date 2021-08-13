@@ -4,7 +4,7 @@ import traceback
 import numpy as np
 import requests
 import os
-from .options import get_option, set_option
+from .options import get_option, set_option, IfErrorReturns
 from .indexer import ViIndexer
 from .errors import ModelError
 from typing import Any, List
@@ -36,23 +36,27 @@ def catch_vector_errors(func):
     """
     @functools.wraps(func)
     def catch_vector(*args, **kwargs):
-        if get_option('catch_vector_errors') is False:
+        if get_option('if_error') == IfErrorReturns.RAISE_ERROR:
             return func(*args, **kwargs)
         else:
             try:
                 return func(*args, **kwargs)
             except:
-                warnings.warn("Unable to encode. Filling in with dummy vector.")
-                traceback.print_exc()
-                # get the vector length from the self body
-                vector_length = args[0].vector_length
-                if isinstance(args[1], str):
-                    return [1e-7] * vector_length
-                elif isinstance(args[1], list):
-                    # Return the list of vectors
-                    return [[1e-7] * vector_length] * len(args[1])
-                else:
-                    return [1e-7] * vector_length
+                if IfErrorReturns.RETURN_EMPTY_VECTOR:
+                    warnings.warn("Unable to encode. Filling in with dummy vector.")
+                    traceback.print_exc()
+                    # get the vector length from the self body
+                    vector_length = args[0].vector_length
+                    if isinstance(args[1], str):
+                        return [1e-7] * vector_length
+                    elif isinstance(args[1], list):
+                        # Return the list of vectors
+                        return [[1e-7] * vector_length] * len(args[1])
+                    else:
+                        return [1e-7] * vector_length
+                elif IfErrorReturns.RETURN_NONE:
+                    return None
+                return
     return catch_vector
 
 class Base2Vec(ViIndexer, DocUtils):
@@ -152,17 +156,46 @@ class Base2Vec(ViIndexer, DocUtils):
             Set the name.
         """
         setattr(self, '_name', value)
-    
-    def encode_documents(self, fields: list, documents: list):
-        """encode documents if a field is present."""
+
+    @property
+    def zero_vector(self):
+        if hasattr(self, "vector_length"):
+            return self.vector_length * [1e-7]
+        else:
+            raise ValueError("Please set attribute vector_length")
+
+    def encode_documents(self, fields: list, documents: list, missing_treatment=None):
+        """
+        Encode documents and their specific fields. Note that this runs off the
+        default `encode` method. If there is a specific function that you want run, ensure
+        that it is set to the encode function.
+
+        Parameters:
+            missing_treatment:
+                Missing treatment can be one of [None, "zero_vector", value]
+            documents:
+                The documents that are being used
+            fields:
+                The list of fields to be used
+        """
         for f in fields:
-            [d.update({
-                f + "_" + self.__name__ + "_vector_": self.encode(self.get_field(f, d))
-            }) for d in documents if self.is_field(f, d)]
+            # Replace with case-switch in future
+            if missing_treatment is None:
+                [d.update({
+                    f + "_" + self.__name__ + "_vector_": self.encode(self.get_field(f, d))
+                }) for d in documents if self.is_field(f, d)]
+            elif missing_treatment == 'zero_vector':
+                [d.update({
+                    f + "_" + self.__name__ + "_vector_": self.encode(self.get_field(f, d))
+                }) if self.is_field(f, d) else self.zero_vector for d in documents]
+            else:
+                [d.update({
+                    f + "_" + self.__name__ + "_vector_": self.encode(self.get_field(f, d))
+                }) if self.is_field(f, d) else self.missing_treatment for d in documents]
         return documents
     
     def encode_chunk_documents(self, chunk_field: str, fields: list, 
-        documents: list):
+        documents: list, missing_treatment=None):
         """
         Encode chunk documents.
         Params:
