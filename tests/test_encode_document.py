@@ -60,5 +60,5 @@ def test_error_tests_3(docs_with_errors):
     docs = enc.encode_documents_in_bulk(["text"], docs_with_errors, 
         vector_error_treatment="do_not_include")
     assert "text_sample_vector_" in docs[0]
-    raise ValueError
     assert "text_sample_vector_" not in docs[-1]
+    assert isinstance(docs[0]['text_sample_vector_'], list)
