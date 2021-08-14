@@ -247,8 +247,6 @@ class Base2Vec(ViIndexer, DocUtils):
     def encode_documents_in_bulk(self, fields: list, 
         documents: list, vector_error_treatment='zero_vector'):
         """
-        Note: Encoding documents in bulk means that it also errors in bulk.
-
         Encode documents and their specific fields. Note that this runs off the
         default `encode` method. If there is a specific function that you want run, ensure
         that it is set to the encode function.
