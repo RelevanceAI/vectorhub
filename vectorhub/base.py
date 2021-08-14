@@ -3,7 +3,6 @@ import warnings
 import traceback
 import numpy as np
 import requests
-import os
 from .options import get_option, set_option, IfErrorReturns
 from .indexer import ViIndexer
 from .errors import ModelError
@@ -42,6 +41,23 @@ def catch_vector_errors(func):
             try:
                 return func(*args, **kwargs)
             except:
+                # Bulk encode the functions as opposed to encode to accelerate the 
+                # actual function call
+                if hasattr(func, "__name__"):
+                    if "bulk_encode" in func.__name__:
+                        # Rerun with manual encoding
+                        try:
+                            encode_fn = getattr(args[0], func.__name__.replace("bulk_encode", "encode"))
+                            if len(args) > 1 and isinstance(args[1], list):
+                                return [encode_fn(x, **kwargs) for x in args[1]]
+                            if kwargs:
+                                # Take the first input!
+                                for v in kwargs.values():
+                                    if isinstance(v, list):
+                                        return [encode_fn(x, **kwargs) for x in v]
+                        except:
+                            traceback.print_exc()
+                            pass
                 if IfErrorReturns.RETURN_EMPTY_VECTOR:
                     warnings.warn("Unable to encode. Filling in with dummy vector.")
                     traceback.print_exc()
@@ -56,7 +72,7 @@ def catch_vector_errors(func):
                         return [1e-7] * vector_length
                 elif IfErrorReturns.RETURN_NONE:
                     return None
-                return
+            return
     return catch_vector
 
 class Base2Vec(ViIndexer, DocUtils):
@@ -194,10 +210,13 @@ class Base2Vec(ViIndexer, DocUtils):
                 vectors, docs)
             return
         elif vector_error_treatment == "do_not_include":
-            [self.set_field(self.get_default_vector_field_name(field), d) for i, d in enumerate(docs) if \
-                not self.is_empty_vector(vectors[i])]
+            [self.set_field(
+                self.get_default_vector_field_name(field), value=vectors[i], doc=d) \
+                    for i, d in enumerate(docs) if \
+                    not self.is_empty_vector(vectors[i])]
         else:
-            [self.set_field(self.get_default_vector_field_name(field), d)
+            [self.set_field(
+                self.get_default_vector_field_name(field), d)
                 if not self.is_empty_vector(vectors[i])
                 else vector_error_treatment
                 for i, d in enumerate(docs)]
@@ -228,6 +247,8 @@ class Base2Vec(ViIndexer, DocUtils):
     def encode_documents_in_bulk(self, fields: list, 
         documents: list, vector_error_treatment='zero_vector'):
         """
+        Note: Encoding documents in bulk means that it also errors in bulk.
+
         Encode documents and their specific fields. Note that this runs off the
         default `encode` method. If there is a specific function that you want run, ensure
         that it is set to the encode function.
@@ -243,11 +264,11 @@ class Base2Vec(ViIndexer, DocUtils):
         for f in fields:
             # Replace with case-switch in future
             contained_docs = [d for d in documents if self.is_field(f, d)]
-            self._bulk_encode_document(f, contained_docs, vector_error_treatment=vector_error_treatment)
+            self._bulk_encode_document(f, contained_docs,
+                vector_error_treatment=vector_error_treatment)
         return documents
-    
 
-    def encode_chunk_documents(self, chunk_field: str, fields: list, 
+    def encode_chunk_documents(self, chunk_field: str, fields: list,
         documents: list, vector_error_treatment="do_not_include"):
         """
         Encode chunk documents.
