@@ -189,8 +189,9 @@ class Base2Vec(ViIndexer, DocUtils):
         """bulk encode documents"""
         vectors = self.bulk_encode(self.get_field_across_documents(field, docs))
         if vector_error_treatment == "zero_vector":
-            self.set_field_across_documents(self.get_default_vector_field_name(field), 
-                docs, vectors)
+            self.set_field_across_documents(
+                self.get_default_vector_field_name(field),
+                vectors, docs)
             return
         elif vector_error_treatment == "do_not_include":
             [self.set_field(self.get_default_vector_field_name(field), d) for i, d in enumerate(docs) if \
@@ -203,7 +204,8 @@ class Base2Vec(ViIndexer, DocUtils):
             return
         
 
-    def encode_documents(self, fields: list, documents: list, vector_error_treatment='zero_vector'):
+    def encode_documents(self, fields: list, documents: list, 
+        vector_error_treatment='zero_vector'):
         """
         Encode documents and their specific fields. Note that this runs off the
         default `encode` method. If there is a specific function that you want run, ensure
@@ -251,6 +253,7 @@ class Base2Vec(ViIndexer, DocUtils):
         Encode chunk documents.
         Params:
         - Fields
+        - chunk field
         """
         # Get the documents inside the chunk documents
         for d in documents:
