@@ -3,8 +3,7 @@ import warnings
 import traceback
 import numpy as np
 import requests
-import os
-from .options import get_option, set_option
+from .options import get_option, set_option, IfErrorReturns
 from .indexer import ViIndexer
 from .errors import ModelError
 from typing import Any, List
@@ -36,23 +35,44 @@ def catch_vector_errors(func):
     """
     @functools.wraps(func)
     def catch_vector(*args, **kwargs):
-        if get_option('catch_vector_errors') is False:
+        if get_option('if_error') == IfErrorReturns.RAISE_ERROR:
             return func(*args, **kwargs)
         else:
             try:
                 return func(*args, **kwargs)
             except:
-                warnings.warn("Unable to encode. Filling in with dummy vector.")
-                traceback.print_exc()
-                # get the vector length from the self body
-                vector_length = args[0].vector_length
-                if isinstance(args[1], str):
-                    return [1e-7] * vector_length
-                elif isinstance(args[1], list):
-                    # Return the list of vectors
-                    return [[1e-7] * vector_length] * len(args[1])
-                else:
-                    return [1e-7] * vector_length
+                # Bulk encode the functions as opposed to encode to accelerate the 
+                # actual function call
+                if hasattr(func, "__name__"):
+                    if "bulk_encode" in func.__name__:
+                        # Rerun with manual encoding
+                        try:
+                            encode_fn = getattr(args[0], func.__name__.replace("bulk_encode", "encode"))
+                            if len(args) > 1 and isinstance(args[1], list):
+                                return [encode_fn(x, **kwargs) for x in args[1]]
+                            if kwargs:
+                                # Take the first input!
+                                for v in kwargs.values():
+                                    if isinstance(v, list):
+                                        return [encode_fn(x, **kwargs) for x in v]
+                        except:
+                            traceback.print_exc()
+                            pass
+                if IfErrorReturns.RETURN_EMPTY_VECTOR:
+                    warnings.warn("Unable to encode. Filling in with dummy vector.")
+                    traceback.print_exc()
+                    # get the vector length from the self body
+                    vector_length = args[0].vector_length
+                    if isinstance(args[1], str):
+                        return [1e-7] * vector_length
+                    elif isinstance(args[1], list):
+                        # Return the list of vectors
+                        return [[1e-7] * vector_length] * len(args[1])
+                    else:
+                        return [1e-7] * vector_length
+                elif IfErrorReturns.RETURN_NONE:
+                    return None
+            return
     return catch_vector
 
 class Base2Vec(ViIndexer, DocUtils):
@@ -152,24 +172,111 @@ class Base2Vec(ViIndexer, DocUtils):
             Set the name.
         """
         setattr(self, '_name', value)
+
+    @property
+    def zero_vector(self):
+        if hasattr(self, "vector_length"):
+            return self.vector_length * [1e-7]
+        else:
+            raise ValueError("Please set attribute vector_length")
+
+    def is_empty_vector(self, vector):
+        return all([x == 1e-7 for x in vector])
     
-    def encode_documents(self, fields: list, documents: list):
-        """encode documents if a field is present."""
+    def get_default_vector_field_name(self, field):
+        return field + "_" + self.__name__ + "_vector_"
+
+    def _encode_document(self, field, doc, vector_error_treatment='zero_vector'):
+        """Encode document"""
+        vector = self.encode(self.get_field(field, doc))
+        if vector_error_treatment == "zero_vector":
+            self.set_field(self.get_default_vector_field_name(field), doc, vector)
+            return
+        elif vector_error_treatment == "do_not_include":
+            return
+        else:
+            if vector is None or self.is_empty_vector(vector):
+                vector = vector_error_treatment
+            self.set_field(
+                self.get_default_vector_field_name(field),
+                doc, vector)
+    
+    def _bulk_encode_document(self, field, docs, vector_error_treatment: str='zero_vector'):
+        """bulk encode documents"""
+        vectors = self.bulk_encode(self.get_field_across_documents(field, docs))
+        if vector_error_treatment == "zero_vector":
+            self.set_field_across_documents(
+                self.get_default_vector_field_name(field),
+                vectors, docs)
+            return
+        elif vector_error_treatment == "do_not_include":
+            [self.set_field(
+                self.get_default_vector_field_name(field), value=vectors[i], doc=d) \
+                    for i, d in enumerate(docs) if \
+                    not self.is_empty_vector(vectors[i])]
+        else:
+            [self.set_field(
+                self.get_default_vector_field_name(field), d)
+                if not self.is_empty_vector(vectors[i])
+                else vector_error_treatment
+                for i, d in enumerate(docs)]
+            return
+        
+
+    def encode_documents(self, fields: list, documents: list, 
+        vector_error_treatment='zero_vector'):
+        """
+        Encode documents and their specific fields. Note that this runs off the
+        default `encode` method. If there is a specific function that you want run, ensure
+        that it is set to the encode function.
+
+        Parameters:
+            missing_treatment:
+                Missing treatment can be one of ["do_not_include", "zero_vector", value].
+            documents:
+                The documents that are being used
+            fields:
+                The list of fields to be used
+        """
         for f in fields:
-            [d.update({
-                f + "_" + self.__name__ + "_vector_": self.encode(self.get_field(f, d))
-            }) for d in documents if self.is_field(f, d)]
+            # Replace with case-switch in future
+            [self._encode_document(f, d, vector_error_treatment=vector_error_treatment) \
+                for d in documents if self.is_field(f, d)]
         return documents
     
-    def encode_chunk_documents(self, chunk_field: str, fields: list, 
-        documents: list):
+    def encode_documents_in_bulk(self, fields: list, 
+        documents: list, vector_error_treatment='zero_vector'):
+        """
+        Encode documents and their specific fields. Note that this runs off the
+        default `encode` method. If there is a specific function that you want run, ensure
+        that it is set to the encode function.
+
+        Parameters:
+            missing_treatment:
+                Missing treatment can be one of ["do_not_include", "zero_vector", value].
+            documents:
+                The documents that are being used
+            fields:
+                The list of fields to be used
+        """
+        for f in fields:
+            # Replace with case-switch in future
+            contained_docs = [d for d in documents if self.is_field(f, d)]
+            self._bulk_encode_document(f, contained_docs,
+                vector_error_treatment=vector_error_treatment)
+        return documents
+
+    def encode_chunk_documents(self, chunk_field: str, fields: list,
+        documents: list, vector_error_treatment="do_not_include"):
         """
         Encode chunk documents.
         Params:
         - Fields
+        - chunk field
         """
         # Get the documents inside the chunk documents
         for d in documents:
             chunk_docs = self.get_field(chunk_field, d)
-            {self.encode_documents(f, chunk_docs) for f in fields}
+            {self.encode_documents(f, chunk_docs, 
+                vector_error_treatment=vector_error_treatment) for f in fields}
         return documents
