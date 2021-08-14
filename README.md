@@ -95,6 +95,26 @@ python3 -m pip install --upgrade pip
 python3 -m pip install vectorhub[all]
 ```
 
+### Updates 
+
+#### Version 1.4
+
+Previous issues with batch-processing handled: 
+
+- If bulk fed in, would cause bulk error when really only 1 in 15 inputs were causing errors
+
+- Lack of reliability in bulk_encode meant most of the time bulk_encode was just a list comprehension
+
+- This meant we lost any speed enhancements we could be getting as we had to feed it through matrices every time
+
+
+<p align="center">
+    <a href="https://hub.getvectorai.com">
+        <img align="center" src="assets/vectorhub-batch-processing.png" width="800"/>
+    </a>
+</p>
+<br>
+
 ### Leverage [Tensorflow Hub's](https://tfhub.dev) powerful models to create vectors
 Vectorise your image in 3 lines of code using [Google's Big Image Transfer model](https://blog.tensorflow.org/2020/05/bigtransfer-bit-state-of-art-transfer-learning-computer-vision.html):
 
