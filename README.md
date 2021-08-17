@@ -99,14 +99,11 @@ python3 -m pip install vectorhub[all]
 
 #### Version 1.4
 
-Previous issues with batch-processing handled: 
+Previous issues with batch-processing:
 
-- If bulk fed in, would cause bulk error when really only 1 in 15 inputs were causing errors
+If bulk fed in, would cause bulk error when really only 1 in 15 inputs were causing errors. Lack of reliability in bulk_encode meant most of the time bulk_encode was just a list comprehension. This meant we lost any speed enhancements we could be getting as we had to feed it through matrices every time.
 
-- Lack of reliability in bulk_encode meant most of the time bulk_encode was just a list comprehension
-
-- This meant we lost any speed enhancements we could be getting as we had to feed it through matrices every time
-
+The new design now lets us get the most out of multiple tensor inputs.
 
 <p align="center">
     <a href="https://hub.getvectorai.com">

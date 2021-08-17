@@ -12,7 +12,7 @@
     "tensorflow": ["encoders-text-tfhub", "encoders-audio-tfhub", "encoders-image-tfhub", "encoders-text-tf-transformers", 
         "encoders-text-tfhub-windows", "encoders-image-tf-face-detection"],
     "tensorflow_hub": ["encoders-text-tfhub", "encoders-audio-tfhub", "encoders-image-tfhub", "encoders-text-tfhub-windows"],
-    "tensorflow_text": ["encoders-text-tfhub"],
+    "tensorflow_text~=2.4.0": ["encoders-text-tfhub"],
     "tf-models-official": ["encoders-text-tfhub", "encoders-text-tfhub-windows"],
     "bert-for-tf2": ["encoders-text-tfhub", "encoders-text-tfhub-windows"],
     "sentence-transformers": ["encoders-text-sentence-transformers"],
