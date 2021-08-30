@@ -130,9 +130,9 @@ The new design now lets us get the most out of multiple tensor inputs.
 </p>
 <br>
 
-[Tensorflow Hub Models](https://tfhub.dev) 
 
-Vectorise your image in 3 lines of code using [Google's Big Image Transfer model](https://blog.tensorflow.org/2020/05/bigtransfer-bit-state-of-art-transfer-learning-computer-vision.html)
+
+[Google's Big Image Transfer model](https://blog.tensorflow.org/2020/05/bigtransfer-bit-state-of-art-transfer-learning-computer-vision.html)
 
 ```
 from vectorhub.encoders.image.tfhub import BitSmall2Vec
