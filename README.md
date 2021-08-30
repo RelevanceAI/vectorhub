@@ -46,10 +46,28 @@ Vector Hub provides:
 - An easy way to handle dependencies easily for different models
 - Universal format of installation and encoding (using a simple `encode` method).
 
-In order to provide an easy way for practitioners to quickly experiment, research and build new models and feature vectors, we provide a streamlined way to obtain vectors through our `encode` method.
-There are thousands of _____2Vec models across different use cases/domains. Vectorhub allows people to aggregate their work and share it with the community. 
+In order to provide an easy way for practitioners to quickly experiment, research and build new models and feature vectors, we provide a streamlined way to obtain vectors through our universal `encode` API.
 
-Think transformers for NLP, Sci-kit Learn for data scientists.
+Every model has the following: 
+- `encode` allows you to turn raw data into an image 
+- `bulk_encode` allows you to turn multiple objects into an image
+- `encode_documents` returns 
+
+For bi-modal models:
+Question Answering encoders will have:
+- `encode_question`
+- `encode_answer`
+- `bulk_encode_question`
+- `bulk_encode_answer`
+
+Text Image Bi-encoders will have: 
+- `encode_image`
+- `encode_text`
+- `bulk_encode_image`
+- `bulk_encode_text`
+
+
+There are thousands of _____2Vec models across different use cases/domains. Vectorhub allows people to aggregate their work and share it with the community. 
 
 ---
 
@@ -112,8 +130,9 @@ The new design now lets us get the most out of multiple tensor inputs.
 </p>
 <br>
 
-### Leverage [Tensorflow Hub's](https://tfhub.dev) powerful models to create vectors
-Vectorise your image in 3 lines of code using [Google's Big Image Transfer model](https://blog.tensorflow.org/2020/05/bigtransfer-bit-state-of-art-transfer-learning-computer-vision.html):
+[Tensorflow Hub Models](https://tfhub.dev) 
+
+Vectorise your image in 3 lines of code using [Google's Big Image Transfer model](https://blog.tensorflow.org/2020/05/bigtransfer-bit-state-of-art-transfer-learning-computer-vision.html)
 
 ```
 from vectorhub.encoders.image.tfhub import BitSmall2Vec
@@ -121,7 +140,7 @@ image_encoder = BitSmall2Vec()
 image_encoder.encode('https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png')
 [0.47, 0.83, 0.148, ...]
 ```
-Vectorise your text in 3 lines of code using [Google's BERT model](https://blog.google/products/search/search-language-understanding-bert/):
+[Google's BERT model](https://blog.google/products/search/search-language-understanding-bert/)
 ```
 from vectorhub.encoders.text.tfhub import Bert2Vec
 text_encoder = Bert2Vec()
@@ -129,7 +148,7 @@ text_encoder.encode('This is sparta!')
 [0.47, 0.83, 0.148, ...]
 ```
 
-Vectorise your question and answer in 3 lines of code using [Google's USE QA model](https://tfhub.dev/google/universal-sentence-encoder-qa/3):
+[Google's USE QA model](https://tfhub.dev/google/universal-sentence-encoder-qa/3)
 ```
 from vectorhub.bi_encoders.text.tfhub import UseQA2Vec
 text_encoder = UseQA2Vec()
@@ -139,7 +158,7 @@ text_encoder.encode_answer('Sparta!')
 [0.47, 0.83, 0.148, ...]
 ```
 
-### Leverage [HuggingFace Transformer's Albert](https://github.com/huggingface/transformers)
+[HuggingFace Transformer's Albert](https://github.com/huggingface/transformers)
 
 ```
 from vectorhub.encoders.text import Transformer2Vec
@@ -147,7 +166,7 @@ text_encoder = Transformer2Vec('albert-base-v2')
 text_encoder.encode('This is sparta!')
 [0.47, 0.83, 0.148, ...]
 ```
-### Leverage [Facebook Dense Passage Retrieval](https://github.com/facebookresearch/DPR)
+[Facebook Dense Passage Retrieval](https://github.com/facebookresearch/DPR)
 ```
 from vectorhub.bi_encoders.qa.torch_transformers import DPR2Vec
 text_encoder = DPR2Vec()
