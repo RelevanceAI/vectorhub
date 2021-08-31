@@ -49,9 +49,9 @@ Vector Hub provides:
 In order to provide an easy way for practitioners to quickly experiment, research and build new models and feature vectors, we provide a streamlined way to obtain vectors through our universal `encode` API.
 
 Every model has the following: 
-- `encode` allows you to turn raw data into an image 
-- `bulk_encode` allows you to turn multiple objects into an image
-- `encode_documents` returns 
+- `encode` allows you to turn raw data into a vector
+- `bulk_encode` allows you to turn multiple objects into multiple vectors
+- `encode_documents` returns a list of dictionaries with with an encoded field
 
 For bi-modal models:
 Question Answering encoders will have:
