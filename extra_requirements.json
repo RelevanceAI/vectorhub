@@ -26,5 +26,6 @@
     "fastai==2.1.8": ["encoders-image-fastai"],
     "mtcnn": ["encoders-image-tf-face-detection"],
     "Pillow": ["encoders-image-tf-face-detection", "clip"],
-    "clip-by-openai": ["clip"]
+    "clip-by-openai": ["clip"],
+    "pytorch=1.7.1": ["clip"]
 }
