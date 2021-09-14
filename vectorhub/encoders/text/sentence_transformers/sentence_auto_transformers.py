@@ -36,7 +36,8 @@ LIST_OF_URLS = {
     'average_word_embeddings_glove.6B.300d' : {"vector_length": 300},
     'average_word_embeddings_komninos' : {"vector_length": 300},
     'average_word_embeddings_levy_dependency' : {"vector_length": 768},
-    'average_word_embeddings_glove.840B.300d' : {"vector_length": 300}
+    'average_word_embeddings_glove.840B.300d' : {"vector_length": 300},
+    'paraphrase-xlm-r-multilingual-v1': {"vector_length": 768},
 }
 
 __doc__ = SentenceTransformerModelDefinition.create_docs()
