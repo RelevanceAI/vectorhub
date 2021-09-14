@@ -14,6 +14,7 @@ SentenceTransformerModelDefinition = ModelDefinition(markdown_filepath='encoders
 LIST_OF_URLS = {
     'distilroberta-base-paraphrase-v1' : {"vector_length": 768},
     'xlm-r-distilroberta-base-paraphrase-v1' : {"vector_length": 768},
+    "paraphrase-xlm-r-multilingual-v1": {"vector_length": 768},
 
     'distilbert-base-nli-stsb-mean-tokens' : {"vector_length": 768},
     'bert-large-nli-stsb-mean-tokens' : {"vector_length": 1024},
