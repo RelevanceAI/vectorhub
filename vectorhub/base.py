@@ -273,6 +273,9 @@ class Base2Vec(ViIndexer, DocUtils):
             documents: a list of documents 
             vector_error_treatment: Vector Error Treatment
         
+        Example:
+            >>> chunk_docs = enc.encode_chunk_documents(chunk_field="value", fields=["text"], documents=chunk_docs)
+        
         """
         # Replace with case-switch in future
         for f in fields:

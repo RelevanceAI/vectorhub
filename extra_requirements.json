@@ -27,5 +27,5 @@
     "mtcnn": ["encoders-image-tf-face-detection"],
     "Pillow": ["encoders-image-tf-face-detection", "clip"],
     "clip-by-openai": ["clip"],
-    "pytorch=1.7.1": ["clip"]
+    "pytorch==1.7.1": ["clip"]
 }
