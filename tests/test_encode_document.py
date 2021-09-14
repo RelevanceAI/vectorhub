@@ -16,6 +16,30 @@ def docs():
         }
     ]
 
+
+@pytest.fixture
+def chunk_docs():
+    return {
+        "value": [
+            {
+                "text": "hey"
+            },
+
+            {
+                "text": "weirdo"
+            }
+        ],
+        "value": [
+            {
+                "text": "hello"
+            },
+
+            {
+                "text": "stranger"
+            }
+        ],
+    }
+
 @pytest.fixture
 def docs_with_errors():
     return [
@@ -62,3 +86,4 @@ def test_error_tests_3(docs_with_errors):
     assert "text_sample_vector_" in docs[0]
     assert "text_sample_vector_" not in docs[-1]
     assert isinstance(docs[0]['text_sample_vector_'], list)
+

@@ -183,14 +183,18 @@ class Base2Vec(ViIndexer, DocUtils):
     def is_empty_vector(self, vector):
         return all([x == 1e-7 for x in vector])
     
-    def get_default_vector_field_name(self, field):
-        return field + "_" + self.__name__ + "_vector_"
+    def get_default_vector_field_name(self, field, field_type = "vector"):
+        if field_type == "vector":
+            return field + "_" + self.__name__ + "_vector_"
+        elif field_type == "chunkvector":
+            return field + "_" + self.__name__ + "_chunkvector_"
 
-    def _encode_document(self, field, doc, vector_error_treatment='zero_vector'):
+    def _encode_document(self, field, doc, vector_error_treatment='zero_vector',
+        field_type: str="vector"):
         """Encode document"""
         vector = self.encode(self.get_field(field, doc))
         if vector_error_treatment == "zero_vector":
-            self.set_field(self.get_default_vector_field_name(field), doc, vector)
+            self.set_field(self.get_default_vector_field_name(field, field_type=field_type), doc, vector)
             return
         elif vector_error_treatment == "do_not_include":
             return
@@ -201,22 +205,35 @@ class Base2Vec(ViIndexer, DocUtils):
                 self.get_default_vector_field_name(field),
                 doc, vector)
     
-    def _bulk_encode_document(self, field, docs, vector_error_treatment: str='zero_vector'):
+    def _encode_chunk_document(self, chunk_field, field, doc, 
+        vector_error_treatment='zero_vector', field_type: str="chunkvector"):
+        """Encode a chunk document"""
+        chunk_docs = self.get_field(chunk_field, doc)
+        if hasattr(self, "bulk_encode"):
+            return self.encode_documents_in_bulk([field], chunk_docs, field_type=field_type, 
+                vector_error_treatment=vector_error_treatment)
+        elif hasattr(self, "encode"):
+            return self.encode_documents([field], chunk_docs, field_type=field_type, 
+                vector_error_treatment=vector_error_treatment)
+    
+    def _bulk_encode_document(self, field, docs, vector_error_treatment: str='zero_vector', 
+        field_type="vector"):
         """bulk encode documents"""
         vectors = self.bulk_encode(self.get_field_across_documents(field, docs))
         if vector_error_treatment == "zero_vector":
             self.set_field_across_documents(
-                self.get_default_vector_field_name(field),
-                vectors, docs)
+                self.get_default_vector_field_name(field, field_type=field_type),
+                    vectors, docs)
             return
         elif vector_error_treatment == "do_not_include":
             [self.set_field(
-                self.get_default_vector_field_name(field), value=vectors[i], doc=d) \
+                self.get_default_vector_field_name(field, field_type=field_type), 
+                    value=vectors[i], doc=d) \
                     for i, d in enumerate(docs) if \
                     not self.is_empty_vector(vectors[i])]
         else:
             [self.set_field(
-                self.get_default_vector_field_name(field), d)
+                self.get_default_vector_field_name(field, field_type=field_type), d)
                 if not self.is_empty_vector(vectors[i])
                 else vector_error_treatment
                 for i, d in enumerate(docs)]
@@ -224,7 +241,7 @@ class Base2Vec(ViIndexer, DocUtils):
         
 
     def encode_documents(self, fields: list, documents: list, 
-        vector_error_treatment='zero_vector'):
+        vector_error_treatment='zero_vector', field_type="vector"):
         """
         Encode documents and their specific fields. Note that this runs off the
         default `encode` method. If there is a specific function that you want run, ensure
@@ -237,15 +254,38 @@ class Base2Vec(ViIndexer, DocUtils):
                 The documents that are being used
             fields:
                 The list of fields to be used
+            field_type:
+                Accepts "vector" or "chunkvector"
         """
         for f in fields:
             # Replace with case-switch in future
-            [self._encode_document(f, d, vector_error_treatment=vector_error_treatment) \
+            [self._encode_document(f, d, vector_error_treatment=vector_error_treatment, field_type=field_type) \
+                for d in documents if self.is_field(f, d)]
+        return documents
+    
+    def encode_chunk_documents(self, chunk_field, fields: list, documents: list, 
+        vector_error_treatment: str="zero_vector"):
+        """Encode chunk documents. Loops through every field and then every document.
+        
+        Parameters:
+            chunk_field: The field for chunking
+            fields: A list of fields for chunk documents 
+            documents: a list of documents 
+            vector_error_treatment: Vector Error Treatment
+        
+        Example:
+            >>> chunk_docs = enc.encode_chunk_documents(chunk_field="value", fields=["text"], documents=chunk_docs)
+        
+        """
+        # Replace with case-switch in future
+        for f in fields:
+            [self._encode_chunk_document(chunk_field=chunk_field, field=f, doc=d, 
+                vector_error_treatment=vector_error_treatment, field_type="chunkvector") \
                 for d in documents if self.is_field(f, d)]
         return documents
     
     def encode_documents_in_bulk(self, fields: list, 
-        documents: list, vector_error_treatment='zero_vector'):
+        documents: list, vector_error_treatment='zero_vector', field_type="vector"):
         """
         Encode documents and their specific fields. Note that this runs off the
         default `encode` method. If there is a specific function that you want run, ensure
@@ -263,20 +303,7 @@ class Base2Vec(ViIndexer, DocUtils):
             # Replace with case-switch in future
             contained_docs = [d for d in documents if self.is_field(f, d)]
             self._bulk_encode_document(f, contained_docs,
-                vector_error_treatment=vector_error_treatment)
+                vector_error_treatment=vector_error_treatment, 
+                field_type=field_type)
         return documents
 
-    def encode_chunk_documents(self, chunk_field: str, fields: list,
-        documents: list, vector_error_treatment="do_not_include"):
-        """
-        Encode chunk documents.
-        Params:
-        - Fields
-        - chunk field
-        """
-        # Get the documents inside the chunk documents
-        for d in documents:
-            chunk_docs = self.get_field(chunk_field, d)
-            {self.encode_documents(f, chunk_docs, 
-                vector_error_treatment=vector_error_treatment) for f in fields}
-        return documents

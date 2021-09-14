@@ -37,7 +37,8 @@ def dependency_to_requirement(requirements_dict: Dict, add_all=True, add_single_
     return all_requirements
 
 all_deps = get_extra_requires('extra_requirements.json')
-
+extras_require = {k: list(v) for k, v in all_deps.items()}
+print(extras_require)
 # Additional files to include - adding model cards
 # package_data = [str(x) for x in Path('vectorhub').rglob('*.md')]
 package_data = [str(x) for x in list(Path('vectorhub').rglob("*.md"))]
@@ -85,7 +86,7 @@ setup(
     packages=find_packages(exclude=["tests*"]) + ['.'],
     python_requires=">=3",
     install_requires=list(all_deps['core'].union(all_deps['perf'])),
-    extras_require=all_deps,
+    extras_require=extras_require,
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
