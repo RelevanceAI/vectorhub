@@ -93,12 +93,12 @@ class SentenceTransformer2Vec(BaseText2Vec):
         learning_rate: float=3e-5, num_epochs: int=1, 
         model_output_path: str='.', weight_decay: int=0,
         use_amp: bool=True, scheduler: str='constantlr', 
-        temp_filepath = "./_temp.txt"):
+        temp_filepath = "./_temp.txt", chunksize=100):
         """
 Set use_amp to True if your GPU supports FP16 cores
         """
         train_sentences = []
-        for c in self.chunk(documents):
+        for c in self.chunk(documents, chunksize=500):
             train_sentences += self.get_fields_across_document(fields, c)
         return self.run_tsdae(train_sentences, batch_size=batch_size, 
             learning_rate=learning_rate, num_epochs=num_epochs, 
