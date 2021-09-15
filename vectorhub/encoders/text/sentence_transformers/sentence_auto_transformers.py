@@ -8,6 +8,14 @@ from ....models_dict import MODEL_REQUIREMENTS
 from ..base import BaseText2Vec
 if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-sentence-transformers']):
     from sentence_transformers import SentenceTransformer
+    from sentence_transformers import SentenceTransformer
+    from sentence_transformers import models, datasets, losses
+    import gzip
+    from torch.utils.data import DataLoader
+    import numpy as np
+    import pandas as pd
+    from tqdm.auto import tqdm
+    import nltk
 
 SentenceTransformerModelDefinition = ModelDefinition(markdown_filepath='encoders/text/sentence_transformers/sentence_auto_transformers.md')
 
@@ -47,6 +55,7 @@ class SentenceTransformer2Vec(BaseText2Vec):
     definition = SentenceTransformerModelDefinition
     urls = LIST_OF_URLS
     def __init__(self, model_name: str):
+        self.model_name = model_name
         self.urls = LIST_OF_URLS
         self.validate_model_url(model_name, LIST_OF_URLS)
         if model_name in LIST_OF_URLS:
@@ -79,3 +88,42 @@ class SentenceTransformer2Vec(BaseText2Vec):
             Bulk encode words from transformers.
         """
         return self.model.encode(texts).tolist()
+
+    def run_tsdae(self, batch_size, filepath: str, 
+        learning_rate: float=3e-5, num_epochs: int=1, 
+        model_output_path: str='.', weight_decay: int=0,
+        use_amp: bool=True, scheduler: str='constantlr'):
+        """
+Set use_amp to True if your GPU supports FP16 cores
+        """
+        self._create_sentence_transformer()
+        train_sentences = self._read_sentences_from_text(filepath)
+        train_dataset = datasets.DenoisingAutoEncoderDataset(train_sentences)
+        train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
+        train_loss = losses.DenoisingAutoEncoderLoss(self.model, decoder_name_or_path=self.model_name, tie_encoder_decoder=True)
+        self.model.fit(
+            train_objectives=[(train_dataloader, train_loss)],
+            epochs=num_epochs,
+            weight_decay=weight_decay,
+            scheduler=scheduler,
+            optimizer_params={'lr': learning_rate},
+            show_progress_bar=True,
+            checkpoint_path=model_output_path,
+            use_amp=use_amp 
+        )
+        print("Finished training. You can now encode.")
+
+    def _create_sentence_transformer(self):
+        word_embedding_model = models.Transformer(self.model_name)
+        pooling_model = models.Pooling(word_embedding_model.get_word_embedding_dimension(), 'cls')
+        self.model = SentenceTransformer(modules=[word_embedding_model, pooling_model])
+
+    def _read_sentences_from_text(self, filepath: str,
+        maximum_line_length: int = 10):
+        train_sentences = []
+        with gzip.open(filepath, 'rt', encoding='utf8') if filepath.endswith('.gz') else open(filepath, encoding='utf8') as fIn:
+            for line in tqdm(fIn, desc='Read file'):
+                line = line.strip()
+                if len(line) >= maximum_line_length:
+                    train_sentences.append(line)
+        return train_sentences
