@@ -60,7 +60,7 @@ def get_version(rel_path):
             return line.split(delim)[1]
     raise RuntimeError(f"Unable to find a valid __version__ string in {rel_path}.")
 
-version=get_version("vectorhub/_version.py")
+version=get_version("vectorhub/__init__.py")
 
 if 'IS_VECTORHUB_NIGHTLY' in os.environ.keys():
     from datetime import datetime
