@@ -92,32 +92,32 @@ class SentenceTransformer2Vec(BaseText2Vec):
     def run_tsdae_on_documents(self, fields, documents, batch_size=32, 
         learning_rate: float=3e-5, num_epochs: int=1, 
         model_output_path: str='.', weight_decay: int=0,
-        use_amp: bool=True, scheduler: str='constantlr', temp_filepath = "./_temp.txt"):
+        use_amp: bool=True, scheduler: str='constantlr', 
+        temp_filepath = "./_temp.txt"):
         """
 Set use_amp to True if your GPU supports FP16 cores
         """
-        text = ""
+        train_sentences = []
         for c in self.chunk(documents):
-            text += self.get_fields_across_document(fields, c)
-        with open(temp_filepath, "w") as f:
-            f.write(text)
-        self.run_tsdae(temp_filepath, batch_size=32, 
-            learning_rate=3e-5, num_epochs=1, 
-            model_output_path='.', weight_decay=0,
-            use_amp=True, scheduler='constantlr')
+            train_sentences += self.get_fields_across_document(fields, c)
+        return self.run_tsdae(train_sentences, batch_size=batch_size, 
+            learning_rate=learning_rate, num_epochs=num_epochs, 
+            model_output_path=model_output_path, weight_decay=weight_decay,
+            use_amp=use_amp, scheduler=scheduler, temp_filepath=temp_filepath)
 
-    def run_tsdae(self, filepath: str, batch_size=32, 
-        learning_rate: float=3e-5, num_epochs: int=1, 
+    def run_tsdae(self, train_sentences: list,
+        batch_size=32, learning_rate: float=3e-5, num_epochs: int=1, 
         model_output_path: str='.', weight_decay: int=0,
         use_amp: bool=True, scheduler: str='constantlr'):
         """
 Set use_amp to True if your GPU supports FP16 cores
         """
-        self._create_sentence_transformer()
-        train_sentences = self._read_sentences_from_text(filepath)
         train_dataset = datasets.DenoisingAutoEncoderDataset(train_sentences)
         train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
-        train_loss = losses.DenoisingAutoEncoderLoss(self.model, decoder_name_or_path=self.model_name, tie_encoder_decoder=True)
+        train_loss = losses.DenoisingAutoEncoderLoss(
+            self.model, 
+            tie_encoder_decoder=True
+        )
         self.model.fit(
             train_objectives=[(train_dataloader, train_loss)],
             epochs=num_epochs,
@@ -129,14 +129,12 @@ Set use_amp to True if your GPU supports FP16 cores
             use_amp=use_amp 
         )
         print("Finished training. You can now encode.")
+        print(f"Model saved at {model_output_path}")
 
-    def _create_sentence_transformer(self):
-        word_embedding_model = models.Transformer(self.model_name)
-        pooling_model = models.Pooling(word_embedding_model.get_word_embedding_dimension(), 'cls')
-        self.model = SentenceTransformer(modules=[word_embedding_model, pooling_model])
-
-    def _read_sentences_from_text(self, filepath: str,
+    def read_sentences_from_text(self, filepath: str,
         minimum_line_length: int=10):
+        """Legacy method for reading sentences from a file
+        """
         train_sentences = []
         with gzip.open(filepath, 'rt', encoding='utf8') if filepath.endswith('.gz') else open(filepath, encoding='utf8') as fIn:
             for line in tqdm(fIn, desc='Read file'):
