@@ -89,6 +89,23 @@ class SentenceTransformer2Vec(BaseText2Vec):
         """
         return self.model.encode(texts).tolist()
 
+    def run_tsdae_on_documents(self, fields, documents, batch_size=32, 
+        learning_rate: float=3e-5, num_epochs: int=1, 
+        model_output_path: str='.', weight_decay: int=0,
+        use_amp: bool=True, scheduler: str='constantlr', temp_filepath = "./_temp.txt"):
+        """
+Set use_amp to True if your GPU supports FP16 cores
+        """
+        text = ""
+        for c in self.chunk(documents):
+            text += self.get_fields_across_document(fields, c)
+        with open(temp_filepath, "w") as f:
+            f.write(text)
+        self.run_tsdae(temp_filepath, batch_size=32, 
+            learning_rate=3e-5, num_epochs=1, 
+            model_output_path='.', weight_decay=0,
+            use_amp=True, scheduler='constantlr')
+
     def run_tsdae(self, filepath: str, batch_size=32, 
         learning_rate: float=3e-5, num_epochs: int=1, 
         model_output_path: str='.', weight_decay: int=0,
