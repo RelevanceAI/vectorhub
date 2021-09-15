@@ -117,20 +117,20 @@ class Base2Vec(ViIndexer, DocUtils):
         return False
 
     @classmethod
-    def chunk(self, lst: List, chunk_size: int):
+    def chunk(self, lst: List, chunksize: int):
         """
         Chunk an iterable object in Python but not a pandas DataFrame.
         Args:
             lst:
                 Python List
-            chunk_size:
+            chunksize:
                 The chunk size of an object.
         Example:
             >>> documents = [{...}]
             >>> ViClient.chunk(documents)
         """
-        for i in range(0, len(lst), chunk_size):
-            yield lst[i: i + chunk_size]
+        for i in range(0, len(lst), chunksize):
+            yield lst[i: i + chunksize]
 
     def _vector_operation(self, vectors, vector_operation: str = "mean", axis=0):
         """

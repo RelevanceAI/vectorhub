@@ -97,7 +97,7 @@ class SentenceTransformer2Vec(BaseText2Vec):
 Set use_amp to True if your GPU supports FP16 cores
         """
         text = ""
-        for c in self.chunk(documents):
+        for c in self.chunk(documents, chunksize=20):
             text += self.get_fields_across_document(fields, c)
         with open(temp_filepath, "w") as f:
             f.write(text)
