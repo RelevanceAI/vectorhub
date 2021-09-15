@@ -103,7 +103,7 @@ Set use_amp to True if your GPU supports FP16 cores
         return self.run_tsdae(train_sentences, batch_size=batch_size, 
             learning_rate=learning_rate, num_epochs=num_epochs, 
             model_output_path=model_output_path, weight_decay=weight_decay,
-            use_amp=use_amp, scheduler=scheduler, temp_filepath=temp_filepath)
+            use_amp=use_amp, scheduler=scheduler)
 
     def run_tsdae(self, train_sentences: list,
         batch_size=32, learning_rate: float=3e-5, num_epochs: int=1, 
