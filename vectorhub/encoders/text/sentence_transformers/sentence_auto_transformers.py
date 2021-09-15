@@ -119,11 +119,11 @@ Set use_amp to True if your GPU supports FP16 cores
         self.model = SentenceTransformer(modules=[word_embedding_model, pooling_model])
 
     def _read_sentences_from_text(self, filepath: str,
-        maximum_line_length: int = 10):
+        minimum_line_length: int = 10):
         train_sentences = []
         with gzip.open(filepath, 'rt', encoding='utf8') if filepath.endswith('.gz') else open(filepath, encoding='utf8') as fIn:
             for line in tqdm(fIn, desc='Read file'):
                 line = line.strip()
-                if len(line) >= maximum_line_length:
+                if len(line) >= minimum_line_length:
                     train_sentences.append(line)
         return train_sentences
