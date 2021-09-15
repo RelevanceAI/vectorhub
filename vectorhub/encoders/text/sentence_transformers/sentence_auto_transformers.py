@@ -133,7 +133,7 @@ Set use_amp to True if your GPU supports FP16 cores
 
     def read_sentences_from_text(self, filepath: str,
         minimum_line_length: int=10):
-        """Legacy method for reading sentences from a file
+        """method for reading sentences from a file
         """
         train_sentences = []
         with gzip.open(filepath, 'rt', encoding='utf8') if filepath.endswith('.gz') else open(filepath, encoding='utf8') as fIn:
