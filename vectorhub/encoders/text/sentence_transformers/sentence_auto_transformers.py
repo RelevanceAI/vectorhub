@@ -89,7 +89,7 @@ class SentenceTransformer2Vec(BaseText2Vec):
         """
         return self.model.encode(texts).tolist()
 
-    def run_tsdae(self, batch_size, filepath: str, 
+    def run_tsdae(self, filepath: str, batch_size=32, 
         learning_rate: float=3e-5, num_epochs: int=1, 
         model_output_path: str='.', weight_decay: int=0,
         use_amp: bool=True, scheduler: str='constantlr'):
@@ -119,7 +119,7 @@ Set use_amp to True if your GPU supports FP16 cores
         self.model = SentenceTransformer(modules=[word_embedding_model, pooling_model])
 
     def _read_sentences_from_text(self, filepath: str,
-        minimum_line_length: int = 10):
+        minimum_line_length: int=10):
         train_sentences = []
         with gzip.open(filepath, 'rt', encoding='utf8') if filepath.endswith('.gz') else open(filepath, encoding='utf8') as fIn:
             for line in tqdm(fIn, desc='Read file'):
