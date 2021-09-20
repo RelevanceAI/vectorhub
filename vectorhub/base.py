@@ -281,7 +281,7 @@ class Base2Vec(ViIndexer, DocUtils):
         for f in fields:
             [self._encode_chunk_document(chunk_field=chunk_field, field=f, doc=d, 
                 vector_error_treatment=vector_error_treatment, field_type="chunkvector") \
-                for d in documents if self.is_field(f, d)]
+                for d in documents if self.is_field(chunk_field, d)]
         return documents
     
     def encode_documents_in_bulk(self, fields: list, 
