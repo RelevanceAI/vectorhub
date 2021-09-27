@@ -96,11 +96,19 @@ class Clip2Vec(BaseImage2Vec, BaseText2Vec):
 
     @catch_vector_errors
     def encode_image(self, image_url: str):
+        """Encodes an image
+        """
         if self.device == 'cpu':
-            image = self.preprocess_image(image_url).unsqueeze(0).to(self.device)
+            image = self.preprocess_image(image_url)
+            if image.dim() == 3:
+                image = image.unsqueeze(0).to(self.device)
             return self.model.encode_image(image).detach().numpy().tolist()[0]
         elif self.device == 'cuda':
-            image = self.preprocess_image(image_url).unsqueeze(0).to(self.device)
+            image = self.preprocess_image(image_url)
+            if image.ndim == 3:
+                image = image.unsqueeze(0).to(self.device)
+            elif image.ndim == 4:
+                image = image.to(self.device)
             return self.model.encode_image(image).cpu().detach().numpy().tolist()[0]
 
     def bulk_encode_image(self, images: str):
