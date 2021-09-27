@@ -1,14 +1,11 @@
-import warnings
-import numpy as np
-from datetime import date
-from ....base import catch_vector_errors
 from ....doc_utils import ModelDefinition
 from ....import_utils import is_all_dependency_installed
 from ....models_dict import MODEL_REQUIREMENTS
-from ..base import BaseText2Vec
 from .use import USE2Vec
 
-if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-use-multi']):
+is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-use-multi'])
+
+try:
     import tensorflow as tf
     if hasattr(tf, 'executing_eagerly'):
         if not tf.executing_eagerly():
@@ -18,6 +15,9 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-use-multi
         import tensorflow_text
     except NotFoundError:
         print('The installed Tensorflow Text version is not aligned with tensorflow, make sure that tensorflow-text version is same version as tensorflow')
+except:
+    import traceback
+    traceback.print_exc()
 
 USEMultiModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/use_multi')
 

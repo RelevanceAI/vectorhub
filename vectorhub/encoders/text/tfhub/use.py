@@ -4,12 +4,18 @@ from ....import_utils import *
 from ....models_dict import MODEL_REQUIREMENTS
 from ..base import BaseText2Vec
 from datetime import date
-if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-use']):
+
+is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-use'])
+
+try:
     import tensorflow_hub as hub
     import tensorflow as tf
     if hasattr(tf, 'executing_eagerly'):
         if not tf.executing_eagerly():
             tf.compat.v1.enable_eager_execution()
+except:
+    import traceback
+    traceback.print_exc()
 
 USEModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/use.md')
 

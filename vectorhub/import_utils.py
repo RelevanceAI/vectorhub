@@ -6,7 +6,9 @@ import warnings
 import pkg_resources
 import json
 import os
-from importlib import import_module, invalidate_caches
+import importlib
+from contextlib import contextmanager
+import sys
 
 def get_package_requirements(requirement_type: str):
     """
@@ -48,3 +50,15 @@ def is_all_dependency_installed(requirement_type: str, raise_warning=True):
                 warnings.warn(f"You are missing {r} dependency for this submodule. Run `pip install vectorhub[{requirement_type}]`")
             IS_ALL_INSTALLED = False
     return IS_ALL_INSTALLED
+
+# @contextmanager
+# def catch_import_error(*args, **kw):
+#     """Tryies to run statement otherwise it fails
+#     """
+#     try:
+#         importlib.import_module(name=name, package=package)
+#     except ImportError:
+#         if package is None:
+#             warnings.warn("Missing {}. Try re-starting notebook/environment if you just installed.".format(name))
+#         else:
+#             warnings.warn("Missing {} from {}. Try re-starting notebook/environment if you just installed.".format(name, package))

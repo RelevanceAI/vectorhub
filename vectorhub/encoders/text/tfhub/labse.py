@@ -5,7 +5,9 @@ from ....doc_utils import ModelDefinition
 from ....import_utils import is_all_dependency_installed
 from ....models_dict import MODEL_REQUIREMENTS
 
-if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-labse']):
+is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-labse'])
+
+try:
     import tensorflow as tf
     if hasattr(tf, 'executing_eagerly'):
         if not tf.executing_eagerly():
@@ -13,6 +15,9 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-labse']):
     import tensorflow_hub as hub
     import bert
     import numpy as np
+except:
+    import traceback
+    traceback.print_exc()
 
 LABSEModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/labse.md')
 __doc__ = LABSEModelDefinition.create_docs()
