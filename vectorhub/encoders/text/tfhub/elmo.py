@@ -5,10 +5,15 @@ from ....import_utils import *
 from ....models_dict import MODEL_REQUIREMENTS
 from ..base import BaseText2Vec
 from datetime import date
-if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-use']):
+is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-use'])
+
+try:
     import tensorflow_hub as hub
     import tensorflow.compat.v1 as tf
     import numpy as np
+except:
+    import traceback
+    traceback.print_exc()
 
 ElmoModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/elmo.md')
 

@@ -5,7 +5,9 @@ from ....import_utils import is_all_dependency_installed
 from ....models_dict import MODEL_REQUIREMENTS
 from ....doc_utils import ModelDefinition
 
-if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-albert']):
+is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-albert'])
+
+try:
     from tensorflow.python.framework.errors_impl import NotFoundError
     import tensorflow as tf
     import tensorflow_hub as hub
@@ -13,6 +15,9 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-tfhub-albert'])
         import tensorflow_text
     except NotFoundError:
         print('The installed Tensorflow Text version is not aligned with tensorflow, make sure that tensorflow-text version is same version as tensorflow')
+except:
+    import traceback
+    traceback.print_exc()
 
 ExpertsBertModelDefinition = ModelDefinition(markdown_filepath='encoders/text/tfhub/experts_bert')
 __doc__ = ExpertsBertModelDefinition.create_docs()

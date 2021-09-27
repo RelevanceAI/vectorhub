@@ -9,7 +9,9 @@ from ....import_utils import is_all_dependency_installed
 from ....base import catch_vector_errors
 from ....encoders.image import BaseImage2Vec
 from ....encoders.text import BaseText2Vec
-# if is_all_dependency_installed('clip'):
+
+is_all_dependency_installed('clip')
+
 try:
     import clip
     import torch
@@ -18,9 +20,9 @@ try:
     import cv2
     from PIL import Image
     from requests.exceptions import MissingSchema
-except Exception as e:
+except:
+    import traceback
     traceback.print_exc()
-    pass
 
 CLIPModelDefinition = ModelDefinition(markdown_filepath='bi_encoders/text_image/torch/clip')
 __doc__ = CLIPModelDefinition.create_docs()
