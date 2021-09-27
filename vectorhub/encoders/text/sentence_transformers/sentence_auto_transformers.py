@@ -6,7 +6,9 @@ from ....doc_utils import ModelDefinition
 from ....import_utils import *
 from ....models_dict import MODEL_REQUIREMENTS
 from ..base import BaseText2Vec
-if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-sentence-transformers']):
+is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-sentence-transformers'])
+
+try:
     from sentence_transformers import SentenceTransformer
     from sentence_transformers import SentenceTransformer
     from sentence_transformers import models, datasets, losses
@@ -16,6 +18,9 @@ if is_all_dependency_installed(MODEL_REQUIREMENTS['encoders-text-sentence-transf
     import pandas as pd
     from tqdm.auto import tqdm
     import nltk
+except:
+    import traceback
+    traceback.print_exc()
 
 SentenceTransformerModelDefinition = ModelDefinition(markdown_filepath='encoders/text/sentence_transformers/sentence_auto_transformers.md')
 
