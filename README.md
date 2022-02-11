@@ -300,7 +300,7 @@ Similarly, when we are turning data into vectors, we convert to native Python ob
 
 ## Team
 
-This library is maintained by the Vector AI - your go-to solution for Production-Ready AI development. If you are interested in using our API for vector search, visit https://vctr.ai or if you are interested in using Vector AI API, check out https://api.vctr.ai or our Github package https://gh.vctr.ai
+This library is maintained by the Relevance AI - your go-to solution for data science tooling with tvectors. If you are interested in using our API for vector search, visit https://relevance.ai or if you are interested in using API, check out https://relevance.ai its free for public research and open source.
 
 ### Credit:
 
