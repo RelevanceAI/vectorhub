@@ -71,6 +71,17 @@ There are thousands of _____2Vec models across different use cases/domains. Vect
 
 ---
 
+## Powered By Relevance AI - Vector Experimentation Platform
+
+Relevance AI is the vector platform for rapid experimentation. Launch great vector-based applications with flexible developer tools for storing, experimenting and deploying vectors.
+
+[Check out our Github repository here!](https://github.com/RelevanceAI/RelevanceAI)
+
+
+![Github Banner](https://github.com/RelevanceAI/RelevanceAI/blob/development/assets/github_banner.png)
+
+---
+
 ## Quickstart:
 
 [Intro to Vectors](https://github.com/vector-ai/vectorhub#what-are-vectors) | [Model Hub](https://hub.getvectorai.com/) | [Google Colab Quickstart](https://go.vctr.ai/vectorhub-colab) | [Python Documentation](https://go.vctr.ai/vectorhub-docs)
