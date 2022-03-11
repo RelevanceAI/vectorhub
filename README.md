@@ -12,9 +12,6 @@
     <a href="https://getvectorai.com">
         <img alt="Website" src="https://img.shields.io/website?up_message=online&label=website&url=https%3A%2F%2Fgetvectorai.com">
     </a>
-    <a href="https://vector-ai.github.io/vectorhub">
-        <img alt="Documentation" src="https://img.shields.io/website?up_message=online&label=documentation&url=https%3A%2F%2Fvector-ai.github.io%2Fvectorhub">
-    </a>
     <a href="https://hub.getvectorai.com">
         <img alt="Hub" src="https://img.shields.io/website?up_message=online&label=hub&url=https%3A%2F%2Fhub.getvectorai.com">
     </a>
