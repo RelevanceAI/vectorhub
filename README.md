@@ -1,3 +1,7 @@
+<h3 align="center">
+Vectorhub is depreciated, and no longer maintained. We recommend using Sentence Transformer, TFHub and Huggingface directly.
+</h3>
+
 <p align="center">
     <a href="https://hub.getvectorai.com">
         <img align="center" src="https://getvectorai.com/assets/hub-logo-with-text.png" width="400"/>
