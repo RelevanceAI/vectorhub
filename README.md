@@ -1,5 +1,5 @@
 <h3 align="center">
-(Vectorhub is depreciated, and no longer maintained. We recommend using Sentence Transformer, TFHub and Huggingface directly.)
+(Vectorhub is depreciated, and no longer maintained. We recommend using Sentence Transformer, TFHub and Huggingface directly. If you are looking to vectorize 100million+ data in a parallelized fashion, check out https://relevance.ai )
 </h3>
 
 <p align="center">
