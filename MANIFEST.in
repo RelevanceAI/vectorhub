@@ -1,3 +1,0 @@
-include LICENSE
-include extra_requirements.json
-recursive-include vectorhub *.md
