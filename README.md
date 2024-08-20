@@ -1,5 +1,5 @@
 <h3 align="center">
-This repository is depreciated, and no longer maintained. If you are looking to learn about state-of-the-art techniques and models for turning data into vector embeddings, we recommend visiting our friends at <a href='https://superlinked.com/vectorhub'>VectorHub</a>.
+This repository is deprecated, and no longer maintained. If you are looking to learn about state-of-the-art techniques and models for turning data into vector embeddings, we recommend visiting our friends at <a href='https://superlinked.com/vectorhub'>VectorHub</a>.
 </h3>
 
 ---
